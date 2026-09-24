@@ -1,0 +1,19 @@
+# 编译产物（StartJetty 启动时自动把 src 编译到此处，无需提交）
+web/WEB-INF/classes/
+
+# 构建输出目录
+dist/
+build/
+out/
+target/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# H2 文件数据库（本项目使用纯内存库，防御性忽略）
+*.mv.db
+*.trace.db

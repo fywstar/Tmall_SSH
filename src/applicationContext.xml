@@ -16,10 +16,68 @@
     <!--开启事务扫描，采用注解方式-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean name="sf"
+    <!-- ========== 【H2改造-1】数据源切换为 H2 内存数据库 ========== -->
+    <!-- MODE=MySQL 最大化兼容原 MySQL 建表语句；DB_CLOSE_DELAY=-1 让内存库随 JVM 常驻，H2 控制台可连同一个库 -->
+    <bean name="ds"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:mem:tmall_ssh;MODE=MySQL;DB_CLOSE_DELAY=-1"/>
+        <property name="username" value="sa"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <!-- ========== 【H2改造-2】项目启动时自动执行 classpath 下的建表脚本（建表+灌入演示数据） ========== -->
+    <!-- depends-on 由 sf 引用，保证脚本先于 Hibernate 执行 -->
+    <bean id="dbInit"
+          class="org.springframework.jdbc.datasource.init.DataSourceInitializer">
+        <property name="dataSource" ref="ds"/>
+        <property name="databasePopulator">
+            <bean class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+                <property name="sqlScriptEncoding" value="UTF-8"/>
+                <property name="scripts">
+                    <list>
+                        <value>classpath:sql/tmall_ssh_h2.sql</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- ========== 【H2改造-3】Hibernate 方言改为 H2Dialect，并依赖 dbInit 先执行初始化 SQL ========== -->
+    <bean name="sf" depends-on="dbInit"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="ds"/>
         <!--注解扫描-->
+        <property name="packagesToScan">
+            <list>
+                <value>com.caozhihu.*</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.H2Dialect
+                hibernate.show_sql=false
+                <!-- 关闭 schema 自动维护（原为 update）：update 会按实体注解自动补建外键（如 propertyvalue.pid），
+                     而原始 MySQL 库本无此外键、存量数据不满足约束，导致启动时打印无害的 DDL 异常；
+                     建表完全由 dbInit 执行的 tmall_ssh_h2.sql 负责，与原 MySQL 行为一致 -->
+                hibernate.hbm2ddl.auto=none
+            </value>
+        </property>
+    </bean>
+
+    <!--配置事务管理器（声明式的事务）-->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sf"></property>
+    </bean>
+
+    <!-- ================================================================ -->
+    <!-- ========== 以下为原 MySQL 数据源/SessionFactory 配置，注释保留 ========== -->
+    <!-- 需要切回 MySQL 时：1) 注释掉上面【H2改造-1/2/3】三段；2) 取消本段注释；3) 从 H2 控制台脚本恢复 -->
+    <!--
+    <bean name="sf"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="ds"/>
         <property name="packagesToScan">
             <list>
                 <value>com.caozhihu.*</value>
@@ -40,11 +98,6 @@
         <property name="username" value="root"/>
         <property name="password" value="admin"/>
     </bean>
-
-    <!--配置事务管理器（声明式的事务）-->
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sf"></property>
-    </bean>
+    -->
 
 </beans>
