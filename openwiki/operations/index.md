@@ -1,0 +1,4 @@
+# Files
+
+- [Operations: Data, Schema, and Seed State](data-and-schema.md) - Where Tmall_SSH's runtime database comes from: the nine tables src/sql/tmall_ssh_h2.sql creates and exactly what each is seeded with, the five identity calibrations, the diff against the untouched sql/tmall_ssh.sql, reset-on-restart lifetime, the H2 console on port 8082, and the retained MySQL fallback.
+- [Operations: Running the App and Troubleshooting Start-up](startup-and-diagnostics.md) - The runbook for this checkout: the three launch recipes and the working-directory contract, the banner and three URLs a healthy start prints, the H2 console login on its separate port 8082, restart/persistence and stop semantics, where logs go, and a symptom to cause to action table for a taken port, corrupted jars, TldCache and 'no action mapped' errors, a missing dbInit bean, and the historic PROPERTYVALUE foreign-key warning.

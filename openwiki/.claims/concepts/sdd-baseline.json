@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:a935d205725414bdb79645d93affdf9b1a498ff03788af5a991ff7132bf28223",
+  "claims": [
+    {
+      "id": "claim_38a72044a3fd442681a8953af1fb43a7",
+      "statement": "The Java code is layered into eight packages under com.caozhihu.tmall — action, service, service.impl, dao.impl, pojo, interceptor, util and test — and the Spring configuration consumes those trees directly: <context:component-scan base-package=\"com.caozhihu.tmall.*\"/> collects the @Service/@Component/@Repository beans and packagesToScan com.caozhihu.* collects the entities, so a class placed outside them is never wired or mapped.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L14-L17",
+          "version": "repo-lines-v1:sha256:ee8a7652a8a8ead49b9337841be0724df23e6006832acfbbd6afa351b7f9c371:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ5MjcxZmMzZDg2ZGU1Zjk4NTljMTYyZGI4NjNhNzhhY2U3YTRmODQ2ZjBmMDMyNWQ2ZDJhZTI5ODlhM2MzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJmMGM0MWU3Mjc2ZTdkYzRmZGM5YTA2MjRlYWYyNGZjMzJjNjY0OGRlOTlhZTQ0ZjE0YjUxMGQ4ZDY2MDU5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzE3YTdiNmY0ZTNhYjc3ODYyOGExZjE1ZDI3ZjYxMzUzZDg4NTk2YTk3ZDEyZjE5ZTAyN2UxMTAxZDVjMDEyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MzM2NkOTI5Yjc0M2QzOGIyMGIxNGE1ZDIzZWI4YTMwYmFkYTg3ZWY4NDE2M2M2ZWE3OTk5YzY0NjVkY2ZkNCJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L51-L55",
+          "version": "repo-lines-v1:sha256:5a06e20a2a5ce95b5d184798c402ebf7fb3c221d173721ed2828cbd7666f18a4:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTNjNzBjNjlhZjY3YjA2NTE3ZDIyYTUzOTdlZDBmMzk3ZTUwZDdhZWExZTQ2Y2JjZDgwYzgwYWNjNDNmNzcwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NhZTQyYzk2YTU3NWFlMzUxOWVkZDIzMzkyM2Y5MjQ3ZGVjZTE4Mzk3ZTU4NzJiYjA0ZTY4OGQyN2UzYjljZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmI4ZmRkMTVhYTM2YzI4Y2YwNzcyMmI5OTVlNjEzMTliOWQ4NTNlODY2Yzg5Njk5OWFhMWE1M2JmZjQ2ODFmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjkxOWQxMzBiM2M4YzRlMzE3ZGNiNDQxYmI3N2VjMzk1N2JhYWRjZGE4MzU5YWM0NTEyMGE5NzMwNzgwOTllYyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L15-L16",
+          "version": "repo-lines-v1:sha256:ce19f4d80861340b20117ea6605f6ed99555a0f706a0bd0d392ab55b9329a71e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhmYTFlOWY0NDk0OWZhODlhM2I0MmIwNDkyZGRiZGZmYTJlYjc2NDg0OGQzNTc3OGM5ZmI1M2MyMDdlYmRiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVhN2VhMTM2NzM1OWFiM2I4ZTljYzMzYzc5MGZlOWMwNTJmNjljN2E5NTU3OWM1NGJmM2RkYjY1NTk3NTQxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTEwMzMyNWM4MGFmZjI5MTcwZjU5M2FhMDNhZjA4OGMxODE1ZmFlYTNmNmRhZjBmYzc3NzE0NjFlZDUzMzM5MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGI1OGJmZjkzZmU1MWUzMTY5NjM3ZWRkMTkwMDVlZjMwZDk5MDAwMjM0YTZhM2ZjNDI3ZmJiNWQyNjYzOTdkMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b660a12afcb64c3998c1345a246bee6a",
+      "statement": "Dependency direction between the layers: the action package imports service interfaces, pojo and util but never service.impl or dao.impl; service.impl is the single package that imports dao.impl; and the only reverse (pojo to service) edge is Order importing OrderService for its status strings.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L3-L4",
+          "version": "repo-lines-v1:sha256:819ac3b2e29718bb85d2c0fdaaa95fcc84828e9a8218d10e86e9a4a50f7cdeeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGViY2VhOGNkMmMwZjE2ZGY3NmYxNWRlMGVmOGM4MmJhNTM0ZGVhZGFmNjQ4OWQzZWEwMTBkODM2ZjgzM2JjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmJmNWU5ODRhMzQ0NWQ3YTZkMmUzNGI0MTFiMmUwOGQ2ZjEzOGU2YTMwMTY3YTdjN2Q3ZWZlZDQ4M2Y3YTI3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjEyNWJkMTExN2Y3ZDliM2U5NTFjNjQ0NzhlYTRhNzg4ZjI5YTJhMDk3M2Y0YWNkYzkyODVkMDM5MmE4NThhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTJiMDVjNzc0ZWI1NjQwOTZmNWJhMzg2YTNlNDMyZTM0YzQwYTFhZDM2OGE2NWRkNGZjMThlYWZiMDQ4NWY4ZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L3-L4",
+          "version": "repo-lines-v1:sha256:874f1e19234b0c5ac8eac5c02acc6ce33ec5c47bc792f045ee35a2876f61a257:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmJmNWU5ODRhMzQ0NWQ3YTZkMmUzNGI0MTFiMmUwOGQ2ZjEzOGU2YTMwMTY3YTdjN2Q3ZWZlZDQ4M2Y3YTI3MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjFiZWEyNTVmYzNjNzBkNWJlZDgxNDkxNWI5MzgyMDY1NWE4NmJlMTk2MDgyMzAyZjBhN2NkODEwYzE1NGE4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjEyNWJkMTExN2Y3ZDliM2U5NTFjNjQ0NzhlYTRhNzg4ZjI5YTJhMDk3M2Y0YWNkYzkyODVkMDM5MmE4NThhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWFiNWM3ZWVjYzNlOTAwYzU0NWI4Mzc1M2IzZDc1OWI2ZDM3Nzg0YWY3NDcxMjRkYmRlYTUzNGVlNjVhZWIxMSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L1-L4",
+          "version": "repo-lines-v1:sha256:c4998333def0106354bb1963bce0e0674d73f8a951479586af107494c33d39c6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDc3ZmNjM2JiZjJjYjE1Y2M3NmNhZjgyYjFiNzNmNmFmMDM0ZGJiNzk5NGI1OGNkMDI4ZDZiMWE2YmZmMjA0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGY0MDVlZjhiOGU0ZjdlOWE5ZmE2ODhiZmMyOGU4YTZmMjAxNDU2ZTRlZmY4Yjc3MTI1ZTJmOGZhNWQzNmQ2OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java#L1-L4",
+          "version": "repo-lines-v1:sha256:8a06cb9b9f21a9c2ac302fd19ccf151f33e76012e2580eb4a833097135f5d752:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjNlMWE3N2MwYTEzMjczMjhkMWY4MTcyZWY0N2U1NzA3NDRiYjAyNjQ4YWY4MGVhZWE2ZmE1ZTBkMmM3OTcwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNhMzRhOTNiMjliMWRiNzQ4NWY1NzU4OTM4YzU1MDAzYWUyNGY4ZjNmZTZmYTljZjE5MWVhZjRlNDlkNjRiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjk0ZmI4YTE2NDUzYWU1ZDk3YjU5OTRmMGVhMGM5OTQ4Yjc3YjVhNjU4NTA2OThkNDBjN2FjNWVjZGIzNWQyMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_846a7680c87b488e9df60659ce1016d8",
+      "statement": "src/ is the only source root: the embedded launcher compiles every .java under src/ into web/WEB-INF/classes and copies the non-Java resources on each start, so new classes must be placed under src/com/caozhihu/tmall/<package>/ and web/WEB-INF/classes is disposable build output rather than a place to edit.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L28-L34",
+          "version": "repo-lines-v1:sha256:51efdf2d2926edaf93c1bdb777874f45cf289f29baa3968a2102817bbf4ffa45:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE2ZjE2ZWFiM2FjMjEwOTIzNGNiMjNiNzFmOWQ2MTJkOGE2YjFiYzQyMzlmOTk5ODIyOTQyZWMzY2MwNTdjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDBkOWE1NjNjZWQ5MjJlNjQzNDAyZWE5NmMyMTE1M2NlYzY5OWUzMzJjNDc0YWNmZTMzZmQ3YWZmNDkxNTFmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGZhN2YzMjc2OTQ0ZmVhYzMzNTg2YTZlZDk3ZTlhODM2MDM5OGUxMDM4ZTRjOGJjOWExYTc4YmIzN2E5YzZhNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzdkNzczOTA4MzNjYzJiNGE5YTFkNjI5MGYwNmUwMzY3M2VlMTk4YjNlMGU3MDNiNmE5NjVkYmU4NGM3ZTI2YSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L146-L160",
+          "version": "repo-lines-v1:sha256:b1371be9a56f6bc103e299390c4ae82381ed39842762cd09cdd08599180e4f61:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhYTE0YWI2MWM1NjM3NmFhNGMzNzFhMTgxZDJkMjExYzk1MzUxOTVjM2E3ZTQzMjI1Mjk1YWVjMWZkZDI1NGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5YmUzNDg4NzgwNTkyNTRhMjdjYTliMGViMjQwNjlmOWE2ODkwOTljYjg1YjE5ZTYyZmE2MGQ5MTVlYjVmZTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMmI5ZTIxZmRjODZmYzJjMmVlNDQ3MjE4NWQ2NzY0NjdiZGQxY2JmMmUyNGI0ZGM2NDRhYjFhYmIzMzI1NDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5Yjc3MmI2NzYwMDM5NGU1MGYyZGY4YmU3NzQyZjZiYzYzYjc5N2MwZjc3MTA4M2NlYWYzZWE2ZDg2Y2FhODgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c491b035a7ca454390f05badc304e169",
+      "statement": "An HTTP endpoint exists only as the string on an @Action-annotated method: src/struts.xml declares no <action> element and only the basicstruts package, plus the encoding and Spring object-factory constants, so URLs, result names and views are defined entirely in annotations and JSP files.",
+      "evidence": [
+        {
+          "resource": "repo://src/struts.xml#L7-L26",
+          "version": "repo-lines-v1:sha256:3814dd25de2fac3fbd8077962d2716a3b5c6836d4e9cc22ca785bc43faee0f4e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIxNGE3YmQ3NTgwYTI5YjcwNDA5ZjczMTM1OGQwZDcxMDM4ODllMTQ2NGMyOGIwYmU3OGUzNDdlN2VmNGQ3NTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNWJjNzI3MDhiZDYzNWViZWQ5NWM4ODliYjQ5Y2Q1M2RlZDM0MWU2OGZmNzJjNjZlNWMwNWRlMGUxNDcwMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiNjI2ZjM0NGMxN2VkNmI5Y2QwN2U3Mzg1N2RkYWI4MzZhMjk3MGU5ZGUyYWZhNmI3MTk3NWJiZmZkNjZjOGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2ZWNjNTllYjYxNzJmZTNjMjM0MGY4MDdiM2U5ZDc4NWI1ZjRiNjM5MDYwYzdkZjY5MzJjY2ExYjNkYmYwMzMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c6d63afa9ad94044aeabbfe5156d24fd",
+      "statement": "Every concrete action class in the repository — CategoryAction, ProductAction, ProductImageAction, PropertyAction, PropertyValueAction, UserAction, OrderAction and ForeAction — extends Action4Result, and between them they declare 47 @Action methods.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L68-L68",
+          "version": "repo-lines-v1:sha256:3cc08a11fc076be972f5f5fb56c112cc521353f1bf4170a9503d83feb38c80f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjM4ODE2NzRiOGQ3NmIwZTJkYWIxYzQ5YTYyZjExMzc0ZjQ1ZWRiOGE4OGYzYzBiN2IwYmM4NmQ4YThiYTZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L14-L14",
+          "version": "repo-lines-v1:sha256:575b12fbf151b60b9d52e80a6d5095b977b76f14418ebff4f8e971c48bd99ba4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTc1YjEyZmJmMTUxYjYwYjlkNTJlODBhNmQ1MDk1Yjk3N2I3NmYxNDQxOGViZmY0ZjhlOTcxYzQ4YmQ5OWJhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTc1YjEyZmJmMTUxYjYwYjlkNTJlODBhNmQ1MDk1Yjk3N2I3NmYxNDQxOGViZmY0ZjhlOTcxYzQ4YmQ5OWJhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDAxM2E0NTNjNTRiYTczOTVjZWQzNWI3M2JhMGM1MDQyZGJmZDI3YmI3YWFmNzk5YzE2NDVjNmVmNzRlYTBlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTgzMTc1YzQxNmNkMWZlNjI1YTAzYjVhOWM2NjdjZDllZWFhYmE4Nzg1YWQzMzAyZTJmNTMyMDg5ZDRkMTdmYSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L16-L16",
+          "version": "repo-lines-v1:sha256:23f7db3762659dc58cb5c45ca07b654cd2e8b9f84976814a096ba5b78b75a63f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNmN2RiMzc2MjY1OWRjNThjYjVjNDVjYTA3YjY1NGNkMmU4YjlmODQ5NzY4MTRhMDk2YmE1Yjc4Yjc1YTYzZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNmN2RiMzc2MjY1OWRjNThjYjVjNDVjYTA3YjY1NGNkMmU4YjlmODQ5NzY4MTRhMDk2YmE1Yjc4Yjc1YTYzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmYzMTk2MGE1ZWJhNTcwZTgzYzAxOTllODJjNThmNWZjNmIwMzc4YTlkY2FlMmFiZjYyNmRjYmJlMzU1NThlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDAwYTBhODZiYWJkNTgxMGUzZDg1YmNkYWFhZWYzYTJiNmY4M2MwY2FkNTc2OGIwMzgwMWE2NTI0NTJiMGVlNiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/OrderAction.java#L9-L9",
+          "version": "repo-lines-v1:sha256:7ffdafc1f86d69c2f44ada7c3f7ef1bf4136fc1b52769f4a7d40211e2198e14d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZmZGFmYzFmODZkNjljMmY0NGFkYTdjM2Y3ZWYxYmY0MTM2ZmMxYjUyNzY5ZjRhN2Q0MDIxMWUyMTk4ZTE0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZmZGFmYzFmODZkNjljMmY0NGFkYTdjM2Y3ZWYxYmY0MTM2ZmMxYjUyNzY5ZjRhN2Q0MDIxMWUyMTk4ZTE0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODI5ZDBjOGQxMDc1ZmVlYWMyMmMxZmIxNTAxYmMxMWVkMzFiZTQ0YjUyODRhMzY5MDI4NGZlNTBkOTc4OTQzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjc0ZGVkZDcyNWM3NTVjMmFjOTYyM2ExNDJiZjRkN2MxNTRjZmEwZjRmMDAzYzlmZWRlNGQzNWI0NDI0NWI2OSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L9-L9",
+          "version": "repo-lines-v1:sha256:3250eabe081f112868c76cfa97c0435bcc11a592bd1941249f8592725d4f26d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzI1MGVhYmUwODFmMTEyODY4Yzc2Y2ZhOTdjMDQzNWJjYzExYTU5MmJkMTk0MTI0OWY4NTkyNzI1ZDRmMjZkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzI1MGVhYmUwODFmMTEyODY4Yzc2Y2ZhOTdjMDQzNWJjYzExYTU5MmJkMTk0MTI0OWY4NTkyNzI1ZDRmMjZkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODI5ZDBjOGQxMDc1ZmVlYWMyMmMxZmIxNTAxYmMxMWVkMzFiZTQ0YjUyODRhMzY5MDI4NGZlNTBkOTc4OTQzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODIwMGM0ZjdlY2FmYmI0YTU1MzIwNmNkY2IyNTVlMzNlZTU2YzAyZDcyNzQxMGNhMDIxOWNkMWMzMmE5ZTk5YSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductImageAction.java#L10-L10",
+          "version": "repo-lines-v1:sha256:331c775d8179d32b4508a1848093c03c9da1c286d5a97bec4c95712f9935cde5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMxYzc3NWQ4MTc5ZDMyYjQ1MDhhMTg0ODA5M2MwM2M5ZGExYzI4NmQ1YTk3YmVjNGM5NTcxMmY5OTM1Y2RlNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMxYzc3NWQ4MTc5ZDMyYjQ1MDhhMTg0ODA5M2MwM2M5ZGExYzI4NmQ1YTk3YmVjNGM5NTcxMmY5OTM1Y2RlNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2M5Y2RmMDQwZTA2ZTZhMDRhNWQwMTJlYWZkNDZhMDdlZDcxNjRmMWJiYmZhNWFkNDAwZWIzODViYzFlNTVkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzM2NDY3MDE5MjQ4OTM4YmM0MjQ0ODQyNzdiN2VkMGMxZGVmZjdhNWQyYzY1NmM5YzRmMjI4Y2M3NGY2YjhjYyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java#L7-L7",
+          "version": "repo-lines-v1:sha256:9578f82f15b0ad5ea7633f19ebd7fcccce7c3d012bc4017e81e7838da0c25a7f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU3OGY4MmYxNWIwYWQ1ZWE3NjMzZjE5ZWJkN2ZjY2NjZTdjM2QwMTJiYzQwMTdlODFlNzgzOGRhMGMyNWE3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU3OGY4MmYxNWIwYWQ1ZWE3NjMzZjE5ZWJkN2ZjY2NjZTdjM2QwMTJiYzQwMTdlODFlNzgzOGRhMGMyNWE3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTU1NTM0MGY1YjlhMDgyODU0ZmUxOTIxZTA1YjQzZDliZDk3OGYyYzUwMjZlYTE0YzdlZTM3Njk5ZWY4NjFiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA2OGUyMjJhMTQzMGIzYTVmODc3ODEwMmViYzIwMzM4NDNjODI4OGI1NDRmNmY4YzIyM2RlMjEzYjlmYjdhNCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyValueAction.java#L5-L5",
+          "version": "repo-lines-v1:sha256:0fdde6247d09cf934dd30e38d3ecc3cfe9467a4b1e62edc2e3f98cf7a3a16c37:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGZkZGU2MjQ3ZDA5Y2Y5MzRkZDMwZTM4ZDNlY2MzY2ZlOTQ2N2E0YjFlNjJlZGMyZTNmOThjZjdhM2ExNmMzNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGZkZGU2MjQ3ZDA5Y2Y5MzRkZDMwZTM4ZDNlY2MzY2ZlOTQ2N2E0YjFlNjJlZGMyZTNmOThjZjdhM2ExNmMzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJmY2M3OGE0OTBkODk5NGUyNTBmZmY1ZjU1ZTE2YmRkYjE4OTU3ZTUzY2Q4Yzc2OWY2MGVjMTgwMjg2ODFhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGVlNWRjOTViNjIzODg5MWZhM2U1NmVmNzllZTM4MzBiMmRjMWMwNTE5MGU1M2NlMTU5YjYwMTVlMjMyNTExYyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/UserAction.java#L6-L6",
+          "version": "repo-lines-v1:sha256:2fe7a8652db27f305b67b0f61da68ec5d1e4ea8cef4728d367fe2d5eddc08935:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZlN2E4NjUyZGIyN2YzMDViNjdiMGY2MWRhNjhlYzVkMWU0ZWE4Y2VmNDcyOGQzNjdmZTJkNWVkZGMwODkzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZlN2E4NjUyZGIyN2YzMDViNjdiMGY2MWRhNjhlYzVkMWU0ZWE4Y2VmNDcyOGQzNjdmZTJkNWVkZGMwODkzNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGIxMTJhYzc5MjIzYmFlMjg3Yzk2OWY3NzJjZTQ0ZGU2NWIxZmQyZjVlNTZlMjQxZDYxNWJhNTI3MDA1MWI4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDlkNzBhODY2MGEyNWExZTcwOGI3NDIyODVmMGVlY2UxYzdkMjMzNTNhZjU5MWFhMzZjYmQzNzAzZTMyNTliZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d9f35d9524074cfc82951f39639185e3",
+      "statement": "Actions inherit everything they need by extending Action4Result, because the chain is ordered Action4Upload to Action4Pagination to Action4Pojo to Action4Service to Action4Parameter to Action4Result: upload binding fields, the Page field, the entity and collection fields, service access with t2p()/saveWithJpg(), the loose request parameters, and the shared result catalogue.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Pagination.java#L5-L5",
+          "version": "repo-lines-v1:sha256:b7cb691c32c3230e6dfacf8d00e7ca7453c286788c89bb92e27c00b52aaee912:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjdjYjY5MWMzMmMzMjMwZTZkZmFjZjhkMDBlN2NhNzQ1M2MyODY3ODhjODliYjkyZTI3YzAwYjUyYWFlZTkxMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjdjYjY5MWMzMmMzMjMwZTZkZmFjZjhkMDBlN2NhNzQ1M2MyODY3ODhjODliYjkyZTI3YzAwYjUyYWFlZTkxMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGJiYTQ5NzAwZDcxNWQ5YmQ2NTA0MWI1MzA4Yjg0NGI0M2E1ZTA5Y2QxYjIwMzAzYjY2NDkwMGNmZWNmNmYwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjMyY2Y3NTAyYmUwZDQ1ZDVhYzI4YTIzOGQzNDlhYmIyMDU3ZjhlYWI5ZTdjZDY1NTE1YzliNWFkOTdlNzBhNCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Parameter.java#L1-L3",
+          "version": "repo-lines-v1:sha256:d3f389db64bf4cca6e1c26091758d31d76b85ad7fc9d406b04af17bb1181bbc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTIwZDgyNTU4OTcyNGUxOWM3NjgyYmY0MzExNDIyZjAzNThmYmVlNDc2MTRjNWI0Mzg5MzJiMzhkNDAxZmYzYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRkZWZjMjViYzAzYTZlYTBkNDc3ZWExYjNjNzQ1MDkyOWRmYTg4MmYxY2MzZGViZmRmOWIwZWMzNDNkZjFmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGQ3MGIxZGQ2NTY5ZWIwNzZlYzZkZjRjYTA2MzEzMTEzOWJjMDFiYjM4NDgwNDdlM2RiOWQyYzI1MWE0NzBkOCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Pojo.java#L1-L7",
+          "version": "repo-lines-v1:sha256:87a6f40d7cacaed0aaedab491b7d90bddab0dbf6cbec7d55b1a8152cbd8042cf:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTIwZDgyNTU4OTcyNGUxOWM3NjgyYmY0MzExNDIyZjAzNThmYmVlNDc2MTRjNWI0Mzg5MzJiMzhkNDAxZmYzYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQ4ZjM5MzkwMTlmZGI5NmNkMjIzNzk2Yjc0MTg1MWJiNmM3YjI4NWNmZTMwZDQ3ZmU0YzA4OGFmMzZmODBiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjdlY2E4MDQ2MmZiZWIxNTU0ZWNlMTZlYmQ0ZjliNGMxOTA3MmE3OTM3OWFmN2RiNjg4ZTFjN2Q3YzdhMGU0ZSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L68-L68",
+          "version": "repo-lines-v1:sha256:3cc08a11fc076be972f5f5fb56c112cc521353f1bf4170a9503d83feb38c80f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjM4ODE2NzRiOGQ3NmIwZTJkYWIxYzQ5YTYyZjExMzc0ZjQ1ZWRiOGE4OGYzYzBiN2IwYmM4NmQ4YThiYTZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L15-L16",
+          "version": "repo-lines-v1:sha256:ce19f4d80861340b20117ea6605f6ed99555a0f706a0bd0d392ab55b9329a71e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhmYTFlOWY0NDk0OWZhODlhM2I0MmIwNDkyZGRiZGZmYTJlYjc2NDg0OGQzNTc3OGM5ZmI1M2MyMDdlYmRiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzVhN2VhMTM2NzM1OWFiM2I4ZTljYzMzYzc5MGZlOWMwNTJmNjljN2E5NTU3OWM1NGJmM2RkYjY1NTk3NTQxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTEwMzMyNWM4MGFmZjI5MTcwZjU5M2FhMDNhZjA4OGMxODE1ZmFlYTNmNmRhZjBmYzc3NzE0NjFlZDUzMzM5MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGI1OGJmZjkzZmU1MWUzMTY5NjM3ZWRkMTkwMDVlZjMwZDk5MDAwMjM0YTZhM2ZjNDI3ZmJiNWQyNjYzOTdkMyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Upload.java#L5-L5",
+          "version": "repo-lines-v1:sha256:70de3f07863f9eb015ada83eb935aff53025e2ac976ead2751a23f62dbd75884:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBkZTNmMDc4NjNmOWViMDE1YWRhODNlYjkzNWFmZjUzMDI1ZTJhYzk3NmVhZDI3NTFhMjNmNjJkYmQ3NTg4NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBkZTNmMDc4NjNmOWViMDE1YWRhODNlYjkzNWFmZjUzMDI1ZTJhYzk3NmVhZDI3NTFhMjNmNjJkYmQ3NTg4NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2M5Y2RmMDQwZTA2ZTZhMDRhNWQwMTJlYWZkNDZhMDdlZDcxNjRmMWJiYmZhNWFkNDAwZWIzODViYzFlNTVkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTdhNDdjYmI5ODNhOWQ0Yzc1NDhlNWM3NjE1OWMzNDI4OWJhNDdhMDJiZGRkYzNmOWE3MWZkZjg3OTU0OTU0NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0b32d2e9a0484609a8ffea8db2bac987",
+      "statement": "Action4Result carries @Namespace(\"/\"), @ParentPackage(\"basicstruts\") and the entire @Result catalogue for both the back office and the storefront while its own body is empty; subclasses therefore return bare result-name strings (CategoryAction.list returns \"listCategory\" without declaring any result), and the recorded acceptance run confirms the arrangement renders end to end.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L75-L83",
+          "version": "repo-lines-v1:sha256:df9a85e59cf7468f21a82ebf85c7ff91efe773a613ec9eb7908e309cd1b98abe:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJmMWM5MmQ0OWU2MmU0NjQ2MTU0MmMzZTQ4NTBlOWE3MDg2ZTE5OTliMjMyMTIyYjgyNjk5YzY2OTIzZDI4NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzk4NjNmZmE5NWJiZDdhZGM2Yzg2OTQ5YzU0Yzk1NGQzNTY1NWJhMGJlMmU3NjIyNGVhYWI1Y2QyOGZjODk0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODUyNzhhYTNlZTQ5ZDM3NGMzOTExYjcxMDIzODhlNWE3ZDk1M2JkNTQxNTJiMTk0YzhhMWFjZGU2OTMxNWYzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L8-L68",
+          "version": "repo-lines-v1:sha256:77df4160899a64a41ec4db7d8f1937c30b5e675e44c284b930fb435d9dbfa5e1:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwNTMzMzAxYWFkNDMwZjBjMTU3YTQzZTU1NjQwOWMzMjI1YzdkMTA4OWJkMzU3MDg2NGFlODYzNGJiYmY3ZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYzA4YTExZmMwNzZiZTk3MmY1ZjVmYjU2YzExMmNjNTIxMzUzZjFiZjQxNzBhOTUwM2Q4M2ZlYjM4YzgwZjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4YWE0MTI5ZWRjNDJjOWI4MTBkZjNhMTkzYzU4YWM2NjNjNmFhYTNmZjg5YTY2NWFiMjExNjZiZTlmMDQxZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L16-L26",
+          "version": "repo-lines-v1:sha256:54e062a4ea8c5dcba146f832b3ced70b4b021aa2474e72402c46081dbf2ff3c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1ODg3YjA0YzM0ODIwMTM2MDI2NDYzMjg0YzhmZjM5ZjAzNWZmMTJiNTI1YWM1NWNlZGRlZTRmMmI2YWMwMzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhNDU4MjUwZTExZWU4YmZkNWNjZjMzMDRmNzVmNTM4YzUwYTg2ZmNjODQ4OWQwYWZiYzA3ZDExZGY1YTMxY2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRlMzc5OTM1MTEwZjNjNjIwODIzYmMzMjU4M2ExMzdhYzBkMTI2NDhjMWFiZTQ2YzYyODMwMjE3ZjhlZjdhYjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_07ed217d51ab479b90917a51514df321",
+      "statement": "@ParentPackage(\"basicstruts\") is the link between an action and src/struts.xml: that package sets <default-interceptor-ref name=\"auth-dafault\">, so an action that does not inherit the annotation runs without the authority, category-names and cart-count interceptors.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L8-L9",
+          "version": "repo-lines-v1:sha256:f9ec1552e7f429c30a0f6de3e2f96e6e49d82dd336931fc16665a277f36a92c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA1MzMzMDFhYWQ0MzBmMGMxNTdhNDNlNTU2NDA5YzMyMjVjN2QxMDg5YmQzNTcwODY0YWU4NjM0YmJiZjdmMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjRjZGJkYjMyMTE3ZGMwNjM0ODNkOWYzYjE2YWZjOGIzYjMzYzc1NjQzODhiYTQyYWVhNDY3NmM0MGY4NzI0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZThhYTQxMjllZGM0MmM5YjgxMGRmM2ExOTNjNThhYzY2M2M2YWFhM2ZmODlhNjY1YWIyMTE2NmJlOWYwNDFkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWEzNTIwZGU1ZWVhMzM2NmQwOGUzZmNkZGFmZjhmOTIyODViZDJhMjRiMzY2MDQwZjIwNTI4Nzk1N2U5YWY4ZSJ9"
+        },
+        {
+          "resource": "repo://src/struts.xml#L10-L25",
+          "version": "repo-lines-v1:sha256:6055f20409b604b074e1ba5a66fe0b4f1cb38540308d55e0641390e3101e3c1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyMzBiYzA0Y2JlMWJjZmEyZmM2NmI1MWJmODQ2MTBlMTQ1YzhhNzlhODJhOWQ5N2M0ODdiNDc5ODczNjYxMzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlMDBlNGRlNGEzMjJhMjZkODY1NGRlNDBkMTQ0Mzc2NzRhNDZkMWQzOGIwZTYxMjY1NzA2MGM4OWZmYmE2NTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNGUwZWY4Y2I2NjI3OTk5ZWE3M2YyYzc0ODg0OTkxZjgzMGMyZWQ1NTE5ODA2OTg5ODcyNGQ2YmZkNTU0ZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRjMDg1MGNkYTM1ZDI3MjQ3NjIxYTU0YWFmMDFlNTlmZjkxYzQ1NThhMTRjN2ViYTAwM2RkMTdjMmQyZGFhMWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1ce777ccfda1421bac927f6e9cecdb2b",
+      "statement": "The service-layer file pair is fixed: an interface XxxService extends BaseService in com.caozhihu.tmall.service and an implementation XxxServiceImpl extends BaseServiceImpl implements XxxService in com.caozhihu.tmall.service.impl annotated @Service(\"xxxService\"); for an entity with only inherited CRUD both classes contain no methods at all.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/CategoryService.java#L9-L11",
+          "version": "repo-lines-v1:sha256:8e5d3f4c154e613ef4e63c8082cf4f03c64ee186e86d7485d1dce1566aed8dd8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMxYWU0OGU2NDk0NTU0NzU0MWNhOWQ3YzcxMTZkMjEyYTIxNjRkNGIxODM0MTljNDE1MmIzMzA0M2IzODJkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE0MTllYjY3ODlkYWQyMDAxMGVhYTlhNDAzMGVjYmJhNGFiMDU0OTc5NjllMGYxMjExNWY3YmJlZGNjNGM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/CategoryServiceImpl.java#L6-L10",
+          "version": "repo-lines-v1:sha256:ea8051c95d79ecb1fe9d4682c2c40792d24bd24be072f678666cfbb5528df568:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk3MGFkZmVkNzExNzQ2NGVmYjg4ODM2Y2M1NzA0ZWI1NDdmYzdhYzUxYmY2MDAwOGYzY2I2OTJjZmM3OTAzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjM4YTMyNDQ4ODE1NDVmZWM3ZDgyMWQzNTEwODg1MjkyZDhiNjVlOWZmZTI5NTcxY2FkOTExYTFiNWMyMGJkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L15-L16",
+          "version": "repo-lines-v1:sha256:4b1f7c1e8faf11a07877ff5daf668dad270cbd9af88cf3e6c2738a793de29c48:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGUwNjc0ZDJlZDI1YmFmMjRkZmJmNTE5YzU0NWY0NWMzMDBhNDAxNTEyNzkwZjcxMDEyYTE5YzkxYjZmM2RmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGEyNzZhYTdiNDFmMTI0NjE4YWFjMDYwZDcxYmI2Njg1MWJjNDk5NzcwMWNmYjliMzYxMzg5ZTZhNjhmYTExOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTVkNjUyYzI4M2I0NTMyMTc5ZWQ1MTdmMTliMjM1NWU4ZTkxYzBjY2IxMDMxZjliOGY5ODVjZjc3YjE1NTUyMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGVlNjhhN2NkODUyYmY0N2FiZGIzNjEyOWZmYTdkOWJjYmM2YjIzMGYyOGM5ODJmMTg1YWQ0ZTkxY2EyMmJlMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_54088bbaff2849eea32f1dc96b2d386f",
+      "statement": "BaseServiceImpl's constructor derives each service's entity class from the name of the instantiating subclass by reading a deliberately thrown exception's stack trace: it strips the ServiceImpl suffix to obtain the entity simple name and rewrites the .service.impl package to the sibling .pojo package, so a working service implementation must be named XxxServiceImpl with its entity class Xxx placed in the corresponding .pojo package.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L20-L43",
+          "version": "repo-lines-v1:sha256:052682d300b7f8647f1f3d342791ceb3cfda40651a53ba89c8d9ba0e4fef7a0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiYzc0Y2NlODdkNWNmZjFjZmYyZTlhYTgxNWVmOTRiNDg3NDVlNDg5ZDM5ZmVmNDdiMDdhZDkzOTczYTFjZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdlY2IzN2YyZjQzMDdiZmQxNmFjYWQ5NWFhMTFiZjYwZDc2NmNlM2Q2NjBhNmFhZDFjNTFiNDk4MjNjNGQxY2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEyYzU0OWZiMWMxNzNmMDBkY2Q5YTBiZjZlMzIyM2UyNjdjMTgzNjQwYmJkMzllYjE3Mzc0YzdkNmMzMWRmYWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_28216d37f2554cd19ce8092699182e5a",
+      "statement": "The derived clazz field is protected with a single assignment and no setter or override, so breaking the XxxServiceImpl / pojo.Xxx pairing surfaces only as a printed ClassNotFoundException followed by a null clazz failure at the first query, not as a container wiring error.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L17-L50",
+          "version": "repo-lines-v1:sha256:2d591c0e63949b0ddbaafd0495c462597a879f4bf35c63cd353c7a788e3a377c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiMzM2YzQyYjJmNTIwN2I3NzVlNTBhOGRhY2UyZDZkMTViMjZmNjFlOGNkYTJjYTRkNDNmY2U0YWU0ODQ0ZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNjlhZmNmMmUyMjRhMTI0YjMyOTI5Zjk3OGMwOWQyMzA0NjE1ZmI0MWY1ZGVmOTJiZGFmOWY3MTE2ZjVjNTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg1MGI3ZDZlMzU5MTAyMjlhY2YzOTQ0YmJlODI2MDZhMWI4MTFkZDdiOWVmNzU3NzliMDgwNzlmMzczOTY3MmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d9a2bd9577ca41b3a67f23272b285807",
+      "statement": "Action4Service is the only @Component in the action package, and the nine @Autowired service properties it declares (categoryService, propertyService, productService, productImageService, propertyValueService, userService, orderService, orderItemService, reviewService) carry the same names as the @Service bean names on the implementations.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L15-L44",
+          "version": "repo-lines-v1:sha256:753367a87a870d4c99466d20c6dd358c900f2b51a3bf9975cb04955278d344a5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4ZmExZTlmNDQ5NDlmYTg5YTNiNDJiMDQ5MmRkYmRmZmEyZWI3NjQ4NDhkMzU3NzhjOWZiNTNjMjA3ZWJkYmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4OWEyNGIwY2Y4NDEzNjNhY2UzNTAwODcxODU1ZmRhYzYxMTMzOGYzYjYxYWM1YzVkNjg2MDc4NzQyYTdlOWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxMDMzMjVjODBhZmYyOTE3MGY1OTNhYTAzYWYwODhjMTgxNWZhZWEzZjZkYWYwZmM3NzcxNDYxZWQ1MzMzOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2Y2JjODE1ZDI0MTZmYjYxNTI4YjBmODE5YzAxNDk1NDExMzkwZTA0ODY5YzYxMjA1ODlhZjc5MTgwZmQ5ODQifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/CategoryServiceImpl.java#L6-L7",
+          "version": "repo-lines-v1:sha256:fce52cfe9655738d5fbd5f3a13c46673582feb07778217ac774b684460f5a080:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk3MGFkZmVkNzExNzQ2NGVmYjg4ODM2Y2M1NzA0ZWI1NDdmYzdhYzUxYmY2MDAwOGYzY2I2OTJjZmM3OTAzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjA0NjgzMGY1NTg0MmUwZTc0NzBkZWUwNTM4MmU1Y2UwMGUxYTY4NTk5ZGEzMmUzZGJjNzM0ODAwMGU2NjdjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjM4YTMyNDQ4ODE1NDVmZWM3ZDgyMWQzNTEwODg1MjkyZDhiNjVlOWZmZTI5NTcxY2FkOTExYTFiNWMyMGJkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmIzZTQ3YWNiOWE1ODNlMGVhN2M2ZDU1MjJjZjA5Mzg3OTk1OTc1MThhNzgwZjcwMjRhZjhmZDU2NzQ3MTk0YiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L15-L15",
+          "version": "repo-lines-v1:sha256:8e0674d2ed25baf24dfbf519c545f45c300a401512790f71012a19c91b6f3dfe:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGUwNjc0ZDJlZDI1YmFmMjRkZmJmNTE5YzU0NWY0NWMzMDBhNDAxNTEyNzkwZjcxMDEyYTE5YzkxYjZmM2RmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGUwNjc0ZDJlZDI1YmFmMjRkZmJmNTE5YzU0NWY0NWMzMDBhNDAxNTEyNzkwZjcxMDEyYTE5YzkxYjZmM2RmZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTVkNjUyYzI4M2I0NTMyMTc5ZWQ1MTdmMTliMjM1NWU4ZTkxYzBjY2IxMDMxZjliOGY5ODVjZjc3YjE1NTUyMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzZjMWE3NmQzYTRjMWY0MTM1NTk2NmJmYzI4Y2NkZGM3NGQyYTljZTQyOWViMzk1ZjhhYmQyNzE1Zjk1MzZkYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e00028f8d41452ea5c36eb7feaa95fc",
+      "statement": "Action4Service supplies the inherited helpers every action may use: t2p(Object), which reloads an id-only request parameter into a persistent entity through the service and reflects it back onto the action's own setXxx method, and saveWithJpg(File), which copies the bound upload and rewrites it as JPEG.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L57-L83",
+          "version": "repo-lines-v1:sha256:f9c8f8abe113f32d5dfee7a778b646ed127c3190cad3c4ffa8d8a0946b136d73:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZmI2YWVkOGFmZDJiOGY5MGFiOTg1YzYwZjlhNzFjNzdmYzMwYmY0ZDVkMDMzY2E2NmVhZWI0MDA3MWNiYzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3MDNjMWExZjVkOWE4M2FmMDQ3Zjc3NGU4NmVkNjQ1YzQ1MWE0NTI3OTk5OGY3YWVmYjlhOWFlM2NjMDI2ZDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3ZjM0MzMyNDllY2NkOTA5MmQ2MTRmZWU1NWFiODYzYTUzNGMyNjM0ZjMyNWU4ODI4NWYzODNkN2RiMGU1Y2UifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L56-L60",
+          "version": "repo-lines-v1:sha256:e66eeaf4bf7f98b47513f788bb2ad1325d48938b02c8a29da387491efc544c29:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjJhZmJlOTRiZmYzNTc1YTM0MTFmZWQ1YjFjMDJlNGFjN2QwNTAxMDgyOTZmNmUyZTQ0YTM2OTc5YTJjNmUyZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjZlY2IxNGM5OTE1OWViZWYzYjUzODdkODNhNDFhYjYwYTFmMmZkMzBlZTYyMTJmMGIwMjdjMTFkNmYxZTA2MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA0Zjg5ZmMwZWM5OGM5ODI0MTgzZTc5NWQzZWRkMTllOTMwZjdiYzQ3MWY5MDEyYWEzZDUwM2JlMmY4OTc0YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4d0f897575da46238b096dac781e7206",
+      "statement": "Domain-specific service behaviour is declared on the entity's XxxService interface and implemented in XxxServiceImpl (ProductService.search, OrderService.createOrder, OrderItemService.fill), and one service may inject others (ProductServiceImpl injects ProductImageService, OrderItemService and ReviewService) rather than reaching into another layer.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/OrderService.java#L19-L21",
+          "version": "repo-lines-v1:sha256:3f6fc6dd4aef085d120aef2d04ad467bb4b54bdfec57683cd3142c38aaebb60c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMzMjk1ZGQyM2Y2N2QxNDM2NGFlNWE3NzRjMDk1NjdlOWM3YzIwZGI5OWY1ODliYTMyOWQyNmE1MWMzMjIwYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY0NmFkZDA0Y2VjNmIxZmM0MGRjZTE0MGM3MDcwMzk3MmRhZWIwODhlZDljOWRiZjc5N2EzNDA0YTMzYmFiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTA3MTBkMWI4ZThlNzI2YTNlMDBiZjc3YzJlZDMyOGQwYzBhMzA5ZjcyNWYwZjU2ZjIyZDI3ZjJmMTIxYzdjYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/ProductService.java#L9-L16",
+          "version": "repo-lines-v1:sha256:8eb5ffb347c8147869bc8ed2c5e9ba2fcbfa8b0401cd1882b84d6ccbb74c5d99:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWViMzQ4ZGJjNzY3MDEzYjg2NDAzNGMxMGNkMWQ3OTVlMjIwYTUyM2EwMThiOTU0OTY3NjMyYjI0MDdiNTY0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE0MTllYjY3ODlkYWQyMDAxMGVhYTlhNDAzMGVjYmJhNGFiMDU0OTc5NjllMGYxMjExNWY3YmJlZGNjNGM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L18-L23",
+          "version": "repo-lines-v1:sha256:5884ef181550de54649311be941a31c03a2d8717278fd79972f9771c3de7541a:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDhjZGU2ODdhYmJmMDU3ZDRiN2Q3NzcwMjg0N2ExNmUyZDBjZDM1NmNhMjkxNjM2MDJkMjc4YzkyYjRiN2Y0OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDg5YTI0YjBjZjg0MTM2M2FjZTM1MDA4NzE4NTVmZGFjNjExMzM4ZjNiNjFhYzVjNWQ2ODYwNzg3NDJhN2U5ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDU2OTA2YmExMWVlMzgzZmMwZWQyZDc2YzNmMjg1MDU2MmNhZWY2NjhhNTMyZjU4YmE3NTBlODhjYjgwODYwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTY2YmViZjY2ZjI2OTk0YTRjMjE5MmJhMTdkZjcwY2U1Zjc2ZDZhMjJlODNjMjA1YmE1ZGY3ODBkYzdkNzY1OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ee5e3838edfb482d9d9ae00c1bb9a73f",
+      "statement": "Domain status and type strings are public static final String constants declared on the service interfaces — OrderService.waitPay through delete, and ProductImageService.type_single / type_detail — and other layers reference those constants instead of repeating the literals.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L40-L65",
+          "version": "repo-lines-v1:sha256:0c1294e63f1695b702e512cafe81fc65f03e124666edd77cfa7e73a089d8e88e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3NGIzN2UxNWQ3ODQ2NzQ5MGVmZWExNTMxMGM0MjkxYjVkYmQ2ZGYzY2M3ZDUzMzA5NDEzOGY0Nzg3NDRmM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NWM3YzkwM2QxMDEwNDYyNDAxY2M5NDAzNWI1ZjdjOTk3MjU3ZDljYmFiN2FkNTdmNTI5ZWRmYWUxOGQ3YzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYzg5NWM1MmYxZjIwNGRkZmJiNzZjZDUyZGY0Yjc2MDQ0ZWQ3YzUzODQ0Y2UyZGEzMDQ3M2IxYmE1MDllMGUifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/OrderService.java#L12-L17",
+          "version": "repo-lines-v1:sha256:a5511d01fc143f6db5c1ff1fa92c3fa19cee6c58a26618ac4ce752eba4439e90:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0ZWQ2NjViZTdlYjhjMWViOGQ4OTEzNGE5N2RiYWY2MTNjOTY0OGZkZGJlYzUyOGY4ZWRlNWQwYmMwZGJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUxODA4YzVlMmFkOTA4NTQzYWU0ZGMxY2Y5OGQ4MThkYWIzNWVmZThjNzA0Yjg3Yjg4MDhmOGU1NjUxMWJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZmY2FmODYwZDgxMmQzN2VlNzI4NjgzZDRhNTI3NjNkMmFhOTI2NTE2ZGYzMDMyMjlkMDEyZTFlMjg5OTBiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzFjYTczNTc1ZDcyZjA5MGMyZjhmNmVkMzFmNWE4NDg2ZTYzMjM4NzIyN2I3NzFiYzAzYjFjMjA4ZTcxZjY5OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/ProductImageService.java#L8-L9",
+          "version": "repo-lines-v1:sha256:56d66b878f33ffe4228125e1036b2171f2739ba1627aeccdc396c296cf1b0375:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg5NGM2MWYxYmQ3NjljMzYwZDU0YzM3N2M4YjM3ZGExNGIzMjNlNTUzOWQxZjZmMGVjMmVlMTYzNmQxMmVjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTI2NzJhZWM0M2Y5NmRlMzYwYTZmYTRlYzZmNGVjYmVjYWYzNWE1MTlmMzMxY2ZmMTFjYmE2MGZjZWYzNmU5NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE0ODdmZDFiYmUyZTMxYWRkMDcxYTcxMDQ4ZTQyYzBmMTU2MGY0YWQyMWIyNTVjNGRhYWIzNmU1OWM5OGEzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjllNjA1ZmNlMTg2Mzk0YTI5MDJkMjU1MDJlOGZkOGQ0NzBlNWRlMzJiM2I5YWY2OWU4NjkwYThhYjZjNzYxNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0c7160c5ad9497a8210ae54cc91c765",
+      "statement": "Transactionality is annotation-driven rather than wrapped in a service facade: applicationContext.xml enables <tx:annotation-driven transaction-manager=\"transactionManager\"/>, BaseServiceImpl.save is annotated @Transactional, and specific multi-row write paths add @Transactional(readOnly = false) (PropertyValueServiceImpl.init, PropertyAction.add).",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L16-L17",
+          "version": "repo-lines-v1:sha256:18b2c687e6fb5a2a119ccc0d40257332fb0f8b0b986f37a15672a523a544e55c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZThmODFjYTQwMTllMzAwNDhmMzNiN2Q0YzA0YTRjNDBmOGFmNzRlYTk3NmVmNjkyNWU3ZDUzZGJiNmY2ZTMzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJmMGM0MWU3Mjc2ZTdkYzRmZGM5YTA2MjRlYWYyNGZjMzJjNjY0OGRlOTlhZTQ0ZjE0YjUxMGQ4ZDY2MDU5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGVkYzUwZTc2YzEwYjI1NjQ2ZTk2OTQyMjljNjE5MzlhNTI2OGY2NjY4MDlmMzhiMjc4ZmEyYTY2ZWQ2ZmZjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MzM2NkOTI5Yjc0M2QzOGIyMGIxNGE1ZDIzZWI4YTMwYmFkYTg3ZWY4NDE2M2M2ZWE3OTk5YzY0NjVkY2ZkNCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java#L25-L30",
+          "version": "repo-lines-v1:sha256:b9c0459cce3140798f8c24be2531afc25630afa8edb06fa155e640c7c825c9a9:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTc3NWFjOTMxY2EwZTFhODlmZGIwYTU1MGJjNDc3ZmJiNGY4OThmOTEwYzMzMWIzYTZiYThlY2Q0ZDFjMmU0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDI0MTEzYjg5YjJjMWI0M2I3YjMyNDgwNmMxNTA4M2NjYjc1MGUxMzEzYjA3NWI3YTJkMWQzMWFkYWQ2ZjczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGJmNWMxYjM2NjIxMGZiZjJkYmJmMzA3NWQzMGY2YTUwYWUyMWE4N2Q1NWQzOTMyNWY1Mjg1Zjc0M2U2MzFmMSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L112-L116",
+          "version": "repo-lines-v1:sha256:bb62d2b53394e7850d037e9dcd10f82fe4807b2f124620c08e66b2c44c1a5031:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRjMmIzMTFhYmU4NzU3MmU4YTdjYzBkOTk2YTY1ODQ0MDc2ZTUyMzJkMjFiN2E4NTQ3NWY5YjQwNTViNzQ5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTIxYTc1OGVlZjdkNGI2NDhlY2U2NWYzNWZiNzMzNmE5NTI4ODkxMDQ0NmQzNDViZmEyZWFiMDg3YThjOTI2OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmQ1YzYyZjM1OTc1ODhlNWVlN2UyYzhiZDRjMGM0OWM5M2JiMjIzYTE3ZjQzNDAyZGVhZTMxMzkwNzM2MTRkYyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/PropertyValueServiceImpl.java#L22-L24",
+          "version": "repo-lines-v1:sha256:5223f2f86db551979b8d6d98379a1ce84011db69df7ad4cf76749923fdf90560:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRjMmIzMTFhYmU4NzU3MmU4YTdjYzBkOTk2YTY1ODQ0MDc2ZTUyMzJkMjFiN2E4NTQ3NWY5YjQwNTViNzQ5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBmNDhmOTliYzkyYjU2ZDgyNzBiNjYyNDU3YjljZWU3ZWQ1NjZlNzIyYTE0YzgwNWRhYmEwOGZhYTU2ZDNiMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVjMTIyYjE2NGY3YTJjMTM5YTk4NWFkZDdhYzBhNjQzNjI4OWRkMGNlOGY4NjVkMjMwY2E5Yzk1YTQwZjg1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDUyMzM0YWQwYWYwN2I1MWI0Y2MyZjhhMTEzMjExYzgwZjc2MDA4ZTUwZmI1ZmZjYjBkNzE1YWQ1NWNhODIyMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_13c83a4fa92049d981178d205d56fbcd",
+      "statement": "Data access is reached by delegation rather than by injecting the DAO: DAOImpl is the only DAO class (@Repository(\"dao\"), extends HibernateTemplate, no interface above it), ServiceDelegateDAO holds @Resource(name = \"dao\") DAOImpl and forwards every HibernateTemplate operation, and BaseServiceImpl extends ServiceDelegateDAO so services call findByCriteria/find/save/update/delete as their own methods; a new data operation becomes available by adding one more forwarding method to ServiceDelegateDAO.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L81-L95",
+          "version": "repo-lines-v1:sha256:912d2a7b8f91bc1df3343eda8d5c3f03d04508e740362ce8131786f4948158af:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1OGZmZGQ3ZWVhMTAyNzUyZjY2NzcyNjBhNGM5ZmUwMjU5MzE5OWE2ZDE5NjIxNTViNDBkYmI3MGE1MmJlODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1YjI5ZDVlZmU2Njk3ODNiMjMyZWE4ODhkN2VkNTBkNDc4NTcwNzJiYTIxZWZmMWQ1NmM4YjEzYzRlYjJiMWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRhMDYyNzI2YWQxYTZhOTk1ZWY3ZjgzZTllYThlNDA3YWFjZTg0MWNkZGFlYzU5Yzg3MGI0NmY5MTVlMzQwNDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyYWIxMTk2ZGY3YjU0MTA4YjYxMGNkMmY1YjU4MmM3Nzc4Y2ViZDYwMGQyMjg0NWNiOGE0ZjdmMWM1Y2ZiNzMifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/dao/impl/DAOImpl.java#L9-L18",
+          "version": "repo-lines-v1:sha256:19b117985b8e5683e74faf365893c67b3a4deb8665b468c4883e4c1a7e0b0bf8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4NjFkNjJhMDhjMDAyNmJkNzQ0MWNiZjJhNmJhYzRmMDY5MDg5MWU1OGRhOTE0NzE4NzY4ZDg5YmRlMmQ1NDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1NDIwZDNmMjlhZjQ3N2ZlNjg4NDFhYzk2MjkwYTcwM2IxMGQ5NzYxYzIzM2E4MGE1YmQ4ZDEzZjkwNGJjMDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L18-L18",
+          "version": "repo-lines-v1:sha256:9141c2c998d0a58ae30d208d1c12a058e8c9ae7ad60792c0cdb83f5670f8813e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE0MWMyYzk5OGQwYTU4YWUzMGQyMDhkMWMxMmEwNThlOGM5YWU3YWQ2MDc5MmMwY2RiODNmNTY3MGY4ODEzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE0MWMyYzk5OGQwYTU4YWUzMGQyMDhkMWMxMmEwNThlOGM5YWU3YWQ2MDc5MmMwY2RiODNmNTY3MGY4ODEzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmVkMWU5ZmUxMmU1NDEyNDcyZmQyZWYwODQxOGQxMDk2ZTE5ODRmNGJhYWNmNGE1YTY5NDM3ZDFjMmMxNmFlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDlhMzVmNjE0NGNjNzBjMTk1Yzk5OGVhOTJiYTkwMDA4N2ZmYzVhNzNmMjcwM2QyMzU5MWYxZTU1MDE5MTgyNyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java#L19-L30",
+          "version": "repo-lines-v1:sha256:ddc558ffc1ec680da910274b6ca49587257e237e63b97b0ca2d74d83b97eca60:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3ZGU1Y2Q0MWQwYjg1ZmIzMjkwODgwMWExODRjNmNiYThiZTM4YmViYWVmZjc1ODA0ODNkZTQyMGU3NjhlZTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiZDY3MzNlYWQwYjUxYTg3ZGEzNDQ3OWI5NTc4N2IxNmU4NjFjNWY3N2U5N2RmODhhMGExZTMzZjVkMWVjNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZlNTUwM2UxZWUwY2ViODNhZDQ3MmI5ZTdhNjIyYTJhZWMxMWNjZjNkMzVjNmEzNTllZGFjMTQ1NTAxMGExZDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_acbcda9243e94c3ab75b4261893c87b8",
+      "statement": "Entities live in com.caozhihu.tmall.pojo and follow one annotation shape: @Entity with @Table(name = ...), an int id carrying @Id, @GeneratedValue(strategy = GenerationType.IDENTITY) and @Column, @ManyToOne with @JoinColumn(name = <column in the SQL script>) for relations, and @Transient for view-only fields that services fill.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Category.java#L6-L20",
+          "version": "repo-lines-v1:sha256:be4d912ea7ea0cd1e4c93bf268e879a692285b2a828289080386f1cc886ed276:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0MjNlMjU0NDJiNjU4ZGM1YTdhODJlZjFlODRmMjNjMmRkNGMyOGZmNTgxMjM2NDgxNWRiZTgxNDZlY2FmNDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlMWRjMzQyNDRkZjc0NDZiZWE2NTUxZTg4MDAzNTlkMGIwNjk1NTdhNmUyMjFjNzYxYzE3YWUwOWUxMzJiZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQzYzhlZjczOGFjNGUyNzNlMWU2MjY2YjMxYTdkMTg0NDRiMWUxOTA5MjQyNjUxOGE1OTM4MGYwOTg3OGJkNWYifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L5-L23",
+          "version": "repo-lines-v1:sha256:f750470744060fa9ddf5550beb0bbfe701278d3326c467598ab8d40be59265ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MmRkNDgyZjMyNGQxOTA0OGFiMGFjNjM4YmZhZTk2N2M5OWQ3ZmI5ZTk1MGQ2ZjM2MTU1OGFmZDkzMTllNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwODY2OTdiNGE3NzE1NGRkYjU5MTdjMTc3ZWYyMzA0NjY4NDc3MzIxZmNkZDM1NzY0YmE4ZjRjNDk1NzE0YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4M2MwZWQ5NTM5OGM1N2U2YzdiYTkyOTJkNTA2YWE1NGMzZjQwYjlkZTVjNmY5MGY4ZTk3Yzk2ODM4Y2I2NWYifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L7-L35",
+          "version": "repo-lines-v1:sha256:3cca5c6db38da0746cb7bffd4c494ee1e5a5c2d4116541ac3602e7ea7c933c21:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkZjA3YjU2Y2Y0NWY0NzY3YWM2MjZiYTBlODk3ODU3YmM1ZmI5OTA3N2E4N2QzMDA2ODcwMzc2YmUwNDg1MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAxMzM0ZmE3OGZiMTg3YzUyNzc1YjU5NmU2ZTA1MjQ4OGYwMTRkYWRiMmU3Y2Y1NWQwYTEzNTgxNGVlMDZhYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkMjg3ODE0YTA4MDgyODc0YWI2M2JiZmNjMjA3YWY5YjVhMjk5ODljMmNlZTdiOWRhYmEwMTJkMjRmZWYxN2EifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/PropertyValue.java#L5-L21",
+          "version": "repo-lines-v1:sha256:97cdc365fa1ee75609c5af2fae107eb1433f406337422b4b2a412ed6355fff63:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5YzI2MmY1MDk0Y2IwMjU0YjFiODNiMDZhOWZhNjU2MmYyYjM4MDZmODg4YTk3YzJlNGE1NzU0ODAyYzc3NTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwODY2OTdiNGE3NzE1NGRkYjU5MTdjMTc3ZWYyMzA0NjY4NDc3MzIxZmNkZDM1NzY0YmE4ZjRjNDk1NzE0YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYzg5NWM1MmYxZjIwNGRkZmJiNzZjZDUyZGY0Yjc2MDQ0ZWQ3YzUzODQ0Y2UyZGEzMDQ3M2IxYmE1MDllMGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3f44bf9df132473980458e38fffeb7fa",
+      "statement": "A relation property must be named exactly the uncapitalized class name of the parent entity, because BaseServiceImpl.listByParent, list(Page, Object) and total(Object) build their criteria and HQL from StringUtils.uncapitalize(parent.getClass().getSimpleName()) — as product, category, order, user and property do in the shipped entities.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L13-L21",
+          "version": "repo-lines-v1:sha256:a57a143dad3fc58e37bdeddfded90a2d1946a9555233eae27e45ded485f12532:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlYTAwYjgxNzhjOGY4OTM1MGZlYjVhNGU4MzdjMWI5NDk5MTUzMjc1NThjYWMxYTM4NTM3NzY4ZmQzYjc4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE2NGYxYzZhMDU0YTVjMjBmNDBhMjQ4Y2Y3YjZhMDUwYmI3ZTJmNzU5ZGZiYjIzM2ZkNTIwYzU1ZTgyNDVkOCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L15-L17",
+          "version": "repo-lines-v1:sha256:b755c24cbb38d23b82a6c53438375b9744984ee9603bef6d5dc3c567efd5bbdb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU0MzMzNzBhNDY0M2FhMjlkMjBjNzZlMjg3YTU4ZjJkMWUxY2Q1YzlhZWFlZDljMzZhYWMyYzE0ZDc2YjY3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTUxZWRhYTI1NDVhOWFjMzk4ZDk2MWVhZWI0YjgwZWFlYmU4YWFiMTc3Mzg3NWQ2NjZhYjk1NmYyYTFhM2E5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWJmODA0ZGJjNzJhODhjYjU1YzFkMzJmOTVjMWZiM2NjNDIwZWU2ZmMwY2NiMjA4MjgxZjJlZjA3YzYxMmRmMSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/PropertyValue.java#L13-L19",
+          "version": "repo-lines-v1:sha256:869fe5b79593a99b1d47b1fd6ba5794c2bc3398341c235b2490c5d7e853f5a44:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzkwM2M0NjM3ZDhkM2QxODU5ZDdkNmEyZmUwMTA3NWI4YzdlY2EyZThiMjJmN2JjYjA1YzlhZGNkZWFkODUwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2ZjYjI0Nzc0NWNhNzRkNjk4ZmRlZWNlNTk0MTU5OGIyYTg2ZjM4NGRjOWU5YjVjMGM3YjI1YWVjNmMyMWY2NyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L70-L106",
+          "version": "repo-lines-v1:sha256:181e67e44ba521b266bf88239259d3118ecea70f65ad0f95544b4c79d2bb1cdb:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI2MzNiMmRkYjBkYjJkMDIwMGExNzNiYTJjYWZhYzNiZWM0NDQ1Mzg5Y2IwODFiMzY3Yjk5NTJlZjUwNTYyODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzZjc4YzJiNGRkMDQ5NTMzZjBlMDVhMWZhMTFhYjkwZDRhN2I3ZjY5MTdkODViZjA1YWVhMTdjYjdhNmJkMTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ce10a546b5644c3aa8668ce8d5cc830d",
+      "statement": "Persistent column names equal the Java field names in camelCase (product.subTitle, product.originalPrice, order_.orderCode, order_.createDate), and because hibernate.hbm2ddl.auto is none and the schema is created by the dbInit DataSourceInitializer executing src/sql/tmall_ssh_h2.sql at context start, a new table, column or foreign key must be added to that script rather than inferred by Hibernate.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L29-L44",
+          "version": "repo-lines-v1:sha256:eba29ce9057be2413e00fd00d089d483c780c9dbd64c4be66c0d1c77aac9706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzYTJkZWVmZDA2ZTkzZjA5Mzg0NTE3MWNjNjM1MGM3OGE1ZWE1YjM2MjlkYTk4NTVjOWI3NTNiZWZhNjU4NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YjJlYTM2ZTIxMGZjMTEwMjc3OWUyMDc4ODVmOTc5MTJkZDA4NjZiYTAxNWQxYmVlZmNkNjRjZDczYzA2ZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMzI5NmUzY2I3MzQ2OTk0ZDQxYzdmODllMzdhOTUxZjBmMmU3NDdmNDIyMjM5ODEwNGRiMmNjMzcxODNhMjcifQ"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L56-L65",
+          "version": "repo-lines-v1:sha256:4daebea210991cf8c20337d57f38ba39c7f92ead956c278a89b255901c7ac304:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmMDQzYzA1NGQ5NDA4NWVmMTg2ZmY3ZTA5YjExYTg5MWJhZDBlZDMyNjA2ZWZmMGQxZGZjYjc0NzcyYTI2YTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYWU0MmM5NmE1NzVhZTM1MTllZGQyMzM5MjNmOTI0N2RlY2UxODM5N2U1ODcyYmIwNGU2ODhkMjdlM2I5Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5ZTllZDRiYTVkNjU1N2U4NTk0MzhiN2M5ODhjMTgzOTY5YWQxOWE0ZmFiNjQ2YWUzNjI4ZTUxZTE2YTYxODUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2N2M3OTI4NTEwNGFkNGYwNDg1MGVmMzBiM2I2MjQ5NTI4ODc5YWNiNzM3NTM0MTIzN2QxZTQwNDA3YWI3YzAifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L19-L24",
+          "version": "repo-lines-v1:sha256:5c978f0c6c4800b61d658b94977b9b6c0cdc9bff1e254734f776e8a17824d642:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQxNTA4MjY1ZTczMzczOGFlOTNhYzIyNDgwMzA5YTRkNzRjZjE3NWI5MGIzYTIzOTk2YTA3YjM2MDViZThlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU5Yjk0MzUzMjA0MGM2MDVlZGUwY2I4NDI0MGM1Y2EzZjJkZmQ3NGI4NmIzMjVmMGExOWMyNGJhN2FhZjNkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRkMzE0ZjA4YzI3N2UwYzkzZTI4YmMxNmNlOWViNjE4N2YyN2U5YTQzYzU1ZmExNDFiZmZiNDQ0ZTA5OWM0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE3NmMwZGJmZGQ3Y2U1OWRkZjkwNzRiZDkyYjhjYjljNjlkOWRkZjA1NjlhZGYxZmEzM2E0YzViYmMxOTMyYSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L39-L69",
+          "version": "repo-lines-v1:sha256:8a65175a459cbe35665a1dff867e84058de93b1da6f9291d512e862fa40e7a0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmMzM1ZGJhOWUwMTMyMWJiMDQ5ZGViMjg0NDZlMDA1OWJkYjQzMTgwNWVhNTY0ZTg0NjE3ZGY3MGJkMWY3YTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhMDdjNmY2NGM1NTY5MzM0ZmVkNTZkMWRiOGM1MDAzYjk1NjEzY2I3OTliMTE0MWVjMWI1ZjgwNjE0Yzc1ZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZjYzNTIzZDMyZmVlNzcwNWM4YmU0YTA2OTNkZGMxZmU2NWJjODNkYmQxYWIxYjI4YTMwYTA3NTU0NWM5MmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b40c225bf404dda93dad6cba6027d5b",
+      "statement": "Table-name spelling is not uniform between the entities and the initialisation script — @Table names include order_, productImage and orderItem while the script creates order_, productimage and orderitem — and both resolve because H2 treats unquoted identifiers case-insensitively.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L9-L10",
+          "version": "repo-lines-v1:sha256:e1568cd1dcfad351e7fb3b415d09335e504c5b7c08217f5575ca1c95caf6d001:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQzYTZkZTk3NTk3ZTNkOGVlZTM1MWJkMzA5NzdlMzc4NzRlMGFkYWViYjE3NDViM2MzMTMwMTJlMjNhZTVkOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDEzMzRmYTc4ZmIxODdjNTI3NzViNTk2ZTZlMDUyNDg4ZjAxNGRhZGIyZTdjZjU1ZDBhMTM1ODE0ZWUwNmFiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzVkYTgzNmQxMTA0NDQ0M2U3NGNhMjNiMjMzNDkzYjVkZmZiZWM1NTg4YWEwNmMwNjM4ZjA0ZWI0Y2Y2ZTE5YiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/ProductImage.java#L7-L8",
+          "version": "repo-lines-v1:sha256:a00d83ba10d2d350cb3562ae52a9b693ad402d4cd93f8ea46ebdf1eec15e58cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM1ZmRmZjljZDRkZTI0ODg0Njk5YjI5ZDY2ZjY0ZmY2YjViNTQ5NDcyNzFhMDdiNjEwYzY3ZmI5ZmQ5Y2JmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NjY5N2I0YTc3MTU0ZGRiNTkxN2MxNzdlZjIzMDQ2Njg0NzczMjFmY2RkMzU3NjRiYThmNGM0OTU3MTRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTNkYzhjODVmZGRiNTI3ODEzZGM0Mjg4MDNmMWNjMjY5Y2UzNDZkOGQ1ZjE4ZDY3YzJlNTVmOTMxMTJjNzE4ZCJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L155-L162",
+          "version": "repo-lines-v1:sha256:b041cef755090790ba52a3a4f70adcd6741cdc5f324302e98b9bb6108fe80e82:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ5NzMyZDg0YWMyOWM3NzdmZDRjYjQ0YjRhYTdiNWIyYmY3YTA3M2I4MWE5MjQ1NTYwZWI1MTExMTdiMjFhYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk5NjdlYzFlZDM4MzZmOGViMTdhZmYxNzJiNWJmZWY3ZGU2MDQ4NWE0MzljNmNhMTFjNTkxZTE3NTU3MzlhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJhNjA0MjFlODlkMTZiZTE4YThiZGMxY2Y0ZWI0YmU0ZjM2NWQxYzQ5YzRjNmU5MjllMWFhNGVkZWJkZjhkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2FjZjE2MzkwYzkwMzQ2NzlkYmNmZDcwOGVhZjRjYTIxODQ3YjJlMDlmYmEzYTY0NDI3OTg2NmE3YmNjNGEzZSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L39-L39",
+          "version": "repo-lines-v1:sha256:af335dba9e01321bb049deb28446e0059bdb431805ea564e84617df70bd1f7a1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYzMzVkYmE5ZTAxMzIxYmIwNDlkZWIyODQ0NmUwMDU5YmRiNDMxODA1ZWE1NjRlODQ2MTdkZjcwYmQxZjdhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYzMzVkYmE5ZTAxMzIxYmIwNDlkZWIyODQ0NmUwMDU5YmRiNDMxODA1ZWE1NjRlODQ2MTdkZjcwYmQxZjdhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2EwN2M2ZjY0YzU1NjkzMzRmZWQ1NmQxZGI4YzUwMDNiOTU2MTNjYjc5OWIxMTQxZWMxYjVmODA2MTRjNzVkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDdkNzljOThmMjIwNjY0OWMxYTljMTI0NDE2NDc5MTdiNWVkNTVhNDdhNDI3NGQ3ODg4NjExM2VkZGY1Yzg0YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_059dcc394e1d44d18c64eb04abd9c3a2",
+      "statement": "Interceptors live in com.caozhihu.tmall.interceptor, extend com.opensymphony.xwork2.interceptor.AbstractInterceptor and may @Autowired services, but an interceptor is inert unless it is both declared as an <interceptor> in src/struts.xml and referenced inside the <interceptor-stack name=\"auth-dafault\"> that is the basicstruts package default; the misspelled stack name is a string contract referenced in exactly those two places.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java#L17-L23",
+          "version": "repo-lines-v1:sha256:3c52abc8f8d06366439d87d22cc674539f4080c0075c6697a85023dd830f6325:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTg4NDNiMTRjM2E0MDM4MmI3ZDQ2NGFhMzVjMzY0NjE2YTA4MTJiY2FhMGFkMDFhNDAwYTY1N2JhZjVkNGU0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjUwYzk0MTQ4MzM4YTgxMjc1NTNlZjdlNWQxMzkyNTllZTcyYzQ2YjViYmYxNGUxY2QxMjU1ZmFmNWI1NWQ3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2MxYTM2ZmQ0ODE4Y2I3NzgxZjk3NmE3ZmU2YjBlM2QwMjg3Y2VmNTBhNjU3MmU2NzIyZmU2YWZjMDA5OTc5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTkyOGM3NjA2MTIyNjRhY2I4ZTRjYWY2YWU3M2MxN2JmYzYwMmVhNDVjZDFiNTlkZDY0NTNhM2I1NzU0OThjMyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CategoryNamesBelowSearchInterceptor.java#L16-L19",
+          "version": "repo-lines-v1:sha256:5b317f21a95ff920a51ca58748c8620245a538a7625ea0622c83560f0a205000:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I2MDAwMTJiNzlkYjNlMzZjZDYxOTZjYjMxZjYyOTgyMWMxNjJhNDc3NzNjMmU3ZDcxNjRhMDZlZmI4MDM1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVjN2FlOGY5YWI0OGRkODQ0MjQ1Y2VhODc5N2QxNWFkOTM3MzBjOWYzMjY2NzBiNGJiZTFmZDUxZWRlNTMxZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2MxYTM2ZmQ0ODE4Y2I3NzgxZjk3NmE3ZmU2YjBlM2QwMjg3Y2VmNTBhNjU3MmU2NzIyZmU2YWZjMDA5OTc5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGVlMzYxODRmODdlZTAyNDZlYWZmNmZmOGUyNzI2ZWI3NzMwMjQyNTMyMjUzNDcyYjE5ZGZiZTFmOGQzZmRkMiJ9"
+        },
+        {
+          "resource": "repo://src/struts.xml#L11-L25",
+          "version": "repo-lines-v1:sha256:79b6242e9e4ff82678a4dc9ff2c5d66609dae68eee724fe39fd8e931e335da2e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIxZDI2Y2JhM2QxNjUwNzIxYzY5ZmVlNzAwMzQ0YTkzYmIxN2I4YWVkNjI3NmQ4ZWNkNDdmM2Q3OWYzYzY5MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlMDBlNGRlNGEzMjJhMjZkODY1NGRlNDBkMTQ0Mzc2NzRhNDZkMWQzOGIwZTYxMjY1NzA2MGM4OWZmYmE2NTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4OWY5ZWFlMTA2MjVkZDkzM2QyYjFkNzZlNTE1NTE2ZTczZWRmMWZjYWUxMTQ2OTNiYzFmZjU2Nzc1YzFjNmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRjMDg1MGNkYTM1ZDI3MjQ3NjIxYTU0YWFmMDFlNTlmZjkxYzQ1NThhMTRjN2ViYTAwM2RkMTdjMmQyZGFhMWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0658b89ecc1e49ba922fb2b5e14ac1a4",
+      "statement": "AuthInterceptor gates only URIs starting with /fore, matching the URI remainder after the last \"/fore\" against the hard-coded array {home, checkLogin, register, login, loginAjax, product, category, search}; every other /fore URL requires the session attribute user or the client is redirected to login.jsp, so a new publicly reachable storefront endpoint must add its suffix to that array.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java#L24-L46",
+          "version": "repo-lines-v1:sha256:24b4f277d8978b6549c9a08b5ca1e28d9ddd12f7ed23aa5d248a30f09f647075:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyZWZiN2YyNTc1NmE5NzIyY2Y2NWY4NDQyOWEyMTU1M2IwMDk0MzZkYTIxZTdmZmRlNGViM2NlYzZiYmRmYzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2YjA0NDkxNDY5NzIyZTgzNjNhOTRlNDA0NDUzOGUwMTNhMmEyMTdlMzZiMWU1NjhiYTYwYWNiN2I0YzhmMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3YTNlZmUxNGU0MzQ2NGNiY2NjMGVmZWMxZmE3MWI4NWUzMzg0MjQ1ZjhlN2NhZGU2MTcyNDA4NDc3NjAzMDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ3ODgwNjc3MGJiNmQxYzI2NDg0YTRhNTY2MjlmMGQxYjQ2MWMwZjJlYWI4NDYyOTViOWZkMjkwOTUyZmY5ZTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9dd0a2d1cf9e45bb9966219910b7f023",
+      "statement": "AuthInterceptor evaluates the raw request URI (it computes contextPath but never uses it), whereas CategoryNamesBelowSearchInterceptor and CartTotalItemNumberInterceptor strip the context path before comparing, so the authority check only holds while the application is served as the root context — which the embedded launcher does.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L75-L83",
+          "version": "repo-lines-v1:sha256:df9a85e59cf7468f21a82ebf85c7ff91efe773a613ec9eb7908e309cd1b98abe:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJmMWM5MmQ0OWU2MmU0NjQ2MTU0MmMzZTQ4NTBlOWE3MDg2ZTE5OTliMjMyMTIyYjgyNjk5YzY2OTIzZDI4NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzk4NjNmZmE5NWJiZDdhZGM2Yzg2OTQ5YzU0Yzk1NGQzNTY1NWJhMGJlMmU3NjIyNGVhYWI1Y2QyOGZjODk0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODUyNzhhYTNlZTQ5ZDM3NGMzOTExYjcxMDIzODhlNWE3ZDk1M2JkNTQxNTJiMTk0YzhhMWFjZGU2OTMxNWYzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java#L35-L38",
+          "version": "repo-lines-v1:sha256:a780c5eb066fee989607424e07bb26d28196cce54a37ff98d1fec156e828b2a2:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2M0Y2FlOTc1YTAxY2Y2NDJlOTUwZWQ3ZDk1MjY3MGE0NzdiNGM3MTQwYjgwMDRlNGJmZTAyYjQ0MjFjMjU3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQ3OTZmOWUyMWUzMjY1MzVkNGVhMWE2MGM2OGFjNWEyNzZmMzJkYWQ1YzY1YzQzMzg3ZTRhMTE3ZmYyMWQ3YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGE2NWU1MmUxMGRiYTBjMGNkYzUxN2E1OTc4NjdkMDRjMWI0MjkyYzM4OWEzYmMxMjIyZTdlMGIxMzlkN2M2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWRhZmUxMzM2NGRlYjUyMjBiMjY5YzY4ODZkZGZlMTRiYjBhMGViNDRmNmFhNTFjM2RkNTg0MTg0MmY0MTU1ZSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java#L29-L32",
+          "version": "repo-lines-v1:sha256:4ca4316edd1f0eef08c665eab31ef925cd1e99825d1099f1485538673dc6f984:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2M0Y2FlOTc1YTAxY2Y2NDJlOTUwZWQ3ZDk1MjY3MGE0NzdiNGM3MTQwYjgwMDRlNGJmZTAyYjQ0MjFjMjU3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyNmUxYjJiNjA1Mjc4MWVlYmY4YTE1ZTQ1YjBlNTViNDUyMGFkOTFhOTA1Yjc5ZGE2ZDI1ZjVhM2M0YzYxZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODFkZjAwY2Y5MWQ5NTc3NjU3MzMyNDZhZTZhODgyMTY5Y2RlNDIxNzE2NDdlZDNmZTc2NTNmZTllNDRmZTllMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmFmMjYwZjQ3OWNlOGZiZjk0OWUxN2JhN2ZmNjZlYmNjZDE5M2IxNjA0M2E2MzMyNDljMjgwYTZhZGU2NGFmOCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CategoryNamesBelowSearchInterceptor.java#L28-L31",
+          "version": "repo-lines-v1:sha256:afc4f8df1b235bfe8753fe6899977996fe53115bed7bc8ba501c07c701601b6c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2M0Y2FlOTc1YTAxY2Y2NDJlOTUwZWQ3ZDk1MjY3MGE0NzdiNGM3MTQwYjgwMDRlNGJmZTAyYjQ0MjFjMjU3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmI3Yjc5ZDhmOGFhMDQ4MzJiYTk1ODRiMzQzOTJmZDQyNTJkYzdhYTQ3OThhZDNhMzMzNmFhMzIwYjhhNTE0OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTMzYWRiYWJhY2VlOTE3ZDUyODg0ZWZiOTZiZGNhMTllOTllOTM5YmExYWMyMzBjN2QyNjc5NTViMzFhNmU2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTcyYjMzZmY0MDE1NjhlYTQ1YzBmMjFmODgyNmExOWM5YjdlODY2OGY2NWM4MTliOTgwMTBhMjJlZjU3ZTIwYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_46aa5dcd143e40b1bf57b332856a5e32",
+      "statement": "The interceptors publish the session attributes that the JSP fragments read — cs (the category list below the search box, from CategoryNamesBelowSearchInterceptor) and cartTotalItemNumber (the cart badge, from CartTotalItemNumberInterceptor) — so renaming either key is a cross-layer change rather than a local edit.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java#L32-L44",
+          "version": "repo-lines-v1:sha256:f27eb070e385d275df05dda9600c6047f90397e7860086382f94b551b68edaa7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhMjZlMWIyYjYwNTI3ODFlZWJmOGExNWU0NWIwZTU1YjQ1MjBhZDkxYTkwNWI3OWRhNmQyNWY1YTNjNGM2MWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA2NDhmNWQwNjBkNmJkNzUwZjdhMjk0OGFhYzEwZGM4MTVkNzg3NjcwN2E0ZDUyNmQwZmQ3ZjJhYTY1MDdmODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2NzRjZTBjN2Y3MjU5OTcyYzI2OWUwZjc2YzM3NTU1ODU2OWNmNjk1OGVjMzg5Nzc4ZDdlMmIxY2VjODMxMDIifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CategoryNamesBelowSearchInterceptor.java#L31-L34",
+          "version": "repo-lines-v1:sha256:c9022b36f96a2d7858cbfc6bbf56620eb55c409c43d5b98dc4725b7d7e21875c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmI3Yjc5ZDhmOGFhMDQ4MzJiYTk1ODRiMzQzOTJmZDQyNTJkYzdhYTQ3OThhZDNhMzMzNmFhMzIwYjhhNTE0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDY0OGY1ZDA2MGQ2YmQ3NTBmN2EyOTQ4YWFjMTBkYzgxNWQ3ODc2NzA3YTRkNTI2ZDBmZDdmMmFhNjUwN2Y4MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWExMzcwZTdjMjEzMmMzYTYwYjRkZmMwNjEzMmJkM2RmMDhkOTJkZmNmN2ZlYTY2OWYyYTA0NDQxOGEzNjcyNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_45ee72394dad4a679a9c25b60f7855eb",
+      "statement": "com.caozhihu.tmall.util holds the two unannotated cross-layer helpers: Page, whose count defaults to 5 and whose start/count/total/param/getTotalPage/getLast/isHasPreviouse/isHasNext contract is what the pager fragment web/include/admin/adminPage.jsp renders, and ImageUtil, whose conversion and resize methods are static.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/util/ImageUtil.java#L9-L10",
+          "version": "repo-lines-v1:sha256:3b24a8b54f5c54df688d54cdc7c43337cbde4650ff61842f88aa51ad7e32b05c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE1N2I1ODM0MDdlZjVlNjNhZTE2YWUwODRjNjNjOTlkMTU5NDM2OTQ2ZjFkOWRhYmJkOTE5ZDcwZjU4NjdhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM0YzI5NDcwMTkxZDU5NDFhNDE3OGJlNTNkNGQ5MTM3YmNkZmNkODNhYmNiZTliNDVhNTRhNjY2NjdlZjZhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDAxM2E0NTNjNTRiYTczOTVjZWQzNWI3M2JhMGM1MDQyZGJmZDI3YmI3YWFmNzk5YzE2NDVjNmVmNzRlYTBlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2E4YTdjMDJmOTc3YWM4NDZkZmVlOThjOGRkOWZhYTFlMDg3ZmM0YzczNWI0N2MyMGIyODY5ZmQwOTU1YzMwYSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/util/Page.java#L3-L14",
+          "version": "repo-lines-v1:sha256:da1d46605b5247200b5b69bef431246ab460b9862dfd579ae16bab0ce9dd5325:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5NzMzODQ4NWE5NDQzMThmNGJjOWIyYzM5MWVlN2Q5OTQ4Mzc2YmE0NjhjZjIxZTEwMGQyY2FlM2I1NmI4NWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlYzFiMWRlYmYyZGYzOTkyMjFiMDEyOTViMzA3YTA3MzVlNTU1NTY4ZWViNjBiZjEzNTViZGI5NmVhMWZlMmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljY2Q4MDg3Y2MzYmQ5Y2M0ZGFkMmViYTVmYTFjMTkxZGFlOTA1YTE2Y2U0ZDM1M2YxZTIzYjJjZGZkMDY0OGIifQ"
+        },
+        {
+          "resource": "repo://web/include/admin/adminPage.jsp#L19-L52",
+          "version": "repo-lines-v1:sha256:128388b3b71beeb9dc463ce7ba3c9024a37a6af435bea87afb09ba0a422690d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMTAzMTgxMjFkODNhYTczMzI0NWNkYTlmM2ZlN2UxOTBhODRjZDNhNTIxNDVlYWRiOWQxMTQxNGU5MGMzZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzN2RmMjA3M2ViMjlhNzQwM2JkZDJiNzRmNjUzZWZiZTliMDM0NzBlYTE4YjA4ZTgyNzYyZTliODRmMzkxMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZkMzc2MGM0ODk2NzZlNmYxYWJmNzI0N2JjZDliOGM0YWNhZDQyYmRiYjJhZTE5OTVmMDI1NmYwYjA1YjcwNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMGI3MGRmNGMzODc2YmJhNDgxMDM5MTU0YTQ2YmU3NTA0MDRhMmU4NWY0YmNkODNkNGQ1ZWMwMWIxMTVlM2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_718d66eb7e9a45d0983807c425e81acf",
+      "statement": "Tests belong to com.caozhihu.tmall.test and follow one pattern — JUnit 4 with @RunWith(SpringJUnit4ClassRunner.class), @ContextConfiguration(\"classpath:applicationContext.xml\"), @Test @Transactional methods and @Autowired beans — and because the launcher compiles everything under src/ into web/WEB-INF/classes, a new test joins the deployed compilation and must stay within the vendored web/WEB-INF/lib classpath; no build file or test task exists.",
+      "evidence": [
+        {
+          "resource": "repo://src/StartJetty.java#L146-L160",
+          "version": "repo-lines-v1:sha256:b1371be9a56f6bc103e299390c4ae82381ed39842762cd09cdd08599180e4f61:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhYTE0YWI2MWM1NjM3NmFhNGMzNzFhMTgxZDJkMjExYzk1MzUxOTVjM2E3ZTQzMjI1Mjk1YWVjMWZkZDI1NGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5YmUzNDg4NzgwNTkyNTRhMjdjYTliMGViMjQwNjlmOWE2ODkwOTljYjg1YjE5ZTYyZmE2MGQ5MTVlYjVmZTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMmI5ZTIxZmRjODZmYzJjMmVlNDQ3MjE4NWQ2NzY0NjdiZGQxY2JmMmUyNGI0ZGM2NDRhYjFhYmIzMzI1NDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5Yjc3MmI2NzYwMDM5NGU1MGYyZGY4YmU3NzQyZjZiYzYzYjc5N2MwZjc3MTA4M2NlYWYzZWE2ZDg2Y2FhODgifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/test/TestTmall.java#L15-L31",
+          "version": "repo-lines-v1:sha256:3545db1e1f0b57ff207a2f34d21f1f958d1fb891d486cba114408cc593165b4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MjQ0ZTBmNGU2NzdlMTQ0Nzc3NjgyZWVhYzNlNDIzYjNlYzc5ZGRkNGJmZDIxMDk3MjdmMmYyZDcwY2NjYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxNDE5ZWI2Nzg5ZGFkMjAwMTBlYWE5YTQwMzBlY2JiYTRhYjA1NDk3OTY5ZTBmMTIxMTVmN2JiZWRjYzRjOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFlOGNmYzEyMGYzYzRkMTliYWE3NzQxZTMwMDU2OWYwZjUwNjVmNWRlN2Y2YmQyN2VmNmQwZWNiYTQ2ZjE5M2EifQ"
+        },
+        {
+          "resource": "repo://web/WEB-INF/lib/junit-4.12.jar",
+          "version": "repo-file-v1:sha256:c1063ef212506deb07aabaf4ac35ee2717f403f7ed98c076fbc8f23b47cbbf2a"
+        },
+        {
+          "resource": "repo://web/WEB-INF/lib/spring-test-4.3.18.RELEASE.jar",
+          "version": "repo-file-v1:sha256:f7ee511cc1f95a056518dea54515eab515eeccf3833859de1392ffe28781323c"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a245e1b5bff42f7b5a302e20d55bcb3",
+      "statement": "The back-office convention is one XxxAction per entity exposing the five @Action URLs admin_xxx_list, admin_xxx_add, admin_xxx_edit, admin_xxx_update and admin_xxx_delete; list and edit forward to the result names listXxx and editXxx (resolving to /admin/listXxx.jsp and /admin/editXxx.jsp), while add, update and delete return listXxxPage, a redirect back to the list URL that carries the parent id through OGNL for parent-scoped lists.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L15-L44",
+          "version": "repo-lines-v1:sha256:cd709d90102f5648bafa9e9098f9773f254e6f2063a3a521fb431ff31058e0ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyZDkyYmIyZDMyOGE0ZmM1NmY0YzE5YjliZmE4YjBlY2UzYzgzMmQ2OTBmMTMxZDFlYmNkNjE2ZmRhOTY3ZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE1ZjBlM2U4NGUyMTczOThhYmE2N2ViOWM4Y2NhMDhkNmUxYWFiNGY1MDMyZjhmNDVmM2NlZjY5ZjNmODkzNDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAyYjQ1ZTc0ZTE5MjNkZmE5Zjk5MzFiZGJiN2ZhNDZlOWU0YTdjN2MyYTU2Yjc5NWRjMTBjNmZhNTFjNWMzZGYifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L16-L60",
+          "version": "repo-lines-v1:sha256:9b22d0513b91606ad3848f8d98299ecd57934e05a3db0daa5d57bf411313d3cc:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1ODg3YjA0YzM0ODIwMTM2MDI2NDYzMjg0YzhmZjM5ZjAzNWZmMTJiNTI1YWM1NWNlZGRlZTRmMmI2YWMwMzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhNDU4MjUwZTExZWU4YmZkNWNjZjMzMDRmNzVmNTM4YzUwYTg2ZmNjODQ4OWQwYWZiYzA3ZDExZGY1YTMxY2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwNGY4OWZjMGVjOThjOTgyNDE4M2U3OTVkM2VkZDE5ZTkzMGY3YmM0NzFmOTAxMmFhM2Q1MDNiZTJmODk3NGIifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L27-L53",
+          "version": "repo-lines-v1:sha256:965a8d183dc686eaf3a3b13fbb19610966e8eb8ad60199cc12cd6130d1c52035:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxNjU2YTAxOTYyZjJkOWIwZDI3NTM2ODFkZGJmMjg5YmYzN2Q4ZDY3MTU5YjgyNmRiYTQ5YmZhODc5MDY5NGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5YjJjOTk3MWQxODdiNWZjMTZjNGMxY2VmY2NmMzRiYjA2Y2UzNWNiNWNiZGYwMTkwNjU4ZTY2ZDNmN2I5NDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java#L11-L51",
+          "version": "repo-lines-v1:sha256:6be533b4f73ba5743a1ba75fd81fa8d05a1b0fcc5783e2ae9683c590afe2c1ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4OWVhNzhkY2UwNTViZDNhNTEyZDkzYTI0MDg5ZWRkMDZkNmQ5Y2QwYWNhZjg3ZTE3N2VlYjJmYzAzNTlmMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNjhlMjIyYTE0MzBiM2E1Zjg3NzgxMDJlYmMyMDMzODQzYzgyODhiNTQ0ZjZmOGMyMjNkZTIxM2I5ZmI3YTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6f8462754756403ca7c43d81bfa55616",
+      "statement": "A parent-scoped admin list stores its parent key in the Page bean with page.setParam (for example \"&category.id=\" + category.getId()) so the pager links keep the parent id, and the pager fragment renders from page.start/count/total/totalPage/hasPreviouse/hasNext plus that param.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L11-L25",
+          "version": "repo-lines-v1:sha256:91f3d55da66640e02717f5d4ba1c9cc459d6fd68147fcedacee4eeb90f2d5b64:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlNjFhOWMzMzI1M2Y1ODcyYTU1MWI2NGFhNWI5ZWIxYTc0ZTE2ZTUwYTI1NmYzNDdiZDI5NmNmNjQ1MWE1ZWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUwMGM1ZGZkZWM0ZDMzZDI0NTQxY2E0ZDBlY2FiZWNiNGMwZmNiZDBkYzMyMzVkZjA3YTQ5OWU0NmY1MTcxM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOWM2OWFiODliZmNmNTM5MGFmMmJjYzVmY2I5ZTZjZjY5MGQ0Y2MzNzg5ZDdlOGZmZmE4OWEzMmM1MGZhMmQifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java#L11-L23",
+          "version": "repo-lines-v1:sha256:600c1fc0a416de73353254128826f5c40c62e6f508cb46f31d82f8ebbab23c65:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4OWVhNzhkY2UwNTViZDNhNTEyZDkzYTI0MDg5ZWRkMDZkNmQ5Y2QwYWNhZjg3ZTE3N2VlYjJmYzAzNTlmMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNjhlMjIyYTE0MzBiM2E1Zjg3NzgxMDJlYmMyMDMzODQzYzgyODhiNTQ0ZjZmOGMyMjNkZTIxM2I5ZmI3YTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJlYmZiYjM0M2I3MTZkMTAzMTdlYTQ5NGIxZmEwYjQyNTg1ZGY1OWUwYjM5MWExZDA1ZWE4ZTUzZmVkZDQ4NGMifQ"
+        },
+        {
+          "resource": "repo://web/include/admin/adminPage.jsp#L19-L52",
+          "version": "repo-lines-v1:sha256:128388b3b71beeb9dc463ce7ba3c9024a37a6af435bea87afb09ba0a422690d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMTAzMTgxMjFkODNhYTczMzI0NWNkYTlmM2ZlN2UxOTBhODRjZDNhNTIxNDVlYWRiOWQxMTQxNGU5MGMzZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzN2RmMjA3M2ViMjlhNzQwM2JkZDJiNzRmNjUzZWZiZTliMDM0NzBlYTE4YjA4ZTgyNzYyZTliODRmMzkxMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZkMzc2MGM0ODk2NzZlNmYxYWJmNzI0N2JjZDliOGM0YWNhZDQyYmRiYjJhZTE5OTVmMDI1NmYwYjA1YjcwNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMGI3MGRmNGMzODc2YmJhNDgxMDM5MTU0YTQ2YmU3NTA0MDRhMmU4NWY0YmNkODNkNGQ1ZWMwMWIxMTVlM2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b898bf9851634034bbdac4348a767392",
+      "statement": "Admin forms bind entity fields as OGNL property paths on the inherited action fields (name=\"category.name\", name=\"product.category.id\", uploads always name=\"img\"), pass the entity id and the parent id in hidden inputs to the add/update URLs, and use deleteLink=\"true\" anchors whose confirmation is implemented in web/include/admin/adminHeader.jsp; no server-side field validation exists.",
+      "evidence": [
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L46-L78",
+          "version": "repo-lines-v1:sha256:df19c6ac6ffe39cc3598dc0e9d848da2335fe0f2874e56739dd0a194a455e2b0:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwOGMxMmJhMGFhYzhhYjk0NDg3ODIzMDRiYjdiNWNkMGUzZjJmNjg1OWNhZGM5MjJkZjFmMDAyYjVkZDQxODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZWY1ZjBhOThmZDMyZmJlMDYyMTNhNWNjYWI5NzUxMTliMTQyNjk0OGRkOGU2NDcxZDg2ZDFiNjQwOTg0NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA1MDA0ZjQ1ZDZlM2ZjYzY4ZDk2ZDFjYmFjN2I3MTJmOWEyNjI0MWVhMjE3N2UxYjE5MDkwODViNDBhNWFkZDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlMGM3MmQ3NmVmNzUyNDYwNGY2ZWM3NDJmNzg1NzcyODM4MDYyMWJkMWE2ZjBjMjcwOGY1N2M4ODc5ODNjYjYifQ"
+        },
+        {
+          "resource": "repo://web/admin/listCategory.jsp#L77-L88",
+          "version": "repo-lines-v1:sha256:090b3facc906ac55412a423c969f183973dfba12c9272ed323a625eb21e09324:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhOGYxMWI4MWFhMDM0MmFkM2ExMWZiMjQyM2Q1OTk0NzJkMDhjNTIyMjhkOGI1ZTc2MjdiNzQ4MTY4MDkxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4YmIxMjc1M2QwOTM5OTk4OGZjMzRhYjQwYjUwNzcwZjRhNGJmMmJlY2I1OTVhMTM1M2Q5YmZjZmJkNDczZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRlYzU0MmNiZjlmYjllOThkMTQ5ZDgzMmVkOWIwMTRhMTM0YTEwM2Q0ZDU4NWQ2MTU3MWI3ZTIyNWY3NzdiZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViYWZhN2FlZDA1YTgyMzBlOWFlNDUzNzUzNGI2M2MwNmMzZmQzMTdjY2VlMjIwMTM5OTRkOGU1ZDgwNzViYzkifQ"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L101-L133",
+          "version": "repo-lines-v1:sha256:dc29e0f261d7a3fb41401fd9900a7f40e6246bccf5996a7d5e883e09ff301ed2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZDc5Nzk4N2MyZDdmZDEwNTYwNmE0NDFjYTIxNmM3NjAxMzBhNmZmOWI2OTI5NzdmMzZjMGY5ZTEyMTI5N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4YmIxMjc1M2QwOTM5OTk4OGZjMzRhYjQwYjUwNzcwZjRhNGJmMmJlY2I1OTVhMTM1M2Q5YmZjZmJkNDczZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwMDJlOTVlOTE1NDNlM2RkZjUxMGVlZDgyODdmMjA3OTcxMjBkMTI3MTUwNWIzOWRkYWY2ODk5ZDE3ODM1ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmNDg5MTZkNmQzNzhkMjIwZGFjNDAzOWI5YjU2NzQ5ZGNmMjk0NmRhY2ExYTBmNjY1NjQ3ZDFhNTBjMjFhMDEifQ"
+        },
+        {
+          "resource": "repo://web/admin/listProperty.jsp#L68-L76",
+          "version": "repo-lines-v1:sha256:a32914895aa539b649bf17e7702706706cf6d7c8c4c980478811bdf8971e1299:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M5MDllYTRjOGQzMWI0NDdhZDZhMjkyMGRhZGJkMWQ1NWUxY2QwYzA5MWRmZjNmMTZkMzQwYjEzMjY5Mzk3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q4ZTlmZGZiYTA4MThhOGRjM2JhMWM5ODIzMWJiMWM5YjlhZGMyMjNlYjkzNWE2ZjQ2MzgwNTkyYjMxMmQ5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGNlMTAyODVhZGFjNjcwZWUxMTUxMWM1NTY5OTc2MThmMjc4MzA4Y2YzZDMzNTZjZjdlODU0NzBiNDcxMmM5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVhMGZiNTdmNjU4Njk5OTMzYzUwM2U5OWRhZTBhNDY3OTlhZjdiMDgzZjE0YzFjNzBmZjI3MDdlNWFlNmI0ZiJ9"
+        },
+        {
+          "resource": "repo://web/include/admin/adminHeader.jsp#L19-L71",
+          "version": "repo-lines-v1:sha256:3c15081f484d5aa3b0b3c9826b115bd84f3a22f11007e3e5d22b071ac071ca82:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkNzFiN2IyZmRmNjcyNTI0ZGYzNTE3NzczM2UyODVjMjEwNDUyMzRmOTZmYjMxNWY4NjM4NzdlNmMyOGU2ZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcxMWU1ZWI5NWQxMWQyZmI0MWNjMWU2M2ZiNmQwM2M4MTU3MThhNTU5NGVkMTZjNGI2OTA0NTE5MzUxNWI1NjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjZDcxNDRiOWQ2NDExYTdjMGQ4YWM1NGFkMmFiNzVjNzFjZTY0ZWJhOTA2MTdjY2U0YWFlMWJiYzU5YWMzZWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b06ce2dc51f4a1885bffec2fd41b96b",
+      "statement": "A new storefront endpoint is a @Action(\"fore<verbInCamelCase>\") method on ForeAction (the single class holding all 24 fore… endpoints), returning either \"<page>.jsp\" against a forward @Result whose location is /<page>.jsp, or \"<name>Page\" against a redirect @Result whose location carries ids as OGNL (forebuy?oiids=${oiid}, forealipay?order.id=${order.id}&total=${total}).",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L45-L66",
+          "version": "repo-lines-v1:sha256:d14a925ee0e1f7ed470184d361d9b6ee803275a0c2ca601664b913706a6730f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhkYTkzODNiNjVlZjEwYzQ2ODNhNjJmNTc0NGUzMTI0MDRhOGI3NzdmZTNjYTIxOTA4YzhkMzBiYTI5OGIwM2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwOWFiNzdlZmNmNjMwMGEyYTJiM2QzMzMyODMxNDViNTMwOTAwYTg1MWNkNjJkODY3Mzk4ZjE4Y2RkYzY3Y2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZhYTg4NzJiYTE5ZWUzMmMxMzYzYjAwZThkZGJjZmU1ZTI1MTNmMmZiYWQwYzI2YTIwYzU5MTZmNzYzOWJmNTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlhNjhhYzRkMWY5YWE4YTRiMzI1OTU0YTgzZWIzNzAyOTE4Y2NkOTUxOGNiZTI3M2JiZTBhYjg2MmNhNjQ0OTcifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L18-L338",
+          "version": "repo-lines-v1:sha256:4314a8d6e1351bf555afa433f3e3adb51065d393261f0f5be35ec8212712aa39:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI4NWQ0M2IxMDAzYTFkZmQ3YjFjMjBjNjVhOWYxNmI0M2NkMTE3YTMyZDI3NjU1M2I4ZDhiYTE0Y2I2OGY1YzdiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0ODkzZjQwZTM3ODFlYjg5NmM4MmQwNDZhMDgwNjdhMTFlMzVjZGYyZjFkZmFmMjZmZWE5MGI4ZGI2Njc2NDEzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI5NTE1ZjA2YzRjZWQ4MzBjNzY1MmI2NGQyNzcxYWVhMzgzMTEyZGZjYjRjY2I4OTk1YzcyYTg0ZTM1YjFjMTU4IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI4MGFjMDA0ZGU4ODc3MDg4NzY1ODdjZjg5ZDY1N2NhN2IwNTBhOWQxOGVlOGM2MDExMTJjMDY1Y2NiZjU1OWY1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_5520151d54cb44b890d02f95a154a706",
+      "statement": "A new storefront view is a page JSP at web/<page>.jsp holding only the page directive plus the fixed include order include/header.jsp, include/top.jsp, include/search.jsp (or include/simpleSearch.jsp), include/<domain>/<name>Page.jsp, include/footer.jsp, with the page's own markup living in the include/<domain>/ fragment named after the page it backs.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L46-L51",
+          "version": "repo-lines-v1:sha256:047898db763ce7150ae776fc200e8d111c13803dea38939bae7fecc75d39acf9:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmM4NDQ0YWNhZmZkYjFkYmU1YzAxZGZhZmU1MzIwMGIyNDZkMGQxYTRmNjFiMWMxOTQ0NTRlYzUwYzdkYWNmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODUwMDUxM2U5YmM1MzVkY2NjNzVlYWNkNjI3N2ZkNTU4NTc4N2IxY2JhODU0MTY2YzEzNDc5ODA4OWFlMTY1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzFhNDE1MDllZmZiMTVkOTQxMDgwNTM2YzhjOTNiYzBmMTY5NWZlM2NhY2UzMWYxZmFhNjI4ZWVlNmM3OTYzMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWEzOWQ1NWM0Y2U5ODc3MjQ4MWRiYTFkNjIxY2UzNTFmODdlZmE5YWI3NDk2NjI0YjA1NDQwMWFiN2U0M2JjYSJ9"
+        },
+        {
+          "resource": "repo://web/home.jsp#L11-L15",
+          "version": "repo-lines-v1:sha256:3f04255f55be17747aeb2f925fdcf3e5d8057013435268ee473678c5ce3bee1b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDIxOGEwYWIwM2RiODkyMDc3NzlmNGM1N2UyZWVmYzc0ZWY5NGVkN2Y0Njc3MGQyNGYzODZjMDFlZjk4ZTg2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI5ZjE5ZGM1ZWQyYzI0YmZjNzRlODM3MTc2MjAxZTQ4NGMyYWM1NDUwYzI2NzgzM2E3N2YxMTNlNDIwM2MwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmJmMTNmZDE5NzNmMDA0NTVhODczMzAxNTdmMGE2YmViNGQ4ZGJlNzc1MDY4ZGQwZmQyNDljMTgxZmFkMjVjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://web/include/home/homePage.jsp",
+          "version": "repo-file-v1:sha256:210526d1c72c1d87541cf9b7e7071a1f82671ddc366ba1bd59446869f2488541"
+        },
+        {
+          "resource": "repo://web/include/search.jsp",
+          "version": "repo-file-v1:sha256:dc82ddaed2844661869bb4ab67b9042c5bb0e2983aac7abdefc56ba31f21ee36"
+        }
+      ]
+    },
+    {
+      "id": "claim_a27a7ec6d1d447d885d308e34339d013",
+      "statement": "Storefront state that must survive across requests is kept in existing session attributes (user, cs, cartTotalItemNumber, orderItems) rather than in new ad-hoc attributes, which is how the cart, checkout and review flows hand data between actions.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L185-L187",
+          "version": "repo-lines-v1:sha256:999ef3f36819b67c973f78debaeaa564fc6c19a5ac28f2f8e67253416aabb06f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzVhODlhMTUxM2Y0MGMwNmRlNTNiMGI5N2ExY2M4ZjhiM2YxZTFkMjNhZWVlOWFmZDIwNjY3NWNkODMyNjRmYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDg4YjYwZGU4MjdlYTEwYjkxZWRhZDIxM2FlYTZhYmE4YThkODAwNTkxYjNhNGU3MDIzNDJkMzQwOGI2MDY0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2IzMDVkMmJmNGYzYzVjYTMwMGQ2NjQzYTQ4OGIwMzllYjRiYjhjNWE4NTAyMzA3NzNjYjc0YjVhMGJhZmQ5OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L51-L59",
+          "version": "repo-lines-v1:sha256:92fc59aeb279f18e0b0e30af1128f5f43b5245ae5fd05b16250f887cab3e3ee5:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTZhMzQ5ZDA4NzA3NjYzMjYyMmIyOGU3NGYxZmEwNDk2NmJjY2E4ZjllMjYyMmIwOWM0MzI3MGJkOTMwZDM0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODRmNzI3NjVlZmIyZDE2NGI4ZTJjNDc3NDM2YTljZWVmZjk5ZDgxNWUyZGE0OTBiYTU5MDQyYjE3NmMzYTE2YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGNlZTk2ZGE2NWYyOTllZDIxYmIyYzQxOGRiN2Q2NzFjNzhmZDdiNzRjNThlOWMzM2FkMjcwYmRkYmIwYzM0MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java#L41-L44",
+          "version": "repo-lines-v1:sha256:59992ae0b1a24b0c44b5cc242ea02677fa7652d423d3cb11b29f12176be02421:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODVlODk1ZjM2Njk4ZmJmOGViYzIyNGU0MGQ3NzcwM2Y2YTY1YmQ0ZjdlMjEwZjIxZThkODQ5MDM2ZDkyZjRiYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUyMmM0MmNkMTljNmQwM2Q4MDhjNDUyNzIwNTUyODI1YjdlYTFjNWI0OTFiMjE4NTExY2FjNzQxNWNmOWQ5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjhiZjEzZGEwNjlhZGQ1MWFlNDkyY2YzYzEzZTQ2YzI3ZDVlZDRhZGQ3MmY0Y2Y2YjEzOWRmYzI2YzRlOTQwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODY3NGNlMGM3ZjcyNTk5NzJjMjY5ZTBmNzZjMzc1NTU4NTY5Y2Y2OTU4ZWMzODk3NzhkN2UyYjFjZWM4MzEwMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_55e33212ab484420a92ff418d8e97f1d",
+      "statement": "The repository records this checkout as an SDD rehearsal on an existing project and states that the original business Java, JSPs, web.xml, directory structure and Action/Service/DAO/entity classes were left unchanged; MIGRATION.md's acceptance table (one-command start without Tomcat or MySQL, /forehome and /admin_category_list returning 200, static resources, H2 console) is the only recorded end-to-end verification evidence in the repository.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L1-L12",
+          "version": "repo-lines-v1:sha256:9769573b63992fa6249e34862b8dfb59343343571f621d9ed23a54ceb8bf123b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxZjBjNTVkZDkxNWIwYjU5N2RmOGMzZDUxZDkyZjQ2YzNhYmM3ZDE3Njk5ZTZiYjY1ODhmOGI4MmNhODA3MjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjMzljMDVkMTJjM2QxYTU0MjQxZGQxNjFlZGRjYjc4ODRiMDI5NGYyOWEzYmQ3NjkzMDkzOGNiMWFiZGYxN2EifQ"
+        },
+        {
+          "resource": "repo://MIGRATION.md#L73-L83",
+          "version": "repo-lines-v1:sha256:62f81633ea9d9c13973f1ef725d41c19bb00b762dfe95dd0b84f43ab9520f408:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyYjdjYThhZDQ2NWMxYTIwYzk5Yjg4NGYyOWYwYzVhOGZlYWM2Yzg1OGRkMzVlZjYyODc1OGY3MTYzYjNiODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5ODYzZmZhOTViYmQ3YWRjNmM4Njk0OWM1NGM5NTRkMzU2NTViYTBiZTJlNzYyMjRlYWFiNWNkMjhmYzg5NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1MGI4ODRlYTJkZmMzNmQwZmQyODdhZjYxMzg5NjFmNDlkNWE5ZmY1YWNmNjcxY2QyNzE2MDQ3NDZkODk5YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_21356bb999264a4a8384de7c21d39157",
+      "statement": "README.md's description has drifted from the current code: it states that Action4Result extends Action4Service although the code inserts Action4Parameter in between, it attributes upload handling to Action4Upload although saveWithJpg is declared on Action4Service, and it frames the runtime as Tomcat with MySQL while this checkout runs embedded Jetty with an H2 in-memory database.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L1-L12",
+          "version": "repo-lines-v1:sha256:9769573b63992fa6249e34862b8dfb59343343571f621d9ed23a54ceb8bf123b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxZjBjNTVkZDkxNWIwYjU5N2RmOGMzZDUxZDkyZjQ2YzNhYmM3ZDE3Njk5ZTZiYjY1ODhmOGI4MmNhODA3MjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjMzljMDVkMTJjM2QxYTU0MjQxZGQxNjFlZGRjYjc4ODRiMDI5NGYyOWEzYmQ3NjkzMDkzOGNiMWFiZGYxN2EifQ"
+        },
+        {
+          "resource": "repo://README.md#L1-L28",
+          "version": "repo-lines-v1:sha256:31459c9b585303338dadd150d7bdd3dcfa731243c74771f76a75a7630219dfd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlYzgyODAyOGVmMzc4N2U3ODk5MmMxYzk5MjU3NzMwMGRiYTJmMzUwMjU2MGIyOTFkMGVjNTBhMmNmODZlMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5NmU0MDY2Zjc2YmJiZjY1N2M4MjY3ZmJhNDcyZjA5OGU1ZjhhYTFkMWU3ODI2YTY4OGM3NzUzMzAyNDg3ZmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY4MDRmOTJmYmMzNzg4YWRjZTc1M2Q1YjRiYWQ0NDZlNzJhYzE1YjU4MmExNTExNGE5NmQ0ODQzNTY5ZTgzOWYifQ"
+        },
+        {
+          "resource": "repo://README.md#L316-L321",
+          "version": "repo-lines-v1:sha256:360c133c1069bc5c05abf761b928dedffdb0458d3670f5a5f410d2239d0245ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNjYWM4MGJiZmVmYjlmZjVjMTA5ZTAxYTJjMTA4NWEwZDQ0ZWE5NmNhNGQ3ZTA4YjQ3ZDQ5YzUzZDExYWJlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM2NTllYjkyNzgyOGUzMTBlZWRjNDNkY2NjNzZiYjRjNTVmY2UyZWQ5YWEwNDVlYTE2M2IwYWQ2NzljYjE4OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTNiN2Y4ZjdmNzE4Y2FkY2JmY2E2OWFiNjM0NjQ4YWMwZDYwZWNhY2ZjMmNkN2Y4Y2U3Zjg3OWVkMjI1NDc3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTgwOTRhYjNlZWY2ZWI3MmQ2MzQ0Zjk0MmRjMTMwYzg4ZmRiMTE5MWNkNTFmNTQ1ZTg1MWFkNzA0ODBkYWZiNyJ9"
+        },
+        {
+          "resource": "repo://README.md#L334-L334",
+          "version": "repo-lines-v1:sha256:ee7c283ce445cd4935e6ed8c56fd82e17dc9020763bf2f94df888022071337d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU3YzI4M2NlNDQ1Y2Q0OTM1ZTZlZDhjNTZmZDgyZTE3ZGM5MDIwNzYzYmYyZjk0ZGY4ODgwMjIwNzEzMzdkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU3YzI4M2NlNDQ1Y2Q0OTM1ZTZlZDhjNTZmZDgyZTE3ZGM5MDIwNzYzYmYyZjk0ZGY4ODgwMjIwNzEzMzdkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTljNjhjNjMyYzJiNzEzZjRlZDAyOWM5YzhkMTFhM2I2Nzc3ZjY5MTk4MGZmNTYzOGJiYTdhMzE0ODZkMzU1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAwMWE5NDg0YjE4NmE4MjhiYWI0MTMxZmMzMTM4NzQ1N2JiOTExZTA4MmRlNTM2NjUzNzc3M2M4ZmU5MzZkMCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L68-L68",
+          "version": "repo-lines-v1:sha256:3cc08a11fc076be972f5f5fb56c112cc521353f1bf4170a9503d83feb38c80f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjM4ODE2NzRiOGQ3NmIwZTJkYWIxYzQ5YTYyZjExMzc0ZjQ1ZWRiOGE4OGYzYzBiN2IwYmM4NmQ4YThiYTZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L75-L83",
+          "version": "repo-lines-v1:sha256:3bd679fbe25d8ea1546da7045308fccd778f98df7ec454bcaf890366b25d480f:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFiMjliYzM5OTUzNGVlMzQwYTExZGU4ZDYwMjYyZThjZjNhMTkwZWUxZmM5ODc1N2IwMzFiZmIxYjQxNDBjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTgzZjc5M2IyNDk4Y2E2YmVlYWJlMzkyZTBmMzI5M2I3ZDk1YWQ2MDhlMzZmOTYzZTNmNTNkMjM5YjA3ODRkZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzdmMzQzMzI0OWVjY2Q5MDkyZDYxNGZlZTU1YWI4NjNhNTM0YzI2MzRmMzI1ZTg4Mjg1ZjM4M2Q3ZGIwZTVjZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_96d019fbe4f549eb8332beafda1a5789",
+      "statement": "Nothing in the deployment descriptor gates the back office: web/WEB-INF/web.xml declares only the Struts2 and character-encoding filters mapped to /*, the Spring ContextLoaderListener and contextConfigLocation — no security-constraint, no login-config and no welcome-file list — and AuthInterceptor inspects only /fore URIs, so no admin_* URL is authenticated.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java#L37-L45",
+          "version": "repo-lines-v1:sha256:7615bb00c7050c4c48d7aef7abc0be5cbb0030c759929e2deee27182456ee309:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyNmUxYjJiNjA1Mjc4MWVlYmY4YTE1ZTQ1YjBlNTViNDUyMGFkOTFhOTA1Yjc5ZGE2ZDI1ZjVhM2M0YzYxZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUyMmM0MmNkMTljNmQwM2Q4MDhjNDUyNzIwNTUyODI1YjdlYTFjNWI0OTFiMjE4NTExY2FjNzQxNWNmOWQ5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWZmMTU0OGE4YjA5ODc2ODlmNTAxNmNlYjg0MTFmODllODI2OGJlOWE2ZTYwODVmMWY4ZDI4YTkwNzZjZDk1NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmU5MjBhNjBjMWRmYThiOTRhMDdkMWNiMzUwNzQyMzY2NDM0ZGUzZDhhOTU2MjAxNDJjM2I2NjhhZjJhM2IzZSJ9"
+        },
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L6-L40",
+          "version": "repo-lines-v1:sha256:c0697e4fd60eea233884f7723002e51b75b986fd9d1d577638e6db8cb7288b95:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzY2FkZmM0ZDgyZTVkZWRjMmJhOTQ0NWU0ODhkYTc5NWJhNzdlODVlMzNiNzdiZDI5OTIxYjhmMGY0NGVjMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWNhMjcwNmVhYzhjMzZmNjY4MDg1NzliMTVmMTU5NzdhMzczZTRhZWUwNTQ4OGVhZmEzZjMxNTc3NDU0ZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZmZWM4ZTdlZDc3ZGZjZjRiNTBkZWVjODdkMWU3M2VmOTVlMTM3NjMxMjdhMjNjNWJhZDA3YmY2OGZlYWVmNTkifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.0",
+    "at": "2026-09-25T05:09:04.985Z"
+  }
+}

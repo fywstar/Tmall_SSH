@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f33d56f3b4d5e83c4806398282e31870dff8a28309d804d5d3b80035f557ee23",
+  "claims": [
+    {
+      "id": "claim_e6c15453da814b708da3bbbd5428b469",
+      "statement": "Tmall_SSH boot configuration is four XML files (web/WEB-INF/web.xml, src/applicationContext.xml, src/struts.xml, src/log4j2.xml) plus static final constants in src/StartJetty.java and the web/WEB-INF/lib jar directory; no build descriptor or CI workflow exists, and no configuration value is read from environment variables or system properties, so file locations and constant values are the entire configuration mechanism.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L13-L24",
+          "version": "repo-lines-v1:sha256:1ed7cc18705ea339ac8c463a505ab441c29d30cf1f9202bd39b5ef56ae01e730:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNTE1N2ZjMjZlODlhN2M4MWUxYmZjMzk5ZTZjNmUwMzI2Y2NiMjFlNjA2YjkyODA4NjMxOWIzY2JkMGI4NTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwMjRlYjc5ZTYwOWE3MmRlMmMxYzA5Y2I4MjM4YTdlZGQwNDFlNTYyNjhjZTY3NTkxNGMxNjYxNTU0Yjk4NmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUxYThkMGQzNDVjYzUyZDU5YmI5YWM4MjNjYzgzNDRhZTIyYTFmYTE0NDE4YjhhNWI2NjkzMGZkZGFlYTVjZTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmYTdmMzI3Njk0NGZlYWMzMzU4NmE2ZWQ5N2U5YTgzNjAzOThlMTAzOGU0YzhiYzlhMWE3OGJiMzdhOWM2YTUifQ"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L208-L213",
+          "version": "repo-lines-v1:sha256:62ba3feb738d847737b3bcf0a46331853dbb472f61f9b4e71924672fa1998a9f:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZjOGIzYThjYzk2Y2RiMTJmMmUzOTQ2N2M1ODUxMTE4ZTcyNmQzOTlkYmEzMDUyNzA5MWQ3NWUwNzE5ZTU5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTk5YmRlZmVlYWNhNjM0MGUwMjkwZGM4NmU4ODljODlkNWUxODlhYTViYTQ0YjU4NWIzYjcwNzM0ZjRhNjJkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzIwYTM0M2U1NGQ2YmMwYWE2ZWJlZTdmMjY1NDk2ZjAwNGI2NjI5Yzc1YjJkZDdlMzAzMDMwNDNlOWYyYWM0NSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L49-L51",
+          "version": "repo-lines-v1:sha256:ece8e81ad8bca9c43903ca1f8be7df36ab5886a923ec302ac5629a25415b2374:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQyNTBlNGExMGQxZGFiMTAxMDRjNWY2M2VjNTg2N2FjZjhjNDA5ZGM3ZmIwYTQxZjc5OTI4YzNiMTMxZmFjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5Y2ZhYWRkNjc1ZTgyNTFmNzdkNGU3YWM0NDcyNzhiMDA0ZmI5YWIzODlmNDBiMWIzODI1N2MzOWFiNzc1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGRhYjgxMzU4MzlkOTA4MTNhZjFlMDBiMmJkYjY3ODg4ZWRhNTNiYmI3ZTVhMTU0MjRiYjY0YjRiODAyYTQ4OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdlYTkxNzVmMjc0ZGE5YTUyMmNhOTI2ZmIyOGQ1YzBiNzc2MWNhZDJjMmQ0YThmYTVjOWNiMjc2NTVjZmZmMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f75c3d10fd9940c3bad80424ae159d73",
+      "statement": "web/WEB-INF/web.xml declares only two /* filters, the Spring context-param and the ContextLoaderListener; it contains no servlet, welcome-file-list, session-config or security constraint, and no other deployment descriptor (struts-*.xml, context.xml) exists under web/WEB-INF/.",
+      "evidence": [
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L6-L39",
+          "version": "repo-lines-v1:sha256:08955ce474039ad7fcf5d67843f6a96362f80a9275811939827b5a8068505e33:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzY2FkZmM0ZDgyZTVkZWRjMmJhOTQ0NWU0ODhkYTc5NWJhNzdlODVlMzNiNzdiZDI5OTIxYjhmMGY0NGVjMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhNTRiZmI0MWZiZDYzYmU4YzkzNTJhYmMxMmMyYTcxNzE0OTAyZjk0ZDBmMGQ5YTQyZDc4MjBhNzZkNDJhN2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWNhMjcwNmVhYzhjMzZmNjY4MDg1NzliMTVmMTU5NzdhMzczZTRhZWUwNTQ4OGVhZmEzZjMxNTc3NDU0ZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZkNTE4ZDI1YTJkYjVmYzZmYzk3MGIzOTU0ODY5MGI5OTVhMmZlZmVkOWI5MGI1NGE0ZjhmMmRjOTUwNTQ5MTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b312ff223d044b89af05c5d310447e57",
+      "statement": "The struts2 filter (org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter, init-param contextConfigLocation=classpath:struts.xml, no dispatcher element) is declared before encodingFilter (CharacterEncodingFilter, encoding=UTF-8); both are mapped to /*, so the Struts filter is the outer filter for a matched request.",
+      "evidence": [
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L6-L30",
+          "version": "repo-lines-v1:sha256:fe7a96fac87e6b405f04424c77a3feb0d43a43ed7ce1151a512fcf03a65376e7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzY2FkZmM0ZDgyZTVkZWRjMmJhOTQ0NWU0ODhkYTc5NWJhNzdlODVlMzNiNzdiZDI5OTIxYjhmMGY0NGVjMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZGE0NTA2ZGIyMjI0ZDhlNDgxMmZiNDRjNDdiNDdlYzBjNGMyMTQwMDYwNGZiNWIwYjljYWMyM2JkMzEyNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWNhMjcwNmVhYzhjMzZmNjY4MDg1NzliMTVmMTU5NzdhMzczZTRhZWUwNTQ4OGVhZmEzZjMxNTc3NDU0ZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkZjgxYWYwNmQ3NjZlOGYzMTI0MDRmZWUwMDMyOGY0ZDQ2NTBkYWU5ZmUwZGI5ZDY1YWI2NTEwNjI4OGQzYTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_97f2a10faf1f497fb40b845db32e710c",
+      "statement": "The Spring root web application context is created during web-app startup by ContextLoaderListener from context-param classpath:applicationContext.xml, so the datasource, the seed-script runner dbInit, the SessionFactory sf and transactionManager are all built at startup rather than on first request.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L19-L72",
+          "version": "repo-lines-v1:sha256:5fdeae727c2cc7d2eb606f78ab1dc1982ddbebd5eb0b8bcaebbf01106a5cfec1:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiYmI4ZTVjM2RlYjIxYjU1M2YxMWRiYzAzNTk1YjIwYjk5MTgxYjJiYTE5NzZlZjViMTU0YmMyODM0ODJlM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczYWVhMGRhMzRiMTcxNzFmNzk1NDhkZjFlNjAwYTNlYWQxMzRlYjBmMzFkZmU5YjAxNmY1NjU2MDJmNDUzYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiY2IyM2M2NzMxMmE4OThhYjVhZDJlZjUwN2Q3NmZlYTEwYzNlZTk3ZDgzMDNiZWRlYTczYmQ0MTQyMjQ1NjUifQ"
+        },
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L32-L39",
+          "version": "repo-lines-v1:sha256:f12f23a915dc1e675bdd721722ecd970fe3a7183be56116f787b9946dcb5ce3b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2NmYjE5OTNlNmQ5NzQ2OTIwZTE1MmI5ZTlkNzdlOWM1ZTc1YTU2NGRhMWIwNjc0MjJmN2VhZDljM2ZmOTg1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE1NGJmYjQxZmJkNjNiZThjOTM1MmFiYzEyYzJhNzE3MTQ5MDJmOTRkMGYwZDlhNDJkNzgyMGE3NmQ0MmE3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjE0ZmFhODEzMmU4ODAzZGY4ZDUxZjg3MzU0NGI2YWNlMTI0ZGVlMTVlOTQ1Mjg1N2Y3MzZlOTRmYWIwZWNlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQ1MThkMjVhMmRiNWZjNmZjOTcwYjM5NTQ4NjkwYjk5NWEyZmVmZWQ5YjkwYjU0YTRmOGYyZGM5NTA1NDkxNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb914673d2b048d5ba4e6d2e33562f7b",
+      "statement": "src/applicationContext.xml defines four XML beans: ds (DriverManagerDataSource, org.h2.Driver, jdbc:h2:mem:tmall_ssh;MODE=MySQL;DB_CLOSE_DELAY=-1, user sa, empty password), dbInit (DataSourceInitializer with a ResourceDatabasePopulator using sqlScriptEncoding UTF-8 and script classpath:sql/tmall_ssh_h2.sql), sf (LocalSessionFactoryBean with depends-on=dbInit, dataSource ds, packagesToScan com.caozhihu.*, H2Dialect, show_sql=false, hbm2ddl.auto=none) and transactionManager (HibernateTransactionManager over sf).",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L19-L72",
+          "version": "repo-lines-v1:sha256:5fdeae727c2cc7d2eb606f78ab1dc1982ddbebd5eb0b8bcaebbf01106a5cfec1:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiYmI4ZTVjM2RlYjIxYjU1M2YxMWRiYzAzNTk1YjIwYjk5MTgxYjJiYTE5NzZlZjViMTU0YmMyODM0ODJlM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczYWVhMGRhMzRiMTcxNzFmNzk1NDhkZjFlNjAwYTNlYWQxMzRlYjBmMzFkZmU5YjAxNmY1NjU2MDJmNDUzYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiY2IyM2M2NzMxMmE4OThhYjVhZDJlZjUwN2Q3NmZlYTEwYzNlZTk3ZDgzMDNiZWRlYTczYmQ0MTQyMjQ1NjUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f52dd69d6a14e62b7a59f9df439d6c8",
+      "statement": "Three declarations in src/applicationContext.xml enable the annotation-based wiring the Java code relies on: context:annotation-config, context:component-scan base-package=\"com.caozhihu.tmall.*\", and tx:annotation-driven transaction-manager=\"transactionManager\"; removing the component scan stops creation of the @Service/@Repository beans and the @Resource/@Autowired injections that depend on them.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L14-L17",
+          "version": "repo-lines-v1:sha256:ee8a7652a8a8ead49b9337841be0724df23e6006832acfbbd6afa351b7f9c371:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ5MjcxZmMzZDg2ZGU1Zjk4NTljMTYyZGI4NjNhNzhhY2U3YTRmODQ2ZjBmMDMyNWQ2ZDJhZTI5ODlhM2MzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJmMGM0MWU3Mjc2ZTdkYzRmZGM5YTA2MjRlYWYyNGZjMzJjNjY0OGRlOTlhZTQ0ZjE0YjUxMGQ4ZDY2MDU5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzE3YTdiNmY0ZTNhYjc3ODYyOGExZjE1ZDI3ZjYxMzUzZDg4NTk2YTk3ZDEyZjE5ZTAyN2UxMTAxZDVjMDEyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MzM2NkOTI5Yjc0M2QzOGIyMGIxNGE1ZDIzZWI4YTMwYmFkYTg3ZWY4NDE2M2M2ZWE3OTk5YzY0NjVkY2ZkNCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/dao/impl/DAOImpl.java#L10-L18",
+          "version": "repo-lines-v1:sha256:f8ffb60c5ef7cdf58d0ec8416a55575f8d8d7fc6c7d84e25877018e3da182b8c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjYwZTkyOWFjZjUxZjNlM2ZmMWMyZDEzOWIwN2UyNmU4YzJhMTc4ZWQ3MmZhMjlkNDdlYjIxMTBhZTM1OWU1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDFjMDlkYmZhOGMyNGFmNjZlNWFmNWYyMDIwYjAxNjkzYmQ0YTQ3ZTY5OWEzNGU2YWNhNDI0NmIyMzVkMjk5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java#L24-L30",
+          "version": "repo-lines-v1:sha256:82903b74098efe7af40995063ec9361f659417e9074e0cf68fb82d407adca9ae:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU5MTAyMzliMmU5Y2ZiMWU3ZTg0YzkyYWY3N2I3NDc3NDNiNWQxYjA2MDRiNDM3Y2RlYWY3NDA4YmMyYjkyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjQ2ZGZiZTZmOGU1Njc1ZTUwYzYyZTc5OTViNDAwOTM5OGY5Y2U3MDJmNmZiYmU0NjY1ZGM1Njg5YjhhNzNlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmU1NTAzZTFlZTBjZWI4M2FkNDcyYjllN2E2MjJhMmFlYzExY2NmM2QzNWM2YTM1OWVkYWMxNDU1MDEwYTFkOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4475fbba8a8e46fcac08f0b0c6cec9b7",
+      "statement": "The XML bean names that other declarations or Java code depend on by string are ds and dbInit (referenced inside the same file by ref=\"ds\" twice and depends-on=\"dbInit\"), transactionManager (referenced by the transaction-manager attribute of tx:annotation-driven), and sf (referenced from Java as @Resource(name = \"sf\") in DAOImpl and ServiceDelegateDAO).",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L17-L17",
+          "version": "repo-lines-v1:sha256:abf0c41e7276e7dc4fdc9a0624eaf24fc32c6648de99ae44f14b510d8d66059d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJmMGM0MWU3Mjc2ZTdkYzRmZGM5YTA2MjRlYWYyNGZjMzJjNjY0OGRlOTlhZTQ0ZjE0YjUxMGQ4ZDY2MDU5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWJmMGM0MWU3Mjc2ZTdkYzRmZGM5YTA2MjRlYWYyNGZjMzJjNjY0OGRlOTlhZTQ0ZjE0YjUxMGQ4ZDY2MDU5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI2YWQ4OGU0ZjVlYzY5YTgyMTlmZDljMmM2NWZlNzA3ODM5ZWFhY2NhZGFlOTBiZjJlNDcxMGJlZjQzNTU1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MzM2NkOTI5Yjc0M2QzOGIyMGIxNGE1ZDIzZWI4YTMwYmFkYTg3ZWY4NDE2M2M2ZWE3OTk5YzY0NjVkY2ZkNCJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L33-L33",
+          "version": "repo-lines-v1:sha256:5a85f57707bcbcb048a94adbf6c845142c611b9474858caa615d7e45d32b448b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE4NWY1NzcwN2JjYmNiMDQ4YTk0YWRiZjZjODQ1MTQyYzYxMWI5NDc0ODU4Y2FhNjE1ZDdlNDVkMzJiNDQ4YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE4NWY1NzcwN2JjYmNiMDQ4YTk0YWRiZjZjODQ1MTQyYzYxMWI5NDc0ODU4Y2FhNjE1ZDdlNDVkMzJiNDQ4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4OWU5OTUxNWJjNTRmZjU0YjQ1MjAzODUzMGNmNDc2Mzg1N2UwZWM2ZjVlMGQ4Zjc0YmUxNDNiZjE5N2E4NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzRhYjE5ZjJjMTA4NWNhNDMzYTVkMjYxNDVlNTZkYTM2ZjUxZDYwMzY5NjM3YzRhZDgwYTI2MjdmMTM1YmE5YiJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L47-L47",
+          "version": "repo-lines-v1:sha256:f3614d69cc68dc28abba81fa0d2b6c1a4cd9475175cc582d43e365e6e6b000a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM2MTRkNjljYzY4ZGMyOGFiYmE4MWZhMGQyYjZjMWE0Y2Q5NDc1MTc1Y2M1ODJkNDNlMzY1ZTZlNmIwMDBhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM2MTRkNjljYzY4ZGMyOGFiYmE4MWZhMGQyYjZjMWE0Y2Q5NDc1MTc1Y2M1ODJkNDNlMzY1ZTZlNmIwMDBhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDBjNjc5YTQxY2QxNjZhMzZiYmFlOWIxM2QxNjQyOWY5NjZkZGNmMmM2MDExOTYyZTEyOTFhOTkxNjk4OTU4ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmI4ZmRkMTVhYTM2YzI4Y2YwNzcyMmI5OTVlNjEzMTliOWQ4NTNlODY2Yzg5Njk5OWFhMWE1M2JmZjQ2ODFmNyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/dao/impl/DAOImpl.java#L14-L14",
+          "version": "repo-lines-v1:sha256:25b535c1bea30f28404138e30f421d7f552bdee455e126e86fdb1366d6ea3901:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjViNTM1YzFiZWEzMGYyODQwNDEzOGUzMGY0MjFkN2Y1NTJiZGVlNDU1ZTEyNmU4NmZkYjEzNjZkNmVhMzkwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjViNTM1YzFiZWEzMGYyODQwNDEzOGUzMGY0MjFkN2Y1NTJiZGVlNDU1ZTEyNmU4NmZkYjEzNjZkNmVhMzkwMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDI4MzM0OGY0YzM0YjhkZjQ4YjJmN2RhMTQ3ZTEwOTQxMmNlNzdhZDk4NGUxZWYyZWJhNTNiYmFlNDRlY2I5NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTEzMzk2MWI4ZWE3ZmEzNzE5MWFmYzA3NTgxMzExOTcxYjk0N2Q3MTcxYjIyNDQ4ZWM1MGYzOGE2NjdlMTk2NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java#L24-L30",
+          "version": "repo-lines-v1:sha256:82903b74098efe7af40995063ec9361f659417e9074e0cf68fb82d407adca9ae:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU5MTAyMzliMmU5Y2ZiMWU3ZTg0YzkyYWY3N2I3NDc3NDNiNWQxYjA2MDRiNDM3Y2RlYWY3NDA4YmMyYjkyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjQ2ZGZiZTZmOGU1Njc1ZTUwYzYyZTc5OTViNDAwOTM5OGY5Y2U3MDJmNmZiYmU0NjY1ZGM1Njg5YjhhNzNlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmU1NTAzZTFlZTBjZWI4M2FkNDcyYjllN2E2MjJhMmFlYzExY2NmM2QzNWM2YTM1OWVkYWMxNDU1MDEwYTFkOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_df25cfde7d3149d3aff8e1e69ec6943b",
+      "statement": "The bean named dao is not declared in any XML: it is the @Repository(\"dao\") component DAOImpl, which extends HibernateTemplate and receives the SessionFactory through its overridden setSessionFactory annotated @Resource(name = \"sf\") — the path by which the service layer obtains Hibernate access.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/dao/impl/DAOImpl.java#L9-L18",
+          "version": "repo-lines-v1:sha256:19b117985b8e5683e74faf365893c67b3a4deb8665b468c4883e4c1a7e0b0bf8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4NjFkNjJhMDhjMDAyNmJkNzQ0MWNiZjJhNmJhYzRmMDY5MDg5MWU1OGRhOTE0NzE4NzY4ZDg5YmRlMmQ1NDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1NDIwZDNmMjlhZjQ3N2ZlNjg4NDFhYzk2MjkwYTcwM2IxMGQ5NzYxYzIzM2E4MGE1YmQ4ZDEzZjkwNGJjMDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java#L21-L30",
+          "version": "repo-lines-v1:sha256:c6123cb078000dba4a31f6f414807731bb10fbbb694a8102f9a5688bbab8b594:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyZGZlYWUwZDQwZDIyNmFjN2NlNjE0ZGE0YmJhMGU0MmRiNzEyY2NiYTAxMmIxNTliM2Y2ZjRjMDhlMDEzNDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2YzBhODZmYWFmMjMwMWM3YzkyOTk1NTJiYWI3ZTM4MzFiMzUxNTY0ZTQ3NGM5MzI0NTAzNWI1OGJkYzE3M2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZlNTUwM2UxZWUwY2ViODNhZDQ3MmI5ZTdhNjIyYTJhZWMxMWNjZjNkMzVjNmEzNTllZGFjMTQ1NTAxMGExZDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1061f70074fe47a18ea4377f67c1e088",
+      "statement": "The H2 conversion of src/applicationContext.xml is annotated with the literal markers 【H2改造-1】(ds), 【H2改造-2】(dbInit) and 【H2改造-3】(sf), and the original MySQL configuration — a second sf using MySQL5Dialect with hbm2ddl.auto=update and a second ds using com.mysql.cj.jdbc.Driver on jdbc:mysql://localhost:3306/tmall_ssh?characterEncoding=UTF-8 with root/admin — is retained as an XML comment at the tail of the file; switching back means commenting the three H2 blocks and uncommenting that block, and mysql-connector-java-8.0.13.jar is already vendored in web/WEB-INF/lib.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L36-L42",
+          "version": "repo-lines-v1:sha256:849351bc86f7a0ca99f128836089837664f4a5ad8a8523d7f2570cb61191d88c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmI0ZWE1ODlmNzcxNzY3NWI3OWFmNjIzZDk0OTI3ZjdhNzU0OTJiY2ZkNjQwOWE1YzhiNDI0Y2EyOWUzOGE5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGFiYzIyNjZiOGRhMjA1MDNhYjFkZGZiOGE1Y2YzYmE4M2RmYjBmNzUxMjgwYmU5MzE3MmRlMDVlOGI2ZmIxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY1NjQ4ZGZiMjM3MzI1ZjRhNzA2N2I2OWJiMTk5MjYxMDBhODQwZjZmZjA1MmFmNDgyZDdhOGY2Njk3MDU3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzM0ODdjYTM3MTg4ZjM0NWZiZGYyNjM3MTZlYTU5MjZlOTI0ZjFjOTMzZjM4ZmYwMmJlMjBmZThmNGUwODg0OSJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L19-L44",
+          "version": "repo-lines-v1:sha256:bd387aeb5818f1bc26b5d3b455f05e6d757e8c50f04b22f591c9a8791539a502:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiYmI4ZTVjM2RlYjIxYjU1M2YxMWRiYzAzNTk1YjIwYjk5MTgxYjJiYTE5NzZlZjViMTU0YmMyODM0ODJlM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczYWVhMGRhMzRiMTcxNzFmNzk1NDhkZjFlNjAwYTNlYWQxMzRlYjBmMzFkZmU5YjAxNmY1NjU2MDJmNDUzYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMzI5NmUzY2I3MzQ2OTk0ZDQxYzdmODllMzdhOTUxZjBmMmU3NDdmNDIyMjM5ODEwNGRiMmNjMzcxODNhMjcifQ"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L74-L101",
+          "version": "repo-lines-v1:sha256:8c038e1eeddace1cde84619886da8d0ded0547145872df88cab017c7dc32ebd9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExZGJmZDJmZThiYjBlMjQ4YmM5MzE2YmU2ZWQ5NjBkNTJmMjlmMzcxZDMzZTEyZTIyNDJjYTFjYTNlMTM2NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2NGY5MTdkOTAwNTY0MTZiMTQ5ZTk4YWNjMDY2MTBkZTg1ZTZlNTI1OTBmNmVmYzI0NjllNDI4YWI0ZDZlODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmODk2YjBlYWRjZTVmYmYxNjRkMWI0NDFmZDAyNWU2MzhhNWZiNGJkODY3Y2JkZWIyYzA2MGYyYmQ3ZTY2NTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhOWNiMGRiZDBhZDVjOTg2MWVkZDY1ODM2ZmZmYmFkOTczZTQwZDU4NzkzNDM3NmVmMDVjM2I5MGYyZmVmNWYifQ"
+        },
+        {
+          "resource": "repo://web/WEB-INF/lib/mysql-connector-java-8.0.13.jar",
+          "version": "repo-file-v1:sha256:9e09ae0752f510b199c0b4f47991b4299f8a08c079100d8ea27b9359606e3358"
+        }
+      ]
+    },
+    {
+      "id": "claim_c399432019b24fb6868aa538ca08a2c3",
+      "statement": "The MySQL switch-back removes dbInit entirely (it sits inside 【H2改造-2】), so the MySQL path relies on Hibernate hbm2ddl.auto=update to create and evolve the schema, while transactionManager survives the swap because it is declared outside the three 【H2改造】 blocks and still references sf.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L29-L44",
+          "version": "repo-lines-v1:sha256:eba29ce9057be2413e00fd00d089d483c780c9dbd64c4be66c0d1c77aac9706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzYTJkZWVmZDA2ZTkzZjA5Mzg0NTE3MWNjNjM1MGM3OGE1ZWE1YjM2MjlkYTk4NTVjOWI3NTNiZWZhNjU4NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YjJlYTM2ZTIxMGZjMTEwMjc3OWUyMDc4ODVmOTc5MTJkZDA4NjZiYTAxNWQxYmVlZmNkNjRjZDczYzA2ZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMzI5NmUzY2I3MzQ2OTk0ZDQxYzdmODllMzdhOTUxZjBmMmU3NDdmNDIyMjM5ODEwNGRiMmNjMzcxODNhMjcifQ"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L47-L66",
+          "version": "repo-lines-v1:sha256:ae0e6bb30495f1857b54d9b12d376e809476512b7ce1f70c2ea6a2d5410a1927:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzNjE0ZDY5Y2M2OGRjMjhhYmJhODFmYTBkMmI2YzFhNGNkOTQ3NTE3NWNjNTgyZDQzZTM2NWU2ZTZiMDAwYTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwYzY3OWE0MWNkMTY2YTM2YmJhZTliMTNkMTY0MjlmOTY2ZGRjZjJjNjAxMTk2MmUxMjkxYTk5MTY5ODk1OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNjQ1NjgwMzNiMTQzYmZkZjg5NGU3ZGY3MDZkNjg4OWVhOTc1NGVhYzljZDQzMTI1Zjk2ODk2ZWM2NTkzYjQifQ"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L69-L72",
+          "version": "repo-lines-v1:sha256:6aa2c5dea43e84af4cfb046f778ce6d8d736eb789aca5a0448426546ce16fda3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzdiOWY5ZDA0NTY2NjBhZGM1M2U5YzNhOTMyM2ZkYjk2MDQyZDNkZWY1MjY4MTRkYWFlZTViOGFhZjIwZTIxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2RlMzkzYTM2MDMzMGViNmFiZmI0NjkzOWJiYjk4YjY0M2M2YTJhMzkyMjhlZWM0ZmMyMjAwYjNmNmRkOTM2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY3Yzc5Mjg1MTA0YWQ0ZjA0ODUwZWYzMGIzYjYyNDk1Mjg4NzlhY2I3Mzc1MzQxMjM3ZDFlNDA0MDdhYjdjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmJjYjIzYzY3MzEyYTg5OGFiNWFkMmVmNTA3ZDc2ZmVhMTBjM2VlOTdkODMwM2JlZGVhNzNiZDQxNDIyNDU2NSJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L74-L101",
+          "version": "repo-lines-v1:sha256:8c038e1eeddace1cde84619886da8d0ded0547145872df88cab017c7dc32ebd9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExZGJmZDJmZThiYjBlMjQ4YmM5MzE2YmU2ZWQ5NjBkNTJmMjlmMzcxZDMzZTEyZTIyNDJjYTFjYTNlMTM2NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2NGY5MTdkOTAwNTY0MTZiMTQ5ZTk4YWNjMDY2MTBkZTg1ZTZlNTI1OTBmNmVmYzI0NjllNDI4YWI0ZDZlODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmODk2YjBlYWRjZTVmYmYxNjRkMWI0NDFmZDAyNWU2MzhhNWZiNGJkODY3Y2JkZWIyYzA2MGYyYmQ3ZTY2NTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhOWNiMGRiZDBhZDVjOTg2MWVkZDY1ODM2ZmZmYmFkOTczZTQwZDU4NzkzNDM3NmVmMDVjM2I5MGYyZmVmNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_76fdcf9344304bbdb6edf42b8db0f067",
+      "statement": "MIGRATION.md records the hard constraint that the embedded-Jetty/H2 conversion changed the 53 original business Java files, the JSPs, web.xml, the directory structure and the Action/Service/DAO/entity classes by zero lines, and upgraded no framework version (Spring 4.3.18.RELEASE, Struts2 2.5.14.1, Hibernate 5.3.7.Final, Jetty 9.4.x, H2 1.4.x).",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L7-L11",
+          "version": "repo-lines-v1:sha256:080e3bf3327094ae07e31798ea3277df8317b77fa9de73ffd89b606e83f4b77f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzZlM2Q2MDM3MDczZTYxMDBjOTRmMTI0ZWI0ZjdiNjlmYzVlOTExMDhlYTA3MjBkODRjM2ZmMmNhNzMyZTRjOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTIxMjgwZTA0MmUyOTFlYjk1M2E4ZTU2MDgwZGE3OTUzNGI0OTZiYjJiMTM3NzkyZDExNjM4Y2RmYzAzYzIxYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzNkNGYzZjVkOWM1YTNhMDdlZGI2N2YxMTZjMTBmODkwZDQxOTFlMGI1YzBjYjU4ZDIyYTMwODJiYjk0OTliNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWRjYTk3ZjU5ZjY4ZjQyZjRiZTQ2MjZhZThhYTY5ZDAzZjNmODI3YWNlNTEwNDExNDFhNjI5MTQwNTk5OWU2NCJ9"
+        },
+        {
+          "resource": "repo://MIGRATION.md#L9-L11",
+          "version": "repo-lines-v1:sha256:3bbcdeb98aadedc8a1b3f10ef0d4b1d301e6fe0afb36dc000950f71ec6e90dc7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDJkZmEyZGVlYjJiNGM0NTgyYzlmYTA3MjRlZDNkNTNmMDE0MGJiMjc5YTMyMjJmYWVmYWNlYWMzZjA4ZTlhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTIxMjgwZTA0MmUyOTFlYjk1M2E4ZTU2MDgwZGE3OTUzNGI0OTZiYjJiMTM3NzkyZDExNjM4Y2RmYzAzYzIxYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDBmMTE3NDdkYmI1NWZlZTJiMDYyOTZmOGQzYjMxZTIyMDRiY2QxOTZkYzg3MDFiM2VlNzcxMmE3MDAwM2VjZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWRjYTk3ZjU5ZjY4ZjQyZjRiZTQ2MjZhZThhYTY5ZDAzZjNmODI3YWNlNTEwNDExNDFhNjI5MTQwNTk5OWU2NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5eff45a1308e48d0914ae9dbea60ad12",
+      "statement": "hibernate.hbm2ddl.auto was changed from update to none so that the seed script classpath:sql/tmall_ssh_h2.sql is the sole owner of the schema; with update, Hibernate added entity-derived foreign keys (such as propertyvalue.pid) to a schema that never had them and the retained demo rows violated them.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L64-L71",
+          "version": "repo-lines-v1:sha256:b83bd74cae9333631dbbc7071eea2900fa63084e6ebb77c9243d5f7baf64fb43:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE2ZDZjMDkyYzBjYWY4NjE5YWRhNzZlM2Y5ZGExODFkNWU5MDdkMDMyZGMzNjc1M2Y2YzRhNjNjYTY2ZGRhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDU2M2Y5Zjg0MmQ1OGZkYzY5NDI5MjBhMTYyZWUyMTU4OWU0NjI4ZGI4ZTMxOGExOTU3YWYzMDNiMGVhZTlmNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2FlN2UwYzRmZDA3NGRmMGViOTEwNjEyMWE0NTIxZTc0MmM4MWU3MDgzMjI4MmI3ZDMwZTZlMGMyNDE3YjdlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODUyNzhhYTNlZTQ5ZDM3NGMzOTExYjcxMDIzODhlNWE3ZDk1M2JkNTQxNTJiMTk0YzhhMWFjZGU2OTMxNWYzZiJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L56-L64",
+          "version": "repo-lines-v1:sha256:2001d9341fe3e733e5363e1e9903e0c88582cf5da3f86030025130e9ee810b53:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2YwNDNjMDU0ZDk0MDg1ZWYxODZmZjdlMDliMTFhODkxYmFkMGVkMzI2MDZlZmYwZDFkZmNiNzQ3NzJhMjZhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDk1NmMxYjJhNDI4NDRmYTcwNzViNzAxOWQ0NmU3OWM4MDViZTMwMzYwOGFkZTE3YWRiZWI2ZDEyZDA0MjJjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTllOWVkNGJhNWQ2NTU3ZTg1OTQzOGI3Yzk4OGMxODM5NjlhZDE5YTRmYWI2NDZhZTM2MjhlNTFlMTZhNjE4NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmQ4MjI0OTk2Yzg3OWZmNzJlNzFhMGU5NDJlOWQxMDUyYWI2OTY2N2FiMDM4Y2ZkMmRmZmE3OTQyZjEyZmE0MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_07b28838e1c44fc998a52dac3bd8f933",
+      "statement": "src/struts.xml contains only two constants (struts.i18n.encoding=UTF-8, struts.objectFactory=spring) and the package basicstruts extending struts-default, which declares three named interceptors (authorityInterceptor, categoryNamesBelowSearchInterceptor, cartTotalItemNumberInterceptor), the interceptor-stack auth-dafault composed of those three followed by defaultStack, and default-interceptor-ref auth-dafault; it declares no <action>, <include>, <result-types> or <global-results> element, so URL mapping lives only in the @Action annotations.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L8-L9",
+          "version": "repo-lines-v1:sha256:f9ec1552e7f429c30a0f6de3e2f96e6e49d82dd336931fc16665a277f36a92c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA1MzMzMDFhYWQ0MzBmMGMxNTdhNDNlNTU2NDA5YzMyMjVjN2QxMDg5YmQzNTcwODY0YWU4NjM0YmJiZjdmMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjRjZGJkYjMyMTE3ZGMwNjM0ODNkOWYzYjE2YWZjOGIzYjMzYzc1NjQzODhiYTQyYWVhNDY3NmM0MGY4NzI0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZThhYTQxMjllZGM0MmM5YjgxMGRmM2ExOTNjNThhYzY2M2M2YWFhM2ZmODlhNjY1YWIyMTE2NmJlOWYwNDFkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWEzNTIwZGU1ZWVhMzM2NmQwOGUzZmNkZGFmZjhmOTIyODViZDJhMjRiMzY2MDQwZjIwNTI4Nzk1N2U5YWY4ZSJ9"
+        },
+        {
+          "resource": "repo://src/struts.xml#L7-L26",
+          "version": "repo-lines-v1:sha256:3814dd25de2fac3fbd8077962d2716a3b5c6836d4e9cc22ca785bc43faee0f4e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIxNGE3YmQ3NTgwYTI5YjcwNDA5ZjczMTM1OGQwZDcxMDM4ODllMTQ2NGMyOGIwYmU3OGUzNDdlN2VmNGQ3NTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNWJjNzI3MDhiZDYzNWViZWQ5NWM4ODliYjQ5Y2Q1M2RlZDM0MWU2OGZmNzJjNjZlNWMwNWRlMGUxNDcwMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiNjI2ZjM0NGMxN2VkNmI5Y2QwN2U3Mzg1N2RkYWI4MzZhMjk3MGU5ZGUyYWZhNmI3MTk3NWJiZmZkNjZjOGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2ZWNjNTllYjYxNzJmZTNjMjM0MGY4MDdiM2U5ZDc4NWI1ZjRiNjM5MDYwYzdkZjY5MzJjY2ExYjNkYmYwMzMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_639021d48a4d4501a709f17c1a0f2c27",
+      "statement": "struts.objectFactory=spring (with web/WEB-INF/lib/struts2-spring-plugin-2.5.14.1.jar on the webapp classpath) is what delegates Struts object creation to Spring, and it is therefore the reason the interceptor classes and action classes — none of which is a Spring component — get their @Autowired collaborators populated.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Service.java#L15-L20",
+          "version": "repo-lines-v1:sha256:33fec85003f015551b795cbaa9a7ecaed5775e204ee986d01717d6b2bfe2f227:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhmYTFlOWY0NDk0OWZhODlhM2I0MmIwNDkyZGRiZGZmYTJlYjc2NDg0OGQzNTc3OGM5ZmI1M2MyMDdlYmRiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmRlYjViMmVkYWMyYTAxMzE3Yzg2NWVlMjkzNDBhMjI2YjQ0OTM2NzkyZTA5Y2Q5N2Y3MjQ0M2NmZTViNDE0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTEwMzMyNWM4MGFmZjI5MTcwZjU5M2FhMDNhZjA4OGMxODE1ZmFlYTNmNmRhZjBmYzc3NzE0NjFlZDUzMzM5MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjMwZTUzYjhjNWQxODZlZDUwYzE1NzA3YWFkM2Y0OGQzMTE0ZTgxMTc2M2U5OThkMzBiZmI0ZTRiZGUzNzA1MyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java#L18-L21",
+          "version": "repo-lines-v1:sha256:0aec5734760faeb2ce2f55ef5eaec59fce0104e20bd83f7d2c72507f43ab1b3f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDU4YWE1MDE1Yjk5Yjg4NmI5MWZjOTA5MjRiNDg5ZDljMmI5MGU4YmRlMWUxZTQwMDQ1MGJmYmNiNzZhYjBjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTM2NWVhZGI3ZDM5MDk4NGY2MWUwNmJhMDM2NmEyMGE3OTBjY2ExMzYyNzk1YzcxYWNiYWE3MmI4Y2U1OTVhNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjVjYzk0MjU4YzcxZTMxNzBjNWJkMjJlOTMxZDE1NWUxODc3NWNlY2MyZGNjN2Y0OTI0OWU0NjUxMThiNzAyOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODE0NGM0YTMyNWViMGQzODVkZGRkZWM2NTU4YWYzYzY1ZWZmOWY1MmNiOWVhNGU4ZDU0MmMxMjgwYjg2MDc3YSJ9"
+        },
+        {
+          "resource": "repo://src/struts.xml#L9-L9",
+          "version": "repo-lines-v1:sha256:8e525ac3568ce7454d26a0cf5e8b295e9b5e4b2dffb5fc22119bf13146a85c8f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU1MjVhYzM1NjhjZTc0NTRkMjZhMGNmNWU4YjI5NWU5YjVlNGIyZGZmYjVmYzIyMTE5YmYxMzE0NmE4NWM4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU1MjVhYzM1NjhjZTc0NTRkMjZhMGNmNWU4YjI5NWU5YjVlNGIyZGZmYjVmYzIyMTE5YmYxMzE0NmE4NWM4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTdkYzdkMWZmYzg0MzY5ZjI4NWM4ZjQ3MDVkMTdmY2JlMjU5MDdmZDk0MDI1OGM4OGFkOWU2N2ZlMmFkMjJlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmFlNTc3NjYyODhjNGRiZTBkNzVjZTBjYWI4YmVmZjRjNzZjNWRlOTU4ZmFmZWE5ODRlNGI1Mjc1ZTFlMjY4YyJ9"
+        },
+        {
+          "resource": "repo://web/WEB-INF/lib/struts2-spring-plugin-2.5.14.1.jar",
+          "version": "repo-file-v1:sha256:e7a7b61b9fc422d9018d5be1b5da84615181cb7adbf38e71f222a1f063dc3b1d"
+        }
+      ]
+    },
+    {
+      "id": "claim_92c04086c8434201b66ac0551cff8b11",
+      "statement": "The interceptor stack name auth-dafault (typo preserved from the original project) is referenced only by the default-interceptor-ref element in the same file, so changing both spellings together is safe while changing only one silently removes the three custom interceptors from every one of the mapped endpoints.",
+      "evidence": [
+        {
+          "resource": "repo://src/struts.xml#L18-L25",
+          "version": "repo-lines-v1:sha256:379b3277019075c46e4aaf02ab07efe609c674d2a462b49e953a2854466d2159:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVkNzZiNGE3ZGNkYmQ0MTkxNmFkYmM3MmRmOTM5YmU5MjdhODIyNDY1ZDY1NGEyOGU1ODM2NjI5NDM4ZWRmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWUwMGU0ZGU0YTMyMmEyNmQ4NjU0ZGU0MGQxNDQzNzY3NGE0NmQxZDM4YjBlNjEyNjU3MDYwYzg5ZmZiYTY1OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjJhNTg2NDE1ZDZmYTYwNzk3OGUwY2UxYWU3YmMwZDI0ZWU2MmYyMjMxMDVmYzk5YWRiNWJhYjkyNDU5MTc0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGMwODUwY2RhMzVkMjcyNDc2MjFhNTRhYWYwMWU1OWZmOTFjNDU1OGExNGM3ZWJhMDAzZGQxN2MyZDJkYWExZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7bc8d46e87cc40fe8458cbe7abc342d8",
+      "statement": "src/log4j2.xml configures the root logger at INFO to the Console appender (SYSTEM_OUT, pattern \"[%-5p] %d %c - %m%n\") and a File appender writing dist/my.log attached only to the logger named mh.sample2.Log4jTest2, a package that exists nowhere under src/; dist/ and *.log are both git-ignored, and no class under src/ uses a logging API.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L5-L15",
+          "version": "repo-lines-v1:sha256:484e9385a3454dc7e951083bdda26b4e6306019c8df66ad48e812aa97607cb26:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkMTlkM2M5YzhhNWUzNGQwMTc5ZTBiMWE5YzI5MDdkMmU2NTc3Mzg3MzNlNGE0MzJhOGNmODFjNzZjZTU2ZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxOGQ5YTE2NTMzNzMyYTY5Y2RhN2JiN2IxNzRlZTM5MmZkZDE1YmUzZDcyYTExNGNkOGYyZDUxZjNlYWI1MTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRiZDFiNmYwYWM4NzRmYWNjOWU4NzRkNzZhNzRjNTE3YmU3NDdmN2E2YTQxNDgyOWMyYTMxNjk3NWZkYjRhNWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkMzgyNWEwZjRmYjhmY2ExYWQ2ODQ5Njc4ZTkxMzg5NGViOWU2ZDFjMWE3ZDRlZDgxMjhhY2VhNjAxYWUyNjQifQ"
+        },
+        {
+          "resource": "repo://src/log4j2.xml#L2-L18",
+          "version": "repo-lines-v1:sha256:fc42bf066f93d8c6a94f613ccd6d57b55c897c14cdd5f79675892a3a54bfc2ad:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkNDQ5YzlmOGU4YTNiNmQ3YmFkOTRjMjYwOTUwYjA0ZGI3YzY5MTQzYmYyZDNiMWMzZWM4YmFmMzQzM2JhMTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzM2QyMDMwZGQ1ZjA2ZmQyYTYzOGFlNmUxODc4MmQyNjczMTZlMWM2ZjVmMjliNzVmNWJlNTcyNjEyMjdjZGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoxLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBlYjY0MWRjY2YxMDYwY2Y4MjgzMTc3OGFiMDRiMjcwYjk3YjI0NzgwZDA4OTVkNWIwMGQ0ZWIyMTdmYzhhMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY5YzhkYmFmZmVjYzA2ZjdmODM2MmFlNDdiM2M2YzNiNmQ3ODdkOTFmOGY2MjhkMTBiODM0YTdkZDQzY2NiZDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a9ac745f90a34bd9940c09ef00d3fac9",
+      "statement": "The deployment-only values are compile-time constants in src/StartJetty.java: PORT = 8080, H2_CONSOLE_PORT = 8082, CONTEXT_PATH = \"/\"; the H2 console is started as a second, independent server on 8082 because the Struts2 filter mapped to /* would intercept an in-application console path.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L32-L32",
+          "version": "repo-lines-v1:sha256:b99ad56b440a8d3eed16f5e2676f3c5b921cde73434374f991529727cc715228:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk5YWQ1NmI0NDBhOGQzZWVkMTZmNWUyNjc2ZjNjNWI5MjFjZGU3MzQzNDM3NGY5OTE1Mjk3MjdjYzcxNTIyOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk5YWQ1NmI0NDBhOGQzZWVkMTZmNWUyNjc2ZjNjNWI5MjFjZGU3MzQzNDM3NGY5OTE1Mjk3MjdjYzcxNTIyOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmFjNWNhNmI3MDEyMTZjMjRlYzdiNzllY2Q0MDNhYzMzZDgwMmQzYjNiNzY2NTBmMmJiYTRhNzk0YWYwNDM2YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzY1NjQ4ZGZiMjM3MzI1ZjRhNzA2N2I2OWJiMTk5MjYxMDBhODQwZjZmZjA1MmFmNDgyZDdhOGY2Njk3MDU3OSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L107-L108",
+          "version": "repo-lines-v1:sha256:bcde1ba8759f14ae20011a2255452ddbc7e696f16d7e232db6e5bc9bd1e8fce2:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTczNmE2OWJiOTY3MDllYWIzYWEzYjRkZWUwYjQyOGU4YTZhOTM1ZWJhNzhiNDIwMjc4M2U3ZDg0Y2QyNjQ1MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkNWYxYzdkMTdhZDA0NTUyYjU0MmI3NmMyMjg5MzIzM2QwNDdhOGFkZWFhYzVkNzNiZmRlMmU3NDQ5NzBiNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmExOTU0NGE3ZmU5YWU5YTdhYjY3ZGZjM2QwNWQyYjJmNDViOWYyZGZkY2ZjNDUyZjdmNTBhMjA1ZWY1YjZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmI5NWVmMTk3MWYxYmYyNzdiYmUwNTkxMDMzOTVlMDVjOTQyZGZjNzJhZWFhMmMxMmUxOTYxYWIwNDhlMjE1NSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L49-L51",
+          "version": "repo-lines-v1:sha256:ece8e81ad8bca9c43903ca1f8be7df36ab5886a923ec302ac5629a25415b2374:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQyNTBlNGExMGQxZGFiMTAxMDRjNWY2M2VjNTg2N2FjZjhjNDA5ZGM3ZmIwYTQxZjc5OTI4YzNiMTMxZmFjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5Y2ZhYWRkNjc1ZTgyNTFmNzdkNGU3YWM0NDcyNzhiMDA0ZmI5YWIzODlmNDBiMWIzODI1N2MzOWFiNzc1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGRhYjgxMzU4MzlkOTA4MTNhZjFlMDBiMmJkYjY3ODg4ZWRhNTNiYmI3ZTVhMTU0MjRiYjY0YjRiODAyYTQ4OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdlYTkxNzVmMjc0ZGE5YTUyMmNhOTI2ZmIyOGQ1YzBiNzc2MWNhZDJjMmQ0YThmYTVjOWNiMjc2NTVjZmZmMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_962d2fd3401a4b9cb1d8c6c609d4ee8a",
+      "statement": "Because web.xml may not be edited, StartJetty carries the settings the descriptor cannot express: it pins a system-class list (log4j, h2, juli, jasper, el, jsp-api, jetty-apache-jsp) to the parent loader, sets an explicit Jetty Configuration chain including AnnotationConfiguration so the JSP ServletContainerInitializer runs, and rewrites only the exact target \"/\" to /forehome instead of using a pattern rule.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L31-L34",
+          "version": "repo-lines-v1:sha256:6a5ea54db0f932af9bca01171319d5335a56b39ea014b3f3feb7db3904749130:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTFkMzIyNzVjZDJlMWExYTZmZTU3NDU1Y2M4ZDM5YTRjOGMyODJmZmFkNmEwMWQyNzFjZmMzNzIxNGRiZWZjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDBkOWE1NjNjZWQ5MjJlNjQzNDAyZWE5NmMyMTE1M2NlYzY5OWUzMzJjNDc0YWNmZTMzZmQ3YWZmNDkxNTFmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmUyMzNlYmQzODE3Zjk3ZTU5Yjk3ZjFlNjY0NGJmMTAyOGE2NjYwYzZkYjc1MzM3MjFlZjgxOWZiNzE2NDJmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzdkNzczOTA4MzNjYzJiNGE5YTFkNjI5MGYwNmUwMzY3M2VlMTk4YjNlMGU3MDNiNmE5NjVkYmU4NGM3ZTI2YSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L71-L104",
+          "version": "repo-lines-v1:sha256:f391e3e3ac83f459b9d95caa6b8a8ea8d9dae3ec296db50a8d06b011b8470a3c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxMzYyYTQ5Y2Q5MTFkZDNiNjI0NGYxZjNmMjljNDhjZjY4MzM2Yzg0ZDRiNmYzNjE2YjFlZGJhMzA0ZTZmMTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNDk1MzA3ZTc1M2NiNjQwMDY0NDZiOWEyNjE5ODAwZWEwZmUwOGY5YjJkNzVkYjYxZjMzMmQ0MmQyMWFhNTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5YmJkNDQwNjMyOThkNGMyMDBlYjhmNDBjZmFkNjI1OTZkMjdmMGRhNzlhOGE3ZWQ3ZTFjMDAxZTQyYmIzNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjOWY0ZjE3NTU3ZTFjMjk1YjI3N2U3ZmYwMDNhYjZkYmMzZjdmYzhjNmQyZjIxMjQ1OGFhYTk3MzVmNzBjMzMifQ"
+        },
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L6-L39",
+          "version": "repo-lines-v1:sha256:08955ce474039ad7fcf5d67843f6a96362f80a9275811939827b5a8068505e33:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzY2FkZmM0ZDgyZTVkZWRjMmJhOTQ0NWU0ODhkYTc5NWJhNzdlODVlMzNiNzdiZDI5OTIxYjhmMGY0NGVjMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhNTRiZmI0MWZiZDYzYmU4YzkzNTJhYmMxMmMyYTcxNzE0OTAyZjk0ZDBmMGQ5YTQyZDc4MjBhNzZkNDJhN2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWNhMjcwNmVhYzhjMzZmNjY4MDg1NzliMTVmMTU5NzdhMzczZTRhZWUwNTQ4OGVhZmEzZjMxNTc3NDU0ZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZkNTE4ZDI1YTJkYjVmYzZmYzk3MGIzOTU0ODY5MGI5OTVhMmZlZmVkOWI5MGI1NGE0ZjhmMmRjOTUwNTQ5MTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_87194991018c4b219fdb8ed3596bf3ad",
+      "statement": "tmall_ssh.iml was modified to replace dead Windows absolute jar paths (D:/myRepository...) with per-jar module-library entries into web/WEB-INF/lib (65 of them), and MIGRATION.md records a companion .vscode/settings.json for TRAE/VSCode's Java language service; neither file is read by the launcher, which globs the web/WEB-INF/lib directory instead.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L20-L22",
+          "version": "repo-lines-v1:sha256:d29d4adfc5d6bd73ccf2664419843f8c86e658fb87d23ab79e67925c30bbc93b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdhMmYyZWM2MzQxNjE3YjE1ZDMwY2U1YzI4NWUyN2E4ZjYzZmEwNmE5OWFhODA2OGEwMDU1MDhmODFlYTYyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY2OWEzNmU1OGY2YmNhYTgzYjhhZmI3ZTU1MTIzZTkxZDQ0YzE1YjQzOWViZjVjM2I3MDg2YmFkNWI3YWJlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDIyZmQ2ZDQ2OWQzYTI5ZGJhNGNlNjVmZjA0MDAzYTZjM2VhODI4NDU0MjJkMzAwNzY4MzlhNWU1NjQxOGY1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjk1MDNkYTdiYjA2Yjk0NDZlMGJlMDkyZGQ0MzYzYTE3MWQwMGFlMDliZDFiMjk0MDkyZGExODIxN2NlZjk0ZiJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L208-L213",
+          "version": "repo-lines-v1:sha256:62ba3feb738d847737b3bcf0a46331853dbb472f61f9b4e71924672fa1998a9f:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZjOGIzYThjYzk2Y2RiMTJmMmUzOTQ2N2M1ODUxMTE4ZTcyNmQzOTlkYmEzMDUyNzA5MWQ3NWUwNzE5ZTU5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTk5YmRlZmVlYWNhNjM0MGUwMjkwZGM4NmU4ODljODlkNWUxODlhYTViYTQ0YjU4NWIzYjcwNzM0ZjRhNjJkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzIwYTM0M2U1NGQ2YmMwYWE2ZWJlZTdmMjY1NDk2ZjAwNGI2NjI5Yzc1YjJkZDdlMzAzMDMwNDNlOWYyYWM0NSJ9"
+        },
+        {
+          "resource": "repo://tmall_ssh.iml#L41-L56",
+          "version": "repo-lines-v1:sha256:bc0421f80fa72fbbc1415ea7d69f00b85740a10767a9a981fbba13556d4dec9c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwZTlhYjFmMDdkODYyNmE0OWY5ZGZmM2JlZjZiZmFlMDM2NjNkZDA0OWM4NjVhZGYyMWM2YjVkZGIwMWZlZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxMTk0ZTAwODE0MTE3ZjRkZTdjMzdiYTVlNTdjNmMwN2E4MjMzM2MyMjIwMDVlMDQ2MjgxMmRmZjdiZTQ4OTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZjQ5MjI0NTM2Nzk1ZWM5NTY5OGNmZDkzZmM5OGE5OGQ0YjY2YjdjMGI2YTE4MjQzYzU3ODBmYzAzNTljY2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM5YmMyOWFhMGY2ZDMzNTliNjIxYzQxNzU5NDlmNTQ4MDEwOGI3NTY4ZTExNzI5Y2NjNmQ1MjdkMjVjODQyNDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc51da08bce74248ae8e2041d6ae389d",
+      "statement": ".gitignore and .openwikiignore exclude the launcher's output and IDE metadata (web/WEB-INF/classes/, dist/, build/, out/, target/, .idea/, .vscode/, *.log); web/WEB-INF/classes does not exist in the checkout and is regenerated on every launch by StartJetty's compile-and-copy step, which is also the only reason the classpath: XML and SQL paths resolve.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L1-L19",
+          "version": "repo-lines-v1:sha256:162138cb423e0b7ff7ce673854474650bb7860ea5e7045dcb3ea422abfb2d77b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ2NzY4OTM5ZWQwZmQzYTg0Njk3NWVjYjJjZGZhZjQ5ZjUwYTY1NTAxOWM2NTdiM2Q2NzY5OGI1YjRkMjJkNzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkZjBlNWQ3MWVkMjdlNjY5NWRiNTBlZWViOWFiYmNjOTI5Nzg0MWRjNWZhOTc2ZjAzNDIwNDY4NmY4MDdkOTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.openwikiignore#L1-L5",
+          "version": "repo-lines-v1:sha256:90d48cd2316406b8203c392c73fbf61e1ca20083c1dadce7da547a9d12b82f2f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE0NGJkMmI4ZTdjMzVjZmFkMzg1YjhmNDQwYzNlYzZlYmNmOGJkMTAyNDhjZjU5MjVkMmNlYWNjOTJmODA3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjczYTBkMjU5ZGQ0YjViMzRlZTg5MDg5MzcwMGMyNjM3M2RjNWVkZWUyNTcyMTg4YTI0ZDJjNjFhMDVkZTgxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L149-L206",
+          "version": "repo-lines-v1:sha256:7218127f2a28442666ec8020b7bb1a04f989a082c5dd5ec1ec98d81b64795b56:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OWMxMmUyYjVkNjI2YzBhMTVmYzAzMGZlMjA0M2JjZjE2ZDQwZTE4YzEzZTVlNjU0N2JlZGRhMDIzNTRmZWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyOTIwNmJkYzMxYmFjMjNhZmQ0NzgzMWZjODljYTcwMGQxOGM5ZmIzNGQ3OWIyM2FjY2U1MTc5YzQwZTk0NTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY4NTNkNjAzMGEyMzAxM2UxMzc1OWRkNWQzNzRjYzI3NzY4YzJmZjEwYWYwYzkxMWI5NjNjYTIzMjYzNTViNDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7babf1b226a743a58e6fc2c049c0e85f",
+      "statement": "src/com/caozhihu/tmall/test/TestTmall.java loads the same classpath:applicationContext.xml through @ContextConfiguration with SpringJUnit4ClassRunner, making it the only repeatable check of the bean graph (ds, dbInit seed run, sf, Category mapping), while web.xml, struts.xml, log4j2.xml and the launcher constants have no automated check at all.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L14-L72",
+          "version": "repo-lines-v1:sha256:da63f26f66967923b6563f303a97e02e0bae5a0f9be84648d528dd5fff930bb7:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhkOTI3MWZjM2Q4NmRlNWY5ODU5YzE2MmRiODYzYTc4YWNlN2E0Zjg0NmYwZjAzMjVkNmQyYWUyOTg5YTNjMzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMxN2E3YjZmNGUzYWI3Nzg2MjhhMWYxNWQyN2Y2MTM1M2Q4ODU5NmE5N2QxMmYxOWUwMjdlMTEwMWQ1YzAxMmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiY2IyM2M2NzMxMmE4OThhYjVhZDJlZjUwN2Q3NmZlYTEwYzNlZTk3ZDgzMDNiZWRlYTczYmQ0MTQyMjQ1NjUifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/test/TestTmall.java#L15-L31",
+          "version": "repo-lines-v1:sha256:3545db1e1f0b57ff207a2f34d21f1f958d1fb891d486cba114408cc593165b4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MjQ0ZTBmNGU2NzdlMTQ0Nzc3NjgyZWVhYzNlNDIzYjNlYzc5ZGRkNGJmZDIxMDk3MjdmMmYyZDcwY2NjYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxNDE5ZWI2Nzg5ZGFkMjAwMTBlYWE5YTQwMzBlY2JiYTRhYjA1NDk3OTY5ZTBmMTIxMTVmN2JiZWRjYzRjOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFlOGNmYzEyMGYzYzRkMTliYWE3NzQxZTMwMDU2OWYwZjUwNjVmNWRlN2Y2YmQyN2VmNmQwZWNiYTQ2ZjE5M2EifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.0",
+    "at": "2026-09-25T05:09:04.985Z"
+  }
+}

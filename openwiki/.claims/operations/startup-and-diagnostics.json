@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:50ccdc7c61b87e568e9d17a6a20b902e3e434d84cf74c89e6b67e8feaa570cfa",
+  "claims": [
+    {
+      "id": "claim_b1e50dc5465940d3a9d4f9e17f1d2b97",
+      "statement": "The checkout documents three launch recipes that all invoke the same `main()` of `src/StartJetty.java`: running the class from an IDE with the working directory set to the project root, `java -cp \"web/WEB-INF/lib/*\" src/StartJetty.java` from the project root on JDK 11+, and the JDK 8 fallback `javac -encoding UTF-8 -cp \"web/WEB-INF/lib/*\" -d web/WEB-INF/classes src/StartJetty.java` followed by `java -cp \"web/WEB-INF/lib/*:web/WEB-INF/classes\" StartJetty`; none of them needs a build step, an installed servlet container or an installed database.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L12-L40",
+          "version": "repo-lines-v1:sha256:ef8e88b7da3ffbe1300433c78e575117ba559aca029d02e622e2cd920080b5f6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlMWFiYzRkZjYyMWVhZjEzNjQ0ODA1YThlY2VhYjdjMzZhMGJhYTU4MDU3YWY5Nzg2ZWMwYmNjZWU2NDNkNmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkODU1NGMxYjZhYjc5ZGFiZTIzZGYyY2MwYzlhZjZiOGE2YWJkZjAyZjQ0YWNmZTI2NDEwZmU4ODhlNmFjYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIyY2U2N2RjNDA5YjIwZGIyZTljMTg2N2ZmMGVjODdmZmE0NjNlNzY0MjI2YWJkM2NmMzViOGMzNzI2MWIwNDkifQ"
+        },
+        {
+          "resource": "repo://STARTUP.md#L3-L8",
+          "version": "repo-lines-v1:sha256:05ed823d3e464ef30740eae1ff1836908a9abc03f8999953b1e9af6043270a66:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQ0ZWRjMzUwNmNmNjRhZDAyMzZiMzRmNDI3ODhkMjc0MGU0ODZiNWY1OTMyMWRlY2FlMTkwMzE4NzkxN2Q2YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFlNTk5MDNjYzQxMWY0YmNmYTFkMjk5ZWM2ODFhYzI3NmYxYjVkZDBjNTNlNDVlNzg0YjBkNDliZDZkMTU1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTdkNmQ2MzdjZjQ1N2FmOWZiZTA4MzJmMDFlYjEzNjIxNjg0OTg1OWUzYmQ5YTI5OTQxM2VjYTY3Yjg0MmY0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q4NTU0YzFiNmFiNzlkYWJlMjNkZjJjYzBjOWFmNmI4YTZhYmRmMDJmNDRhY2ZlMjY0MTBmZTg4OGU2YWNhMCJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L38-L41",
+          "version": "repo-lines-v1:sha256:f0162627b06c89e38aaa549abf9085640e355ae379e477ed5535848d7c196589:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ4NzRkMjU3ZWQyZWEzN2VjOWJmMmYzMGQ0N2MyMWU2YzhhZjg2ZTEwMzNhOWYxZGViMzkyZDE5NGY0M2YzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjIzY2I0YzEzZDY3NzU5ZDU0Zjc2NzFkNDQwMzQ5NzJkMDkwM2EzOWQwOGFmYWU3M2JiOTgxZWI5YWIwZGNmMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTI5YWFmOTJkOTQ3NDFiMDU5MmU2ZDUwNjNhMDU3ZDYxNGVhZDBlYjFiNjcyNzMxMTk2M2JmNDg5Y2QyM2JkZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY4YWNmZTlmYzNjZjNkOTU4YzkyM2FkMTQ0YTAzNDBkM2E2YjJlMzIwMWFkZGI0MWYzZjhlOGFjMjk3ZDQyZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_51d307b23c2a4ce7b001aba228de1b79",
+      "statement": "`locateProjectRoot()` identifies the project root by the presence of `web/WEB-INF/web.xml`, walking up to four parents from the JVM working directory and then up to six parents from `StartJetty`'s code-source location, and aborts the launch with an `IllegalStateException` instructing the operator to set the working directory to the project root when neither walk finds it.",
+      "evidence": [
+        {
+          "resource": "repo://src/StartJetty.java#L124-L143",
+          "version": "repo-lines-v1:sha256:9fccd12aa27f9cd3c2413e93fe77f6e17a43bceb08f6291f459d441d4c1446cb:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2MzExMTQ2ZTNlZTA1ZDNhZTgxMTljZWQ0YzA4YzI0MDZlNmFjYjVjMjVhOTAzMjAwNzgzMjA0MmUxZDY5ODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0ODcwMjAyZmZiY2RjZTFmNjY1MzAxMDZhNTM0NGQ5Nzc1NzE3NmNhNGFiNTBmNGE4YWY4NjQ3ZTQzMjA3YjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmMWI2YWFjNWFkYmQwYTg4YTA2YjU1YjQ2ZGRkZjcxNDM5ZDdjM2I0NmE3NWUwNWQzNTE4NGVlNWVhNzRhMWIifQ"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L60-L62",
+          "version": "repo-lines-v1:sha256:10e0be0d73d68411101fff70dc442776b2a8b8f7c645fe2eb36e975b475e9f89:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVmM2U5ZmUxYTkzNTRjYTRjZDgxOGYyYWFlYmI2YzI0ZTY1ZTVlN2Y5MDcyZWI4ZTk0Y2FkZjBlZDRkYmUyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTFiMjc2NWZjN2JlMzE4MDFiYWQzMDNmNTkxOGFkNDUzMTdkYWYyNzM5YjhkNjY3MjYwMGJlZjMwMTFjOTVhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGRhY2U2NjQwMGZhMjEwMjRiNWRmOTk0ZDA1MmM0N2VjM2EwYjkxODEyMTBjYjBiNTM1YWY5ZWVlOTM0ZDAyYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c3ceb549bea7472fbc6acfb1daf7d4f9",
+      "statement": "A healthy start prints a banner naming the three addresses — `http://localhost:8080/`, `http://localhost:8080/admin_category_list`, `http://localhost:8082` — together with the H2 console JDBC URL and the `sa`/empty-password credentials, and the banner is printed only after `server.start()` returns, so a launch that fails earlier (for example on a taken port) produces no banner.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L16-L25",
+          "version": "repo-lines-v1:sha256:c7eae3ebec80f56a9183b5631177167835d335c3266c6f5a1ea1fecbf3c50d25:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlmOTZhOGY3Y2Y5ZDgwMDM3NGY4Mjk2NWM3MTU1NGMyMGFhOThjZmMzYTljZGVlYWY2YWU0ZDc1OWVhYjg0NGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1MTU3M2YwODU5NWI1ZTNhYzQ4ZjczYzA1NjJlNTIxODkzNTAyNDczMzZlNzgzNDIwOTkxZmIyMTY5NTk2NmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwZTJjOTVmMTM4NzEzNTgzNmZkNTNkZTU4YWExOWIyODQ5ZDc2MTZiZGNkZDhmMzdkZDdkYzM5NWNjZjg2M2EifQ"
+        },
+        {
+          "resource": "repo://STARTUP.md#L79-L81",
+          "version": "repo-lines-v1:sha256:f0ddd185d5f16e7d695124e1468cfd71bf1950609fc3e5848757af5d76e2bf3f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTI3YWIzYWJjZTViOTFhZGU4ZjQwMmQ5NDNlOWYxN2ViMWMyZTc0MjNhYTVkNjEwNjFjZDNhMTVjZGIxZjVlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkODBiMjcwZDIyMzFmMmZiZjc1MjUyZTk4MDE1NDQzMzA0NDk2ZmYzZTY0MWJiNWRkYWI3MWM0OTZlMzk3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRhODZjZGJmMjhhZmJkOGU2NDQ3ZGYxNzE4MTczZGEzMmE0ZjNiNDIwMTQ0MDdlYjdhN2ZhYmM1MGY1NGMxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGFjOGMzM2E0Yjg3ZGZkYzM0ZTZkNTcyMjk0YmI1MGFiNTgxNDM0ODkyY2NhNGExNDhjMzBhMGM0MjlhMjFjMSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L110-L121",
+          "version": "repo-lines-v1:sha256:3041a8983eeffab17a76bb33ca08ac00e00d64ca2b4e9ac80cf426810a807c86:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxYzhhMTZmOWZlNDhhN2NkOWFjOWE3ZDNiZTJhYTQyNTgwMzAxNDAwOTNlMDYxYTBiYmY5ODAzOTNhZDI5NWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQwNjJiYmJiY2FkNDcyOWU1NTg0MTdjMWQ4YThiNjRlOTFlYzdjYTc4NjNiZjNjZWNmODFmNTViNTFiN2Q5MmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkMDM0YWZkOTI3N2EyOTFjYWMyODM0YTdlOTMzNjJjYmE0ODM0ZjU2ZDdjN2Q0YmRiNjQ5OWY1NzYzOTg1YzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZkZmYzNWEzNzlkNzc4NjFlNTEzOWY4ZmFlY2Q1MjQyYmZjZDY3YTQxM2MzMzdjOWExYjVjMGE5MGQ4YzhjMGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_125da6f5750548d4a6cf5ceb7265933a",
+      "statement": "Both service ports and the context path are compile-time constants in the launcher (`PORT = 8080`, `H2_CONSOLE_PORT = 8082`, `CONTEXT_PATH = \"/\"`), so changing a port is a Java edit plus a restart rather than a configuration option, and the banner, `STARTUP.md` and the acceptance record all name the same addresses.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L73-L83",
+          "version": "repo-lines-v1:sha256:62f81633ea9d9c13973f1ef725d41c19bb00b762dfe95dd0b84f43ab9520f408:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyYjdjYThhZDQ2NWMxYTIwYzk5Yjg4NGYyOWYwYzVhOGZlYWM2Yzg1OGRkMzVlZjYyODc1OGY3MTYzYjNiODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5ODYzZmZhOTViYmQ3YWRjNmM4Njk0OWM1NGM5NTRkMzU2NTViYTBiZTJlNzYyMjRlYWFiNWNkMjhmYzg5NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1MGI4ODRlYTJkZmMzNmQwZmQyODdhZjYxMzg5NjFmNDlkNWE5ZmY1YWNmNjcxY2QyNzE2MDQ3NDZkODk5YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://STARTUP.md#L42-L49",
+          "version": "repo-lines-v1:sha256:8b3021976d683f231696aa4c219633aae9f7cccc82713e5698863025460dc79b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2U2Zjc2MDc2NmQyNThkMTIwNTFhYzMwMTliNTI4MWEyZTY2ZWY4YjE2ZjhiNDhlMThiYTNiZWY0ZmMzZjllYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FjMDMwYmY5ZWMzZGNmNjQ2NWU4YTdlZWY2NzY0MmE5YTU5MWY4Yzk2NDg4NmY1MDQwY2VlZWNjODYxYmRlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzZkOWFmYmIzOTAyZGMxOGYyYzY0ODc1MTI2NGMwODBlNjUyMTNjOWI0ZmYyOWUyZWZiYTRiZmJiNTc2ZDA1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2E4ZDA0MmIyNTdmYmRiZjRiZGZiZTllZTQ4YWUzYjAyNTg1OWRjYTc3Yzg3YTNkY2Y0MzQ3MTlmYzI4MmU0MSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L49-L51",
+          "version": "repo-lines-v1:sha256:ece8e81ad8bca9c43903ca1f8be7df36ab5886a923ec302ac5629a25415b2374:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQyNTBlNGExMGQxZGFiMTAxMDRjNWY2M2VjNTg2N2FjZjhjNDA5ZGM3ZmIwYTQxZjc5OTI4YzNiMTMxZmFjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5Y2ZhYWRkNjc1ZTgyNTFmNzdkNGU3YWM0NDcyNzhiMDA0ZmI5YWIzODlmNDBiMWIzODI1N2MzOWFiNzc1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGRhYjgxMzU4MzlkOTA4MTNhZjFlMDBiMmJkYjY3ODg4ZWRhNTNiYmI3ZTVhMTU0MjRiYjY0YjRiODAyYTQ4OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdlYTkxNzVmMjc0ZGE5YTUyMmNhOTI2ZmIyOGQ1YzBiNzc2MWNhZDJjMmQ0YThmYTVjOWNiMjc2NTVjZmZmMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1c073aa288bd4cbbacb79d1105e2553a",
+      "statement": "The first start takes about 5–8 seconds because `ensureCompiledClasses()` compiles every `.java` file under `src/` into `web/WEB-INF/classes` and synchronises non-Java resources on every launch, and the `dbInit` bean executes the seed script during the Spring context refresh.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L27-L27",
+          "version": "repo-lines-v1:sha256:f2e6dd63696ae9a1ca331defd2be21cb774a2dcc9a5f4dcca712aa6a0227e12e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjJlNmRkNjM2OTZhZTlhMWNhMzMxZGVmZDJiZTIxY2I3NzRhMmRjYzlhNWY0ZGNjYTcxMmFhNmEwMjI3ZTEyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjJlNmRkNjM2OTZhZTlhMWNhMzMxZGVmZDJiZTIxY2I3NzRhMmRjYzlhNWY0ZGNjYTcxMmFhNmEwMjI3ZTEyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWVkNTM2YWZhNmQzZGFhZGU5MWM2YjYyZGE5MGIzODAzZTZiOWFmYTQwNjFhNzdhOWFmY2FmYmUzYjExY2ExOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTM2NmFjYjAyZDFlZGZhNGYzNDI4ZjAwYTE2NGM2MmMxZmZhMzg4MDY1YWYyMzQ3OGQ1M2RlYjBiZGMxNzlhMyJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L145-L206",
+          "version": "repo-lines-v1:sha256:4c0e497df209d3eea6c366510bfb04973b96681e30d912b38ebd3927fe9fb080:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5Y2JiYzY1NDY5ZGIxY2EyODQyZWZkOTdkZjdlZTJjZTZjYzE1NzE0ODJkMDFhMThiNzkwYTEwYzdjNTEwZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlZDgxZDQ4NTc1MGU2NTViY2U5MTYzMGY2YjVmZjRmNGE0MDg0NWQ0NWE0MmQxYjQ2MmM1NTZlM2U0YTJhN2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY4NTNkNjAzMGEyMzAxM2UxMzc1OWRkNWQzNzRjYzI3NzY4YzJmZjEwYWYwYzkxMWI5NjNjYTIzMjYzNTViNDQifQ"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L64-L64",
+          "version": "repo-lines-v1:sha256:ce27d0824d75f242c4518be2699f1299231342c02ec17f5a337e12f95d43650d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2UyN2QwODI0ZDc1ZjI0MmM0NTE4YmUyNjk5ZjEyOTkyMzEzNDJjMDJlYzE3ZjVhMzM3ZTEyZjk1ZDQzNjUwZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2UyN2QwODI0ZDc1ZjI0MmM0NTE4YmUyNjk5ZjEyOTkyMzEzNDJjMDJlYzE3ZjVhMzM3ZTEyZjk1ZDQzNjUwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGRiZWI4ODhmNTZiN2NiMjliYTdjY2I2MzhjNGQyZThjZjI3MzcwNWQ0ZjFhNWZhYTUzYzgzZjZjZjVlMGM1YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTQwNTA5MmRiYTQyNTE4YzQ0MDM4MjQyNzFhMDVhMjc0YjVlYWY2M2VmYTE1YzZhYmM5ZDYwNmYzMmE3MWU0NiJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L29-L44",
+          "version": "repo-lines-v1:sha256:eba29ce9057be2413e00fd00d089d483c780c9dbd64c4be66c0d1c77aac9706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzYTJkZWVmZDA2ZTkzZjA5Mzg0NTE3MWNjNjM1MGM3OGE1ZWE1YjM2MjlkYTk4NTVjOWI3NTNiZWZhNjU4NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YjJlYTM2ZTIxMGZjMTEwMjc3OWUyMDc4ODVmOTc5MTJkZDA4NjZiYTAxNWQxYmVlZmNkNjRjZDczYzA2ZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMzI5NmUzY2I3MzQ2OTk0ZDQxYzdmODllMzdhOTUxZjBmMmU3NDdmNDIyMjM5ODEwNGRiMmNjMzcxODNhMjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0d0aec40f52e453383ecf79b9b425d38",
+      "statement": "The launcher aborts before any port is bound when the project root or `src/` cannot be found, or when the in-process compilation of `src/` fails; the corresponding messages are `找不到源码目录 src/` and `源码编译失败，请查看上方编译错误`, with each `Diagnostic.Kind.ERROR` streamed as `[StartJetty] 编译错误: …`.",
+      "evidence": [
+        {
+          "resource": "repo://src/StartJetty.java#L150-L151",
+          "version": "repo-lines-v1:sha256:9d4b49bd618b62eee7339862356f20bd29b58483ba41db4167c12f415585370d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFkNDYxNjUwZGQyNzZlODllODM0ZjIzZmIzMmVlODUxZWIxOTdmNDY5YmE5ZjJmMjA3NTRkZDc5YWE4NTgzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI5ODcxODEzNGNlYmEwNzk2OGY2ZGRiNDJhYTc2OWM1NGM2YjkxMjU4MGIyZjI3Nzg3Yzk4NTg3NTA1YWVkMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDIzZjIwOTU2NjM0ZTIzNTAwMmY3OTVlZTM2MWRjMDZkNTFjYjlmNTEzY2ZjYjAyZGIzYmRiYTNjZWZhOTFmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjg1NmI5ZGY1Y2ZmNjkwNDI0MDQyNGFhMTIyZjc4MWVkNDJiNmM2N2Y4MzMyYmU2NjhkOTE3NzdmZTZiNmNkNSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L174-L183",
+          "version": "repo-lines-v1:sha256:513504b0bd0f519cbabdd2aac4dda85a06c067cf3a4b2b21d56e80fc9bfe5b17:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2ODU3YjRiYmNhYTlhM2EzMWVmY2NiMGU2Njc5NGZmYTE3Y2Q1Y2I5N2E2Y2E4M2Y5OGYxNWM1OGM2MGU2NDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2YjA0NDkxNDY5NzIyZTgzNjNhOTRlNDA0NDUzOGUwMTNhMmEyMTdlMzZiMWU1NjhiYTYwYWNiN2I0YzhmMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyMDg1M2M0ZDRlZDU0ZTM5MmEwN2M4ODRhMTEyNDVjZDhmY2ZjZGIyNzMyY2U5YjYxMTQ1YTNhZmQ2MzhkZmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY1OTZmNjk2NTkxMWUwODRmODgxNWE3OGEwOGI5MjU5MGU2OWIwNWRjNzY2YmMxOGU4NzY5ZDNlODUxN2M0NzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b45602249cf14290b9314070610dfdfc",
+      "statement": "On a JRE (`ToolProvider.getSystemJavaCompiler()` returns `null`) the launcher prints `[StartJetty] 当前是 JRE 环境，跳过编译，直接使用 web/WEB-INF/classes 已有产物` and returns early, skipping both compilation and resource synchronisation and using whatever classes already exist in the git-ignored `web/WEB-INF/classes` directory.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L1-L2",
+          "version": "repo-lines-v1:sha256:c4961ba5731635074348a8f2bb85e8aae0257ee3a60bf1dae9d0185f6c112afd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY3Njg5MzllZDBmZDNhODQ2OTc1ZWNiMmNkZmFmNDlmNTBhNjU1MDE5YzY1N2IzZDY3Njk4YjViNGQyMmQ3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGFjMmM4MWM1ZjBlYzk4MmJkMzJhNjJhNjU0MWVmMWRhNzAzZDIzYjZhMDhiY2I0OWUwY2YwYzI4MDUwYTc3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzM5ZjNkY2NmNDFhMGMyOWFlOTZlZGVhNjMzMDg4ZjlhMDI1MGUwYzIyZWFhMWM5MWY2ZDc3ZGM2NDBkN2Q0MyJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L153-L157",
+          "version": "repo-lines-v1:sha256:fafb29695f409c1b12362fbac890df3f0113ce8b8f5c33dcf750b3391ad6c7ca:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjdiOTUxNzNjZGJlMmU0MGJkN2VkMmQ5NTc0MmI2OWE0YmFiMzJlMGQ0NzdhOWM4Zjk1MjhjMzFiNjc0ZWU1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTc1ZTY1M2MyOWJiZjdiNzNlMjAwZDgyMDY1ODA3ZDZlZTVkNzJmY2VlNDYzNzZhYzI3MTUyMTBlMjA5NDcxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGNkN2M0NTk2NWU2MzdhZGVmM2FjYTE1YzI4NjgwZGEwZDUxNDcxM2U1YWM0NDZmNWEzNzQ5ZGFhNzBmOGI3YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_77c00cc9af33498fae33936ea2512b03",
+      "statement": "The H2 console runs as a second, independent web server on port 8082 and is deliberately not mounted inside the application, because the Struts2 filter mapped to `/*` in `web/WEB-INF/web.xml` hands any in-app console path to the dispatcher, which answers `no action mapped`.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L68-L68",
+          "version": "repo-lines-v1:sha256:5c1aa8a80f0348af20f415b89be05ae0a82737ffa93c65a068201e6161ac95c6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWMxYWE4YTgwZjAzNDhhZjIwZjQxNWI4OWJlMDVhZTBhODI3MzdmZmE5M2M2NWEwNjgyMDFlNjE2MWFjOTVjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWMxYWE4YTgwZjAzNDhhZjIwZjQxNWI4OWJlMDVhZTBhODI3MzdmZmE5M2M2NWEwNjgyMDFlNjE2MWFjOTVjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRmZTUyMzdlMzYwZGZhMDAwM2FmMmU5MDk0MzQxZDI4NDlhN2Q2ZDA3NmE4NmNiMjc3YzAzNjY3MzBmZGMyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU1OWRjMmU1ODQ5Y2E5ZDUyYWViMTNhOTk1Njk5ODgwNDEyYjMzMDFhZTNkZGM2MTVhZGY2N2Q1MGUxYmQ4ZSJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L84-L84",
+          "version": "repo-lines-v1:sha256:e80eaec498e6616a258e4fabebe31d5387a4981cfa91529cadd2d5ade53b4afb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTgwZWFlYzQ5OGU2NjE2YTI1OGU0ZmFiZWJlMzFkNTM4N2E0OTgxY2ZhOTE1MjljYWRkMmQ1YWRlNTNiNGFmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTgwZWFlYzQ5OGU2NjE2YTI1OGU0ZmFiZWJlMzFkNTM4N2E0OTgxY2ZhOTE1MjljYWRkMmQ1YWRlNTNiNGFmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmIyNmQyOWJkZTdmNjAxN2YyODdhYWU2YzhmMDJkMDMzMGI3YTBmYzcxOWQ5ODM4MGRhMjc1MjA5OTEyNjkzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjdmMWIyM2Q2NWY4M2E3OWI5ZTYxZGM1OWMxMDEwMmI1NmY4MTE0ZWMxZDA3ZmJiZmRjMGQ0MGQ0OGU2YzFhOSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L107-L108",
+          "version": "repo-lines-v1:sha256:bcde1ba8759f14ae20011a2255452ddbc7e696f16d7e232db6e5bc9bd1e8fce2:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTczNmE2OWJiOTY3MDllYWIzYWEzYjRkZWUwYjQyOGU4YTZhOTM1ZWJhNzhiNDIwMjc4M2U3ZDg0Y2QyNjQ1MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkNWYxYzdkMTdhZDA0NTUyYjU0MmI3NmMyMjg5MzIzM2QwNDdhOGFkZWFhYzVkNzNiZmRlMmU3NDQ5NzBiNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmExOTU0NGE3ZmU5YWU5YTdhYjY3ZGZjM2QwNWQyYjJmNDViOWYyZGZkY2ZjNDUyZjdmNTBhMjA1ZWY1YjZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmI5NWVmMTk3MWYxYmYyNzdiYmUwNTkxMDMzOTVlMDVjOTQyZGZjNzJhZWFhMmMxMmUxOTYxYWIwNDhlMjE1NSJ9"
+        },
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L14-L17",
+          "version": "repo-lines-v1:sha256:34c472f1dd14bd22148187da655c1dab4f15890e19cee893a489a3fa4258cdc4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFmNjc0OWU5N2NiMGI4ZGUyN2ZlMzdmNGM1MzY5NjVmZjQzOGI0ZGViNjgwNGRhM2Y3YTlhMTM3ZTRlZDYzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODdkYTQ1MDZkYjIyMjRkOGU0ODEyZmI0NGM0N2I0N2VjMGM0YzIxNDAwNjA0ZmI1YjBiOWNhYzIzYmQzMTI3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjhlMDUxMzhmZjI0ZTU5NDI2NWQ2ZGYzMTQ2ZDk5NmNhNWMyNTBjODliNDVkM2ZhNjVhNDY2MzRiODE2NzRlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTJjNDI1ZmU4NDAzYmI4NzFjMzdkNDQxODZjMDJjYTYwYmFhYjQ2MzM2NWZhOGI4MDI2MTU5ZDBiYjljZGNlYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_41893c5426ca4e8a8f381c4bf39a0768",
+      "statement": "The console login parameters are JDBC URL `jdbc:h2:mem:tmall_ssh;MODE=MySQL;DB_CLOSE_DELAY=-1`, user `sa` and an empty password, matching the datasource bean in `src/applicationContext.xml`; `DB_CLOSE_DELAY=-1` keeps the in-memory database alive for the JVM's lifetime, which is why the console can read the application's business data while an H2 console started outside this JVM cannot.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L37-L39",
+          "version": "repo-lines-v1:sha256:a8a99afd8ca0ab14da5676383973e640c765a62ef3cd6fb7625836d4e2a8e5f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzVkNDJlNDc3MjM5YWM1NzAyMTQ0Mjg3ZmJiYzBjYjRlYmQ4NjVmOWIwYjA4MjExYmM5N2JhYTdmNWE3ZTY3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2JkZjNlN2Q3MmNmYTFmM2ExNWFhMTQwMzdhYzZhZWMyY2I0YTc1NzhiNTNkYTE4NzdiNmMzMDk5YjllM2Q2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMThjYmZjNzM2ZTcwZjE5ZmQxNzM1MjYwNmI4NGQ5YWM4NDgzYTNlMGM5ZmQ5YWZjZTg0NDA0MGI5OGEzZDJjZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWZlZWM3MDRkMTk4NDAxZWIyOTI3NjdiZTZjMTlmNDU4OTI2MjIwMzQxMjU4ZDNlYTExODk1OTQyOGE5Y2NkZSJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L51-L59",
+          "version": "repo-lines-v1:sha256:6007b5c92d3b25d21e941cc27ccd54876d02b9c9bd1fb77c7c0bd106fe0cbe7c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjBiYWZhOTFhMmY5Y2MwMjFiYjU0NWZhNGMzMDQ5OTNiZWVjY2M2NzA3ZmRlMGRkY2I5ZDVmYTYzZjgyZTQwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODJkNTA3MDExMTU0OTQ2ZGUxYWJiY2MyODE1Yjc1MWZiZGRlN2FiOTJiNjgxZWU5NTcwNGRlNzI4YmNkOWE4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEzYjA5MzE5ZWU1NjYwODcyM2FlY2UyNGMxZmYyMmM1ODIzN2E4MDcyZTgyMWYzZDA2N2U4ZjdlZTJiNGE5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmEwZWU1YjMwMDc4NTU4MDUxZmFjZDVhYjM4ZTE1YTlkZDUxOWM3NzEzZjdlNTk5NWM4YTExZDQ4ZjI2Y2Y5MSJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L68-L69",
+          "version": "repo-lines-v1:sha256:58a55d157d44b2437eb586724612d1b54fffeda3dde49e7c074d279eb89b94b0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWMxYWE4YTgwZjAzNDhhZjIwZjQxNWI4OWJlMDVhZTBhODI3MzdmZmE5M2M2NWEwNjgyMDFlNjE2MWFjOTVjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTcyMzM3OWM3YzUwNmI5ZDNmOTYxNWJmNmJjOGQ4OWQ4OGMxNmM0MmEyZmM5ZTg2NTdhZjAxOTQ1ODJlNTliZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRmZTUyMzdlMzYwZGZhMDAwM2FmMmU5MDk0MzQxZDI4NDlhN2Q2ZDA3NmE4NmNiMjc3YzAzNjY3MzBmZGMyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjVjNjA5YjM3ZmZjZTFlY2Q3ZjNiZTI1YWQ0M2ZlYmRlMzUzMTU5MzAzOTg1ZWE5Y2YyMWJkNDIxMjFkYzAxNiJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L21-L27",
+          "version": "repo-lines-v1:sha256:4c501b0b07009617955b5328590d54be14bc47c086d1d8e85b98b754313fb4d1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcxZWI4NzVmYjUyMjJkNTA5MTU0NzU5NzlhZThmMDBhOGU1MjgyYjA1MzdiNTI3MmJlMDY5OTQ0NzJhYWY3ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2RlMzkzYTM2MDMzMGViNmFiZmI0NjkzOWJiYjk4YjY0M2M2YTJhMzkyMjhlZWM0ZmMyMjAwYjNmNmRkOTM2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2MzM2NkOTI5Yjc0M2QzOGIyMGIxNGE1ZDIzZWI4YTMwYmFkYTg3ZWY4NDE2M2M2ZWE3OTk5YzY0NjVkY2ZkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzcxYzk2NGUwNmNmZThiMDYzN2ZjNGM5YTliYjMzNDExMTk2NGM4ZWVlODk2NTk2MDg4ZjZiZDQ0YjljNGM4MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f9079d67bb8a4f6894e28f5dd454b114",
+      "statement": "The database is pure in-memory and every start re-executes `classpath:sql/tmall_ssh_h2.sql` through the `dbInit` bean, so all data is discarded when the process stops and restarting is the way to return to the seeded demo state.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L40-L44",
+          "version": "repo-lines-v1:sha256:137a514cd6f25f3da47e6f94cb1b394e04b962ede3d353b12666814e29d13e8e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjkxN2ZjNGJhYTAzMjczYTdlMWRkOGNmZjMwMWUxMzIzMGZiZDdkNDBiMWRmZDE5OGFiNWQyNzI1MmRjMDAwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQwYmY1ZTdhODRhNGVkY2EwNDk1ZTQwNDM1YjJmOGI2YzIxZDgyMTA1ZmQ2NWRmNDMxM2ZhZjBkOTU4ZDdmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYThhOTlhZmQ4Y2EwYWIxNGRhNTY3NjM4Mzk3M2U2NDBjNzY1YTYyZWYzY2Q2ZmI3NjI1ODM2ZDRlMmE4ZTVmMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM0MjExNDcxY2VkOWNiM2U1Y2Q1NzIwZDBmNmNmOTU3ZWY4NmFjMjVjNDgxNWZiYTdlMzFmMDU0MmFjY2I2NyJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L69-L69",
+          "version": "repo-lines-v1:sha256:1723379c7c506b9d3f9615bf6bc8d89d88c16c42a2fc9e8657af0194582e59bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTcyMzM3OWM3YzUwNmI5ZDNmOTYxNWJmNmJjOGQ4OWQ4OGMxNmM0MmEyZmM5ZTg2NTdhZjAxOTQ1ODJlNTliZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTcyMzM3OWM3YzUwNmI5ZDNmOTYxNWJmNmJjOGQ4OWQ4OGMxNmM0MmEyZmM5ZTg2NTdhZjAxOTQ1ODJlNTliZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzBlMWRhZDY5ZDc2ZTUwZTU4Y2VmMTUzM2M1MzJhMTA2MDc4MGQ3NjZhZjNkYzU0ZWM0MmM1YzgwYTE5YzU0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjVjNjA5YjM3ZmZjZTFlY2Q3ZjNiZTI1YWQ0M2ZlYmRlMzUzMTU5MzAzOTg1ZWE5Y2YyMWJkNDIxMjFkYzAxNiJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L71-L75",
+          "version": "repo-lines-v1:sha256:2d8c65430bcf778f072712db0a58aa998ac796c0c6483d2cf80c6765bece55c6:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNThlZDVhNGQwMDlhMjM0ZmFmYzJjZjg5ODBjZjJiZTI3NzI5ZGM1OWY5YzY5MmY1MDVhZmI1NDE1NDU1ODM1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg4N2EzMDhhOWEyM2Q2YzFkNDJiNzhlNTczNGE3MGVkODA1Yjk5M2FlMDI0YWNkNzY3YmQyZWRkOTRjOGJmNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWU2N2MyNGMxMDVkYmI0OTA5ODE1OTVmZGQ2M2QyZjdmYzViMTFkMDA2ZWMyMDcxZTBmNWYzMzI0ZTVjMmVkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTRhODZjZGJmMjhhZmJkOGU2NDQ3ZGYxNzE4MTczZGEzMmE0ZjNiNDIwMTQ0MDdlYjdhN2ZhYmM1MGY1NGMxYyJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L29-L44",
+          "version": "repo-lines-v1:sha256:eba29ce9057be2413e00fd00d089d483c780c9dbd64c4be66c0d1c77aac9706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzYTJkZWVmZDA2ZTkzZjA5Mzg0NTE3MWNjNjM1MGM3OGE1ZWE1YjM2MjlkYTk4NTVjOWI3NTNiZWZhNjU4NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YjJlYTM2ZTIxMGZjMTEwMjc3OWUyMDc4ODVmOTc5MTJkZDA4NjZiYTAxNWQxYmVlZmNkNjRjZDczYzA2ZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMzI5NmUzY2I3MzQ2OTk0ZDQxYzdmODllMzdhOTUxZjBmMmU3NDdmNDIyMjM5ODEwNGRiMmNjMzcxODNhMjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a3ce9cb1a31c4404bcd753661e3ba6e0",
+      "statement": "`sf` declares `depends-on=\"dbInit\"` so the seed script always runs before Hibernate or any DAO query starts; removing either the `dbInit` bean or that attribute leaves the schema uncreated and surfaces as `Table \"XXX\" not found`.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L86-L86",
+          "version": "repo-lines-v1:sha256:b9597cad719e8824db8a614d741dc9e13cb83ff7705551ee7abbe1434d677874:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk1OTdjYWQ3MTllODgyNGRiOGE2MTRkNzQxZGM5ZTEzY2I4M2ZmNzcwNTU1MWVlN2FiYmUxNDM0ZDY3Nzg3NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk1OTdjYWQ3MTllODgyNGRiOGE2MTRkNzQxZGM5ZTEzY2I4M2ZmNzcwNTU1MWVlN2FiYmUxNDM0ZDY3Nzg3NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM5ODY3NTEyNjczNjMxMWZiZTRiNTVlMzNkMjgwYzlkOWVjY2M4MTc2MDUyZTdhZTkzOTY1MTFmYWI5YmM5MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTY0ZmZlOTRkZjA4MjI0NDVlNDE2OTY0NTU5NGI3ODZmZTgyNTJiY2FmOTA1MmVmMjBmNGFlNzg2MzM3MTNkNiJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L31-L47",
+          "version": "repo-lines-v1:sha256:4a75e1eb9772343c17c6cd1e3f7f305c28b47bd970da4e7d3f33302a2fcda237:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1M2ZhYzRjYzE4Njk5Y2M5MmI1YjcxOWI2MzE3N2IxODliYzgxMjAxNDNlMzViZTE1MWQxZGVmMGI4YzNiZDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzNjE0ZDY5Y2M2OGRjMjhhYmJhODFmYTBkMmI2YzFhNGNkOTQ3NTE3NWNjNTgyZDQzZTM2NWU2ZTZiMDAwYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3MWM5NjRlMDZjZmU4YjA2MzdmYzRjOWE5YmIzMzQxMTE5NjRjOGVlZTg5NjU5NjA4OGY2YmQ0NGI5YzRjODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiOGZkZDE1YWEzNmMyOGNmMDc3MjJiOTk1ZTYxMzE5YjlkODUzZTg2NmM4OTY5OTlhYTFhNTNiZmY0NjgxZjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_55226ed9db9742a5b4f5b1e65ece7356",
+      "statement": "The seed script is create-only — nine plain `CREATE TABLE` statements, the demo INSERTs and a trailing `ALTER TABLE … ALTER COLUMN id RESTART WITH n` calibration (`category=84`, `product=963`, `productimage=10211`, `property=258`, `propertyvalue=14092`) — with no `DROP TABLE` or `IF NOT EXISTS`, so it assumes a fresh empty database and the calibration keeps first-insert ids aligned with the original MySQL `AUTO_INCREMENT`.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L44-L49",
+          "version": "repo-lines-v1:sha256:4d8301b8f5672d42bccfe1e1b1eae29435c9996d8c426f30647df8a7c14a3fe8:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQwYmY1ZTdhODRhNGVkY2EwNDk1ZTQwNDM1YjJmOGI2YzIxZDgyMTA1ZmQ2NWRmNDMxM2ZhZjBkOTU4ZDdmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBiMDUwYTcwNTAxOTUzYjUxZDBjOGJhMTBiOTQ3Yzk0ZjkyYmU2Yzc2YjZmZmRlMjNjZjExYmMwZDJiZDA0NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQ1OGJjZjdmYmJkZGM1ZjEzYTA1NTBmNjFlNWU4YTg2MWJmYTRiNDk3YTI2YWVkZDI0ZWEwM2M1ODc2ZTY3ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIwZjI0ZDc1ZTczODBjMDgwNTIwNmE0NTAyMGM1NjIxOWViMmI4ZGJiZjBkZGVmZDhhOTEzZTcyYmRlYzZhZSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L1-L15",
+          "version": "repo-lines-v1:sha256:877b20505d1d398bcb27f04ef5751103f9f1d52d2d61fbec9ff8e450afe2186e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3MTA2ZWY4ZjlkMTc1NGI5ZDY4MDNhMDM2OGM4MGRiZDMwOTgxNTA1Zjg5YWJhMjk3NTc0ODMzNDYyOWQ2MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2MjNlMjY4MzIzNWU0M2U4MWIzN2FhNGNjY2I5ZWRmOGFjZjA5OWM0MmQ0MjQ0N2Y5ZmE5MGZhN2U2MjhlNzkifQ"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14711-L14715",
+          "version": "repo-lines-v1:sha256:d1e52a367cf8e49a5e6b7777ed270b71e3bfc7035bcf905b6fd7d75a6f689e8a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDhhMWU4ZGUzODcyZTgxYjBhYjk5YWY2NjcwYzQwNTg1YTBlZDI0NmM5ZTNiNTNmYmI0NzNiODBhYTRhMDhkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNiZjkyM2UzYTc3ZTczNGU1NjVjYzExNjIyYTk0ZTVmOWQyYWI2YmQ0MGNkZTZmN2MzZWIxMWQ4Y2Q2NzdlOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc4ZjA4NmNhYTU0ZjQ2MmY1ZTkzNjlkNWY2MDlmOWM5NjE0MWM4Y2E2MjNjMjcwYWRhMWZiMmMwZDA4MjkzZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e05ca73c83f84c57ac91ac0665f430cb",
+      "statement": "Stopping is `Ctrl+C` or otherwise terminating the process: `server.setStopAtShutdown(true)` registers a JVM shutdown hook that stops Jetty and its handlers in the normal order, `server.join()` is what keeps the process alive, and there is no stop endpoint, reload or watchdog.",
+      "evidence": [
+        {
+          "resource": "repo://src/StartJetty.java#L105-L105",
+          "version": "repo-lines-v1:sha256:0a1889d9e76d5734b1b29c9c9a6048c52788d7fa7003deed42ba96fa05ad4181:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGExODg5ZDllNzZkNTczNGIxYjI5YzljOWE2MDQ4YzUyNzg4ZDdmYTcwMDNkZWVkNDJiYTk2ZmEwNWFkNDE4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGExODg5ZDllNzZkNTczNGIxYjI5YzljOWE2MDQ4YzUyNzg4ZDdmYTcwMDNkZWVkNDJiYTk2ZmEwNWFkNDE4MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTFkMTM0Zjg1NzY0ODZhMDg4Mzc2YzlmOWJjYjYwNjk2Y2FkYmQ1NzM4Y2MxNjVkZDQ1NzkyZmM1ZTQ0Y2YwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzYwNDQ4OTk0OTI4NWM5ZWM5ZGYwZjI2ZmYyODA3OTdhYWQyNjg0MDZlZDI5ZWQ5OTY0NWY5NzhhYTJlMDk4NSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L121-L121",
+          "version": "repo-lines-v1:sha256:4062bbbbcad4729e558417c1d8a8b64e91ec7ca7863bf3cecf81f55b51b7d92d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDA2MmJiYmJjYWQ0NzI5ZTU1ODQxN2MxZDhhOGI2NGU5MWVjN2NhNzg2M2JmM2NlY2Y4MWY1NWI1MWI3ZDkyZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDA2MmJiYmJjYWQ0NzI5ZTU1ODQxN2MxZDhhOGI2NGU5MWVjN2NhNzg2M2JmM2NlY2Y4MWY1NWI1MWI3ZDkyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWUwYzE3OTAxNjdlNjIyNDA4YjVlZDNhOTUwYmUwZjJjOTJhZGRhYjUwNGQzMDMwYzUzYjkyM2I2MjJlODk0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmRmZjM1YTM3OWQ3Nzg2MWU1MTM5ZjhmYWVjZDUyNDJiZmNkNjdhNDEzYzMzN2M5YTFiNWMwYTkwZDhjOGMwZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_abd4682b64184206b37cbdf7a1522f15",
+      "statement": "The documented recovery for a taken port is `lsof -ti:8080,8082 | xargs kill` followed by a relaunch from the project root, targeting both ports because the launcher binds 8080 and 8082.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L81-L81",
+          "version": "repo-lines-v1:sha256:28d80b270d2231f2fbf75252e98015443304496ff3e641bb5ddab71c496e3975:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkODBiMjcwZDIyMzFmMmZiZjc1MjUyZTk4MDE1NDQzMzA0NDk2ZmYzZTY0MWJiNWRkYWI3MWM0OTZlMzk3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkODBiMjcwZDIyMzFmMmZiZjc1MjUyZTk4MDE1NDQzMzA0NDk2ZmYzZTY0MWJiNWRkYWI3MWM0OTZlMzk3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTBjZDFjNWFhNThhYzY0NThjOTllMTkxMzE0NjMyOWUwM2IyNTc5NDhlMDgzYjI5ZDNhODFiMmZmZWZjMGEzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGFjOGMzM2E0Yjg3ZGZkYzM0ZTZkNTcyMjk0YmI1MGFiNTgxNDM0ODkyY2NhNGExNDhjMzBhMGM0MjlhMjFjMSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L107-L110",
+          "version": "repo-lines-v1:sha256:bdb172a7ea1240fc2f38190b0127a2c3640e337e5fab0fe91ef9eaed23d5a8d9:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTczNmE2OWJiOTY3MDllYWIzYWEzYjRkZWUwYjQyOGU4YTZhOTM1ZWJhNzhiNDIwMjc4M2U3ZDg0Y2QyNjQ1MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFjOGExNmY5ZmU0OGE3Y2Q5YWM5YTdkM2JlMmFhNDI1ODAzMDE0MDA5M2UwNjFhMGJiZjk4MDM5M2FkMjk1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmExOTU0NGE3ZmU5YWU5YTdhYjY3ZGZjM2QwNWQyYjJmNDViOWYyZGZkY2ZjNDUyZjdmNTBhMjA1ZWY1YjZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYThjYjk5MzUwZDUzMjkxYzYwODczNGI0MDMxMmE0YzlhMThmOGRiOGE2MzRlMTkxOWU3MzAzN2U0ODcyZjU3MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2939edd48864b50ad08173eb79042db",
+      "statement": "A corrupted dependency jar surfaces as `zip END header not found`; the repair is re-downloading that artefact from the public mirror `https://maven.aliyun.com/repository/public/`, and the batch integrity check is `for f in web/WEB-INF/lib/*.jar; do unzip -tq \"$f\" >/dev/null || echo \"$f 损坏\"; done`.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L82-L82",
+          "version": "repo-lines-v1:sha256:4a60466cb6611137c5403882e6274889fb702872a6c01f21b1dcb87089e7be05:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGE2MDQ2NmNiNjYxMTEzN2M1NDAzODgyZTYyNzQ4ODlmYjcwMjg3MmE2YzAxZjIxYjFkY2I4NzA4OWU3YmUwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGE2MDQ2NmNiNjYxMTEzN2M1NDAzODgyZTYyNzQ4ODlmYjcwMjg3MmE2YzAxZjIxYjFkY2I4NzA4OWU3YmUwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjBkZGQxODVkNWYxNmU3ZDY5NTEyNGUxNDY4Y2ZkNzFiZjE5NTA2MDlmYzNlNTg0ODc1N2FmNWQ3NmUyYmYzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmM5ODY3NTEyNjczNjMxMWZiZTRiNTVlMzNkMjgwYzlkOWVjY2M4MTc2MDUyZTdhZTkzOTY1MTFmYWI5YmM5MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c847664e63214df1aa04bb577497901b",
+      "statement": "The JSP failures `getTldCache() is null` and `TldCache cannot be cast` (webapp unavailable) are caused by modifying the explicit `Configuration[]` chain or the `addSystemClass` list in `src/StartJetty.java`, the two blocks `STARTUP.md` tells readers not to change.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L31-L34",
+          "version": "repo-lines-v1:sha256:6a5ea54db0f932af9bca01171319d5335a56b39ea014b3f3feb7db3904749130:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTFkMzIyNzVjZDJlMWExYTZmZTU3NDU1Y2M4ZDM5YTRjOGMyODJmZmFkNmEwMWQyNzFjZmMzNzIxNGRiZWZjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDBkOWE1NjNjZWQ5MjJlNjQzNDAyZWE5NmMyMTE1M2NlYzY5OWUzMzJjNDc0YWNmZTMzZmQ3YWZmNDkxNTFmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmUyMzNlYmQzODE3Zjk3ZTU5Yjk3ZjFlNjY0NGJmMTAyOGE2NjYwYzZkYjc1MzM3MjFlZjgxOWZiNzE2NDJmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzdkNzczOTA4MzNjYzJiNGE5YTFkNjI5MGYwNmUwMzY3M2VlMTk4YjNlMGU3MDNiNmE5NjVkYmU4NGM3ZTI2YSJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L83-L83",
+          "version": "repo-lines-v1:sha256:adc4d5de9ba94457fc3ef7c337694f46de164fdf36cdbd2d36b5e7c7fb7e10b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRjNGQ1ZGU5YmE5NDQ1N2ZjM2VmN2MzMzc2OTRmNDZkZTE2NGZkZjM2Y2RiZDJkMzZiNWU3YzdmYjdlMTBiNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRjNGQ1ZGU5YmE5NDQ1N2ZjM2VmN2MzMzc2OTRmNDZkZTE2NGZkZjM2Y2RiZDJkMzZiNWU3YzdmYjdlMTBiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTM1ODllMDQwY2RiODczYmNkZTIxMzEyNmRhYWMxMDQwMGRmZDkwNDgwMjU4MmE4MjJiNjJjOGY5ZTE1YzBhNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTZkYmE5NGEyZmMwY2MxZDdmZGRiMmM2ZjlhNTAxZjFlMzU1MGEwNTRmMDVmY2RjNzNjNWU0ZDY4YzIxNjgxYyJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L71-L88",
+          "version": "repo-lines-v1:sha256:a8d14e544c316b6cdc32747543783b476970dcc4cd2a91789b5bd1ce340f2552:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxMzYyYTQ5Y2Q5MTFkZDNiNjI0NGYxZjNmMjljNDhjZjY4MzM2Yzg0ZDRiNmYzNjE2YjFlZGJhMzA0ZTZmMTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMwYWI2YjEyZGQwYjU3YWM4MzI5YjY5YzcwNmYzNGNmYTBmNTAyNWVlZmFmNDdlYzBjZTIzZjkzNGU5YjZkODUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5YmJkNDQwNjMyOThkNGMyMDBlYjhmNDBjZmFkNjI1OTZkMjdmMGRhNzlhOGE3ZWQ3ZTFjMDAxZTQyYmIzNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNiYjU1ZDU2YzA5OGU1NzE4YWU5ZWY3OWNhYTU4MzNkZDkyYjFiY2RjNWQ2YmIzNzQzNmI2ODhlNDdmMTM1ZjEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a007d18385248868127e7caffcd5bef",
+      "statement": "The `PROPERTYVALUE FOREIGN KEY(PID) REFERENCES PRODUCT(ID)` referential-integrity warning was produced by `hibernate.hbm2ddl.auto=update` auto-creating foreign keys that the original MySQL schema lacked, and it no longer appears because the property is now `none` with the schema owned by the seed script; the `STARTUP.md` troubleshooting row still lists that warning as harmless.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L64-L71",
+          "version": "repo-lines-v1:sha256:b83bd74cae9333631dbbc7071eea2900fa63084e6ebb77c9243d5f7baf64fb43:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE2ZDZjMDkyYzBjYWY4NjE5YWRhNzZlM2Y5ZGExODFkNWU5MDdkMDMyZGMzNjc1M2Y2YzRhNjNjYTY2ZGRhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDU2M2Y5Zjg0MmQ1OGZkYzY5NDI5MjBhMTYyZWUyMTU4OWU0NjI4ZGI4ZTMxOGExOTU3YWYzMDNiMGVhZTlmNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2FlN2UwYzRmZDA3NGRmMGViOTEwNjEyMWE0NTIxZTc0MmM4MWU3MDgzMjI4MmI3ZDMwZTZlMGMyNDE3YjdlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODUyNzhhYTNlZTQ5ZDM3NGMzOTExYjcxMDIzODhlNWE3ZDk1M2JkNTQxNTJiMTk0YzhhMWFjZGU2OTMxNWYzZiJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L85-L85",
+          "version": "repo-lines-v1:sha256:3d911422b4b9c3053ab7f8c01b173690a916cc9c818147a729b6aa3e2501d6a4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q5MTE0MjJiNGI5YzMwNTNhYjdmOGMwMWIxNzM2OTBhOTE2Y2M5YzgxODE0N2E3MjliNmFhM2UyNTAxZDZhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q5MTE0MjJiNGI5YzMwNTNhYjdmOGMwMWIxNzM2OTBhOTE2Y2M5YzgxODE0N2E3MjliNmFhM2UyNTAxZDZhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGFjOGMzM2E0Yjg3ZGZkYzM0ZTZkNTcyMjk0YmI1MGFiNTgxNDM0ODkyY2NhNGExNDhjMzBhMGM0MjlhMjFjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJhZTcyZmNkZDg4MWNjYTJmMDc3ZGI1NDMwNzIzZWZlMGUwOTBjYjNlMDJlOGNlNzBjNWMwYjBjZWQxZmU2YSJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L56-L65",
+          "version": "repo-lines-v1:sha256:4daebea210991cf8c20337d57f38ba39c7f92ead956c278a89b255901c7ac304:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmMDQzYzA1NGQ5NDA4NWVmMTg2ZmY3ZTA5YjExYTg5MWJhZDBlZDMyNjA2ZWZmMGQxZGZjYjc0NzcyYTI2YTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYWU0MmM5NmE1NzVhZTM1MTllZGQyMzM5MjNmOTI0N2RlY2UxODM5N2U1ODcyYmIwNGU2ODhkMjdlM2I5Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5ZTllZDRiYTVkNjU1N2U4NTk0MzhiN2M5ODhjMTgzOTY5YWQxOWE0ZmFiNjQ2YWUzNjI4ZTUxZTE2YTYxODUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2N2M3OTI4NTEwNGFkNGYwNDg1MGVmMzBiM2I2MjQ5NTI4ODc5YWNiNzM3NTM0MTIzN2QxZTQwNDA3YWI3YzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8eed17b6461b4980bbd2b6a4ba337be6",
+      "statement": "Logging output normally goes to the console through a root `INFO` appender with pattern `[%-5p] %d %c - %m%n`; a `File` appender writes `dist/my.log` relative to the process working directory but is attached only to the logger `mh.sample2.Log4jTest2`, which no class in `src/` uses, and `dist/` plus `*.log` are git-ignored.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L14-L15",
+          "version": "repo-lines-v1:sha256:3dddb215518b631272dd5c923e98ef5ce15a6be2f1954f95ed52c22611194848:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDY5N2YzZjA4MmYyYzdlNGQ0YTE4YTI5OWQyN2Q0YzYwNTMxZGIyN2QyZTExMmJiNGNjZGIyZDA0NzZmYzc5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE4ZDlhMTY1MzM3MzJhNjljZGE3YmI3YjE3NGVlMzkyZmRkMTViZTNkNzJhMTE0Y2Q4ZjJkNTFmM2VhYjUxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIwZGI2NTc0MTMxMDg2ZmQ3NWZmMmMzZWNiMTNjZDNlMGQ1NjUzOWUxYTY1NWE0MTU3YWM0MjgzNmU2OTY3ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQzODI1YTBmNGZiOGZjYTFhZDY4NDk2NzhlOTEzODk0ZWI5ZTZkMWMxYTdkNGVkODEyOGFjZWE2MDFhZTI2NCJ9"
+        },
+        {
+          "resource": "repo://.gitignore#L5-L5",
+          "version": "repo-lines-v1:sha256:ed19d3c9c8a5e34d0179e0b1a9c2907d2e657738733e4a432a8cf81c76ce56f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQxOWQzYzljOGE1ZTM0ZDAxNzllMGIxYTljMjkwN2QyZTY1NzczODczM2U0YTQzMmE4Y2Y4MWM3NmNlNTZmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQxOWQzYzljOGE1ZTM0ZDAxNzllMGIxYTljMjkwN2QyZTY1NzczODczM2U0YTQzMmE4Y2Y4MWM3NmNlNTZmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGJkMWI2ZjBhYzg3NGZhY2M5ZTg3NGQ3NmE3NGM1MTdiZTc0N2Y3YTZhNDE0ODI5YzJhMzE2OTc1ZmRiNGE1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDg0MDM4OGJlN2MwY2FmNTQ5ZTA5ZGY4MzgzNmYyMzhlMzBlY2FmMmU1OGEwYzBkMzcyNzE1YzU0MTJhMGRmYSJ9"
+        },
+        {
+          "resource": "repo://src/log4j2.xml#L2-L18",
+          "version": "repo-lines-v1:sha256:fc42bf066f93d8c6a94f613ccd6d57b55c897c14cdd5f79675892a3a54bfc2ad:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkNDQ5YzlmOGU4YTNiNmQ3YmFkOTRjMjYwOTUwYjA0ZGI3YzY5MTQzYmYyZDNiMWMzZWM4YmFmMzQzM2JhMTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzM2QyMDMwZGQ1ZjA2ZmQyYTYzOGFlNmUxODc4MmQyNjczMTZlMWM2ZjVmMjliNzVmNWJlNTcyNjEyMjdjZGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoxLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBlYjY0MWRjY2YxMDYwY2Y4MjgzMTc3OGFiMDRiMjcwYjk3YjI0NzgwZDA4OTVkNWIwMGQ0ZWIyMTdmYzhhMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY5YzhkYmFmZmVjYzA2ZjdmODM2MmFlNDdiM2M2YzNiNmQ3ODdkOTFmOGY2MjhkMTBiODM0YTdkZDQzY2NiZDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_332735bdca5a4da7bf255acaf4866436",
+      "statement": "Environment requirements are a JDK only — JDK 8, 11 or 17 all run the project, JDK 17 (Temurin 17.0.20.1) is the recorded verification environment, and neither Tomcat nor MySQL has to be installed because Jetty 9.4.58 and H2 1.4.200 are vendored among the 65 jars in `web/WEB-INF/lib`.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L20-L20",
+          "version": "repo-lines-v1:sha256:d7a2f2ec6341617b15d30ce5c285e27a8f63fa06a99aa8068a005508f81ea62e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdhMmYyZWM2MzQxNjE3YjE1ZDMwY2U1YzI4NWUyN2E4ZjYzZmEwNmE5OWFhODA2OGEwMDU1MDhmODFlYTYyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdhMmYyZWM2MzQxNjE3YjE1ZDMwY2U1YzI4NWUyN2E4ZjYzZmEwNmE5OWFhODA2OGEwMDU1MDhmODFlYTYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDIyZmQ2ZDQ2OWQzYTI5ZGJhNGNlNjVmZjA0MDAzYTZjM2VhODI4NDU0MjJkMzAwNzY4MzlhNWU1NjQxOGY1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDRlY2EwOWRmZWM3ZWYwMzRmNDRhMmNmN2ZlYmZmN2Q1MmE3MzM5OGVlMTM3ODhlNTQzODg3YWU1NDMxYjdlYyJ9"
+        },
+        {
+          "resource": "repo://MIGRATION.md#L51-L56",
+          "version": "repo-lines-v1:sha256:432758938a86a3f55c4f6c286a18e22909f3d06882fc744340b5a49559bd39ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDk2ZTBhZGY3MmU2MDNiYmM2ZmQyMjk2YzBlOTQyNjkxMWJjMjE5Njc5NTM1NDczOWUwNDU5NWRlNzFhN2FjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGFkNzM4YjYwZDM5MzM4ZGExMmE5NTY2MTUzMTRmYTk1OGVkODlmMjkyYTNhYjI0M2M2ZjZhZTJjYTc4OTRkYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI5M2JkYTU2ZTYxNDY3NDU0ZTg2ZjA0YmIxOGI3MDM2MjVkYTczZWQ0YzBmNjcxMmU5ZTZkMWJjNjM1ZWNhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjJlNWU1Mjc4MmRlODY4ZjY5NDk1YWViNGIwYThlN2IzZDhlYjlkNGE3NWUzMTExMGRiNmQ4OGRhNTE0YWYyNSJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L5-L8",
+          "version": "repo-lines-v1:sha256:b1d6cb317c4eef4c4afd19cb7f6040565da6d77a03a8905bc7b0fcaae08e157a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2QwNWMwYzU5NjA1Zjk3MDZlZTU1MzA4ZTA5NWZmNjExZjFiNDBkMjI3NWVlMjdlM2M5MzFmMmY2ZTc1ZTFiMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFlNTk5MDNjYzQxMWY0YmNmYTFkMjk5ZWM2ODFhYzI3NmYxYjVkZDBjNTNlNDVlNzg0YjBkNDliZDZkMTU1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmY1MjE2ZDMwNDc1MDM3ZmU2YmEyOTIzMTFhNDA5MTVlOWVmMWZhNWY4MWY1MmUyNWE5MGU5ZmRlNDc2ZmU1ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Q4NTU0YzFiNmFiNzlkYWJlMjNkZjJjYzBjOWFmNmI4YTZhYmRmMDJmNDRhY2ZlMjY0MTBmZTg4OGU2YWNhMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_710e640e94b542469ae450b2961c2382",
+      "statement": "The documented commands are POSIX-shell shaped (the JDK 8 fallback separates classpath entries with `:` and the failure recipes use `lsof`, `xargs`, `unzip -tq` and a `for … done` loop) while the launcher itself is path-agnostic, resolving everything from the discovered project root, and the IDE metadata's dead Windows absolute paths were replaced by per-jar references under `web/WEB-INF/lib`.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L21-L21",
+          "version": "repo-lines-v1:sha256:2fd0a00cd9d570dd9258c727aafba042ed89ddd98224769c4f11c95c66cd5354:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZkMGEwMGNkOWQ1NzBkZDkyNThjNzI3YWFmYmEwNDJlZDg5ZGRkOTgyMjQ3NjljNGYxMWM5NWM2NmNkNTM1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZkMGEwMGNkOWQ1NzBkZDkyNThjNzI3YWFmYmEwNDJlZDg5ZGRkOTgyMjQ3NjljNGYxMWM5NWM2NmNkNTM1NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmIyN2EwMmU3MGQzMDI5ZTg4ZDUzODQ4MWZlMDE5MzZlYjg1YjUyMjY4NTQzODZiOTBlMjRmOGE3YmU1Yzg1MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGI3M2E5OTdlNjM0MzVkZjI4ODU2NmViYTM1MzcwNTVkODUxMDIyOTA4NjQ0OWE5MWE3MzQ5ZWI4YTliZDlhNiJ9"
+        },
+        {
+          "resource": "repo://STARTUP.md#L29-L40",
+          "version": "repo-lines-v1:sha256:0a0264cb7c986bb9d139902765e8e8bece928b38de71d72169050b89ffb1cb1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3NTkwOTQxYTc0Y2UyMGVkNGNlZTFmMTZlYjdmZjBhMmZlYWQxZTE4ZTJkYjQ0OWJkOTg4ZTYzYzY4MDg3YjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwZTJjOTVmMTM4NzEzNTgzNmZkNTNkZTU4YWExOWIyODQ5ZDc2MTZiZGNkZDhmMzdkZDdkYzM5NWNjZjg2M2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIyY2U2N2RjNDA5YjIwZGIyZTljMTg2N2ZmMGVjODdmZmE0NjNlNzY0MjI2YWJkM2NmMzViOGMzNzI2MWIwNDkifQ"
+        },
+        {
+          "resource": "repo://STARTUP.md#L81-L82",
+          "version": "repo-lines-v1:sha256:ad34c9d88416e490d0264a310675ce734274b3b86a67317a21a337b84c1b16e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkODBiMjcwZDIyMzFmMmZiZjc1MjUyZTk4MDE1NDQzMzA0NDk2ZmYzZTY0MWJiNWRkYWI3MWM0OTZlMzk3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGE2MDQ2NmNiNjYxMTEzN2M1NDAzODgyZTYyNzQ4ODlmYjcwMjg3MmE2YzAxZjIxYjFkY2I4NzA4OWU3YmUwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTBjZDFjNWFhNThhYzY0NThjOTllMTkxMzE0NjMyOWUwM2IyNTc5NDhlMDgzYjI5ZDNhODFiMmZmZWZjMGEzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmM5ODY3NTEyNjczNjMxMWZiZTRiNTVlMzNkMjgwYzlkOWVjY2M4MTc2MDUyZTdhZTkzOTY1MTFmYWI5YmM5MSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L124-L143",
+          "version": "repo-lines-v1:sha256:9fccd12aa27f9cd3c2413e93fe77f6e17a43bceb08f6291f459d441d4c1446cb:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2MzExMTQ2ZTNlZTA1ZDNhZTgxMTljZWQ0YzA4YzI0MDZlNmFjYjVjMjVhOTAzMjAwNzgzMjA0MmUxZDY5ODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0ODcwMjAyZmZiY2RjZTFmNjY1MzAxMDZhNTM0NGQ5Nzc1NzE3NmNhNGFiNTBmNGE4YWY4NjQ3ZTQzMjA3YjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmMWI2YWFjNWFkYmQwYTg4YTA2YjU1YjQ2ZGRkZjcxNDM5ZDdjM2I0NmE3NWUwNWQzNTE4NGVlNWVhNzRhMWIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.0",
+    "at": "2026-09-25T05:09:04.985Z"
+  }
+}

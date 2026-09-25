@@ -1,0 +1,3 @@
+# Files
+
+- [Runtime Invariants and Safe-Change Checklist](runtime-invariants.md) - The do-not-break list of Tmall_SSH: the @Action endpoint names, @Result names and OGNL redirect parameters, the bindable OGNL property names and the img upload field, Page with its hasPreviouse spelling, the session keys, the AuthInterceptor whitelist method names, the image naming and 56x56 / 217x190 resize conventions, the img src paths, the seed-script id calibration, the Spring and Struts settings and the launcher's class-loading and rewrite wiring — each with where it is defined, everything that must change with it, and the symptom when it drifts.

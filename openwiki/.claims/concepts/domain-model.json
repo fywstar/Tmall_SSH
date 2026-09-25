@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:32992b25a3c56f9e873e76ea6e20816043f1806fd83d4766840e6e6b9802816c",
+  "claims": [
+    {
+      "id": "claim_92146e4850554bdd9025ad708008a70f",
+      "statement": "The object model is exactly nine @Entity classes in com.caozhihu.tmall.pojo — Category, Property, Product, PropertyValue, ProductImage, Review, User, Order and OrderItem — discovered through the SessionFactory's packagesToScan = com.caozhihu.*; the annotations are the only mapping metadata (no .hbm.xml) and hibernate.hbm2ddl.auto=none means no DDL or schema validation at startup, so src/sql/tmall_ssh_h2.sql is the sole definition of tables and columns and a renamed field surfaces as an SQL error on first use.",
+      "evidence": [
+        {
+          "resource": "repo://src/applicationContext.xml#L47-L66",
+          "version": "repo-lines-v1:sha256:ae0e6bb30495f1857b54d9b12d376e809476512b7ce1f70c2ea6a2d5410a1927:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzNjE0ZDY5Y2M2OGRjMjhhYmJhODFmYTBkMmI2YzFhNGNkOTQ3NTE3NWNjNTgyZDQzZTM2NWU2ZTZiMDAwYTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkZTM5M2EzNjAzMzBlYjZhYmZiNDY5MzliYmI5OGI2NDNjNmEyYTM5MjI4ZWVjNGZjMjIwMGIzZjZkZDkzNmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwYzY3OWE0MWNkMTY2YTM2YmJhZTliMTNkMTY0MjlmOTY2ZGRjZjJjNjAxMTk2MmUxMjkxYTk5MTY5ODk1OGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNjQ1NjgwMzNiMTQzYmZkZjg5NGU3ZGY3MDZkNjg4OWVhOTc1NGVhYzljZDQzMTI1Zjk2ODk2ZWM2NTkzYjQifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Category.java#L6-L8",
+          "version": "repo-lines-v1:sha256:071d351b4ee963c9d4359e489f6e9c5c12b45eedfe0783a66d5526a19c89c43c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE4NzY0MTEzM2FkMzk1ZjAyZWE5MjIwZmVmZjZjYTAzNzU2MGVkY2ZjOTk5YzQ0MDY5NjEzNWY0MzFiNDhkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmUxZGMzNDI0NGRmNzQ0NmJlYTY1NTFlODgwMDM1OWQwYjA2OTU1N2E2ZTIyMWM3NjFjMTdhZTA5ZTEzMmJkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRjYTdjMGE1NDExODFkYjJlMjM1MDI4ODYzYTYzZTVkNTk0YjUzMTVjM2E4NmQxNzhhN2U0OWY4MzQ0MDYzZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L9-L11",
+          "version": "repo-lines-v1:sha256:841d9a33d252008e3d108d9e0f72e349517ac09220dd151885f890eada049694:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTdhODMwYWI4NTdiNjdhMTBmNmE2ZGIzZmIwYzAyNjRkZWIzY2E0NmQzZDg4YjhhNzIyNzVkZDk2MTcyMjhkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDEzMzRmYTc4ZmIxODdjNTI3NzViNTk2ZTZlMDUyNDg4ZjAxNGRhZGIyZTdjZjU1ZDBhMTM1ODE0ZWUwNmFiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRjYTdjMGE1NDExODFkYjJlMjM1MDI4ODYzYTYzZTVkNTk0YjUzMTVjM2E4NmQxNzhhN2U0OWY4MzQ0MDYzZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L5-L7",
+          "version": "repo-lines-v1:sha256:40abfe68d630add3eb7c10eb5bf761497e5300253c311dea9044a5ab2d6596b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODE1MzBhMDFmNGVkMDNjMzUyNGYzM2RmNzYwM2YyZGUwNDhjOWE5NTRiZmUxODMzZDgzMDllYTJiYmZhNTJiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NjY5N2I0YTc3MTU0ZGRiNTkxN2MxNzdlZjIzMDQ2Njg0NzczMjFmY2RkMzU3NjRiYThmNGM0OTU3MTRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRjYTdjMGE1NDExODFkYjJlMjM1MDI4ODYzYTYzZTVkNTk0YjUzMTVjM2E4NmQxNzhhN2U0OWY4MzQ0MDYzZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/ProductImage.java#L7-L8",
+          "version": "repo-lines-v1:sha256:a00d83ba10d2d350cb3562ae52a9b693ad402d4cd93f8ea46ebdf1eec15e58cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM1ZmRmZjljZDRkZTI0ODg0Njk5YjI5ZDY2ZjY0ZmY2YjViNTQ5NDcyNzFhMDdiNjEwYzY3ZmI5ZmQ5Y2JmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NjY5N2I0YTc3MTU0ZGRiNTkxN2MxNzdlZjIzMDQ2Njg0NzczMjFmY2RkMzU3NjRiYThmNGM0OTU3MTRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTNkYzhjODVmZGRiNTI3ODEzZGM0Mjg4MDNmMWNjMjY5Y2UzNDZkOGQ1ZjE4ZDY3YzJlNTVmOTMxMTJjNzE4ZCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/User.java#L5-L7",
+          "version": "repo-lines-v1:sha256:5fcb665accf4b35f86d742a39a6c576312967530c3beaf373dec0221fe1efaad:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmU1NmIxYmEzZTExNWI0NmZjMzMyMWVmOWZiZDM0YzU1YmFkMWEwZTg2MmZhY2EyYjNjOGIzMGU5ZThjN2UxZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NjY5N2I0YTc3MTU0ZGRiNTkxN2MxNzdlZjIzMDQ2Njg0NzczMjFmY2RkMzU3NjRiYThmNGM0OTU3MTRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWM4MTlmZWZmM2E0MTM4YTQ0NmYxZjllMWVkZTI3NmYwMDJiOGE4NmRiNDkyMDM5YjU3Nzk0NjZkNzk2NDBkNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1c9c6ec923264361b4b6e4cadcab00d6",
+      "statement": "Every entity uses the same identity strategy: a primitive int id annotated @Id @GeneratedValue(strategy = GenerationType.IDENTITY) with @Column(name = \"id\") (Product's @Column is bare and falls back to id), matching the script's id int NOT NULL AUTO_INCREMENT.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Category.java#L9-L12",
+          "version": "repo-lines-v1:sha256:39db40514a975550fb7b685ea9f2362199de8a56092ecbcedd9579b502b52126:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ3ZTcyNjNmMTY1Y2FmZTk2NjM4ZTYzNGNhYjZlYjg1OWY5ODc3NzY1YjM4ZmRkMjkxZWQ3MjNhOTNlYzRkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRjZWY2N2JmZmU0YTYzYjkzOWNlYzEzMWEyMTBlNWNhOWJhNDkxMWU1YzUzZjRiNDJiN2JmYjhiNjc5M2Y2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDcxZDM1MWI0ZWU5NjNjOWQ0MzU5ZTQ4OWY2ZTljNWMxMmI0NWVlZGZlMDc4M2E2NmQ1NTI2YTE5Yzg5YzQzYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTUwODAyODg3MzY0ODNkNmFjOTI5ZTdjY2UyMTY5YWEzMjhjN2ZkZjVhNzZkNzI0YzRhYzI2MTY1ZjY5OGRiYyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L12-L15",
+          "version": "repo-lines-v1:sha256:98ae2043299606dabc5518ddf2d0aadc503f9ebd5039587e0a0a1c297a9092c7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ3ZTcyNjNmMTY1Y2FmZTk2NjM4ZTYzNGNhYjZlYjg1OWY5ODc3NzY1YjM4ZmRkMjkxZWQ3MjNhOTNlYzRkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdiMTJjMTAzYjA1MjRhNjgxZjVmNzAzODRjYzQzNzVjNTAyZjg0YmQwNGMyNDk5ZGY5ZmY1NmVkNzRiMzQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODQxZDlhMzNkMjUyMDA4ZTNkMTA4ZDllMGY3MmUzNDk1MTdhYzA5MjIwZGQxNTE4ODVmODkwZWFkYTA0OTY5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjkzOTZlYjI1ZWRmZGYyMzBmZjY3ODdlOTRmM2FlOTBmNzliMmY2YjA1MTJmY2RhMjI5ZTUwZWJjNzZjOGE1MSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L10-L13",
+          "version": "repo-lines-v1:sha256:0ac2ec48f07f9c476485f6840d7af31f6e768957b5189dd6eb78f7dbeeb358d3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ3ZTcyNjNmMTY1Y2FmZTk2NjM4ZTYzNGNhYjZlYjg1OWY5ODc3NzY1YjM4ZmRkMjkxZWQ3MjNhOTNlYzRkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRjZWY2N2JmZmU0YTYzYjkzOWNlYzEzMWEyMTBlNWNhOWJhNDkxMWU1YzUzZjRiNDJiN2JmYjhiNjc5M2Y2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjYwZDMyY2M2ZTdmZDhlYTIxNjUyMmZmZGVlNThhMDhiNTU3MGMyYmMzN2YzNDUxNWRlZDE4MmNlMzU0YjdkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGQ1Y2ZmZTM3MWI1NzhhODg5NjM3ZGZhMmYyMTMxZjhhNzRmZDljZWZlM2IzOWJiNzY1YzE2YTQxYWRhYzZmNyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/PropertyValue.java#L8-L11",
+          "version": "repo-lines-v1:sha256:98ae2043299606dabc5518ddf2d0aadc503f9ebd5039587e0a0a1c297a9092c7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ3ZTcyNjNmMTY1Y2FmZTk2NjM4ZTYzNGNhYjZlYjg1OWY5ODc3NzY1YjM4ZmRkMjkxZWQ3MjNhOTNlYzRkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdiMTJjMTAzYjA1MjRhNjgxZjVmNzAzODRjYzQzNzVjNTAyZjg0YmQwNGMyNDk5ZGY5ZmY1NmVkNzRiMzQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTExMDg3MjU4NjRhNjIwNzFmMDEzMjZmNDlkMzUyMzdkMGI0ZDZkOWVlZmJlZWJjOWM3YzY0MGIyZjY0YTcyMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWFiNTNiMjI2YzRkMmYxZmYyZGIzN2U0Yzg2NmU0NmZhMjEzMDA4ZjcyNWNkZGY0MGVjYjY1YzgzYzk4NTcwZCJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L11-L14",
+          "version": "repo-lines-v1:sha256:807114fd1e62e9245264747f1241dfa88934b4010f615b319b7c1acd3647ecf4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGU3MWM0MjQ4NDc0YjljNmY1Mjg0MDMzMjBmMjEzMDdiZmJiM2Q4NjgxNzk2YzUzY2E1ZTVmZDM1OGU0NmFhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWM4ZTRjNDc1NzMwMDg1YjM1YjMwZDRhNjc1MWVkMTAzMDk0YzA4ODc0Yjc2MWNkNGI2ZTE4Mjk2ZDZiZTAwZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGVmYWI3OTNlNTQ0ZThmZTI2MWY5YmNlYTVhYzc2Mzg4YTk3OWUwOWFmZDM4OWZiMTFjZGM1YTU2NGEyYjNiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTU4YmRiNWE1MDJmNWJlNmQyNzcxNGVlOGFiYmYzOThlYjNlZmZiZDIxZTAzYjZlNjYxY2RkY2RkZDg4NDg3NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0831ddf7af9148c490fc2f5acca117a8",
+      "statement": "Because identity generation executes the INSERT during save(), the generated key is readable immediately afterwards — CategoryAction.add names the uploaded image file from category.getId() and ForeAction.buyone returns the new OrderItem id — while BaseServiceImpl.save's cast of the returned key to Integer means changing an entity's @Id to long breaks every insert on that service with a ClassCastException.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L28-L35",
+          "version": "repo-lines-v1:sha256:9ae49f2a76791ade3936df958caedcbbebbe7bb14344ac9b1b79a8631581bd5c:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE2NGYyNmM0MGNlMWY1YWRkMmUwNjYwZjAxZTIwOTVhZmE2MDUwYzkwZmZjYmYwYzdiYzYyOGYxMTkyNThmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJiZmNkNTY0N2FmZmU2NjJmNWMzZTNiYzZiYzJiYWRhNmY4NDMyMWY0ZjQ4YmQxM2QzZjM0NmQwNmQzNmEzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGViYWVkMTcwYTAxZmQxYjBiMTM2ZWRlYjI3NTcwMmM2ZGFmNGJjYTA4Y2UwOTcxMWY4N2EyZjM5ZGI5OTdlMiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L162-L169",
+          "version": "repo-lines-v1:sha256:b35d296dd3393d541645620bd662730a5d7d1e7b1aa7f15d7fc18d37acf635d9:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU4MDJlMDJmYWJhYjEzZWU1ZDExMjNiMzNkYzI4ZDZmMTIwNmQzYTBkMDY1ZjdhYjJlNGYxYzMwZmI4MzVmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTM2N2IyYjlhYWRiZTY4YThkY2I0NjFhYzllM2RiYjIxN2M1NmNmNzU0OTQ3NmViODZjMGE3MGQyMjk0YjhmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQ1ZGZiOGJmNTc2NmRiZDQ2MWNjOGZlNWYzOGNjZGYxNDBlMTQ4ZTc5OGNiNGNiMzNmMTk2ZDdmMjJkZWEyMyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L108-L116",
+          "version": "repo-lines-v1:sha256:fe53f8f9fa237a29ca347988809343af3db7920801ee026a81a65ad40f0ec022:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWY4NTY0OTA3YzQ5YzhkYWJkZTNlMjRjYWQyN2IyMTg5MmU3Yzk0YTdmZjFmZTY3MGMwOWExZWY3OWU2Y2NmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDRkMmMzYWM4MmQ2ODk0NTU2MDg3NDI4MmUxYTgwMTljYzExNDU5ZGU4NmUwY2RlODljM2ZjMjU4M2UwODQ4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmQ1YzYyZjM1OTc1ODhlNWVlN2UyYzhiZDRjMGM0OWM5M2JiMjIzYTE3ZjQzNDAyZGVhZTMxMzkwNzM2MTRkYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_84749c2344ea4d41a12571c17584fb0a",
+      "statement": "Table names are the class name lowercased except where annotated: category, property, product, propertyvalue, productImage, review, user, orderItem and order_ — Order maps to order_ to avoid the reserved word — and the annotated productImage/orderItem differ only in case from the script's productimage/orderitem, which resolves to the same table because neither side quotes identifiers.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L9-L11",
+          "version": "repo-lines-v1:sha256:841d9a33d252008e3d108d9e0f72e349517ac09220dd151885f890eada049694:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTdhODMwYWI4NTdiNjdhMTBmNmE2ZGIzZmIwYzAyNjRkZWIzY2E0NmQzZDg4YjhhNzIyNzVkZDk2MTcyMjhkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDEzMzRmYTc4ZmIxODdjNTI3NzViNTk2ZTZlMDUyNDg4ZjAxNGRhZGIyZTdjZjU1ZDBhMTM1ODE0ZWUwNmFiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRjYTdjMGE1NDExODFkYjJlMjM1MDI4ODYzYTYzZTVkNTk0YjUzMTVjM2E4NmQxNzhhN2U0OWY4MzQ0MDYzZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L5-L7",
+          "version": "repo-lines-v1:sha256:40abfe68d630add3eb7c10eb5bf761497e5300253c311dea9044a5ab2d6596b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODE1MzBhMDFmNGVkMDNjMzUyNGYzM2RmNzYwM2YyZGUwNDhjOWE5NTRiZmUxODMzZDgzMDllYTJiYmZhNTJiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NjY5N2I0YTc3MTU0ZGRiNTkxN2MxNzdlZjIzMDQ2Njg0NzczMjFmY2RkMzU3NjRiYThmNGM0OTU3MTRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRjYTdjMGE1NDExODFkYjJlMjM1MDI4ODYzYTYzZTVkNTk0YjUzMTVjM2E4NmQxNzhhN2U0OWY4MzQ0MDYzZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/ProductImage.java#L7-L8",
+          "version": "repo-lines-v1:sha256:a00d83ba10d2d350cb3562ae52a9b693ad402d4cd93f8ea46ebdf1eec15e58cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk2NWU1OTA5OTAwNDJkZTdlODMxYjI1OWUzNThmZTZjNzNhNWVhNDRlNzExZjBiZWY3MDAzYjMwYzU5NzA1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM1ZmRmZjljZDRkZTI0ODg0Njk5YjI5ZDY2ZjY0ZmY2YjViNTQ5NDcyNzFhMDdiNjEwYzY3ZmI5ZmQ5Y2JmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NjY5N2I0YTc3MTU0ZGRiNTkxN2MxNzdlZjIzMDQ2Njg0NzczMjFmY2RkMzU3NjRiYThmNGM0OTU3MTRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTNkYzhjODVmZGRiNTI3ODEzZGM0Mjg4MDNmMWNjMjY5Y2UzNDZkOGQ1ZjE4ZDY3YzJlNTVmOTMxMTJjNzE4ZCJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14698-L14699",
+          "version": "repo-lines-v1:sha256:2b8b1b1bfe7f283edd2fd1ef323383f995fcb3aad2d25d1af6364476a4b81250:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzU2ZmM4ZDhkYjE5NTViNzZlZjNkZTIzM2NmZTUyMTk3NzZjMTlkZjk2YmIyMGFkZTAwNzU0NjA0Mzc0NWM0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmZiOWZkZDQ1Y2M1NTU4ZmYyYTYxZjFiMDg0ZTg0MTMyY2ExMGZjN2Y4YzljZDE1ZTAwMzEyZTcwYmRkMzE2ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzBmNDU3NmMzYmFiODcyNzM1MTZiZGE4YzMzNjQ2ODI3NWIyMTRmNGFlNmIwN2Y4M2U2YmZmYWUyYmJjNjNkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTFmY2EyOGMwNGFkNjE5MGMzODNkZWQ5YzJkMDZiYTY4ZWQ3ZTlmNjdiM2MxMzhhNGM1ODFiZjdkMWMzYTEyMyJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L155-L156",
+          "version": "repo-lines-v1:sha256:44a563cf03a39b74c75a3e10e86f5a0f9f259c6dad1bb7aae80673679e09d5b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ5NzMyZDg0YWMyOWM3NzdmZDRjYjQ0YjRhYTdiNWIyYmY3YTA3M2I4MWE5MjQ1NTYwZWI1MTExMTdiMjFhYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmZiOWZkZDQ1Y2M1NTU4ZmYyYTYxZjFiMDg0ZTg0MTMyY2ExMGZjN2Y4YzljZDE1ZTAwMzEyZTcwYmRkMzE2ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJhNjA0MjFlODlkMTZiZTE4YThiZGMxY2Y0ZWI0YmU0ZjM2NWQxYzQ5YzRjNmU5MjllMWFhNGVkZWJkZjhkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTJjZDUxZTdhZDNkYjAzYzFiMGQ3YzAwZTM1MzJmNWM0MmEyYTM2ZDcwYjI5ZTg3NGJhZTg2Zjg5ZDEyOTBhYSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L39-L41",
+          "version": "repo-lines-v1:sha256:0d4a330c3863ab0a1f9dfbe73aa30772c5687488b8d5b6724641b3a5a8bc8b71:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYzMzVkYmE5ZTAxMzIxYmIwNDlkZWIyODQ0NmUwMDU5YmRiNDMxODA1ZWE1NjRlODQ2MTdkZjcwYmQxZjdhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhhYzk5MDZhY2RlMTE2YmQ5MDkzNjYxZTFkM2Q3YTA1ZDRiYzA1MjhmNTZlYTE1YTk1ZWZlNGVhZGZkMjE2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2EwN2M2ZjY0YzU1NjkzMzRmZWQ1NmQxZGI4YzUwMDNiOTU2MTNjYjc5OWIxMTQxZWMxYjVmODA2MTRjNzVkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTM2MjMzMGZiOThjN2I1ZjQ4NDZiZDI5MmU1NmVjYjI3ZmRkZWYxZTBjZTc5NWI5OGNmN2M4ZGQwYTQwYWU2YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_721959cf3e6749feb98daab21401fc5b",
+      "statement": "All eleven relationships are unidirectional @ManyToOne with an explicit @JoinColumn declared on the many side: Product.category and Property.category over cid; ProductImage.product over pid; PropertyValue.product/property over pid/ptid; Review.user/product over uid/pid; Order.user over uid; OrderItem.product/order/user over pid/oid/uid. No entity maps @OneToMany, @ManyToMany or mappedBy, so no association has an inverse side.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L17-L19",
+          "version": "repo-lines-v1:sha256:ac18d3ed2c63b8d91d4274d9f829e2dce7e8d233417c3511d18996a89ac6c49d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlYTAwYjgxNzhjOGY4OTM1MGZlYjVhNGU4MzdjMWI5NDk5MTUzMjc1NThjYWMxYTM4NTM3NzY4ZmQzYjc4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmRlN2E0ZTlmZTRjOGVkOGEyNWI4ODM0NWEwMjgxYmJjN2Y3NWU0ZDJkMDdmNDJiNjFiNGRiYzJjZDcxZjQ2OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L13-L21",
+          "version": "repo-lines-v1:sha256:a57a143dad3fc58e37bdeddfded90a2d1946a9555233eae27e45ded485f12532:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlYTAwYjgxNzhjOGY4OTM1MGZlYjVhNGU4MzdjMWI5NDk5MTUzMjc1NThjYWMxYTM4NTM3NzY4ZmQzYjc4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE2NGYxYzZhMDU0YTVjMjBmNDBhMjQ4Y2Y3YjZhMDUwYmI3ZTJmNzU5ZGZiYjIzM2ZkNTIwYzU1ZTgyNDVkOCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L15-L17",
+          "version": "repo-lines-v1:sha256:b755c24cbb38d23b82a6c53438375b9744984ee9603bef6d5dc3c567efd5bbdb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU0MzMzNzBhNDY0M2FhMjlkMjBjNzZlMjg3YTU4ZjJkMWUxY2Q1YzlhZWFlZDljMzZhYWMyYzE0ZDc2YjY3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTUxZWRhYTI1NDVhOWFjMzk4ZDk2MWVhZWI0YjgwZWFlYmU4YWFiMTc3Mzg3NWQ2NjZhYjk1NmYyYTFhM2E5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWJmODA0ZGJjNzJhODhjYjU1YzFkMzJmOTVjMWZiM2NjNDIwZWU2ZmMwY2NiMjA4MjgxZjJlZjA3YzYxMmRmMSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/ProductImage.java#L16-L18",
+          "version": "repo-lines-v1:sha256:2d9391e6138bccdca2f1c03f140a0273539afc874215611d0e99e5e93b5569fe:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzdiMzNlM2VkOTFlMDY1MWYyMDBmNzVkZDFiMzA0ZGMzZGE3MTkzZDFiY2U3MmEzMGQzMGUwYzEyODEzODZmYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmVjM2U0OTM1MjkwMWE0Y2I5ZjQzMTBmMDRkZGE2MmM2ZTA0YmJiMWQ1OGEzMWZkM2Y4YjkxZWQ2MTQ5N2FhYSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Property.java#L17-L19",
+          "version": "repo-lines-v1:sha256:b755c24cbb38d23b82a6c53438375b9744984ee9603bef6d5dc3c567efd5bbdb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU0MzMzNzBhNDY0M2FhMjlkMjBjNzZlMjg3YTU4ZjJkMWUxY2Q1YzlhZWFlZDljMzZhYWMyYzE0ZDc2YjY3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWI1N2Y1ZTZkMDRmNmJmNTdjZmZmZWZhNzM3YWY1NWZlNmNhNjQ0YTI1OTRkOGZmMjY5NWJmN2M1M2ZjNzRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWFjODk1YzUyZjFmMjA0ZGRmYmI3NmNkNTJkZjRiNzYwNDRlZDdjNTM4NDRjZTJkYTMwNDczYjFiYTUwOWUwZSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/PropertyValue.java#L13-L20",
+          "version": "repo-lines-v1:sha256:0025917ada0f8545ba2a6ac91e094112104b81a6c32b0b8b1d62dd736db2e287:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQ5MzY2NzgwMWI0MDQ5Nzg1MjRhZmE3Y2M3ZTY5YTMzNGU2MmI4N2NmM2JjOTI1MjI5YjliODk3M2QzNDUxZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Review.java#L14-L20",
+          "version": "repo-lines-v1:sha256:7db2b15de22b126b77bb2e00e877416ebbaa08ab8ac5d5b7e030800a306d5d75:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzdiMzNlM2VkOTFlMDY1MWYyMDBmNzVkZDFiMzA0ZGMzZGE3MTkzZDFiY2U3MmEzMGQzMGUwYzEyODEzODZmYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTQ4MmMzZTFlOGNmY2E4NTBmODVhYWY3YWQ3ZDM5YjBkODJkYzFjOTQzODRkOTA0MTQ3YWI1MTJkZDA5NDA5NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_da5397ac55974b38af994a88cbe2b2a5",
+      "statement": "Because a parent cannot hand out its children, every parent-scoped list is a query from the child's service, and the generic helpers BaseServiceImpl.listByParent, list(Page, parent) and total(parent) derive the criteria property from the uncapitalized simple name of the parent's class (Category -> \"category\", Order -> \"order\", Product -> \"product\"), making the child's Java field name a cross-class contract with no compile-time check.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L70-L106",
+          "version": "repo-lines-v1:sha256:181e67e44ba521b266bf88239259d3118ecea70f65ad0f95544b4c79d2bb1cdb:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI2MzNiMmRkYjBkYjJkMDIwMGExNzNiYTJjYWZhYzNiZWM0NDQ1Mzg5Y2IwODFiMzY3Yjk5NTJlZjUwNTYyODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzZjc4YzJiNGRkMDQ5NTMzZjBlMDVhMWZhMTFhYjkwZDRhN2I3ZjY5MTdkODViZjA1YWVhMTdjYjdhNmJkMTIifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderItemServiceImpl.java#L25-L29",
+          "version": "repo-lines-v1:sha256:beb0a38a58a973adbdf96f3588128798c9203cdb0ea262f4d56f5623a166b982:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRjMmIzMTFhYmU4NzU3MmU4YTdjYzBkOTk2YTY1ODQ0MDc2ZTUyMzJkMjFiN2E4NTQ3NWY5YjQwNTViNzQ5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTk5YmRlZmVlYWNhNjM0MGUwMjkwZGM4NmU4ODljODlkNWUxODlhYTViYTQ0YjU4NWIzYjcwNzM0ZjRhNjJkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2MwNmFmZDM2OTk3MDc0YzBmMGRjMjNhNGVjZmRkNWI1NDE2MjBmZmRlNzJkYTMwNjBlZTQ4MWI0Y2E0OWMyMyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L33-L40",
+          "version": "repo-lines-v1:sha256:d5e067beabf0e9fc9fe99d927816ce944646583052b87d7bd284334d5d9f84fb:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODNlNGVlNGFmNWJkNzM4NTY1MGRmMWFhYjgyODQ0YTE0ZDM5YzA3MmJmMDQwM2M5Mjg0OTUzNjY3N2IzYjFjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY5NDZlMTAxZTVlNzhkOTBhNTEwYzY5ZjI2NmVmNzY1NDBkMzA5YjFiODIyNjk1YjUzMTcyZWQyY2FhMDI1OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjA0ZWNkMjAwMTQwMTZlNDNjMmVkYTJlMzYzMjEwOTVkOWY2NjI3ZDFhOTIyN2I3ZjE5NzVmNDU4MzkxNDVlMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1977c0b50e4148f1a3bdc5bff45c9200",
+      "statement": "The pair-parameter helper BaseServiceImpl.list(Object... pairParams) folds key/value pairs into a map and emits Restrictions.isNull(key) for a null value and Restrictions.eq(key, value) otherwise; that is how order-less cart lines are found (orderItemService.list(\"user\", user, \"order\", null)), and because the pairs go into a map a repeated key silently discards the earlier pair.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L213-L221",
+          "version": "repo-lines-v1:sha256:a642ef8e91a40802cdbbf7c74c7b9e91d0249277733f756b7edd7d759d68fd9e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA2ZWVjYzE3NWIwN2JmMjNmY2JlZWUzMWU5ZTZlNzNjNTA0NjZlNzE0ZTY0Y2YwZTFhMTZkNWExNzcwMGE4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDM0ODFhYzJiY2U2OTAxOTg2MTliNjBiMGU3MzBmMzJlOTE1MDBjZjM4YTQ2NTcyOTZlODE4ODYyYTVkZWJhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjAyZGY1MDdmNGYzY2ZjMjEzMTQwZDhhOWZkZDU0MTYzZTA5MzFmNjQ1ZThmN2FiYmFhMWUwNzU4OGU4MDkwYyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java#L32-L44",
+          "version": "repo-lines-v1:sha256:f27eb070e385d275df05dda9600c6047f90397e7860086382f94b551b68edaa7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhMjZlMWIyYjYwNTI3ODFlZWJmOGExNWU0NWIwZTU1YjQ1MjBhZDkxYTkwNWI3OWRhNmQyNWY1YTNjNGM2MWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA2NDhmNWQwNjBkNmJkNzUwZjdhMjk0OGFhYzEwZGM4MTVkNzg3NjcwN2E0ZDUyNmQwZmQ3ZjJhYTY1MDdmODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2NzRjZTBjN2Y3MjU5OTcyYzI2OWUwZjc2YzM3NTU1ODU2OWNmNjk1OGVjMzg5Nzc4ZDdlMmIxY2VjODMxMDIifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L128-L146",
+          "version": "repo-lines-v1:sha256:f379f5034e60d44e0549c196d7d743f47160f0e69afe4547a72f213f74a00958:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUxNWVhZWI3MTViN2RjYjYxYjE4NmM4NjYwZDFmOGNlNTg0N2I3ODQyYmJjOWIzNjEzZmJkNzZmMjExNWNiZTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b4684640384f46ddadd8722aed2316b9",
+      "statement": "Because User maps no orders collection, \"my orders\" is a criteria query rather than an association traversal: OrderServiceImpl.listByUserWithoutDelete builds eq(\"user\", user) plus ne(\"status\", OrderService.delete) over the Order class.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/User.java#L5-L15",
+          "version": "repo-lines-v1:sha256:17185a001b5079d91ce73ab570fef8d8f14cb87fa15d5e219e7c298b62d5d0ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI0MTUwODI2NWU3MzM3MzhhZTkzYWMyMjQ4MDMwOWE0ZDc0Y2YxNzViOTBiM2EyMzk5NmEwN2IzNjA1YmU4ZTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwODY2OTdiNGE3NzE1NGRkYjU5MTdjMTc3ZWYyMzA0NjY4NDc3MzIxZmNkZDM1NzY0YmE4ZjRjNDk1NzE0YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwMTAwZjZmMDAwZThlOTQ4NTgzM2Y0OGE0NWM4OTk2ZWE5ZDFlNWQ0MmNlNjg5MjkyMzFiM2NlNmYzMTM0YzMifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/OrderService.java#L12-L17",
+          "version": "repo-lines-v1:sha256:a5511d01fc143f6db5c1ff1fa92c3fa19cee6c58a26618ac4ce752eba4439e90:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0ZWQ2NjViZTdlYjhjMWViOGQ4OTEzNGE5N2RiYWY2MTNjOTY0OGZkZGJlYzUyOGY4ZWRlNWQwYmMwZGJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUxODA4YzVlMmFkOTA4NTQzYWU0ZGMxY2Y5OGQ4MThkYWIzNWVmZThjNzA0Yjg3Yjg4MDhmOGU1NjUxMWJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZmY2FmODYwZDgxMmQzN2VlNzI4NjgzZDRhNTI3NjNkMmFhOTI2NTE2ZGYzMDMyMjlkMDEyZTFlMjg5OTBiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzFjYTczNTc1ZDcyZjA5MGMyZjhmNmVkMzFmNWE4NDg2ZTYzMjM4NzIyN2I3NzFiYzAzYjFjMjA4ZTcxZjY5OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderServiceImpl.java#L36-L42",
+          "version": "repo-lines-v1:sha256:7dfc6dc3c445e8458752f0f0b3d21703a51a91d63346b90657774c2b17cb494b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRjMmIzMTFhYmU4NzU3MmU4YTdjYzBkOTk2YTY1ODQ0MDc2ZTUyMzJkMjFiN2E4NTQ3NWY5YjQwNTViNzQ5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGMxMzgxYjkxYzQ5ZDA0NzQ5Y2JlZDQwMzZlYWFmZjY3MDU3MjBlMGQ3MTA1OGYxNzkxNmUyNmRmZWE3MzVlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ee81c7869a0e42c486f537a5c2c672af",
+      "statement": "Every list helper appends Order.desc(\"id\"), so values the UI calls \"first\" are the highest-id row: ProductImageServiceImpl.setFirstProductImage takes element 0 of list(\"product\", product, \"type\", type_single), i.e. the newest single-type image, and returns early when the field is already set, which makes it idempotent across ProductServiceImpl.fill and OrderItemServiceImpl.fill.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L128-L145",
+          "version": "repo-lines-v1:sha256:8fac3e02145dee2e083b43b49c4f6d4e1ba1d5126b53b6c683c7a6dd2dde018f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0NjYxOTZjOThmMWZkMDQ4MDg2ZTA0YWQyOTQ3MDA3MTU2NzRkNWVkZjZkMmY1MzEyMTNkMjU3ZTNkMDFjMmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUxNWVhZWI3MTViN2RjYjYxYjE4NmM4NjYwZDFmOGNlNTg0N2I3ODQyYmJjOWIzNjEzZmJkNzZmMjExNWNiZTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3OTRkMDJhODEyMTk0NGQxNzZkMjY1ZTliYjljYzU5ZjZhYjg5MGJjYWRmOGFlZmRlYmRiYmI0ZjJlYTg0NDQifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L46-L50",
+          "version": "repo-lines-v1:sha256:b145993d057c1352617b654996f9f9ea0bfbb4673c7ad160f37f815209aa77ed:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODQ1MDY1YjA3OGIyMjBiZDcxOTNiNzVjZDQyOTc1ZjVhMDM5Y2JiMjdiNzJlZTEzOTQ3MWZmOWIwOTRmNmM4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY5NDZlMTAxZTVlNzhkOTBhNTEwYzY5ZjI2NmVmNzY1NDBkMzA5YjFiODIyNjk1YjUzMTcyZWQyY2FhMDI1OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODUwYjdkNmUzNTkxMDIyOWFjZjM5NDRiYmU4MjYwNmExYjgxMWRkN2I5ZWY3NTc3OWIwODA3OWYzNzM5NjcyZSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductImageServiceImpl.java#L16-L26",
+          "version": "repo-lines-v1:sha256:c9e15cd955719eb318ddea67c33e17045b5a478227a9a112ac1eb9fa61e9308c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmZDA2MDYyODQ1YzgyZmZjM2RkMTdmY2E3NzMwZTk5N2ZjZmZjMjdiN2QwNTg0MDMxZjA4Y2UyMjhhYTM3MGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwNGY4OWZjMGVjOThjOTgyNDE4M2U3OTVkM2VkZDE5ZTkzMGY3YmM0NzFmOTAxMmFhM2Q1MDNiZTJmODk3NGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_68f8ff61052b4760bbf6c65df9659979",
+      "statement": "ProductImage stores no image bytes: the row holds only product (pid) and type, while the JPEG lives on disk as <id>.jpg under img/productSingle or img/productDetail, a folder ProductImageAction.add chooses from type and where single images also get resized copies; any type that is not exactly type_single (including null) is treated as a detail image, and the type vocabulary (type_single/type_detail) is declared on ProductImageService and duplicated as a literal in the admin JSP.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductImageAction.java#L20-L52",
+          "version": "repo-lines-v1:sha256:bd03a5b289800bedb9146677726b404c21fecaf3848543552d8c506e7564d5ab:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2N2RiNzE4ZDFhNGQzOGJiOWI3MjVmMmM4OGFlNmYxYzg5YTFmYzUwNjg1ZWJiZDdhMzEyYTlhNzNmNjA3MzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyN2E2NDI1OWYxY2ViZDY1MGE0OGEzMjkxYWUzZDU1YzMyYzA4OGUxOGVkODE3ODM3ZTVkOWFiZjg0N2MyNzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU3NzRjMGU3YzE2MzA5MGYyZDk1NDQ3M2Y2NzE5ODU4MmI2NjU2NDRiNmU2MDAwZjk0ZWIzMjdmNjZmMjBkM2IifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/ProductImage.java#L7-L20",
+          "version": "repo-lines-v1:sha256:76909529b4a500b4dc00335ed684db719835ae1202fa539687501eaa21a73aa8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4ODA2MGNiNzM0ZGY2M2QzNGRlNGViNDQwNjkzMjY1OGJkOWFmYWMxMzViMzExOGRmZTZlZmVhYzYxZTU5YzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwODY2OTdiNGE3NzE1NGRkYjU5MTdjMTc3ZWYyMzA0NjY4NDc3MzIxZmNkZDM1NzY0YmE4ZjRjNDk1NzE0YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkZDcwMjY3ZDQ4NTY2Y2ZhYzkzN2JmMGUyYTJkM2U2MTZmZjk4NDM5MzEzNmRhODcwYTA0ZTRmYzdmZmMyZTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/ProductImageService.java#L6-L11",
+          "version": "repo-lines-v1:sha256:44dd2e7094ccf34a09fd957f1fc0b6f34525f8df82f3a55c57457f684d33f882:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTlmOGRmOTBlYTAyZTBmMDA3ODIxOGQwNjNhZWM4MzFiM2IwYjZiY2ZkNDBhNmI3MjBmZGZlYjk2ZmI3YzllNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQyZDkwMTE1ZGMzOTI1YjllNWE0NmFiYjFlOTJhZmVjMmU4M2QxMTM3YzdjMTI3MmU3MjE1ODJhMmU1ZmM5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTE2NGNlNjc3OGMyNTc0ZTQ2YjdkNDNjOTI1MjQyYjBiMzYwODlmOTgwOTk5YzIwNjMzODhjYmIzMWEzMGZiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProductImage.jsp#L63-L63",
+          "version": "repo-lines-v1:sha256:4e3cf55a5710a1f14b75e65eb0b810591580f667a12f329f79d3dc3c9377c643:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUzY2Y1NWE1NzEwYTFmMTRiNzVlNjVlYjBiODEwNTkxNTgwZjY2N2ExMmYzMjlmNzlkM2RjM2M5Mzc3YzY0MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUzY2Y1NWE1NzEwYTFmMTRiNzVlNjVlYjBiODEwNTkxNTgwZjY2N2ExMmYzMjlmNzlkM2RjM2M5Mzc3YzY0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTM5MWI3OGM0YWU5ZDg2MmM4OGFlZjA5ZmRjMTc5ZDdkMWJlMTJkMDlkZGYyNzQxY2Q0NGQ1MzJiYzM3OWQ1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTFmMmU0NjJjM2ZmNTQ3ZDAxYzNmMzI1OTVlNjA3ZDRhZDM0NmM0YzlhZGYxNTY1ZGJkYWNjZTliYzA1NDI2YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_47ce6bd518fa4f6fb4a97d7e4ff3c8dc",
+      "statement": "PropertyValue is the only entity with two parent associations — Product over pid and Property over ptid, plus a free-text value column — and the script constrains only ptid with a foreign key; rows are created lazily by PropertyValueServiceImpl.init(Product), which walks the category's properties and inserts a blank value row for each missing (product, property) pair, and PropertyValueAction.edit calls init(product) before listByParent(product) because nothing else creates those rows.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyValueAction.java#L7-L13",
+          "version": "repo-lines-v1:sha256:7d9d02a6f875fc94502337a7631c1da46e584b2a58733392a9cf63c8256e393d:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTdiY2M0YTQxMjg0YzU3YWJiMDBkYmM1MmU2N2JkMzY4ZTQ4NDc2ZGQ0NDA5YjlhOGFmM2QzMTJmZjM3NzZhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY5NzgzMzI1NDk2MzdlOGZiM2NjMmRmZDc2Y2QwNzM0NzdmM2IyMmRiZDkzM2YzYzdjMDhjMTRkMWU3ZWUxMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmFlM2IzNzY4NjI3OTJmMTllNGY1ZTU1YzI3YjNlMTVmMzE4ODNjMjE2MTI4NzM1YjMwZjY3MWI0ZjlhZWZhYSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/PropertyValue.java#L13-L21",
+          "version": "repo-lines-v1:sha256:3810851a50336c1bdbe072f9be8a43209951e1dab023bf4f60d689f444e99fc6:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTljMjYyZjUwOTRjYjAyNTRiMWI4M2IwNmE5ZmE2NTYyZjJiMzgwNmY4ODhhOTdjMmU0YTU3NTQ4MDJjNzc1MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWFjODk1YzUyZjFmMjA0ZGRmYmI3NmNkNTJkZjRiNzYwNDRlZDdjNTM4NDRjZTJkYTMwNDczYjFiYTUwOWUwZSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/PropertyValueServiceImpl.java#L22-L44",
+          "version": "repo-lines-v1:sha256:5f81065ff05d385edcd32a7f017633d290420f08681e1e13a91bb41a1a19e343:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlYzEyMmIxNjRmN2EyYzEzOWE5ODVhZGQ3YWMwYTY0MzYyODlkZDBjZThmODY1ZDIzMGNhOWM5NWE0MGY4NWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L1357-L1365",
+          "version": "repo-lines-v1:sha256:857d0c644a5e1545af9fad26f732b23569aa20a1df33eebb121cded9a338d787:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhjMTNmMzk5ZjBhMjE0MThlZDVjZDc3MTBmZTk3MjNkZWIwOWQyNGU1NDQ5NDU2ZGEyMDIwNTAyNTdmZWY1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk5NjdlYzFlZDM4MzZmOGViMTdhZmYxNzJiNWJmZWY3ZGU2MDQ4NWE0MzljNmNhMTFjNTkxZTE3NTU3MzlhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZhZmU3MDViM2Y0NjViZjI3OGRlMjEzNzNjNGFkMTgwODI1MDM4ZTc2MjQxNzkwNDVjODIxNzg0ZmFkNjk0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjExZGQ0MDY5MTY3OTI2ZmJiMGUxMWY3NzM3MmYzNjZhMTc0YTU5ZTBjN2MxM2U0MzAxZTdlZWNmOWU0YmM2ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0f68830d677941be90590c1468c53556",
+      "statement": "No code path deletes a PropertyValue pair, so removing a Property leaves its values behind — the gap PropertyAction.delete's own comment admits when it asks what should happen to the property values of a deleted category property.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java#L32-L39",
+          "version": "repo-lines-v1:sha256:a279bbc6f9136c981da56fa90d2a1da371ef8cd0174a9f422713d765bb5d4695:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGUxZTA2YTdlNGU5NDhiODEzMzI4NDQ5ZTI4NjNkMzhkMDIxNzE1ODE4Yjk4ZThmYTI3M2ZmMTc5NmMyYjY0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE5NDEwY2RiZjY0MjJhOGQxMzIzNDE2NGY1M2ZjMjk2MGJlMDY0ZGM3ZmM4MjE4ZmE2NGM4YzFlNWFiZTI4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmY0ODI1MTU4M2RiMTg4ZWJkYTkzNDU2MzBmODRhZDU5NmJhYWQzODY1ZGE4OGUxZTRkYTYwMWJlZTc4YjIyYiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/PropertyValueServiceImpl.java#L17-L35",
+          "version": "repo-lines-v1:sha256:6c7eb543f0d33610876edfd0f9ae9eed1df42d16f526c0ef409d73996b67dfed:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4Y2RlNjg3YWJiZjA1N2Q0YjdkNzc3MDI4NDdhMTZlMmQwY2QzNTZjYTI5MTYzNjAyZDI3OGM5MmI0YjdmNDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlNjg3MWFiNWU5OWZjMzYwYWNmMTJmOWY3NGIxZmE4ZDVlZDEzNTI1ZWM4YjAwY2QxMjc2NGI0OTE2ZjhmY2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5NDZhNWFkZjE0ZTIxMWNmZmVlY2MyY2IzZmQ4ZjgxZTY0M2JlZjQwYTBmNTJhOTg5MGEwMmU4M2ViMTBmODIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_50e5f9dd05e94193bdb01872805a8598",
+      "statement": "Review references a User (uid) and a Product (pid) but carries no order or order-item reference, so no row records which purchase produced it and nothing enforces one review per user or per order; content is varchar(4000) and the single write path is ReviewServiceImpl.saveReviewAndUpdateOrderStatus, which updates the order status and inserts the review in one transaction.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L320-L338",
+          "version": "repo-lines-v1:sha256:0c6734d223d343fb74b12dcbb26fc44e9c82aa6ea405629f624089483b7cd377:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1NGY4MTc4YjYwYTM4NmY2MWJhYWE3MTlmZjJiMjU0MWI5MjNlNjM2MjYxNTZlY2Y1MGEyMDViZDc4NTY2ODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ3ZjhhYThiZWNjMDgxMTYyOWRhOTBjMTg5NWFiNzQzZGY5MWMxZDNkYWViZWZmMWE5ZDY2YWY2YmUxODMxZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwYWMwMDRkZTg4NzcwODg3NjU4N2NmODlkNjU3Y2E3YjA1MGE5ZDE4ZWU4YzYwMTExMmMwNjVjY2JmNTU5ZjUifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Review.java#L6-L23",
+          "version": "repo-lines-v1:sha256:45684305bb509d99386eed18947046a7d4305510f57097bc3828195c7dbeff32:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OWI5NDM1MzIwNDBjNjA1ZWRlMGNiODQyNDBjNWNhM2YyZGZkNzRiODZiMzI1ZjBhMTljMjRiYTdhYWYzZDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjYjA1ODIyZDEzNzMxYmFlMmNmZDYzMWIyM2ExNzc4YzAyYjQ2YTM1MjQ5MzcxODBlZDhkNzMzYjI4NjQ3NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYzg5NWM1MmYxZjIwNGRkZmJiNzZjZDUyZGY0Yjc2MDQ0ZWQ3YzUzODQ0Y2UyZGEzMDQ3M2IxYmE1MDllMGUifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ReviewServiceImpl.java#L18-L23",
+          "version": "repo-lines-v1:sha256:2f925df6c3ac3c70400c7ec0fbf8f83778d1f1975e91f9e6333e9ec9fc06b02d:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRjMmIzMTFhYmU4NzU3MmU4YTdjYzBkOTk2YTY1ODQ0MDc2ZTUyMzJkMjFiN2E4NTQ3NWY5YjQwNTViNzQ5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRiZTRiYjU4MTA2NTU2ZjgxYjAxYzA4YmQ5MjM5MmY4YWRhN2M2M2JhYjg3Mjc1MWM0OGJiYzk1MmQ1OGFlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA0Zjg5ZmMwZWM5OGM5ODI0MTgzZTc5NWQzZWRkMTllOTMwZjdiYzQ3MWY5MDEyYWEzZDUwM2JlMmY4OTc0YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e4921de7e26c490984954bde0d9ab859",
+      "statement": "User maps only id, password and name; the password is compared in clear text through an equality criterion in UserServiceImpl.get(name, password) with no hashing or salting, name has no uniqueness constraint in the entity or the DDL (only the application-level UserService.isExit pre-check), and the name is HTML-escaped at registration and login.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L26-L40",
+          "version": "repo-lines-v1:sha256:381c7609e70504d703b87d995dcc1ce9a5612011c457a636bb522a0b7dca1657:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5Yzc5Mjk5Y2VkYzYzY2RlYmNkN2M2OGI1ZDVmYmViZWI0MGJhOTZhN2UxMDIzODE4MzJiZDMyMzNjNGNjZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE5NjM5ZWY2ZjZlNzNkNTNkMTU4OGQyY2U2MGEzYWZmZWYwYjg5NGE5MGRlYzQxZTIxMGJhOTJlYTEwNTczMmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkNWM1YTc0ZTRlYjI1YmIyYTU1NTUzZDhlNzM3NjU5YjU2N2MwYmE0MDY3ZmNlZDFlM2ExMDM3ZmUyZTRjMWMifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/User.java#L5-L15",
+          "version": "repo-lines-v1:sha256:17185a001b5079d91ce73ab570fef8d8f14cb87fa15d5e219e7c298b62d5d0ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI0MTUwODI2NWU3MzM3MzhhZTkzYWMyMjQ4MDMwOWE0ZDc0Y2YxNzViOTBiM2EyMzk5NmEwN2IzNjA1YmU4ZTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwODY2OTdiNGE3NzE1NGRkYjU5MTdjMTc3ZWYyMzA0NjY4NDc3MzIxZmNkZDM1NzY0YmE4ZjRjNDk1NzE0YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwMTAwZjZmMDAwZThlOTQ4NTgzM2Y0OGE0NWM4OTk2ZWE5ZDFlNWQ0MmNlNjg5MjkyMzFiM2NlNmYzMTM0YzMifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/UserServiceImpl.java#L11-L27",
+          "version": "repo-lines-v1:sha256:d1367edd7e119f80a6f02f8fa804c9b3a629c1e09c166e317686be391c26720d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE5MGJjNGI0Zjc1YTYzNmQyMjkwZjJjNDAyZjU5MmJjNzgzMjc5NTlkNWFjZTQ5ZWI0MDhiMjQwNGExYWZmODUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b20641b05f9044e8b2d5034c7a13cebd",
+      "statement": "OrderItem is both the cart line and the order line, distinguished by whether oid is set: cart lines carry uid with oid null, and OrderServiceImpl.createOrder saves the Order, then sets oi.setOrder(order) on each line and updates it in one transaction; the script leaves oid without a foreign key even though the association is mapped.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L13-L23",
+          "version": "repo-lines-v1:sha256:8b679a4914abbdc0b48f6547a73fe42cc4d0a5ded7d69abe043b2e1cdaa1aba7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkNTRkNmZkMzMwNmRhOWEzZGUzYjkwNzdlYTQzMGNmYWM0ZTY4MDg4MjAzYThlYzhhOGU2MWRjMWRmNGUxNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MmRkNDgyZjMyNGQxOTA0OGFiMGFjNjM4YmZhZTk2N2M5OWQ3ZmI5ZTk1MGQ2ZjM2MTU1OGFmZDkzMTllNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljOGQxOGVlMzU5ZmViN2VlZGY3M2YwYTk3NzNjNzRmNWYwNDI3ZmNiOTg2MTRkYjNjNjNlYmZjYmNhZmJiZTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4M2MwZWQ5NTM5OGM1N2U2YzdiYTkyOTJkNTA2YWE1NGMzZjQwYjlkZTVjNmY5MGY4ZTk3Yzk2ODM4Y2I2NWYifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderServiceImpl.java#L23-L34",
+          "version": "repo-lines-v1:sha256:f8f021a7e656e724885426f147104661ad68dca7d0e4fb9f983972ddfdc5a748:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM2ODliZjQzOGRmYjcyNWVjZTZlYzE2YWU2ZjBlODUwZGE4MmVmYzg3MDFiNzMwNmI2MzFkMzJkZjI3OTE4YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNkY2QxZDA4ZjY5MDc3YTc0Y2RmYWVmYzRmMzgxZmI0Y2Y2NjdiMTgzM2NkOTFmNzYyNTZjYjU3MWZhZjI5OTYifQ"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14698-L14707",
+          "version": "repo-lines-v1:sha256:583eaf5ad3ec26fba7a19ed411d648e0bf049b12057c2493e83c344e9c6325fc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1NmZjOGQ4ZGIxOTU1Yjc2ZWYzZGUyMzNjZmU1MjE5Nzc2YzE5ZGY5NmJiMjBhZGUwMDc1NDYwNDM3NDVjNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwZjQ1NzZjM2JhYjg3MjczNTE2YmRhOGMzMzY0NjgyNzViMjE0ZjRhZTZiMDdmODNlNmJmZmFlMmJiYzYzZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3OGYwODZjYWE1NGY0NjJmNWU5MzY5ZDVmNjA5ZjljOTYxNDFjOGNhNjIzYzI3MGFkYTFmYjJjMGQwODI5M2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7dee91b65b3049e18feb46a340989ba7",
+      "statement": "Money for an order is never stored on the order or item rows: number is the only varied quantity and every total is recomputed as number x product.promotePrice, so an order's total changes when the product's price changes afterwards.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L179-L184",
+          "version": "repo-lines-v1:sha256:434b8e99f788470c4970308defd7a7baeb5192604cc2c37f400e77e3ea9d5ebe:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM2ZmZhZTQ5ZDAxZmJjOWY1NDgxZTY4MTQ2MGRkNzk1ZTIyODhlM2FmZDYzZThmNGI4ZDZmYTc3YjVmZmM4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmU4OWU2NDk2ZjcxMGVlMzgyZGY2ZTZlOGVmYWU1MmYyY2U2MjkzYzM2NGEwM2MyNmEyM2ZkMjczYmIwMDQ2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTk5ZWYzZjM2ODE5YjY3Yzk3M2Y3OGRlYmFlYWE1NjRmYzZjMTlhNWFjMjhmMmY4ZTY3MjUzNDE2YWFiYjA2ZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderItemServiceImpl.java#L30-L35",
+          "version": "repo-lines-v1:sha256:8039d31d8d278279d76974ad892e95ef01daf72a0c6767e2fd3ac9dd7ed823ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgxNDY3Y2NlZTdjYjg4YTczOTdmYWY3ZmFmZGQ3ODJhYTNhMTI0NDRkYjNlM2FlZTVjNWJkM2ZmMjY1OGY5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDkwYTNiNDFlNThjODRiMGVmZTgzMTUxNjNkNGY1NmM2YWRiYzQ4ZDFhMDVhMTRmMThjNzY3NGJmMjZhNTQ4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIwNzgwNzUzZDQ0OGJmMDQ5MjVjNTNlNGIyZDEwYjIyNTZlMGVlODc0ZTcxYjA1MTAyYzY5ZmE5MDUyNzBlOSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderServiceImpl.java#L27-L32",
+          "version": "repo-lines-v1:sha256:b77ff24f751292879b2d73f4908261c310b848a9741f3387a957ca59858247e2:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgxNDY3Y2NlZTdjYjg4YTczOTdmYWY3ZmFmZGQ3ODJhYTNhMTI0NDRkYjNlM2FlZTVjNWJkM2ZmMjY1OGY5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzA3ZWQ1NzA5MDQzYjdkYTBkNDZjNzNlMWM1YjEzMGMzZjE3NDZmNjdiYzY1YmZmODhmNGEyNTFhYjE5MDdhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGMxMzgxYjkxYzQ5ZDA0NzQ5Y2JlZDQwMzZlYWFmZjY3MDU3MjBlMGQ3MTA1OGYxNzkxNmUyNmRmZWE3MzVlMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_db107eb53e294f87a55e0bacef3821ae",
+      "statement": "promotePrice is the price used for money (cart total, Order.total recomputation, order creation) while originalPrice is read only by JSPs as a comparison price, and stock is display-and-script data: the only writer of setStock under src/ is Struts parameter binding from the admin product forms, no purchase path reads or decrements it, and the cart's \"cannot exceed stock\" rule is client-side JavaScript while ForeAction.buyone/addCart add num items without a stock check.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L148-L211",
+          "version": "repo-lines-v1:sha256:ab953e304bdc54688e645cb01fc8c994460cc4b932d729dafe03fda925c8dbeb:eyJzZWxlY3RlZExpbmVDb3VudCI6NjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlODg5ZTRlM2M1YzhjZTgxMGEyYmMxZjYwM2EyNjgzMmY3YjA4ODkzNjMwMDQyZjg1NzljY2ViOGIwZTg5ZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkZDUyNmFhNjhkODFmZGZmMTUwZDJiZmUyNzIwMzBlZDQ3NzQ0NzRlNjJjYzY2Y2FiNTU5NTQ2NWJkMDgwM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1OTdmYTgwZjhkNTVlNjllZTU2ZmI1Y2IzODNjMWQxY2IyOTRjYjAzNzY5ZDQ2MjI5NWQ5NTU2OGEyNzM3ZmMifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L117-L131",
+          "version": "repo-lines-v1:sha256:88fc8b68747ca731aa086af83f10ec0eedd1fed23c0ac3ee915f7b1f4dae43ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4MWY1M2IxNmUyZTM2M2M4ZDdmNzEwNzdiMjdiOWI0MjJiOGYyOWRiY2MxZDlkNGM3ZWQ2Y2E1NGNiM2RiMTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyNTZhMDQxYTkwNzQyY2E2OTgxMjM3MzAwNzc2NjRjNzE5MDEwYjk1OTgyZTc3ZmFjNjE4MjVmMGJlODY2ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhNGJmNTE3OTM1NmU0NmFhM2M1NzMxNGY2OWE2ZjRkOGUxMWQwNDVlNjU5MWY0ZDUxOWRiMGQwNmE3YWU5NzEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderItemServiceImpl.java#L30-L35",
+          "version": "repo-lines-v1:sha256:8039d31d8d278279d76974ad892e95ef01daf72a0c6767e2fd3ac9dd7ed823ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgxNDY3Y2NlZTdjYjg4YTczOTdmYWY3ZmFmZGQ3ODJhYTNhMTI0NDRkYjNlM2FlZTVjNWJkM2ZmMjY1OGY5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDkwYTNiNDFlNThjODRiMGVmZTgzMTUxNjNkNGY1NmM2YWRiYzQ4ZDFhMDVhMTRmMThjNzY3NGJmMjZhNTQ4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIwNzgwNzUzZDQ0OGJmMDQ5MjVjNTNlNGIyZDEwYjIyNTZlMGVlODc0ZTcxYjA1MTAyYzY5ZmE5MDUyNzBlOSJ9"
+        },
+        {
+          "resource": "repo://web/include/cart/cartPage.jsp#L82-L111",
+          "version": "repo-lines-v1:sha256:b3cb8404e98f0264f9e27aaf687785c5d40d31a1e4e71adf660f34f107832e5d:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyNmRjNGMwNjA5NmIxOWM3OWZlM2E4ZmU1YmVmZmFlZTA2MDJmODdhMDFmNzg5NzkyNzE4MzZkMjU3MmE3OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyNmRjNGMwNjA5NmIxOWM3OWZlM2E4ZmU1YmVmZmFlZTA2MDJmODdhMDFmNzg5NzkyNzE4MzZkMjU3MmE3OWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4NjM0Mjc4ZWNhZWViM2VjM2M3MWEzMGFiNmVlNmRhZmM0OTQ4MDQxYjBlYWUzMjU4MTQxZTM4NGVhYWM3ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxNWYxYTljZmRiMDU5NDFmYjBhYWI5ZmExYzQ0YjExNGNlZTIxMzVkMWM4N2U0MjZlYzEwMjc3OWVjYjZiNzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_afdc7c599e834760ae4a1d81ce876be7",
+      "statement": "Ten @Transient fields exist across three entities — Category.products and Category.productsByRow; Product.firstProductImage, productSingleImages, productDetailImages, reviewCount and saleCount; Order.orderItems, total and totalNumber — and Hibernate never writes, reads back or allows them in criteria or HQL, so they are not queryable and are lost on a save/update round-trip.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Category.java#L16-L20",
+          "version": "repo-lines-v1:sha256:f08d84ba57047f484433b3c99cbd37dc248ffe6af23d0bc2bb7d946401132b2f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjUxZjMyODBiMjAxYjAyMzVlY2QwOGI3Zjk4ZjQwYjA0NjQwNGE5NGNlZjhhYTg3Y2Q3ODU0MDc4ZTdhOTg5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQyM2UyNTQ0MmI2NThkYzVhN2E4MmVmMWU4NGYyM2MyZGQ0YzI4ZmY1ODEyMzY0ODE1ZGJlODE0NmVjYWY0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTUwODAyODg3MzY0ODNkNmFjOTI5ZTdjY2UyMTY5YWEzMjhjN2ZkZjVhNzZkNzI0YzRhYzI2MTY1ZjY5OGRiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDNjOGVmNzM4YWM0ZTI3M2UxZTYyNjZiMzFhN2QxODQ0NGIxZTE5MDkyNDI2NTE4YTU5MzgwZjA5ODc4YmQ1ZiJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L33-L38",
+          "version": "repo-lines-v1:sha256:0261913c714b4d0ef344b6abd8ab615ce7aca77c072e8e37a59559527e190d9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjUxZjMyODBiMjAxYjAyMzVlY2QwOGI3Zjk4ZjQwYjA0NjQwNGE5NGNlZjhhYTg3Y2Q3ODU0MDc4ZTdhOTg5ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDlkOGRiZjliOTgwOTYxNGViMDdkNjIyNjdlMjMzNTE4ZmE3OWIwODAwY2Y2ZGFlMTRlZDc2MDU5YWEwZGNiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTNkNjUwMjA0ZWI4YzlkZmVhMWY1NmYyYjljOTZjZTYzZTc5YzAxNjhhMDA1NzE1M2U1NmJlMmQ5ODlhMmJlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjQzMzI3ZmU5NDAwZTJmMjNkM2YxMmFiMDkwYTQyMGYwYjY0MTk4ZjdlNzA2YTkyZmI2YjMxMTFlNTQ3NWY2ZCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L26-L35",
+          "version": "repo-lines-v1:sha256:7b05f9da91a32ab568e802f4026c4b2afe4fc7fb7ba9e343d3e7be574d103ba9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1MWYzMjgwYjIwMWIwMjM1ZWNkMDhiN2Y5OGY0MGIwNDY0MDRhOTRjZWY4YWE4N2NkNzg1NDA3OGU3YTk4OWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkZjA3YjU2Y2Y0NWY0NzY3YWM2MjZiYTBlODk3ODU3YmM1ZmI5OTA3N2E4N2QzMDA2ODcwMzc2YmUwNDg1MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjViOTU2OGVlYTM0Yzk2YWMyMDgxZmVjZmE4ZDZmYzc4NTAwZDk2NWU3YmZkYWI4NzQwOTUzN2E3N2MxODY5Y2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkMjg3ODE0YTA4MDgyODc0YWI2M2JiZmNjMjA3YWY5YjVhMjk5ODljMmNlZTdiOWRhYmEwMTJkMjRmZWYxN2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b8607ad32687414eaf58c2707e574d29",
+      "statement": "ProductServiceImpl.fill(List) sets Category.products for each category and ProductServiceImpl.fillByRow(List) chunks that list into rows of 8 to set productsByRow; fillByRow reads category.getProducts() instead of querying, so it throws NullPointerException unless fill ran first, and ForeAction.home is the only caller that runs them in that order.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L18-L24",
+          "version": "repo-lines-v1:sha256:63381a1283654c2ab0b3845a9527479d5be7c17ed76df5d51101865bcc540fd6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODVkNDNiMTAwM2ExZGZkN2IxYzIwYzY1YTlmMTZiNDNjZDExN2EzMmQyNzY1NTNiOGQ4YmExNGNiNjhmNWM3YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTUxNWYwNmM0Y2VkODMwYzc2NTJiNjRkMjc3MWFlYTM4MzExMmRmY2I0Y2NiODk5NWM3MmE4NGUzNWIxYzE1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODgxMWYwZTU0YTVjNWYxZDQ0MDhiOGM5ZjgzZDdjOWJkOTc2M2VjZDJiNzNmYmFjZGY0MDkxMjEyYzQ5NTdmOSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L25-L56",
+          "version": "repo-lines-v1:sha256:d4ce75a6490b4747d1f4ee668cfc858c3fbee292539bc8737247aa306623d49b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkNTMyZTZmNDA1MjE4ZGUyNzU0NjIyMWExMzVkZGNlM2E2OWMyNDBhM2Q5NDFlYzczNWI2ODg0NThhMGNmMTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkNGU0OWQ1OTdjZGVhZjRiMzdlNWViNWM3ZGI3NTI2ZGI2ODc3ZTYyMTFjMDkwMjM5ZGI3ZjQ3ODQwNzI5NzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3bceaedf3c2d4dae84819550582810a8",
+      "statement": "Product.firstProductImage is filled by ProductImageServiceImpl.setFirstProductImage and reached from ProductServiceImpl.fill, OrderItemServiceImpl.fill, ForeAction.product/forecategory-search paths, ProductAction.list and the cart screens; the admin image screens instead populate Action4Pojo.productSingleImages/productDetailImages, so Product.productSingleImages/productDetailImages are populated only on the storefront product path.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductImageAction.java#L12-L18",
+          "version": "repo-lines-v1:sha256:f04589ad225acd165fee826f56d29bf25eb716af823563b60ec88fbd4323cc49:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjNhYmRjMmEzM2UxOGRmYjg0NGE3MGJhMWE4NDA5NmRiZWE5MjNmMzdiNTkxZWIxZDJkNzJmZTU5N2IwMDIzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzE0ZjA4ZGI4NDcxYmQ3YTI3NmNlOTY3ZjBjYzdmYmI2OGQ5ZWJhZWRlMmRkMWIxYWJlNWEwZTk5ODdlYWM1YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjI2MjA4NDQ2YjcyN2FhMzM3NWNlNGY2NDk3NjMxOTZmNjhmM2RjZTkyMjkwZDU2ZTc3ZTAxYTI5M2EwN2Q2MyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderItemServiceImpl.java#L26-L41",
+          "version": "repo-lines-v1:sha256:2e1957043c5974a6bd9c534e6bccf7c69f646e15c14a225495fd2c77ffcc8829:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxY2I3YTlhMmY4Mjk2YjY4YjVhZDMzMzg3YzcwNWRlNmI0ZDEzZGMwMGI4NWEwZjZkN2FhM2FlY2VkOGQzYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM2OTQ2ZTEwMWU1ZTc4ZDkwYTUxMGM2OWYyNjZlZjc2NTQwZDMwOWIxYjgyMjY5NWI1MzE3MmVkMmNhYTAyNTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductImageServiceImpl.java#L16-L26",
+          "version": "repo-lines-v1:sha256:c9e15cd955719eb318ddea67c33e17045b5a478227a9a112ac1eb9fa61e9308c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmZDA2MDYyODQ1YzgyZmZjM2RkMTdmY2E3NzMwZTk5N2ZjZmZjMjdiN2QwNTg0MDMxZjA4Y2UyMjhhYTM3MGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwNGY4OWZjMGVjOThjOTgyNDE4M2U3OTVkM2VkZDE5ZTkzMGY3YmM0NzFmOTAxMmFhM2Q1MDNiZTJmODk3NGIifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L33-L40",
+          "version": "repo-lines-v1:sha256:d5e067beabf0e9fc9fe99d927816ce944646583052b87d7bd284334d5d9f84fb:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODNlNGVlNGFmNWJkNzM4NTY1MGRmMWFhYjgyODQ0YTE0ZDM5YzA3MmJmMDQwM2M5Mjg0OTUzNjY3N2IzYjFjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzY5NDZlMTAxZTVlNzhkOTBhNTEwYzY5ZjI2NmVmNzY1NDBkMzA5YjFiODIyNjk1YjUzMTcyZWQyY2FhMDI1OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjA0ZWNkMjAwMTQwMTZlNDNjMmVkYTJlMzYzMjEwOTVkOWY2NjI3ZDFhOTIyN2I3ZjE5NzVmNDU4MzkxNDVlMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_48d5eb05a10c4709a467e6c19cd75264",
+      "statement": "ProductServiceImpl.setSaleAndReviewNumber sets Product.saleCount by summing OrderItem.number over all order items of the product with no order-status filter, so lines still sitting in a cart (oid null) are counted as sold, and sets Product.reviewCount from reviewService.total(product), a plain count(*) over Review for the product.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L93-L106",
+          "version": "repo-lines-v1:sha256:eeeeaaa95e7876215e10979b0243b2c58de60fafcef8e8b9041c396d0f9c837f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkOWMyZjJmZTA3ZWRkYzE0NDExYzA1NzRmOGE2YzU4NDUyMWNhZjM2YWI5NzdjNmNmZTAxMjhiMGEyY2M3ZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzZjc4YzJiNGRkMDQ5NTMzZjBlMDVhMWZhMTFhYjkwZDRhN2I3ZjY5MTdkODViZjA1YWVhMTdjYjdhNmJkMTIifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/ProductServiceImpl.java#L58-L79",
+          "version": "repo-lines-v1:sha256:1b5ba73361268673eaa6faccaea843ebbd80612f7d7848797646088e4402e2ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5OWJkZWZlZWFjYTYzNDBlMDI5MGRjODZlODg5Yzg5ZDVlMTg5YWE1YmE0NGI1ODViM2I3MDczNGY0YTYyZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAwNGExODE3NzAwZDMzOTQzNjM3YTQyOGYzNDZmOTExOTZhZmM0N2Q1Mjk5NzdkMDNlYWJkMmY5ZDdmZTJhZjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2772b5b4e40b4ff69b3448522af90060",
+      "statement": "Order.orderItems, Order.total and Order.totalNumber are filled only at read time by OrderItemServiceImpl.fill(Order)/(List) — orderItems from listByParent(order), total as the sum of number x product.promotePrice and totalNumber as the sum of number — and this transient total is distinct from the value OrderService.createOrder returns (which ForeAction.createOrder stores in the action's own float total field, Action4Parameter.total).",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Parameter.java#L25-L26",
+          "version": "repo-lines-v1:sha256:299efb371b95793998231710f2a8f17b58e7fa5df965d679c864e904c7daafa2:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJiMzA0ZjMzZDNjZGE1Yzc4YmZmMjFjNjE4NDgzOGRlYmU0NjAwYTI1ZDY1NjBmMWNiNjFlNTc0YjcwMGJmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhhYmJlOWIxYTdhZWUyMzNlMDc1ZmE1YTdhZjdhZmU1M2FlOTgwYjg3Mzk2MjkyMjk3NWM2NWE3YmUxZWJlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWI1ZjljNmFmMWMwMzBmMTZmYmRjYTk1NGJlOGU1ZjU1Y2EwMTkzN2QzZTU0MGVlM2FmN2YxYzdiODZkNDc2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWIwNzIwMDNmNmI5MDlkYmE5ZDVhZmMwMjk4MDA0YWZiNWM4Mzg2Y2JiZmJiMDM2MzgzODQwNDBjNzQyMzEzNyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java#L243-L262",
+          "version": "repo-lines-v1:sha256:7009816394f95ec1311f828ec081b3fab290c9ab65af0d9b6626a383ffbdebdd:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3MDFiNzkzODY1Y2I4ZDI4NGRlMGMzNzkwNDc2MWMzNjI1MGFjODA0YzFiNDdjOGJkZDgxYzBlMWZkOTM3N2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzNDgxYWMyYmNlNjkwMTk4NjE5YjYwYjBlNzMwZjMyZTkxNTAwY2YzOGE0NjU3Mjk2ZTgxODg2MmE1ZGViYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg1YjI2MDNmMGQ2ZjQ4OWRhODg0Njc0ZTE4N2I4ZTY1YzE1MjZhZTQ2NWYxMGQ4MTRhN2NhYzFjZjRhYzk1Y2YifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderItemServiceImpl.java#L18-L41",
+          "version": "repo-lines-v1:sha256:46c48d32044016e0ac51978791b5638b12da4972cea3cc28e1ac234e0c526b6f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlNDM5MGRkMGVkNTZmMjczOTU3MWJkMjg5YTE4MWJlNTg4MDQ0ZTQ3YTY4YTI5N2ZiOTE4OTUzOGNhNTdhNWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/OrderServiceImpl.java#L23-L34",
+          "version": "repo-lines-v1:sha256:f8f021a7e656e724885426f147104661ad68dca7d0e4fb9f983972ddfdc5a748:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkYzJiMzExYWJlODc1NzJlOGE3Y2MwZDk5NmE2NTg0NDA3NmU1MjMyZDIxYjdhODU0NzVmOWI0MDU1Yjc0OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM2ODliZjQzOGRmYjcyNWVjZTZlYzE2YWU2ZjBlODUwZGE4MmVmYzg3MDFiNzMwNmI2MzFkMzJkZjI3OTE4YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNkY2QxZDA4ZjY5MDc3YTc0Y2RmYWVmYzRmMzgxZmI0Y2Y2NjdiMTgzM2NkOTFmNzYyNTZjYjU3MWZhZjI5OTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6eafde0906df44a7b673db8843624dd5",
+      "statement": "Order.getStatusDesc() switches on the status string and maps the six OrderService constants to 待付/待发/待收/等评/完成/刪除, keeping the initialised \"未知\" for unrecognised values; the vocabulary itself is declared as string constants on the OrderService interface (not on the entity), the only reader of statusDesc is web/admin/listOrder.jsp, and because the switch switches on status itself a null status throws NullPointerException at render time even though the DDL column is nullable and only the write paths (createOrder, payed, OrderAction.delivery, orderConfirmed, doreview, deleteOrder) guarantee a value.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Order.java#L40-L65",
+          "version": "repo-lines-v1:sha256:0c1294e63f1695b702e512cafe81fc65f03e124666edd77cfa7e73a089d8e88e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3NGIzN2UxNWQ3ODQ2NzQ5MGVmZWExNTMxMGM0MjkxYjVkYmQ2ZGYzY2M3ZDUzMzA5NDEzOGY0Nzg3NDRmM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NWM3YzkwM2QxMDEwNDYyNDAxY2M5NDAzNWI1ZjdjOTk3MjU3ZDljYmFiN2FkNTdmNTI5ZWRmYWUxOGQ3YzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYzg5NWM1MmYxZjIwNGRkZmJiNzZjZDUyZGY0Yjc2MDQ0ZWQ3YzUzODQ0Y2UyZGEzMDQ3M2IxYmE1MDllMGUifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/OrderService.java#L12-L17",
+          "version": "repo-lines-v1:sha256:a5511d01fc143f6db5c1ff1fa92c3fa19cee6c58a26618ac4ce752eba4439e90:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0ZWQ2NjViZTdlYjhjMWViOGQ4OTEzNGE5N2RiYWY2MTNjOTY0OGZkZGJlYzUyOGY4ZWRlNWQwYmMwZGJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUxODA4YzVlMmFkOTA4NTQzYWU0ZGMxY2Y5OGQ4MThkYWIzNWVmZThjNzA0Yjg3Yjg4MDhmOGU1NjUxMWJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZmY2FmODYwZDgxMmQzN2VlNzI4NjgzZDRhNTI3NjNkMmFhOTI2NTE2ZGYzMDMyMjlkMDEyZTFlMjg5OTBiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzFjYTczNTc1ZDcyZjA5MGMyZjhmNmVkMzFmNWE4NDg2ZTYzMjM4NzIyN2I3NzFiYzAzYjFjMjA4ZTcxZjY5OCJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L39-L56",
+          "version": "repo-lines-v1:sha256:10a4c7e18689e47c0f328222405bbfc79859f6b6b4390ef9a76ad06c5d6590d1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmMzM1ZGJhOWUwMTMyMWJiMDQ5ZGViMjg0NDZlMDA1OWJkYjQzMTgwNWVhNTY0ZTg0NjE3ZGY3MGJkMWY3YTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhMDdjNmY2NGM1NTY5MzM0ZmVkNTZkMWRiOGM1MDAzYjk1NjEzY2I3OTliMTE0MWVjMWI1ZjgwNjE0Yzc1ZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI3OTU1OTBhZjRmM2MwNzA5MDRiMTg4ZGE2ZmNhNmE5OTlhOTcxODBiZGFmNzNjNDEwYmZkZDgwODU5OTFmODUifQ"
+        },
+        {
+          "resource": "repo://web/admin/listOrder.jsp#L55-L55",
+          "version": "repo-lines-v1:sha256:f8ddf86f0c5ddd03e118cb01f2ac9165ca97c5462ba71e56b07fb756cafec8fe:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhkZGY4NmYwYzVkZGQwM2UxMThjYjAxZjJhYzkxNjVjYTk3YzU0NjJiYTcxZTU2YjA3ZmI3NTZjYWZlYzhmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjhkZGY4NmYwYzVkZGQwM2UxMThjYjAxZjJhYzkxNjVjYTk3YzU0NjJiYTcxZTU2YjA3ZmI3NTZjYWZlYzhmZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGE3NWQ3MGNmMTFmZjlkMjI3MWViMzFhMGFkYTVhZTlhZTI5NDAwMTUzMDVmZGU1ZjQ0ZmQ0ODg0MGEyNTAyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWVmM2ZlMTExOGI0NjlhZTM3MzFjZWU5ZWU5YmNlZWEyYzI3Zjc3MzRmMWZkNmQyNGUyOGM3MDEwYTRiZjhhNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_22b8b9aad0c84742b7dbe8756edb8a3a",
+      "statement": "User.getAnonymousName() derives a masked display name that is never persisted — null name returns null, length <= 1 returns \"*\", length 2 returns the first character plus \"*\", and longer names keep the first and last character with every character between them replaced by \"*\" — and the JSPs rendering reviews are its only consumers.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/User.java#L17-L34",
+          "version": "repo-lines-v1:sha256:b743337cdd6887d31c30d0f3be24d78751ac9332ee809dd4b172110922f0495c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0NjU0MmNmZjU3NWZkOTVkZTU5M2Y5ZmJhYmJjYWZmYTg0N2QyMmZmNTY3Y2RiMTNiMjc4YWMxYjk2NTQ3YjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3NGU2NzI3ZjZjZTgyOTIyMTNiNTgxYjc3YzI1MTM5ZmNhYmVhZGQ4N2E4YjUyMDcyYzk4NDRiYjNmMzIxMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYzg5NWM1MmYxZjIwNGRkZmJiNzZjZDUyZGY0Yjc2MDQ0ZWQ3YzUzODQ0Y2UyZGEzMDQ3M2IxYmE1MDllMGUifQ"
+        },
+        {
+          "resource": "repo://web/include/cart/reviewPage.jsp#L59-L59",
+          "version": "repo-lines-v1:sha256:c625a92838e7517d78e204538b9de4c964fb29e3691709ce5536854a809b18c6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzYyNWE5MjgzOGU3NTE3ZDc4ZTIwNDUzOGI5ZGU0Yzk2NGZiMjllMzY5MTcwOWNlNTUzNjg1NGE4MDliMThjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzYyNWE5MjgzOGU3NTE3ZDc4ZTIwNDUzOGI5ZGU0Yzk2NGZiMjllMzY5MTcwOWNlNTUzNjg1NGE4MDliMThjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjE2YTA4Y2QxMWVjOGU4MmY1MGZjNzg3ODk5NTk5MjcwNmE0YWJmOWMxMWYzZmY2YjMxYWE3OWQyNDZmYjFiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmQ3MTkzZmIxZGU2YzQ3MDQ2Zjg3NDkyNDJhOTVhNmM0ODMyYTBkZDZiNzUzMzE5ZTVkZmUxMDcwMGU0MjFkZiJ9"
+        },
+        {
+          "resource": "repo://web/include/product/productReview.jsp#L31-L31",
+          "version": "repo-lines-v1:sha256:2584c501d9e53ef054306cf0dbdeb1eff302bd6329782870476740cd4eca45b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU4NGM1MDFkOWU1M2VmMDU0MzA2Y2YwZGJkZWIxZWZmMzAyYmQ2MzI5NzgyODcwNDc2NzQwY2Q0ZWNhNDViMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU4NGM1MDFkOWU1M2VmMDU0MzA2Y2YwZGJkZWIxZWZmMzAyYmQ2MzI5NzgyODcwNDc2NzQwY2Q0ZWNhNDViMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmZjZWYyOTJhNzZiNjMxZmZiMDQ1MGI4MjIyZTVjMjJiMDBiN2Y2NmQ3NTM5YTY0Zjc0M2QwYzdmNzE1ZGFhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODM1YTk3MDc0OTNkOWMwMzU4ZTgzOTA3YjU2YjA4YmRmZDFiMGMyYThlN2FhZWJlOTRjYmNmNGFiOGY5ZjcyNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5d20dc5eb2514f44b628273ad9608510",
+      "statement": "The OrderService status values and ProductImageService type values are the app's string vocabularies and live on service interfaces rather than entities, so an entity has no compile-time knowledge of the values it may hold and a changed constant string silently breaks the literals already stored by the seed script and the duplicated literals in JSPs such as the hidden productImage.type input and the storefront's ${o.status=='waitPay'} comparisons.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/OrderService.java#L12-L17",
+          "version": "repo-lines-v1:sha256:a5511d01fc143f6db5c1ff1fa92c3fa19cee6c58a26618ac4ce752eba4439e90:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0ZWQ2NjViZTdlYjhjMWViOGQ4OTEzNGE5N2RiYWY2MTNjOTY0OGZkZGJlYzUyOGY4ZWRlNWQwYmMwZGJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTUxODA4YzVlMmFkOTA4NTQzYWU0ZGMxY2Y5OGQ4MThkYWIzNWVmZThjNzA0Yjg3Yjg4MDhmOGU1NjUxMWJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZmY2FmODYwZDgxMmQzN2VlNzI4NjgzZDRhNTI3NjNkMmFhOTI2NTE2ZGYzMDMyMjlkMDEyZTFlMjg5OTBiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzFjYTczNTc1ZDcyZjA5MGMyZjhmNmVkMzFmNWE4NDg2ZTYzMjM4NzIyN2I3NzFiYzAzYjFjMjA4ZTcxZjY5OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/ProductImageService.java#L6-L11",
+          "version": "repo-lines-v1:sha256:44dd2e7094ccf34a09fd957f1fc0b6f34525f8df82f3a55c57457f684d33f882:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTlmOGRmOTBlYTAyZTBmMDA3ODIxOGQwNjNhZWM4MzFiM2IwYjZiY2ZkNDBhNmI3MjBmZGZlYjk2ZmI3YzllNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQyZDkwMTE1ZGMzOTI1YjllNWE0NmFiYjFlOTJhZmVjMmU4M2QxMTM3YzdjMTI3MmU3MjE1ODJhMmU1ZmM5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTE2NGNlNjc3OGMyNTc0ZTQ2YjdkNDNjOTI1MjQyYjBiMzYwODlmOTgwOTk5YzIwNjMzODhjYmIzMWEzMGZiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L164-L164",
+          "version": "repo-lines-v1:sha256:6341891dcbf8420eb138df159eeac16762cd6f136150533cec434dcf74f06b77:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM0MTg5MWRjYmY4NDIwZWIxMzhkZjE1OWVlYWMxNjc2MmNkNmYxMzYxNTA1MzNjZWM0MzRkY2Y3NGYwNmI3NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM0MTg5MWRjYmY4NDIwZWIxMzhkZjE1OWVlYWMxNjc2MmNkNmYxMzYxNTA1MzNjZWM0MzRkY2Y3NGYwNmI3NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTk3YmE1ZmIwNjk5ODczYjA4ZTU0NjUyMWUwMjk5NGZlM2JkOTlhMjA5OWE5NzBmOGFhMDAyZTkyM2Y0MTcyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2ZmNzFiYzkxYTI3ODNlZDIyZGJjZGE2MjBhZGNhOGNiYjk5MjRhMmJjNGQwZTc4YTVhYWI5MTkwMWJiOGUwZiJ9"
+        },
+        {
+          "resource": "repo://web/include/cart/boughtPage.jsp#L158-L163",
+          "version": "repo-lines-v1:sha256:e58b22b0c181974c00a2ae1f80fa4d70fe4ecacadb5bc6b6edf8db35e2af0e9f:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2UzNDliN2QzYTRiMmFhZWM4YmExNmJmMDFkMzFlYzE5OGY3ZTVmZTAzN2IzZDg1YjczNDZiMjFmMjgzYmIwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzdmZjk3OTM4YWU4NzNhZDk1MjFhODY1MjFiMWIwNmE0ZWIwZGI5YWY1MjlhNTM5NjczOTA0Mjk5NjUzZmFhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQwY2U0OWQwMTc3NWMxMmRlYjA2NmY3YjkwN2ZmNmYzODllYzlhMzUwYjk1OWM2ZDI3MzYyYWE0MjI4OTc2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzMxMGFhN2M1NDFmMThjZTI0ZjQxNzliNDA3ZmJmZjNlMjM0YjhkMGIwNjI0YWMzYTg2YThkMzBmNmFmMDM5NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8a0ce063cd2a4058922d18de84d794b9",
+      "statement": "Deleting a parent row is limited by the hand-written DDL rather than by the mapping, because no association declares cascade and each delete action issues a single delete on one row: nine of the eleven join columns carry a foreign key (product.cid, property.cid, productimage.pid, propertyvalue.ptid, order_.uid, review.uid, review.pid, orderitem.uid, orderitem.pid) so the database rejects deleting a parent that still has children, while propertyvalue.pid and orderitem.oid have no constraint and let child rows survive as orphans.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L50-L54",
+          "version": "repo-lines-v1:sha256:22f544ee05d3893b15dc3bf87eaf9134f44fba2f8ee0cd46474918935664e010:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzEzZjRkYTUyNzNiZDY5YzlkN2M0MGI0ZGRmODhlZDdlNDczOTdhZDJmZjUwYzAwYTlhNzViMmYwNzYyOTJkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmEzY2Y1MTkyMzU0ZjcxNjE1YWM1MTAzNGIzZTk3YzIwZWRhOTk2NDNmY2FmNWJiZTZkNDFhZDU5YmQxMjE2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTNlM2ZkNTk0MjdkZWZkMGIxY2FmNmFhNjQ5Y2ZmZDgwODU2Nzc3NGQ3NDg5YzAyZWI3ODY2ZTRhODRiMzQ4ZCJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L1357-L1365",
+          "version": "repo-lines-v1:sha256:857d0c644a5e1545af9fad26f732b23569aa20a1df33eebb121cded9a338d787:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhjMTNmMzk5ZjBhMjE0MThlZDVjZDc3MTBmZTk3MjNkZWIwOWQyNGU1NDQ5NDU2ZGEyMDIwNTAyNTdmZWY1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDk5NjdlYzFlZDM4MzZmOGViMTdhZmYxNzJiNWJmZWY3ZGU2MDQ4NWE0MzljNmNhMTFjNTkxZTE3NTU3MzlhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZhZmU3MDViM2Y0NjViZjI3OGRlMjEzNzNjNGFkMTgwODI1MDM4ZTc2MjQxNzkwNDVjODIxNzg0ZmFkNjk0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjExZGQ0MDY5MTY3OTI2ZmJiMGUxMWY3NzM3MmYzNjZhMTc0YTU5ZTBjN2MxM2U0MzAxZTdlZWNmOWU0YmM2ZiJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14688-L14697",
+          "version": "repo-lines-v1:sha256:b6c3f962b8b29f7aead98cb4fb081dbf0a98464b5c02e82ee98ac904a9988a06:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MzY1NzkyOTdiMzYwYWFiM2EwODQzYWRlM2RhMGJjMjYzOTBjZGM4MTU4MThiNzEzYzhkODVjZjUzZGE2NjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0YzE1NmE2YWRlN2FhYWJmNjdiZjUyNmQ1YmIzNDk0OGMyYjc1OGVhNThhNjM3YmFmNzhkOTU0MmMzOGY5YzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4ZmVlMzc3ZmQyZGYzY2NjM2Y2Y2RiZWZlMmJiYjBjMDI4YmFmZGJjMmE3YTMzMzM0NGZkNDYwYjQ2MjMyMTAifQ"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14698-L14707",
+          "version": "repo-lines-v1:sha256:583eaf5ad3ec26fba7a19ed411d648e0bf049b12057c2493e83c344e9c6325fc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1NmZjOGQ4ZGIxOTU1Yjc2ZWYzZGUyMzNjZmU1MjE5Nzc2YzE5ZGY5NmJiMjBhZGUwMDc1NDYwNDM3NDVjNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwZjQ1NzZjM2JhYjg3MjczNTE2YmRhOGMzMzY0NjgyNzViMjE0ZjRhZTZiMDdmODNlNmJmZmFlMmJiYzYzZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3OGYwODZjYWE1NGY0NjJmNWU5MzY5ZDVmNjA5ZjljOTYxNDFjOGNhNjIzYzI3MGFkYTFmYjJjMGQwODI5M2UifQ"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L58-L69",
+          "version": "repo-lines-v1:sha256:94636c64c59e3feee16fffb94051177c7fefa32d452125b5938b8f912d89e421:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5MTU3NDU4NTViYzRjMzk1NzU0MTQ0ZTBiMzRjODgyMGZhOTE0M2I1MTY5NGU5MzI3Y2ZlY2Y3N2I3NzZhYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5N2JhNWZiMDY5OTg3M2IwOGU1NDY1MjFlMDI5OTRmZTNiZDk5YTIwOTlhOTcwZjhhYTAwMmU5MjNmNDE3MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZjYzNTIzZDMyZmVlNzcwNWM4YmU0YTA2OTNkZGMxZmU2NWJjODNkYmQxYWIxYjI4YTMwYTA3NTU0NWM5MmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cda5f7f792d0425c8fc2b67e69135f77",
+      "statement": "Because every association is a default (EAGER) @ManyToOne, loading an OrderItem also loads its Product, Order and User and loading a Product loads its Category, which is what lets JSPs navigate oi.product.promotePrice on objects that are already detached — the application installs no OpenSessionInView filter (web.xml declares only the struts2 and encodingFilter filters), so a future @OneToMany or fetch = LAZY would move the failure to render time.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/OrderItem.java#L13-L21",
+          "version": "repo-lines-v1:sha256:a57a143dad3fc58e37bdeddfded90a2d1946a9555233eae27e45ded485f12532:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlYTAwYjgxNzhjOGY4OTM1MGZlYjVhNGU4MzdjMWI5NDk5MTUzMjc1NThjYWMxYTM4NTM3NzY4ZmQzYjc4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE2NGYxYzZhMDU0YTVjMjBmNDBhMjQ4Y2Y3YjZhMDUwYmI3ZTJmNzU5ZGZiYjIzM2ZkNTIwYzU1ZTgyNDVkOCJ9"
+        },
+        {
+          "resource": "repo://web/WEB-INF/web.xml#L6-L30",
+          "version": "repo-lines-v1:sha256:fe7a96fac87e6b405f04424c77a3feb0d43a43ed7ce1151a512fcf03a65376e7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzY2FkZmM0ZDgyZTVkZWRjMmJhOTQ0NWU0ODhkYTc5NWJhNzdlODVlMzNiNzdiZDI5OTIxYjhmMGY0NGVjMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZGE0NTA2ZGIyMjI0ZDhlNDgxMmZiNDRjNDdiNDdlYzBjNGMyMTQwMDYwNGZiNWIwYjljYWMyM2JkMzEyNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWNhMjcwNmVhYzhjMzZmNjY4MDg1NzliMTVmMTU5NzdhMzczZTRhZWUwNTQ4OGVhZmEzZjMxNTc3NDU0ZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkZjgxYWYwNmQ3NjZlOGYzMTI0MDRmZWUwMDMyOGY0ZDQ2NTBkYWU5ZmUwZGI5ZDY1YWI2NTEwNjI4OGQzYTUifQ"
+        },
+        {
+          "resource": "repo://web/include/cart/cartPage.jsp#L256-L256",
+          "version": "repo-lines-v1:sha256:ac0c880233592876ceb9a953c4125b5bc916aee74946fa7be0f4247f1ec778b4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWMwYzg4MDIzMzU5Mjg3NmNlYjlhOTUzYzQxMjViNWJjOTE2YWVlNzQ5NDZmYTdiZTBmNDI0N2YxZWM3NzhiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWMwYzg4MDIzMzU5Mjg3NmNlYjlhOTUzYzQxMjViNWJjOTE2YWVlNzQ5NDZmYTdiZTBmNDI0N2YxZWM3NzhiNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWI5ZjhiOWRkYmUzZTRlMDdmMDFkNzcyN2E0MDViNDcwY2Q3ZjI1YjM2ZDJlZWU3MDNkNzY0NWEyOWU1YzgwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODY1Y2YzZmI0Mzc5Y2U1ZjNjYTY5ZTM3ZWFhNjY5NmIzODI3ODM2YTg0ZmQyYWJlNTJiMzVhZDhlZTdkOWUwYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bf78e8e27d5f44b8a04f97e25a1c464f",
+      "statement": "Adding an entity requires a matching service implementation, because BaseServiceImpl resolves its own entity class by reflection from the subclass name (...ServiceImpl in ...service.impl rewritten to ...pojo), so an entity without its ServiceImpl twin leaves clazz null and fails on the first query — the naming convention is a load-bearing extension boundary of the domain model.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L20-L43",
+          "version": "repo-lines-v1:sha256:052682d300b7f8647f1f3d342791ceb3cfda40651a53ba89c8d9ba0e4fef7a0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiYzc0Y2NlODdkNWNmZjFjZmYyZTlhYTgxNWVmOTRiNDg3NDVlNDg5ZDM5ZmVmNDdiMDdhZDkzOTczYTFjZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdlY2IzN2YyZjQzMDdiZmQxNmFjYWQ5NWFhMTFiZjYwZDc2NmNlM2Q2NjBhNmFhZDFjNTFiNDk4MjNjNGQxY2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEyYzU0OWZiMWMxNzNmMDBkY2Q5YTBiZjZlMzIyM2UyNjdjMTgzNjQwYmJkMzllYjE3Mzc0YzdkNmMzMWRmYWUifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/service/impl/CategoryServiceImpl.java#L6-L10",
+          "version": "repo-lines-v1:sha256:ea8051c95d79ecb1fe9d4682c2c40792d24bd24be072f678666cfbb5528df568:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk3MGFkZmVkNzExNzQ2NGVmYjg4ODM2Y2M1NzA0ZWI1NDdmYzdhYzUxYmY2MDAwOGYzY2I2OTJjZmM3OTAzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjM4YTMyNDQ4ODE1NDVmZWM3ZDgyMWQzNTEwODg1MjkyZDhiNjVlOWZmZTI5NTcxY2FkOTExYTFiNWMyMGJkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0125b6c1b3ab45048c0f467d09b1af18",
+      "statement": "README.md's relationship table disagrees with the annotations in one row — its last entry reads User-用户 / User-评价, naming User again on the many side, whereas the real association is Review.user over review.uid — and it also describes the stack as MySQL while the checked-in runtime runs H2 in MySQL mode against the adapted script, and says nothing about the @Transient fields or the derived accessors the storefront depends on.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L23-L29",
+          "version": "repo-lines-v1:sha256:dcc32524eae99dc33ee269c998b6bf4312272a591b449799d5814446057a18b5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDZiM2Y5MzY1MWVjMWFlYWI2N2I3MDdjOThjNjgwNDM1MWNkZmE2MWNiMWFlYzIwOWVlYjFlMWUxOGI4ZDRjOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAzOTRjZjhhNDY5ODBkNjE5OWQwYTNhNzE2OTJlY2I2Njg5MTUxZjQ2YTcwODVkMzFmYWFiOTBiOWQxZjVkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmEzY2Y1MTkyMzU0ZjcxNjE1YWM1MTAzNGIzZTk3YzIwZWRhOTk2NDNmY2FmNWJiZTZkNDFhZDU5YmQxMjE2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjBlZmRmYzUyNWJmYTRmZTY4MmNjYjQxZGFiYWNjYTRlYzZkOWQ0ZTgwYjIwZjUwYjY0YTEyNmE0YzE1ZDc2MCJ9"
+        },
+        {
+          "resource": "repo://README.md#L52-L65",
+          "version": "repo-lines-v1:sha256:dc6eeef262fc11e9fbb7c1b0de659894cd9d5ab87b343104a702fc79043a61de:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjNGI5Mjk2N2Q2NjBiZWU3NjlhYWZiMWY2MGViYzllNGI5MzUyNDQzYTVlOGU2NDM1MTIwODZlODk3NDc2NTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA0ZTEyZjhmY2ZlYzQ1MjBkNDg2NmI0ODA4ZDY5YWM0ZDg3ZTY2YzE0N2NmNjdiYTlmZjdiNjlmOWNkNmI1YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ3YmU0MjkzN2E2MTYzZDk5YjFjOWI5Y2Q4NmYyOTZhYTFmZWYwM2MzODJiNzllMTdiMzIwZGU5ZTFhOTczZjcifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Review.java#L14-L20",
+          "version": "repo-lines-v1:sha256:7db2b15de22b126b77bb2e00e877416ebbaa08ab8ac5d5b7e030800a306d5d75:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1NGQ2ZmQzMzA2ZGE5YTNkZTNiOTA3N2VhNDMwY2ZhYzRlNjgwODgyMDNhOGVjOGE4ZTYxZGMxZGY0ZTE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzdiMzNlM2VkOTFlMDY1MWYyMDBmNzVkZDFiMzA0ZGMzZGE3MTkzZDFiY2U3MmEzMGQzMGUwYzEyODEzODZmYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM4ZDE4ZWUzNTlmZWI3ZWVkZjczZjBhOTc3M2M3NGY1ZjA0MjdmY2I5ODYxNGRiM2M2M2ViZmNiY2FmYmJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTQ4MmMzZTFlOGNmY2E4NTBmODVhYWY3YWQ3ZDM5YjBkODJkYzFjOTQzODRkOTA0MTQ3YWI1MTJkZDA5NDA5NSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L1-L9",
+          "version": "repo-lines-v1:sha256:87703c9a219512c5908615a74f4d1dc0daf319b3d7998ca493b7aa9d7b466179:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcxMDZlZjhmOWQxNzU0YjlkNjgwM2EwMzY4YzgwZGJkMzA5ODE1MDVmODlhYmEyOTc1NzQ4MzM0NjI5ZDYxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcxMDZlZjhmOWQxNzU0YjlkNjgwM2EwMzY4YzgwZGJkMzA5ODE1MDVmODlhYmEyOTc1NzQ4MzM0NjI5ZDYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzNiNGUyZjhkNTEwNWRmYmE1OWE3ZDJiYmNjNjY1MjM2Yzc2ZmY2MDMxYjBhMGJhNDE5NzdkYzEzZjM0OTJjMSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.0",
+    "at": "2026-09-25T05:09:04.985Z"
+  }
+}

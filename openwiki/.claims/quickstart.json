@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:0f04b753216daf48927a459aa16151db44980616778613120e8739f732ac7391",
+  "claims": [
+    {
+      "id": "claim_2532151895ab4e2e90d7d29c915a9104",
+      "statement": "The whole application is started by one entry point, StartJetty.main(), runnable either from an IDE with the working directory set to the project root or as `java -cp \"web/WEB-INF/lib/*\" src/StartJetty.java`; nothing beyond a JDK (8, 11 or 17) needs to be installed because embedded Jetty 9.4.58 and H2 1.4.200 are vendored in web/WEB-INF/lib.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L5-L40",
+          "version": "repo-lines-v1:sha256:9a40e5a44491ca8f67b6952931e262691c69087378452ebda0658e0cced3010c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkMDVjMGM1OTYwNWY5NzA2ZWU1NTMwOGUwOTVmZjYxMWYxYjQwZDIyNzVlZTI3ZTNjOTMxZjJmNmU3NWUxYjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmNTIxNmQzMDQ3NTAzN2ZlNmJhMjkyMzExYTQwOTE1ZTllZjFmYTVmODFmNTJlMjVhOTBlOWZkZTQ3NmZlNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIyY2U2N2RjNDA5YjIwZGIyZTljMTg2N2ZmMGVjODdmZmE0NjNlNzY0MjI2YWJkM2NmMzViOGMzNzI2MWIwNDkifQ"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L53-L64",
+          "version": "repo-lines-v1:sha256:8a66c7fa2ed72478dd6701cd1bee8aceebb9b2f1ab2e49f6d593c5a1f14186f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyYTA2MmZmODg3NzU1YjA2ZGRlZTk2MjcxYmVjYjZhMTk2YmU5Yzg3YzFjZGFhYmY3MmQzZTkwNmE1Yzg3MzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlMjdkMDgyNGQ3NWYyNDJjNDUxOGJlMjY5OWYxMjk5MjMxMzQyYzAyZWMxN2Y1YTMzN2UxMmY5NWQ0MzY1MGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2YTgxNDIxNDVjY2IzZDgwMGViMzc0YzRjNDcxZDY4YTE1MzRmN2I1ZDg0ODk0NGZkMjViMWRjNWEyZmRhYmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0MDUwOTJkYmE0MjUxOGM0NDAzODI0MjcxYTA1YTI3NGI1ZWFmNjNlZmExNWM2YWJjOWQ2MDZmMzJhNzFlNDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_41e2e9bc355649b2b1065673916c6035",
+      "statement": "A successful start exposes exactly three operational URLs bound to fixed port constants 8080 and 8082: the storefront at http://localhost:8080/ (the launcher rewrites the exact path / to /forehome), the back office at http://localhost:8080/admin_category_list, and the H2 web console at http://localhost:8082; the console uses a separate port because the Struts2 filter mapped to /* in web.xml would intercept an in-app console path as an unmapped action.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L42-L49",
+          "version": "repo-lines-v1:sha256:8b3021976d683f231696aa4c219633aae9f7cccc82713e5698863025460dc79b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2U2Zjc2MDc2NmQyNThkMTIwNTFhYzMwMTliNTI4MWEyZTY2ZWY4YjE2ZjhiNDhlMThiYTNiZWY0ZmMzZjllYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FjMDMwYmY5ZWMzZGNmNjQ2NWU4YTdlZWY2NzY0MmE5YTU5MWY4Yzk2NDg4NmY1MDQwY2VlZWNjODYxYmRlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzZkOWFmYmIzOTAyZGMxOGYyYzY0ODc1MTI2NGMwODBlNjUyMTNjOWI0ZmYyOWUyZWZiYTRiZmJiNTc2ZDA1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2E4ZDA0MmIyNTdmYmRiZjRiZGZiZTllZTQ4YWUzYjAyNTg1OWRjYTc3Yzg3YTNkY2Y0MzQ3MTlmYzI4MmU0MSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L49-L51",
+          "version": "repo-lines-v1:sha256:ece8e81ad8bca9c43903ca1f8be7df36ab5886a923ec302ac5629a25415b2374:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQyNTBlNGExMGQxZGFiMTAxMDRjNWY2M2VjNTg2N2FjZjhjNDA5ZGM3ZmIwYTQxZjc5OTI4YzNiMTMxZmFjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5Y2ZhYWRkNjc1ZTgyNTFmNzdkNGU3YWM0NDcyNzhiMDA0ZmI5YWIzODlmNDBiMWIzODI1N2MzOWFiNzc1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGRhYjgxMzU4MzlkOTA4MTNhZjFlMDBiMmJkYjY3ODg4ZWRhNTNiYmI3ZTVhMTU0MjRiYjY0YjRiODAyYTQ4OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdlYTkxNzVmMjc0ZGE5YTUyMmNhOTI2ZmIyOGQ1YzBiNzc2MWNhZDJjMmQ0YThmYTVjOWNiMjc2NTVjZmZmMyJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L90-L118",
+          "version": "repo-lines-v1:sha256:8f29fada72870b8d53f5078df2933342e010c6725cc0b14577efae8fb11c817d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmMmRjNjc1YjYwODBmNzIzODI0NjgyMjhmYmVmZDlhNGZhMjVlMzExMmUwNjEwZWNkMjA3YjdiOWUxMDg3ZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1YTA5ZDI2NDc2YWI1NmZmMTQ5NDZkYmRiYmJmNGQ3MzI5NGQ3MjBmZTdlYjE1ZWI3OTY5YmQ3ZTUwYjRiNDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjM2JhMzVkN2Q1ZDZmMmQ0MDQzZjA0ODJhYThlY2QyYTFkYTM4YTk3YWMwNTFiNGNlYjZiZTA5NzU1OWI2NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY5MGI5NjVlYTFlYWNkYWVhOTUxM2ZmYTllNGRlZTZiOWU5NzdkZGEwZDI5ZTBiNzg5ZjY2MjI0NDAzNDVmMTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_52c934c1dd7d40c19183e2dd6a303a2b",
+      "statement": "HTTP endpoints are convention-mapped from @Action annotations rather than declared in configuration: src/struts.xml contains no <action> element, and the 47 endpoints are 24 methods on ForeAction plus 23 spread across CategoryAction, ProductAction, PropertyAction, ProductImageAction, PropertyValueAction, OrderAction and UserAction, so URLs and result names are coupled to JSPs as plain strings.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java",
+          "version": "repo-file-v1:sha256:b29b67c0d9dc14de44e03ba159344ca071e4a5648fb12b65194d5bf2e2225ac3"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ForeAction.java",
+          "version": "repo-file-v1:sha256:6e850f5112799bf5897060e5307f38462002c4a98b71f358a3ec741590858c40"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/OrderAction.java",
+          "version": "repo-file-v1:sha256:083e95c51b0b582105595430e48bf4721425719cedad18a8f63d1f3901ff4e48"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java",
+          "version": "repo-file-v1:sha256:f578983d5cdd66643d6b9f4ba6be77dd6e45f2073da8a47e6536b976bbfd00f6"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductImageAction.java",
+          "version": "repo-file-v1:sha256:6a2a6e392afe4a2bc5e8479861c00300087ea1d75f60142b2055d98954117c65"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java",
+          "version": "repo-file-v1:sha256:f99d1e451a8c9ba0636e73e1e2a4efcfde9fca42e019dbc1b3564bf5e7db9725"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyValueAction.java",
+          "version": "repo-file-v1:sha256:44ef67a9c51dd0f20a9325a3ca55713bd4d30d9ea15577a2a0234c34a1af8140"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/UserAction.java",
+          "version": "repo-file-v1:sha256:d8f90258fa1b18930ce351808ac74a877f9205a4018f5fd558e4962413ee0c58"
+        },
+        {
+          "resource": "repo://src/struts.xml",
+          "version": "repo-file-v1:sha256:141dda3fd870c786f29a626c188dc044e0b0f9d55464e397337f7bee21c9893b"
+        }
+      ]
+    },
+    {
+      "id": "claim_e66e7da5e7214f72a09bc73dd773f2cd",
+      "statement": "StartJetty compiles every .java file under src/ into web/WEB-INF/classes (UTF-8, -source/-target 8, classpath built from all jars in web/WEB-INF/lib) and copies non-Java resources on every launch, so there is no separate build step, web/WEB-INF/classes is disposable generated output, and a compile failure aborts startup before any port is bound.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L28-L35",
+          "version": "repo-lines-v1:sha256:5ab3cc898d187357841413afb3cd61b585d6c9d5133a10ed6b51d645772d7d85:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE2ZjE2ZWFiM2FjMjEwOTIzNGNiMjNiNzFmOWQ2MTJkOGE2YjFiYzQyMzlmOTk5ODIyOTQyZWMzY2MwNTdjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGZhN2YzMjc2OTQ0ZmVhYzMzNTg2YTZlZDk3ZTlhODM2MDM5OGUxMDM4ZTRjOGJjOWExYTc4YmIzN2E5YzZhNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzJlN2Y3NGI1ZGRjMTMxYTEyMDg3NGU4MzI4YzZlZmIwZTI2NDIzOTAxMmIwZGU4MmI5MGQ5MDRlMjZhODdmZiJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L145-L186",
+          "version": "repo-lines-v1:sha256:e8c08299ab6c1d619003e4a28758dfc78934b1f75c2bb4cbe08250f906741f70:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5Y2JiYzY1NDY5ZGIxY2EyODQyZWZkOTdkZjdlZTJjZTZjYzE1NzE0ODJkMDFhMThiNzkwYTEwYzdjNTEwZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlZDgxZDQ4NTc1MGU2NTViY2U5MTYzMGY2YjVmZjRmNGE0MDg0NWQ0NWE0MmQxYjQ2MmM1NTZlM2U0YTJhN2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkM2RiYzc1NWM4N2M3YzliNGJjYTQ4MWUyNWE4OTc2NmNhZTU0ZDcxOTg2YjVhZTM4OTYxYmY5NTNhMDdjNDUifQ"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L188-L206",
+          "version": "repo-lines-v1:sha256:ad23c00f0d88fdcd21d769a6acf6c608f8cd67e88b78ee70a2e51f21fb8e6164:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ZWEzMzI0OTk5NDRkMmZhZDdhY2Y2MDY3OGZmMWUyZmIyZjg4ZTRiYWRjOWQ4YmYwZGNlZTI5MzBjMTMwY2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzMTg1ZDJhMGM0NTY3MzBjMzM1YWQ4YTMwODVhNjYxZGFhZDZlOTIzNDQzMjAwMTBkYWU0MDI3NzM4ZmU4NmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY4NTNkNjAzMGEyMzAxM2UxMzc1OWRkNWQzNzRjYzI3NzY4YzJmZjEwYWYwYzkxMWI5NjNjYTIzMjYzNTViNDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_61f4fcb2535d481a921750ddc32833f3",
+      "statement": "The data store is an H2 in-memory database (jdbc:h2:mem:tmall_ssh;MODE=MySQL;DB_CLOSE_DELAY=-1) that is re-created and re-seeded from classpath:sql/tmall_ssh_h2.sql by the Spring dbInit bean at every context refresh, so rows written during a session are discarded on restart while the demo data is restored.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L71-L75",
+          "version": "repo-lines-v1:sha256:2d8c65430bcf778f072712db0a58aa998ac796c0c6483d2cf80c6765bece55c6:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNThlZDVhNGQwMDlhMjM0ZmFmYzJjZjg5ODBjZjJiZTI3NzI5ZGM1OWY5YzY5MmY1MDVhZmI1NDE1NDU1ODM1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg4N2EzMDhhOWEyM2Q2YzFkNDJiNzhlNTczNGE3MGVkODA1Yjk5M2FlMDI0YWNkNzY3YmQyZWRkOTRjOGJmNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWU2N2MyNGMxMDVkYmI0OTA5ODE1OTVmZGQ2M2QyZjdmYzViMTFkMDA2ZWMyMDcxZTBmNWYzMzI0ZTVjMmVkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTRhODZjZGJmMjhhZmJkOGU2NDQ3ZGYxNzE4MTczZGEzMmE0ZjNiNDIwMTQ0MDdlYjdhN2ZhYmM1MGY1NGMxYyJ9"
+        },
+        {
+          "resource": "repo://src/applicationContext.xml#L20-L47",
+          "version": "repo-lines-v1:sha256:9c1248f97835824eb9148060490a6e6254e7e943eaa4b243fbeb21db67672474:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmM2I0MmQxZGYyODIzZWEwY2E5NTZjNTQ5YmZhM2E3NDViZjQ1NWY5NWYwMDRkZThkZjM5ZWFhODM5YTg4OGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzNjE0ZDY5Y2M2OGRjMjhhYmJhODFmYTBkMmI2YzFhNGNkOTQ3NTE3NWNjNTgyZDQzZTM2NWU2ZTZiMDAwYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwYjBhNzY0ZjFkNTA0NGMxNDc3MzU5ZmYzYjRmZWE1NTg1ZTk3MDU2OWMxMzUzMDkxZGMxZDIyYmQxOGY3ZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiOGZkZDE1YWEzNmMyOGNmMDc3MjJiOTk1ZTYxMzE5YjlkODUzZTg2NmM4OTY5OTlhYTFhNTNiZmY0NjgxZjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3aa04837137d4690a354119061cc3c1f",
+      "statement": "This checkout is a spec-driven-development rehearsal on a legacy project, and MIGRATION.md records both that purpose and the acceptance evidence for the embedded-Jetty/H2 variant: the one-command start, HTTP 200 for /forehome and /admin_category_list, the H2 console query, the identity-calibration check, and zero modifications to the original business source.",
+      "evidence": [
+        {
+          "resource": "repo://MIGRATION.md#L1-L6",
+          "version": "repo-lines-v1:sha256:01deab8d040d0dfe98aa4e9dfa1e7250f2fc314980e46796a88857d2ce617d9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFmMGM1NWRkOTE1YjBiNTk3ZGY4YzNkNTFkOTJmNDZjM2FiYzdkMTc2OTllNmJiNjU4OGY4YjgyY2E4MDcyMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODkzNjg3Nzk5NzExOWVlN2IxZWNhZmRiMjRjN2MyYmU3ZjRjZDgyZDEzMDE1ZDYxOTY0OWU5Yjk5ZDdmMzljMSJ9"
+        },
+        {
+          "resource": "repo://MIGRATION.md#L73-L83",
+          "version": "repo-lines-v1:sha256:62f81633ea9d9c13973f1ef725d41c19bb00b762dfe95dd0b84f43ab9520f408:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyYjdjYThhZDQ2NWMxYTIwYzk5Yjg4NGYyOWYwYzVhOGZlYWM2Yzg1OGRkMzVlZjYyODc1OGY3MTYzYjNiODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5ODYzZmZhOTViYmQ3YWRjNmM4Njk0OWM1NGM5NTRkMzU2NTViYTBiZTJlNzYyMjRlYWFiNWNkMjhmYzg5NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1MGI4ODRlYTJkZmMzNmQwZmQyODdhZjYxMzg5NjFmNDlkNWE5ZmY1YWNmNjcxY2QyNzE2MDQ3NDZkODk5YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_565fe1fbed684f5a9d7b07840dde0633",
+      "statement": "AGENTS.md defines how the generated wiki is meant to be used: source code and tests are authoritative, wiki context is retrieved just in time rather than preloaded, openwiki/quickstart.md and its links are the fallback when retrieval tools are unavailable, and generated OpenWiki pages should not be hand-edited.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L15",
+          "version": "repo-lines-v1:sha256:5a99db190588a58887dedd862087182bcc044b1c2e4fa49bd3cc06e8d28e4a33:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6d36bc709fc74605ab7104ba4e76270c",
+      "statement": "STARTUP.md's access-address table documents four addresses — http://localhost:8080/ as the storefront, /forehome as a storefront entry, /admin_category_list and the H2 console on 8082 — while the launcher itself exposes only three surfaces: /forehome is the @Action the root path is rewritten to, not a separate service or port.",
+      "evidence": [
+        {
+          "resource": "repo://STARTUP.md#L42-L49",
+          "version": "repo-lines-v1:sha256:8b3021976d683f231696aa4c219633aae9f7cccc82713e5698863025460dc79b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2U2Zjc2MDc2NmQyNThkMTIwNTFhYzMwMTliNTI4MWEyZTY2ZWY4YjE2ZjhiNDhlMThiYTNiZWY0ZmMzZjllYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FjMDMwYmY5ZWMzZGNmNjQ2NWU4YTdlZWY2NzY0MmE5YTU5MWY4Yzk2NDg4NmY1MDQwY2VlZWNjODYxYmRlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzZkOWFmYmIzOTAyZGMxOGYyYzY0ODc1MTI2NGMwODBlNjUyMTNjOWI0ZmYyOWUyZWZiYTRiZmJiNTc2ZDA1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2E4ZDA0MmIyNTdmYmRiZjRiZGZiZTllZTQ4YWUzYjAyNTg1OWRjYTc3Yzg3YTNkY2Y0MzQ3MTlmYzI4MmU0MSJ9"
+        },
+        {
+          "resource": "repo://src/StartJetty.java#L90-L104",
+          "version": "repo-lines-v1:sha256:dae4051fed32b4be268e44b1aa5fcaa72f2008f3591acfc2167c4e74b10d09fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmMmRjNjc1YjYwODBmNzIzODI0NjgyMjhmYmVmZDlhNGZhMjVlMzExMmUwNjEwZWNkMjA3YjdiOWUxMDg3ZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNDk1MzA3ZTc1M2NiNjQwMDY0NDZiOWEyNjE5ODAwZWEwZmUwOGY5YjJkNzVkYjYxZjMzMmQ0MmQyMWFhNTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjM2JhMzVkN2Q1ZDZmMmQ0MDQzZjA0ODJhYThlY2QyYTFkYTM4YTk3YWMwNTFiNGNlYjZiZTA5NzU1OWI2NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjOWY0ZjE3NTU3ZTFjMjk1YjI3N2U3ZmYwMDNhYjZkYmMzZjdmYzhjNmQyZjIxMjQ1OGFhYTk3MzVmNzBjMzMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.0",
+    "at": "2026-09-25T06:00:02.513Z"
+  }
+}
