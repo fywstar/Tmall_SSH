@@ -4,19 +4,28 @@ import com.caozhihu.tmall.pojo.Product;
 import com.caozhihu.tmall.util.Page;
 import org.apache.struts2.convention.annotation.Action;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 
 public class ProductAction extends Action4Result {
 
     @Action("admin_product_list")
-    public String list() {
+    public String list() throws UnsupportedEncodingException {
         if (page == null) {
             page = new Page();
         }
-        int total = propertyService.total(category);
-        page.setTotal(total);
-        page.setParam("&category.id=" + category.getId());
-        products = productService.list(page, category);
+        if (keyword == null || keyword.isEmpty()) {
+            int total = propertyService.total(category);
+            page.setTotal(total);
+            page.setParam("&category.id=" + category.getId());
+            products = productService.list(page, category);
+        } else {
+            int total = productService.total(category, keyword);
+            page.setTotal(total);
+            page.setParam("&category.id=" + category.getId() + "&keyword=" + URLEncoder.encode(keyword, "UTF-8"));
+            products = productService.list(page, category, keyword);
+        }
         for (Product product : products) {
             productImageService.setFirstProductImage(product);
         }

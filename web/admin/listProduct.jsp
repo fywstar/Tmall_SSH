@@ -40,6 +40,15 @@
         <li class="active">产品管理</li>
     </ol>
 
+    <div style="margin-bottom: 10px;">
+        <form method="get" action="admin_product_list" class="form-inline">
+            <input type="hidden" name="category.id" value="${category.id}">
+            <input name="keyword" type="text" class="form-control" value="${param.keyword}"
+                   placeholder="按商品名称搜索">
+            <button type="submit" class="btn btn-default">搜 索</button>
+        </form>
+    </div>
+
     <div class="listDataTableDiv">
         <table
                 class="table table-striped table-bordered table-hover  table-condensed">

@@ -3,6 +3,7 @@ package com.caozhihu.tmall.service;
 import com.caozhihu.tmall.pojo.Category;
 import com.caozhihu.tmall.pojo.Product;
 import com.caozhihu.tmall.service.BaseService;
+import com.caozhihu.tmall.util.Page;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface ProductService extends BaseService {
     public void setSaleAndReviewNumber(Product product);
     public void setSaleAndReviewNumber(List<Product> products);
     public List<Product> search(String keyword, int start, int count);
+    public int total(Category category, String keyword);
+    public List<Product> list(Page page, Category category, String keyword);
 }
