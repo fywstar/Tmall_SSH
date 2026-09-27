@@ -13,10 +13,20 @@ public class ProductAction extends Action4Result {
         if (page == null) {
             page = new Page();
         }
-        int total = propertyService.total(category);
-        page.setTotal(total);
-        page.setParam("&category.id=" + category.getId());
-        products = productService.list(page, category);
+        //keyword为空白时不做名称过滤，维持原有按分类的分页查询；非空白时按产品名称模糊搜索，并把搜索条件追加进page.param以便分页跳转时携带保留
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            keyword = keyword.trim();
+            int total = productService.total(category, keyword);
+            page.setTotal(total);
+            page.setParam("&category.id=" + category.getId() + "&keyword=" + keyword);
+            products = productService.list(page, category, keyword);
+        } else {
+            //经用户确认修复基线登记的既有缺陷：total原取propertyService.total(category)为分类属性数，导致页码虚高、翻页空表格，现改用行所属service的产品计数
+            int total = productService.total(category);
+            page.setTotal(total);
+            page.setParam("&category.id=" + category.getId());
+            products = productService.list(page, category);
+        }
         for (Product product : products) {
             productImageService.setFirstProductImage(product);
         }

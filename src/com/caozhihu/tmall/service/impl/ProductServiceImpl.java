@@ -4,7 +4,9 @@ import com.caozhihu.tmall.pojo.Category;
 import com.caozhihu.tmall.pojo.OrderItem;
 import com.caozhihu.tmall.pojo.Product;
 import com.caozhihu.tmall.service.*;
+import com.caozhihu.tmall.util.Page;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,5 +85,28 @@ public class ProductServiceImpl extends BaseServiceImpl implements ProductServic
         DetachedCriteria dc = DetachedCriteria.forClass(clazz);
         dc.add(Restrictions.like("name", "%" + keyword + "%"));
         return (List<Product>) findByCriteria(dc, start, count);
+    }
+
+    //查询某个分类下名称模糊匹配keyword的产品，限定category范围后like匹配，按page切片返回
+    @Override
+    public List<Product> list(Page page, Category category, String keyword) {
+        DetachedCriteria dc = DetachedCriteria.forClass(clazz);
+        dc.add(Restrictions.eq("category", category));
+        dc.add(Restrictions.like("name", "%" + keyword + "%"));
+        dc.addOrder(Order.desc("id"));
+        return (List<Product>) findByCriteria(dc, page.getStart(), page.getCount());
+    }
+
+    //查找出product表中product的category属性等于提供参数且name模糊匹配keyword的个数
+    @Override
+    public int total(Category category, String keyword) {
+        String sqlFormat = "select count(*) from %s bean where bean.category = ?0 and bean.name like ?1";
+        String hql = String.format(sqlFormat, clazz.getName());
+
+        List<Long> l = (List<Long>) this.find(hql, category, "%" + keyword + "%"); //find方法返回的是List<?>泛型，此处需要cast
+        if (l.isEmpty()) {
+            return 0;
+        }
+        return l.get(0).intValue();
     }
 }
