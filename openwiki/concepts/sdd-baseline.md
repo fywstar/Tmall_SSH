@@ -1,11 +1,8 @@
 ---
 type: convention
 title: "SDD Baseline: Package, Naming, and Placement Rules for New Code"
-description: "The draft baseline a developer must read before adding code to Tmall_SSH: the src/com/caozhihu/tmall package map and its dependency direction, where a new Action, JSP, service, entity, DAO call, interceptor, util or test belongs, the naming habits that make them work (XxxService / XxxServiceImpl with @Service, the ServiceImpl to pojo pairing, admin_entity_verb and foreverb URLs, result names, admin/ and include/domain JSP paths), step-by-step checklists for a new admin CRUD screen and a new storefront endpoint, and the open questions collected as 【人工评审待确认】."
+description: "The draft baseline a developer must read before adding code to Tmall_SSH: the src/com/caozhihu/tmall package map and its dependency direction, where a new Action, JSP, service, entity, DAO call, interceptor, util or test belongs, the naming habits that make them work (XxxService / XxxServiceImpl with @Service, the ServiceImpl to pojo pairing, the two-file rule a new persistent field follows — a plainly mapped entity field plus its appended ALTER TABLE in src/sql/tmall_ssh_h2.sql, bound from the admin forms as product.remark — admin_entity_verb and foreverb URLs, result names, admin/ and include/domain JSP paths), step-by-step checklists for a new admin CRUD screen and a new storefront endpoint, and the open questions collected as 【人工评审待确认】."
 tags: [sdd-baseline, conventions, package-layout, naming, action-layer, service-layer, entity-mapping, jsp-placement, checklist, review-pending]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
 sources:
   - id: openwiki-source-92ee68a3100ec2ab9d4eb076
     resource: repo://MIGRATION.md
@@ -115,7 +112,10 @@ sources:
     resource: repo://web/WEB-INF/lib/spring-test-4.3.18.RELEASE.jar
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # SDD Baseline: Package, Naming, and Placement Rules for New Code
@@ -150,7 +150,7 @@ string on a method, and every result name only as a string in a `@Results` block
 | `com.caozhihu.tmall.service` | One interface per entity, each `extends BaseService`; entity-aware method signatures; status/type string constants | `src/com/caozhihu/tmall/service/ProductService.java#L9-L16`, `src/com/caozhihu/tmall/service/OrderService.java#L10-L22` |
 | `com.caozhihu.tmall.service.impl` | `XxxServiceImpl` per interface plus `BaseServiceImpl` and `ServiceDelegateDAO`. This is the only package that touches `dao.impl` | `src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java#L3-L25` |
 | `com.caozhihu.tmall.dao.impl` | `DAOImpl` only: a `HibernateTemplate` subclass named by `@Repository("dao")`, with no interface above it | `src/com/caozhihu/tmall/dao/impl/DAOImpl.java#L9-L18` |
-| `com.caozhihu.tmall.pojo` | JPA-annotated entities; view-only fields marked `@Transient` | `src/com/caozhihu/tmall/pojo/Product.java#L7-L35` |
+| `com.caozhihu.tmall.pojo` | JPA-annotated entities; view-only fields marked `@Transient` | `src/com/caozhihu/tmall/pojo/Product.java#L7-L36` |
 | `com.caozhihu.tmall.interceptor` | Struts interceptors extending `AbstractInterceptor` | `src/com/caozhihu/tmall/interceptor/AuthInterceptor.java#L18-L24` |
 | `com.caozhihu.tmall.util` | Plain helpers with no Spring annotation and no project imports (`Page`, `ImageUtil`) | `src/com/caozhihu/tmall/util/Page.java#L3-L14`, `src/com/caozhihu/tmall/util/ImageUtil.java#L9-L10` |
 | `com.caozhihu.tmall.test` | Test classes compiled by the same launcher as production code | `src/com/caozhihu/tmall/test/TestTmall.java#L15-L17` |
@@ -306,7 +306,7 @@ across rows (`src/com/caozhihu/tmall/service/impl/PropertyValueServiceImpl.java#
 ## 5. Entities: placement, annotation style, and the SQL script
 
 Entities live in `com.caozhihu.tmall.pojo` and follow one annotation shape
-(`src/com/caozhihu/tmall/pojo/Product.java#L7-L35`,
+(`src/com/caozhihu/tmall/pojo/Product.java#L7-L36`,
 `src/com/caozhihu/tmall/pojo/OrderItem.java#L5-L23`):
 
 ```java
@@ -345,15 +345,28 @@ Rules a new entity must satisfy:
   `saleCount`, `Order.orderItems` / `total` / `totalNumber`
   (`src/com/caozhihu/tmall/pojo/Category.java#L16-L20`, `src/com/caozhihu/tmall/pojo/Order.java#L33-L38`).
   Services fill them; nothing persists them.
-- **Column names are the Java field names in camelCase.** `product.subTitle`, `product.originalPrice`,
-  `order_.orderCode`, `order_.createDate` (`src/sql/tmall_ssh_h2.sql#L39-L69`), matching
-  `src/com/caozhihu/tmall/pojo/Product.java#L19-L24`. A new persistent field therefore needs the
-  matching column in the initialisation script.
+- **Column names are the Java field names in camelCase, and a new persistent field is a two-file
+  edit.** The shipped columns `product.subTitle`, `product.originalPrice`, `order_.orderCode`,
+  `order_.createDate` (`src/sql/tmall_ssh_h2.sql#L39-L69`) are named after the fields they hold,
+  because a scalar declared with no annotation at all falls back to the field name
+  (`src/com/caozhihu/tmall/pojo/Product.java#L19-L25`). A new persistent field therefore requires both
+  halves: the entity field, written as a plain scalar rather than a `@Transient` one, and the matching
+  column in `src/sql/tmall_ssh_h2.sql`, which Hibernate neither creates nor checks (see the next
+  bullet). The shipped example is `remark`: `private String remark;` at
+  `src/com/caozhihu/tmall/pojo/Product.java#L21` plus the appended statement
+  `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` at
+  `src/sql/tmall_ssh_h2.sql#L155` — appended rather than folded into the `CREATE TABLE product` column
+  list above it (`#L58-L69`), and placed after the 85 seeded `INSERT INTO product` rows, so every seeded
+  product carries a null `remark`. Nothing validates the pair, so a field whose column is missing from
+  the script fails on the first query that touches it, not at startup. A field the admin screens edit
+  needs its form input under the same OGNL name as its neighbours — the add and edit forms both carry
+  `name="product.remark"` (`web/admin/listProduct.jsp#L117`, `web/admin/editProduct.jsp#L61`) — and no
+  service, action or DAO class mentions it.
 - **The schema comes from `src/sql/tmall_ssh_h2.sql`, not from Hibernate.** `hibernate.hbm2ddl.auto`
   is `none` (`src/applicationContext.xml#L56-L65`) and the script is executed by the `dbInit` bean at
   context start (`src/applicationContext.xml#L29-L44`). A new table, column or foreign key must be
   added there, together with the seed rows the screens expect
-  (`src/sql/tmall_ssh_h2.sql#L11-L15`, `#L14698-L14711`). The script is a minimal adaptation of the
+  (`src/sql/tmall_ssh_h2.sql#L11-L15`, `#L14699-L14712`). The script is a minimal adaptation of the
   original MySQL script and its data is unchanged (`src/sql/tmall_ssh_h2.sql#L1-L9`).
 - **Table-name spelling is not uniform, and H2 is forgiving.** `@Table(name = "order_")`,
   `@Table(name = "productImage")`, `@Table(name = "orderItem")` versus the script's lowercase
@@ -419,14 +432,14 @@ column.
 
 | # | Create / change | Rule | Shipped example |
 |---|---|---|---|
-| 1 | `src/com/caozhihu/tmall/pojo/Xxx.java` | entity in `.pojo`, `@Entity`/`@Table`/`@Id IDENTITY`, parent relation named after the parent entity (§5) | `pojo/Product.java` |
-| 1b | `src/sql/tmall_ssh_h2.sql` | add the table, its columns and seed rows, and an `ALTER TABLE … RESTART WITH n` line if the ids matter | `sql/tmall_ssh_h2.sql#L58-L69`, `#L14711-L14715` |
+| 1 | `src/com/caozhihu/tmall/pojo/Xxx.java` | entity in `.pojo`, `@Entity`/`@Table`/`@Id IDENTITY`, parent relation named after the parent entity (§5); each persistent scalar written as a plain field, which fixes its column name and creates the schema-script obligation in row 1b | `pojo/Product.java#L7-L36` |
+| 1b | `src/sql/tmall_ssh_h2.sql` | add the table, its columns and seed rows, and an `ALTER TABLE … RESTART WITH n` line if the ids matter; a column added to an existing entity later is appended with `ALTER TABLE xxx ADD COLUMN …` after that table's `INSERT` block instead of editing its `CREATE TABLE` | `sql/tmall_ssh_h2.sql#L58-L69`, `#L14712-L14716`, `#L155` |
 | 2 | `src/com/caozhihu/tmall/service/XxxService.java` | `extends BaseService`; add only domain methods | `service/ProductService.java` |
 | 3 | `src/com/caozhihu/tmall/service/impl/XxxServiceImpl.java` | `extends BaseServiceImpl implements XxxService`, `@Service("xxxService")`, class name must be `Xxx` + `ServiceImpl` | `service/impl/ProductServiceImpl.java#L15-L16` |
 | 4 | `src/com/caozhihu/tmall/action/XxxAction.java` | `extends Action4Result`; one method per URL, each `@Action("admin_xxx_<verb>")` | `action/CategoryAction.java` |
 | 5 | `src/com/caozhihu/tmall/action/Action4Result.java` | add `@Result(name = "listXxx", location = "/admin/listXxx.jsp")`, `@Result(name = "editXxx", location = "/admin/editXxx.jsp")` and the redirect `@Result(name = "listXxxPage", type = "redirect", location = "/admin_xxx_list")` — the parent-scoped variant carries an OGNL parent key in the location, e.g. `location = "/admin_product_list?category.id=${product.category.id}"` | `#L15-L44` |
-| 6 | `web/admin/listXxx.jsp` | include `../include/admin/adminHeader.jsp` + `../include/admin/adminNavigator.jsp`; a data table; a `div.pageDiv` containing `../include/admin/adminPage.jsp` when paged; an add form posting to `admin_xxx_add`; and — for parent-scoped lists — a hidden parent id | `web/admin/listCategory.jsp#L12-L13`, `#L70-L72`, `#L77`; `web/admin/listProduct.jsp#L94-L96`, `#L101`, `#L128-L133` |
-| 7 | `web/admin/editXxx.jsp` | post to `admin_xxx_update`, with hidden `xxx.id` and hidden parent id | `web/admin/editCategory.jsp#L25-L43`, `web/admin/editProduct.jsp#L46-L78` |
+| 6 | `web/admin/listXxx.jsp` | include `../include/admin/adminHeader.jsp` + `../include/admin/adminNavigator.jsp`; a data table; a `div.pageDiv` containing `../include/admin/adminPage.jsp` when paged; an add form posting to `admin_xxx_add`; and — for parent-scoped lists — a hidden parent id | `web/admin/listCategory.jsp#L12-L13`, `#L70-L72`, `#L77`; `web/admin/listProduct.jsp#L96-L98`, `#L103`, `#L135-L140` |
+| 7 | `web/admin/editXxx.jsp` | post to `admin_xxx_update`, with hidden `xxx.id` and hidden parent id | `web/admin/editCategory.jsp#L25-L43`, `web/admin/editProduct.jsp#L46-L83` |
 
 The exact URL and result-name vocabulary for the five verbs, as shipped:
 
@@ -473,12 +486,14 @@ flowchart TD
   the handler therefore calls `t2p(...)` before returning
   (`src/com/caozhihu/tmall/action/ProductImageAction.java#L54-L62`).
 - **Form field names are OGNL paths onto the inherited action fields**, not DTO names:
-  `name="category.name"`, `name="product.category.id"`, `name="property.name"`, and uploads always
-  `name="img"` (`web/admin/listCategory.jsp#L77-L88`, `web/admin/listProduct.jsp#L105-L131`,
-  `web/admin/listProperty.jsp#L68-L76`).
+  `name="category.name"`, `name="product.category.id"`, `name="product.remark"`, `name="property.name"`,
+  and uploads always `name="img"` (`web/admin/listCategory.jsp#L77-L88`,
+  `web/admin/listProduct.jsp#L107-L133`, `web/admin/listProperty.jsp#L68-L76`). A field added to an
+  existing form follows the same path — the edit form binds it as `name="product.remark"` with a
+  `${product.remark}` echo (`web/admin/editProduct.jsp#L61`).
 - **Delete links go through the admin header's confirm hook**: the anchor carries
   `deleteLink="true"` and `web/include/admin/adminHeader.jsp` intercepts the click
-  (`web/admin/listProduct.jsp#L84-L86`, `web/include/admin/adminHeader.jsp#L59-L71`). Validation is
+  (`web/admin/listProduct.jsp#L86-L88`, `web/include/admin/adminHeader.jsp#L59-L71`). Validation is
   the same file's `checkEmpty` / `checkNumber` / `checkInt` helpers, bound to the input `id`s —
   nothing on the server validates a field.
 
@@ -562,8 +577,15 @@ a baseline that will be enforced by a team needs one.
   (`src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java#L70-L106`).
 - **Are `@Table` names allowed to differ in case from the SQL script?** Shipped entities use
   `order_`, `productImage`, `orderItem` against a script that creates `productimage` and `orderitem`
-  (`src/com/caozhihu/tmall/pojo/ProductImage.java#L8`, `src/sql/tmall_ssh_h2.sql#L155`). Pick one
-  spelling for new entities.
+  (`src/com/caozhihu/tmall/pojo/ProductImage.java#L8`, `src/sql/tmall_ssh_h2.sql#L156`, `#L14699`). Pick
+  one spelling for new entities.
+- **Must the seed script's header comment record structural appends?** Its header lists four *syntactic*
+  migration adaptations and states that the business table structures and data were not changed
+  (`src/sql/tmall_ssh_h2.sql#L1-L9`), while the file also appends
+  `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` (`#L155`), which leaves the seeded
+  `product` table with a column its `CREATE TABLE` never declares. Should the comment be updated to list
+  each such append, and is the append the standing convention for a later column rather than editing the
+  `CREATE TABLE` it belongs to?
 - **Do test classes belong in the deployed source tree?** `TestTmall` sits under `src/` and is
   compiled by the application launcher into `web/WEB-INF/classes`; is that the intended placement
   (`src/com/caozhihu/tmall/test/TestTmall.java#L1-L17`, `src/StartJetty.java#L146-L160`)?

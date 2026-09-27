@@ -3,3 +3,10 @@
 dist/
 *.log
 web/WEB-INF/classes/
+
+# 演练人工产物，禁止 OpenWiki 扫描索引
+.openspec/
+
+# 人工编写运维 / 迁移说明文档，不属于业务源码基线输入
+MIGRATION.md
+STARTUP.md

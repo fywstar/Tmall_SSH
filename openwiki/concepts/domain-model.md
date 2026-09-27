@@ -1,11 +1,8 @@
 ---
 type: concept
 title: "Domain Model: the Nine Entities, Their Tables, Join Columns, and Transient View Fields"
-description: "Tmall_SSH's nine JPA entities — Category, Property, Product, PropertyValue, ProductImage, Review, User, Order and OrderItem — with their @Table names, identity ids, unidirectional @ManyToOne join columns (cid, pid, ptid, uid, oid), the derived accessors and service-side string vocabularies, and the @Transient fields the services fill per request."
+description: "Tmall_SSH's nine JPA entities — Category, Property, Product, PropertyValue, ProductImage, Review, User, Order and OrderItem — with their @Table names, identity ids, unidirectional @ManyToOne join columns (cid, pid, ptid, uid, oid), the derived accessors and service-side string vocabularies, and the @Transient fields the services fill per request; Product's newest scalar, remark, is a plainly mapped column (deliberately not @Transient) whose column exists only through an ALTER TABLE appended to the seed script and which today is written and read by the admin product screens alone."
 tags: [domain-model, entities, jpa, hibernate, data-model, er-diagram, transient-fields, concept]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
 sources:
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
@@ -17,6 +14,8 @@ sources:
     resource: repo://src/com/caozhihu/tmall/action/CategoryAction.java
   - id: openwiki-source-40b340eb2396ea635e7cfced
     resource: repo://src/com/caozhihu/tmall/action/ForeAction.java
+  - id: openwiki-source-b5ef4837f2a8ffdf7d3f4e02
+    resource: repo://src/com/caozhihu/tmall/action/ProductAction.java
   - id: openwiki-source-75c6d1214aa9b847cdcd9df5
     resource: repo://src/com/caozhihu/tmall/action/ProductImageAction.java
   - id: openwiki-source-f427a3e92c242d0611a26941
@@ -67,8 +66,12 @@ sources:
     resource: repo://src/com/caozhihu/tmall/service/ProductImageService.java
   - id: openwiki-source-2418fdb168bd7c7c3dafd23e
     resource: repo://src/sql/tmall_ssh_h2.sql
+  - id: openwiki-source-cf9e6553d8724c6c92175bfd
+    resource: repo://web/admin/editProduct.jsp
   - id: openwiki-source-48f4b22c3e4bca9be5d8e17a
     resource: repo://web/admin/listOrder.jsp
+  - id: openwiki-source-8f5593a1404bac097faed64e
+    resource: repo://web/admin/listProduct.jsp
   - id: openwiki-source-36420abb1600f20d66381988
     resource: repo://web/admin/listProductImage.jsp
   - id: openwiki-source-f70af8dc562c9a9466b3bd4b
@@ -77,11 +80,16 @@ sources:
     resource: repo://web/include/cart/cartPage.jsp
   - id: openwiki-source-67f26d9322c2cc6b63d9d172
     resource: repo://web/include/cart/reviewPage.jsp
+  - id: openwiki-source-ea3933999c5dc6abb51f9d1c
+    resource: repo://web/include/product/imgAndInfo.jsp
   - id: openwiki-source-e5a6721f239010f7cca96ce5
     resource: repo://web/include/product/productReview.jsp
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # Domain Model: the Nine Entities, Their Tables, Join Columns, and Transient View Fields
@@ -92,7 +100,7 @@ application: Hibernate discovers them through `packagesToScan` = `com.caozhihu.*
 The flip side is that nothing validates them: `hibernate.hbm2ddl.auto=none` means Hibernate emits no DDL
 and no schema check at startup, so `src/sql/tmall_ssh_h2.sql` is the only definition of the columns and
 a field renamed without a matching DDL rename surfaces as an SQL error on first use, not at boot
-(`src/com/caozhihu/tmall/pojo/Product.java#L7-L35`, `src/sql/tmall_ssh_h2.sql#L58-L69`). The mechanics
+(`src/com/caozhihu/tmall/pojo/Product.java#L7-L36`, `src/sql/tmall_ssh_h2.sql#L58-L69`). The mechanics
 of how these classes reach the database are in
 [Persistence Layer](/openwiki/architecture/persistence-layer.md); this page owns the classes themselves.
 
@@ -124,6 +132,7 @@ erDiagram
         int cid FK
         string name
         string subTitle
+        string remark
         float originalPrice
         float promotePrice
         int stock
@@ -213,10 +222,28 @@ uniqueness per category, or the number of properties a category may have.
 ### Product — table `product`
 
 `@Table(name = "product")`. `int id` is annotated with a bare `@Column` (so the column name falls back
-to `id`); scalars are `String name`, `String subTitle`, `float originalPrice`, `float promotePrice`,
-`int stock`, `java.util.Date createDate`; the single association is
+to `id`); scalars are `String name`, `String subTitle`, `String remark`, `float originalPrice`,
+`float promotePrice`, `int stock`, `java.util.Date createDate`; the single association is
 `@ManyToOne @JoinColumn(name = "cid") Category category`
-(`src/com/caozhihu/tmall/pojo/Product.java#L7-L24`).
+(`src/com/caozhihu/tmall/pojo/Product.java#L7-L25`).
+
+`remark` is the current plain example of the mapping/DDL split. It is declared between `subTitle` and
+`originalPrice` and carries **no annotation at all**, so its column name is the field name — the five
+`@Transient` render fields that follow the scalars are the opposite case, ignored by Hibernate precisely
+because they are not columns (`src/com/caozhihu/tmall/pojo/Product.java#L27-L36`). The column is not in
+the `CREATE TABLE product` column list (`src/sql/tmall_ssh_h2.sql#L58-L69`) but is appended to the
+script instead: `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` sits at
+`src/sql/tmall_ssh_h2.sql#L155`, after the 85 seeded `INSERT INTO product` rows, so every seeded product
+has a NULL `remark`. Outside the entity and the script, the name `remark` appears only in the admin
+product screens — the add-form input `name="product.remark"` (`web/admin/listProduct.jsp#L117`), the
+edit-form echo `value="${product.remark}"` (`web/admin/editProduct.jsp#L61`) and the list cell
+`${p.remark}` (`web/admin/listProduct.jsp#L75`). No service, action, criteria, sort or search code
+mentions it, and the storefront never renders it (unlike `subTitle`, which
+`web/include/product/imgAndInfo.jsp#L164` and
+`web/include/home/productsAsideCategorys.jsp#L29-L31` do display), so in this code its only role is
+admin display and edit — passed through the same generic OGNL parameter binding as the other product
+fields, with no `ProductAction` or `ProductService` change. 【人工评审待确认】 whether that admin-only
+display/edit role is the intended end state or a placeholder for later use.
 
 Which price is which matters beyond display: **`promotePrice` is the money multiplier** used for the
 cart total (`total += oi.getProduct().getPromotePrice() * oi.getNumber()` in
@@ -241,7 +268,7 @@ Product also carries five `@Transient` fields (`firstProductImage`, `productSing
 This is the only entity with **two** parent associations, and the model's only row that binds two other
 entities together: the value of attribute `property` for product `product`. Note the asymmetry between
 mapping and DDL — the script constrains `ptid` with a foreign key but gives `pid` none
-(`src/sql/tmall_ssh_h2.sql#L1357-L1365`).
+(`src/sql/tmall_ssh_h2.sql#L1358-L1366`).
 
 Rows are never created by an explicit "add value" action. `PropertyValueServiceImpl.init(Product)` walks
 every `Property` of the product's category, looks up the `(product, property)` pair, and inserts a blank
@@ -338,7 +365,7 @@ Because `User` has no inverse collection, "my orders" is not an association trav
   (`src/com/caozhihu/tmall/service/impl/OrderServiceImpl.java#L23-L34`).
 
 The script leaves `oid` without a foreign key even though the entity maps the association
-(`src/sql/tmall_ssh_h2.sql#L14698-L14707`). `number` is the only varied field; every total is recomputed
+(`src/sql/tmall_ssh_h2.sql#L14699-L14708`). `number` is the only varied field; every total is recomputed
 by multiplying it with `product.promotePrice`, so an order's money is not stored on the order row and
 changes if the product's price changes afterwards.
 
@@ -427,7 +454,7 @@ knowledge of the values it can hold:
 
 Changing a constant's *string* value silently breaks the matching literal in the JSP and the values
 already stored by the seed script (`INSERT INTO productimage VALUES (… 'type_single')`,
-`src/sql/tmall_ssh_h2.sql#L164`); changing a constant's *name* breaks the compilation of the switch
+`src/sql/tmall_ssh_h2.sql#L165`); changing a constant's *name* breaks the compilation of the switch
 labels and the `case OrderService.waitReview` arms. 【人工评审待确认】 whether the duplicated literals are
 considered an accepted trade-off.
 
@@ -501,7 +528,7 @@ Points a reader will otherwise get wrong:
   `order_.uid`, `review.uid`, `review.pid`, `orderitem.uid`, `orderitem.pid`), so the database rejects
   deleting a parent that still has children; the two columns without a constraint —
   `propertyvalue.pid` and `orderitem.oid` — let the child rows survive as orphans
-  (`src/sql/tmall_ssh_h2.sql#L1357-L1365`, `#L14698-L14707`).
+  (`src/sql/tmall_ssh_h2.sql#L1358-L1366`, `#L14699-L14708`).
 - **Associations are eagerly fetched.** `@ManyToOne` defaults to `EAGER`, so loading an `OrderItem`
   loads its `Product`, `Order` and `User`, and loading a `Product` loads its `Category`. That is what
   lets a JSP walk `oi.product.promotePrice` on a detached object after the DAO call returned. Because
@@ -509,9 +536,9 @@ Points a reader will otherwise get wrong:
   association to `fetch = LAZY` would move the failure to render time
   ([Persistence Layer](/openwiki/architecture/persistence-layer.md)).
 - **Column names are convention.** Only `id`, `name` (`Property`), `cid`, `pid`, `ptid`, `uid` and `oid`
-  are annotated; every other column name is the Java property name, so `subTitle`, `promotePrice`,
-  `orderCode` and `createDate` must keep matching the hand-written DDL. Add a field and nothing happens
-  until a query selects it.
+  are annotated; every other column name is the Java property name, so `subTitle`, `remark`,
+  `promotePrice`, `orderCode` and `createDate` must keep matching the hand-written DDL. Add a field and
+  nothing happens until a query selects it.
 - **Adding an entity means adding a service with a matching name.** `BaseServiceImpl`'s constructor
   resolves its own entity class by reflection from the subclass name (`…ServiceImpl` in
   `…service.impl` → class in `…pojo`), so a new entity needs its `ServiceImpl` twin in the expected

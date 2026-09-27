@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:4a265707287ea003afba34e18118baa88c9a925afa767748c8fa7e7de91d4666",
+  "pageVersion": "sha256:e29763c6915added7613d59d128b17ed1132e0e3113e7f7e34c078729151b3c7",
   "claims": [
     {
       "id": "claim_fc7bb926978f48d0866c55cb8414005e",
@@ -459,10 +459,98 @@
           "version": "repo-lines-v1:sha256:9a0a6a3b6c095c1d0168b5d55d69952dfcc40bb59cbf1a52f4c573868b4e329d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhMTc5MTA3ZmY2OGJiZmM5ZGU0MjAxMTBjOWYwYjU3ZGZiMTk2ZjIxZGVmMWQ2Yjg4ZmE4NmRmOGM5NTFiZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5Y2Y1N2M5ZWIwYjU0ZGEwMDgxMjc4NTJhMjI3OTdlZTA4YzRlOTE0NThmMTg2ZmFlODcxNDg4ZjNmMTdmZmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYxNWY5MGU3NmRkN2FmZTQ1M2RlNWRjMDk3NTcxNjgwMWMzODY1YTgzNzdkZjAyZWE1NWEyMDRhNWYzNTllYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM5MzQzNzkwYjkwNmU1ODY3ZTFlOTU5MWJmZTFhZjBlNjdlZWUwNGRlNTdjZWJlMjE1MmNhMDQ4MjBlYjQ0MDYifQ"
         }
       ]
+    },
+    {
+      "id": "claim_c2308b91e5e24079b87419b90af163e0",
+      "statement": "The two admin product write endpoints gained one request parameter each: admin_product_add and admin_product_update both bind product.remark, emitted by the 备注 input of the add form in web/admin/listProduct.jsp and the edit form in web/admin/editProduct.jsp (the only two JSPs in the repository that emit that name). The name is an ordinary dotted property, so the params interceptor sets it on Action4Pojo.product exactly like product.name, and no action code names the field — ProductAction contains no reference to remark, so add() and update() persist it through the same generic productService.save/update call as every other scalar, with no new URL or result name.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Pojo.java#L11-L11",
+          "version": "repo-lines-v1:sha256:45d5923d3566bce192c6c632c3a22a1cb8d508fa37f15b1338361e8eda915462:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVkNTkyM2QzNTY2YmNlMTkyYzZjNjMyYzNhMjJhMWNiOGQ1MDhmYTM3ZjE1YjEzMzgzNjFlOGVkYTkxNTQ2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVkNTkyM2QzNTY2YmNlMTkyYzZjNjMyYzNhMjJhMWNiOGQ1MDhmYTM3ZjE1YjEzMzgzNjFlOGVkYTkxNTQ2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjdlY2E4MDQ2MmZiZWIxNTU0ZWNlMTZlYmQ0ZjliNGMxOTA3MmE3OTM3OWFmN2RiNjg4ZTFjN2Q3YzdhMGU0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjVkMmRkYWE0ZWE2MDYzZDhiNzhiOGQ4OGFmZjE5YzI5YzdjMzk1NGUyOTU1YjdkNTI1NDBjYWVmYTI2MTQxNyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Pojo.java#L134-L140",
+          "version": "repo-lines-v1:sha256:394938b72af0c605e88e3ee7c6f0401853cc5b0b0ebefdb90ee71e4b894848f7:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJmYTE5ZDMxYmM5Mjk0OTFkMTViYWE1YmM2OWYyMDY2MjY1MmYwYTA3NGQyNzY4ZjQ5ZjgzMWYxOTZkZjUzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDFjZjIwZjI1ZTZjMThkMzUzOTVjNzA5MDE0YTViNWFkNTk3ZTI2YmE4NTlkYzBhMDBhYzYzOWI0MjdjY2NiOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmMxYjViMzI5NmFlM2FiNDZmNzZkODI1Y2Y5NjAyYTljMDhkYjg2Y2I0ODFmZTEzZjA0NmIwNzI4NjM0NGY5YyJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L27-L53",
+          "version": "repo-lines-v1:sha256:965a8d183dc686eaf3a3b13fbb19610966e8eb8ad60199cc12cd6130d1c52035:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxNjU2YTAxOTYyZjJkOWIwZDI3NTM2ODFkZGJmMjg5YmYzN2Q4ZDY3MTU5YjgyNmRiYTQ5YmZhODc5MDY5NGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5YjJjOTk3MWQxODdiNWZjMTZjNGMxY2VmY2NmMzRiYjA2Y2UzNWNiNWNiZGYwMTkwNjU4ZTY2ZDNmN2I5NDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L59-L63",
+          "version": "repo-lines-v1:sha256:dc7f024fc16cc726bd90eb215d8f36339ed8426dbd354363b1d7960f620960cd:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgyZmQ5MWZkNDRiZWFkZjViMWJiMzU1NzBiMzUxZDI5MGM1MTRhMzhkMTkxZTQ4YTdmYTI4YWIzZmY0NDgwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhiYjEyNzUzZDA5Mzk5OTg4ZmMzNGFiNDBiNTA3NzBmNGE0YmYyYmVjYjU5NWExMzUzZDliZmNmYmQ0NzNlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI2OGI3NTc3MWI2NmZjNjMzODI5NzYzMWJiM2Y3MjY4ZTkyNTY1YzZmZWQ2N2U4NjQ4ZjEwMWYyZTgxNjAxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTczODczMzZmMWJhOGRhZDRiMDk4MTE2ZTkxMWYwNDIyNzlhNTZjMGUxNDkzNjNiYTk4MmYwNWVjMjBmY2IyNiJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L115-L119",
+          "version": "repo-lines-v1:sha256:a0eeae54462d3f03c41e5a7e9464bd6a244f95137f4bb3aea70b4ccd4893a1fe:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgyZmQ5MWZkNDRiZWFkZjViMWJiMzU1NzBiMzUxZDI5MGM1MTRhMzhkMTkxZTQ4YTdmYTI4YWIzZmY0NDgwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhiYjEyNzUzZDA5Mzk5OTg4ZmMzNGFiNDBiNTA3NzBmNGE0YmYyYmVjYjU5NWExMzUzZDliZmNmYmQ0NzNlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2JhNzg4NDgyMDg1ZThlYTQwZThjYzIwNDQ3YmI2YTdhN2UwMzYwMGQxMTg5ODA0YmQ4NjQwYjM2M2I3MjE2YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzc3ZjJmZTg0N2M5ZTY0N2RhMDM0YzRiMjBmZjk4NDY5MjVmYjQ4ZjBjZGExY2VlYjg1YjgwZjFjN2I4ZDliZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_221297954cfd4069875a85e5e89b1a58",
+      "statement": "remark is a plainly mapped String on the Product entity (declared without any annotation, unlike the @Transient render fields), so the value is written into the product row; the column exists only because the H2 seed script appends ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL after the 85 positional INSERT statements, while its own CREATE TABLE product omits the column — which is why the seeded products show as blank in the 备注 column.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L110-L116",
+          "version": "repo-lines-v1:sha256:2270047f42d3a45ddc0e02a4b38b3d970cab6195ba4fcfa878758c587a783fd5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI2YmUzNzQ5MDFiOTg5YmFkZjdkODIwYjYyZDZmNDkzODdkM2ZlN2U2ZmE0MGRhNmUxNjliN2ZjOThhMjkyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMwY2M2YTE3ZjQyMGZmM2U3MWI4NTkzOTM2YTlhZWFhZTEzZjkxMzI0ZmFmYmQ5MWMzMTZhODViZDc1MmI4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM3NGMwZTQ4YTIzODczZDBjMTY5YzBmMTE0ZGY2YmFhZWQ0OGY4NjFmMTdhYmRkODE1OTFiMmFkZWRkZjQ5OCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L19-L25",
+          "version": "repo-lines-v1:sha256:1dd1312ece29bee800a72a43c1af374eb75abfb752b6c720cf8092ca0f11079b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQxNTA4MjY1ZTczMzczOGFlOTNhYzIyNDgwMzA5YTRkNzRjZjE3NWI5MGIzYTIzOTk2YTA3YjM2MDViZThlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU5Yjk0MzUzMjA0MGM2MDVlZGUwY2I4NDI0MGM1Y2EzZjJkZmQ3NGI4NmIzMjVmMGExOWMyNGJhN2FhZjNkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRkMzE0ZjA4YzI3N2UwYzkzZTI4YmMxNmNlOWViNjE4N2YyN2U5YTQzYzU1ZmExNDFiZmZiNDQ0ZTA5OWM0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE3NmMwZGJmZGQ3Y2U1OWRkZjkwNzRiZDkyYjhjYjljNjlkOWRkZjA1NjlhZGYxZmEzM2E0YzViYmMxOTMyYSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L151-L155",
+          "version": "repo-lines-v1:sha256:5eab5179de3e1d95a46d7093fd6304fbc3ab24d0e265bf459fe84a5e282a8726:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1NTU2YTdiNzgyZDNhN2NiNDBiYjVjNTFlZGQwODIyNWFjMjVhYmFmM2QxMGEyNTJlMWI4OGZlNjgzODEyNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmExNGJhOTA5YTdkYTY2NGUxYTFlZjVmNGU4YWUwMWM1MWFmODc4ODE4ZTMyMzgyZjgwNzVkZThmNmE0YmJiOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjE1MmE0NGFjMjE2YzNjN2NiNTI3ZGZlNThjNDJiM2M1ZmQwOWQ4NDM5YjM0NmRlZmU5ZTU1ZGM3Mjg5NGVkNiJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L58-L69",
+          "version": "repo-lines-v1:sha256:94636c64c59e3feee16fffb94051177c7fefa32d452125b5938b8f912d89e421:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5MTU3NDU4NTViYzRjMzk1NzU0MTQ0ZTBiMzRjODgyMGZhOTE0M2I1MTY5NGU5MzI3Y2ZlY2Y3N2I3NzZhYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5N2JhNWZiMDY5OTg3M2IwOGU1NDY1MjFlMDI5OTRmZTNiZDk5YTIwOTlhOTcwZjhhYTAwMmU5MjNmNDE3MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZjYzNTIzZDMyZmVlNzcwNWM4YmU0YTA2OTNkZGMxZmU2NWJjODNkYmQxYWIxYjI4YTMwYTA3NTU0NWM5MmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dfab631576d04f668d45c1bbcf079aa8",
+      "statement": "The remark value round-trips inside the back office only: admin_product_list renders it as the 备注 column via ${p.remark} and admin_product_edit echoes the stored value into the edit input via value=\"${product.remark}\", while no storefront JSP reads remark and the field participates in no price, stock, image, property, order, paging or sorting logic.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L11-L25",
+          "version": "repo-lines-v1:sha256:91f3d55da66640e02717f5d4ba1c9cc459d6fd68147fcedacee4eeb90f2d5b64:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlNjFhOWMzMzI1M2Y1ODcyYTU1MWI2NGFhNWI5ZWIxYTc0ZTE2ZTUwYTI1NmYzNDdiZDI5NmNmNjQ1MWE1ZWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUwMGM1ZGZkZWM0ZDMzZDI0NTQxY2E0ZDBlY2FiZWNiNGMwZmNiZDBkYzMyMzVkZjA3YTQ5OWU0NmY1MTcxM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOWM2OWFiODliZmNmNTM5MGFmMmJjYzVmY2I5ZTZjZjY5MGQ0Y2MzNzg5ZDdlOGZmZmE4OWEzMmM1MGZhMmQifQ"
+        },
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L61-L62",
+          "version": "repo-lines-v1:sha256:d220af9b0e8a5d985807eb1326be69e1ddbd9d78f5972aaa5cf4e3f6d39ce890:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI5YzA5MzFhMzRjNWEzZDFiNzNiNjViNDZmNjc4OGYwMWZjMDAzNjY1NDU0NzUyNmYwYzgzYjM3MjYyNWMwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU4MzM1OGNiMTYwZTI2NDQzZGIxMTU5NDQ4M2E4ZWFhZWI2NzVhYzUzMjAzZWZhZWNmOGQ3M2U3MGJhMjc1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZlZjViMzNmZTY2NDA5OWVjZDIxMGYzMGZmOWVjYmFkOGM1NGZjNmFiZDBiOTBkMjkzZTE1ZWZhMzU3Y2QzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTE5ZDNlMmExZmUyZDM0MDZkM2U2NWUxMjQ5MzJhNzkzMzdkYjkxOGNiMTBmZjU4OTY5ZWE4MTA3ZTJhZjI4NSJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L52-L52",
+          "version": "repo-lines-v1:sha256:8d2810da71a5c586f9e2c1ecf64472fbf9c7ff92d49b39b47e2728a8574e5716:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQyODEwZGE3MWE1YzU4NmY5ZTJjMWVjZjY0NDcyZmJmOWM3ZmY5MmQ0OWIzOWI0N2UyNzI4YTg1NzRlNTcxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQyODEwZGE3MWE1YzU4NmY5ZTJjMWVjZjY0NDcyZmJmOWM3ZmY5MmQ0OWIzOWI0N2UyNzI4YTg1NzRlNTcxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGQwOTJjMjkzZmJiN2MwMjU1ZDU3NTc5MzBhNjFhMmM3ZDU0MTRiNmUzZjkwYWEzNTZhNzY3NmRmNGM4YjM2NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTAyNWM2OGZmNmJkNzQ5NGFhMGJlNzI4YWM1ZTdlNTdlMmNjZmJjOTEyZDIzYzI0MjA4MDMwYWQ3YmVkNDczYSJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L75-L75",
+          "version": "repo-lines-v1:sha256:f5bb9702d47e80a0612aff0009d3b18cb4ec2378b77ea9bdd5267d6802635596:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjViYjk3MDJkNDdlODBhMDYxMmFmZjAwMDlkM2IxOGNiNGVjMjM3OGI3N2VhOWJkZDUyNjdkNjgwMjYzNTU5NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjViYjk3MDJkNDdlODBhMDYxMmFmZjAwMDlkM2IxOGNiNGVjMjM3OGI3N2VhOWJkZDUyNjdkNjgwMjYzNTU5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTc5Yjk1ZDZiYzIwODk5Yzk1MmQzZDdjMjk0YTBkY2NjZGEwODY1Yjk0NDcxYjM5OWM5NmM4Yzk4YjBhYzA4MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZTE5Nzc4MjA3YjM5ZjMwMzU4ZjBjOTg2OGRjNmIxZmM0MTEyZDg3YWUxNTBhZWYyMDQwNmZhNTFmMzk4MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c8e30f9481ab49599c4a398635bc9ed1",
+      "statement": "ProductAction.update reloads the existing row from the database only to copy its createDate onto the bound object, because no admin product form posts createDate; remark is never reloaded, so it is written purely from the request — the edit form echoes the stored value so an unchanged submit round-trips it, but an emptied field is stored as emptied.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L27-L32",
+          "version": "repo-lines-v1:sha256:1dc5faee629abc5f58ce4e0b7df8692ab362b8d67afb44e0975c05e58f77b869:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE2NTZhMDE5NjJmMmQ5YjBkMjc1MzY4MWRkYmYyODliZjM3ZDhkNjcxNTliODI2ZGJhNDliZmE4NzkwNjk0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjliMmM5OTcxZDE4N2I1ZmMxNmM0YzFjZWZjY2YzNGJiMDZjZTM1Y2I1Y2JkZjAxOTA2NThlNjZkM2Y3Yjk0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI1NDVhYmQ1NjYwMWMzZDI4MWIyNGZkZDIwYTIxYjhjNjlmYzI1NzE2Y2E4OGE1NzY1ZjAzNGY1MGUxYzFiOCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L47-L53",
+          "version": "repo-lines-v1:sha256:36c6188e4b3cffd6c69a4c3e7b803e40f255fb9eebacaf2fe0dd374b7948e061:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODZjNjNjYWI3ZDVjMzlhZjQ3MDA4NDU5NDY1ZWMyYTFmMDhhZGRhZDgwNWNiOWRmZThiYTFkMmFmZTVmZDg1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjkxNmUzMDMyZmExZGNhZjAwMjlhZTk2OGJlM2YwYTNiNDIxYzY4YWRlMTYwZjQwNTQxMDQ4NWUwOTU4MzM1MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L80-L85",
+          "version": "repo-lines-v1:sha256:c3e53dd1774e4e6e768fbdf26a84450c8e6eacbdd1c1d1a58ffbd1454d9924f3:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI2OGViODFiMGFjMmNkMTY1MmJjY2I1ZjgwZjNiNTMwYjc0OTc2NTU3Y2YwYmJjMDk4NDZkNzRjZTVlNWQyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhiYjEyNzUzZDA5Mzk5OTg4ZmMzNGFiNDBiNTA3NzBmNGE0YmYyYmVjYjU5NWExMzUzZDliZmNmYmQ0NzNlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzcyNjQxNTZhY2E3MmM4ZTM2NTc2MWE2NTBlODg3YzVlNjA2MDQ1ZDkzZjYyNjFjMmRmZjZlMWIzZjIzMTg2MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGY0ODkxNmQ2ZDM3OGQyMjBkYWM0MDM5YjliNTY3NDlkY2YyOTQ2ZGFjYTFhMGY2NjU2NDdkMWE1MGMyMWEwMSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.6.0",
-    "at": "2026-09-25T02:37:38.268Z"
+    "at": "2026-09-27T01:28:54.540Z"
   }
 }

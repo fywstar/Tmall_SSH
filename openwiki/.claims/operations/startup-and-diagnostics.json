@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:50ccdc7c61b87e568e9d17a6a20b902e3e434d84cf74c89e6b67e8feaa570cfa",
+  "pageVersion": "sha256:202a6130e18436a30760a1a8dc6ca3dce96673b6341bdbe6cbaf42dbb48c2996",
   "claims": [
     {
       "id": "claim_b1e50dc5465940d3a9d4f9e17f1d2b97",
@@ -202,7 +202,7 @@
     },
     {
       "id": "claim_55226ed9db9742a5b4f5b1e65ece7356",
-      "statement": "The seed script is create-only — nine plain `CREATE TABLE` statements, the demo INSERTs and a trailing `ALTER TABLE … ALTER COLUMN id RESTART WITH n` calibration (`category=84`, `product=963`, `productimage=10211`, `property=258`, `propertyvalue=14092`) — with no `DROP TABLE` or `IF NOT EXISTS`, so it assumes a fresh empty database and the calibration keeps first-insert ids aligned with the original MySQL `AUTO_INCREMENT`.",
+      "statement": "The seed script `/src/sql/tmall_ssh_h2.sql` is create-only — nine plain `CREATE TABLE` statements, the demo INSERTs, one appended `ALTER TABLE product ADD COLUMN remark` at `#L155`, and a trailing five-statement `ALTER TABLE … ALTER COLUMN id RESTART WITH n` calibration (`category=84`, `product=963`, `productimage=10211`, `property=258`, `propertyvalue=14092`) at `#L14712-L14716` — with no `DROP TABLE` or `IF NOT EXISTS`, so it assumes a fresh empty database and the calibration keeps first-insert ids aligned with the original MySQL `AUTO_INCREMENT`.",
       "evidence": [
         {
           "resource": "repo://MIGRATION.md#L44-L49",
@@ -213,8 +213,12 @@
           "version": "repo-lines-v1:sha256:877b20505d1d398bcb27f04ef5751103f9f1d52d2d61fbec9ff8e450afe2186e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3MTA2ZWY4ZjlkMTc1NGI5ZDY4MDNhMDM2OGM4MGRiZDMwOTgxNTA1Zjg5YWJhMjk3NTc0ODMzNDYyOWQ2MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2MjNlMjY4MzIzNWU0M2U4MWIzN2FhNGNjY2I5ZWRmOGFjZjA5OWM0MmQ0MjQ0N2Y5ZmE5MGZhN2U2MjhlNzkifQ"
         },
         {
-          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14711-L14715",
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L14712-L14716",
           "version": "repo-lines-v1:sha256:d1e52a367cf8e49a5e6b7777ed270b71e3bfc7035bcf905b6fd7d75a6f689e8a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDhhMWU4ZGUzODcyZTgxYjBhYjk5YWY2NjcwYzQwNTg1YTBlZDI0NmM5ZTNiNTNmYmI0NzNiODBhYTRhMDhkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNiZjkyM2UzYTc3ZTczNGU1NjVjYzExNjIyYTk0ZTVmOWQyYWI2YmQ0MGNkZTZmN2MzZWIxMWQ4Y2Q2NzdlOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc4ZjA4NmNhYTU0ZjQ2MmY1ZTkzNjlkNWY2MDlmOWM5NjE0MWM4Y2E2MjNjMjcwYWRhMWZiMmMwZDA4MjkzZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L155-L155",
+          "version": "repo-lines-v1:sha256:cb9dcc808ac448c7c5400c7130f23d2e6cfd19b96bb520988189bca26185b536:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJhNjA0MjFlODlkMTZiZTE4YThiZGMxY2Y0ZWI0YmU0ZjM2NWQxYzQ5YzRjNmU5MjllMWFhNGVkZWJkZjhkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjE1MmE0NGFjMjE2YzNjN2NiNTI3ZGZlNThjNDJiM2M1ZmQwOWQ4NDM5YjM0NmRlZmU5ZTU1ZGM3Mjg5NGVkNiJ9"
         }
       ]
     },
@@ -353,6 +357,6 @@
   ],
   "verification": {
     "by": "openwiki/0.6.0",
-    "at": "2026-09-25T05:09:04.985Z"
+    "at": "2026-09-27T01:28:54.540Z"
   }
 }

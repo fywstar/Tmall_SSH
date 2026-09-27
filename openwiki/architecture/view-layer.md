@@ -3,9 +3,6 @@ type: architecture
 title: "View Layer: JSP Pages, Fragment Includes, and Static Assets"
 description: "How HTML is produced in Tmall_SSH: result pages under web/ and web/admin/ that assemble markup from web/include fragments with static <%@include%>, the JSTL/EL surface that binds Action getters, the Page bean and the three session keys fragments read, the relative image-URL conventions the markup depends on, the container-served img/css/js trees, and the placement rules a new view must follow."
 tags: [jsp, jstl, el, struts2, view-layer, static-assets, includes, escaping]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
 sources:
   - id: openwiki-source-e26fd8d82f5b27b13cf00659
     resource: repo://src/com/caozhihu/tmall/action/Action4Parameter.java

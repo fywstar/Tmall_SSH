@@ -1,11 +1,8 @@
 ---
 type: architecture
-title: "Request Pipeline: Filters, Convention Mapping, Interceptors and Binding"
-description: "How one HTTP request becomes a Struts2 action invocation and a rendered view in Tmall_SSH: the web.xml filter/listener chain, the basicstruts package and its auth-dafault interceptor stack, convention mapping of @Action/@Namespace/@Results to URLs and views, OGNL parameter binding, the session keys JSPs read, and the direct-JSP and static paths that never reach an action."
+title: "Request Pipeline: URL to Action to Result to View"
+description: "How one HTTP request becomes a Struts2 action invocation and then a rendered JSP or 302 in Tmall_SSH: the web.xml filter chain, the basicstruts package and its auth-dafault interceptor stack, convention mapping of @Action/@Namespace/@Results to URLs and views, OGNL binding against the Action4* value stack (including the product.category.id and product.remark fields of the admin product forms), the session keys JSPs read, and the direct-JSP and static paths that never reach an action."
 tags: [struts2, request-pipeline, interceptors, convention-plugin, ognl, web-xml, session, jsp, filters]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
 sources:
   - id: openwiki-source-94a1e1ca95ecf82e3b99d21f
     resource: repo://src/applicationContext.xml
@@ -13,6 +10,8 @@ sources:
     resource: repo://src/com/caozhihu/tmall/action/Action4Pagination.java
   - id: openwiki-source-e26fd8d82f5b27b13cf00659
     resource: repo://src/com/caozhihu/tmall/action/Action4Parameter.java
+  - id: openwiki-source-6aceb606796c1878fa3c1fd3
+    resource: repo://src/com/caozhihu/tmall/action/Action4Pojo.java
   - id: openwiki-source-9c472716b77e79a8d38e2976
     resource: repo://src/com/caozhihu/tmall/action/Action4Result.java
   - id: openwiki-source-97a00a3efb3029e8cfe5025a
@@ -25,18 +24,24 @@ sources:
     resource: repo://src/com/caozhihu/tmall/action/ForeAction.java
   - id: openwiki-source-b5ef4837f2a8ffdf7d3f4e02
     resource: repo://src/com/caozhihu/tmall/action/ProductAction.java
+  - id: openwiki-source-f427a3e92c242d0611a26941
+    resource: repo://src/com/caozhihu/tmall/action/PropertyAction.java
   - id: openwiki-source-16c79ba80abbef391eb3ad3b
     resource: repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java
   - id: openwiki-source-b1df92f0e1c191c487cad76a
     resource: repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java
   - id: openwiki-source-4d9ae1ec654ab80841a77533
     resource: repo://src/com/caozhihu/tmall/interceptor/CategoryNamesBelowSearchInterceptor.java
+  - id: openwiki-source-535dabafb9f4fcf2952aba1c
+    resource: repo://src/com/caozhihu/tmall/pojo/Product.java
   - id: openwiki-source-81d5ae3cfc59aa1e4ed7f232
     resource: repo://src/com/caozhihu/tmall/util/Page.java
   - id: openwiki-source-a5436677f78d2d8605dbd18c
     resource: repo://src/StartJetty.java
   - id: openwiki-source-9c0a10144303b99bbe3c16ea
     resource: repo://src/struts.xml
+  - id: openwiki-source-cf9e6553d8724c6c92175bfd
+    resource: repo://web/admin/editProduct.jsp
   - id: openwiki-source-bbcc6d312cf4cc3b79a8fcaf
     resource: repo://web/admin/listCategory.jsp
   - id: openwiki-source-8f5593a1404bac097faed64e
@@ -59,10 +64,13 @@ sources:
     resource: repo://web/registerSuccess.jsp
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
-# Request Pipeline: Filters, Convention Mapping, Interceptors and Binding
+# Request Pipeline: URL to Action to Result to View
 
 There is no controller layer in this application. A request is turned into an action invocation by
 two things only: the filter chain declared in `web/WEB-INF/web.xml`, and the Struts2 *convention*
@@ -311,13 +319,21 @@ stack — whose top object is the action instance — through OGNL. Practically:
   is `Action4Pojo` (nine entities and ten lists), `Action4Pagination` (`page`), `Action4Parameter`
   (`num`, `oiid`, `oiids`, `total`, `keyword`, `sort`, `showonly`, `contextPath`, `msg`) and
   `Action4Upload` (`img`, `imgFileName`, `imgContentType`). There is no per-action whitelist: adding a
-  bindable name means adding a field and a setter to one of those classes
-  (`src/com/caozhihu/tmall/action/Action4Parameter.java#L16-L93`,
+  bindable name means adding a field and a setter to one of those classes — or to a nested entity they
+  expose, which is how `product.remark` works (`src/com/caozhihu/tmall/action/Action4Parameter.java#L16-L93`,
   `.../Action4Pagination.java#L5-L13`, `.../Action4Pojo.java#L9-L28`, `.../Action4Upload.java#L5-L28`).
 - **A dotted name instantiates the nested object.** `admin_category_edit?category.id=27` produces a
   `Category` carrying only that id, which is exactly why the action calls `t2p(category)` to replace it
   with the persistent row (`src/com/caozhihu/tmall/action/CategoryAction.java#L56-L60`); a form can go
-  one level deeper (`name="product.category.id"` in `web/admin/listProduct.jsp#L130`).
+  one level deeper, as the add-product form's hidden `name="product.category.id"` does
+  (`web/admin/listProduct.jsp#L137`).
+- **A newly added nested field needs nothing beyond a setter.** The 备注 row of the same add form posts
+  `name="product.remark"` (`web/admin/listProduct.jsp#L115-L119`), which follows the identical OGNL path
+  as `product.name` and lands on `Product.setRemark`
+  (`src/com/caozhihu/tmall/pojo/Product.java#L110-L116`); the edit form echoes the value back as
+  `value="${product.remark}"` and posts it again on update
+  (`web/admin/editProduct.jsp#L59-L63`). No interceptor, whitelist or action-body check is involved —
+  see the last bullet in this section.
 - **`page.start` is the pagination channel.** `?page.start=15` binds `Page.start` (`Page` is
   constructed with its default constructor, so `count` = 5 unless also passed —
   `src/com/caozhihu/tmall/util/Page.java#L10-L20`). The list actions create a default `Page` when the
@@ -339,7 +355,10 @@ stack — whose top object is the action instance — through OGNL. Practically:
   `contextPath` parameter. 【人工评审待确认】
 - The action classes are POJOs: none extends `ActionSupport`, there is no `validate()` method and no
   `input` result anywhere in the annotations. How a malformed value (for example `page.start=abc`)
-  surfaces is therefore not determined by repository evidence. 【人工评审待确认】
+  surfaces is therefore not determined by repository evidence. 【人工评审待确认】 The only checks in the
+  repository are browser-side: the submit handlers of the two product forms test
+  name/subTitle/originalPrice/promotePrice/stock, and the remark input those forms now carry is not one
+  of the fields they test (`web/admin/listProduct.jsp#L17-L29`, `web/admin/editProduct.jsp#L17-L33`).
 
 ## 7. From a result name to a view
 
@@ -358,8 +377,12 @@ Details that follow from the same block:
   `listProductPage` → `/admin_product_list?category.id=${product.category.id}` (`#L29`),
   `alipayPage` → `forealipay?order.id=${order.id}&total=${total}` (`#L65`).
 - That is the coupling that forces `t2p()`: a redirect target that dereferences an association needs the
-  action to have populated it, which is why `admin_category_delete` loads the category before returning
-  `listCategoryPage` (`src/com/caozhihu/tmall/action/CategoryAction.java#L50-L54`).
+  action to have populated it, which is why `admin_property_delete` calls `t2p(property)` before
+  returning `listPropertyPage`, whose location embeds `${property.category.id}`
+  (`src/com/caozhihu/tmall/action/PropertyAction.java#L32-L39`). The same rule explains the action that
+  skips it: `admin_category_delete` returns `listCategoryPage` with the id-only `category` still
+  unloaded, because `/admin_category_list` is a location with no OGNL in it
+  (`src/com/caozhihu/tmall/action/CategoryAction.java#L50-L54`).
 - Locations without a leading `/` (`homePage` → `forehome`, `buyPage` → `forebuy?oiids=${oiid}`) are
   relative and resolve against the current action URL.
 - The naming convention in the block is strict and worth preserving: `*.jsp`, `listXxx` and `editXxx`
@@ -378,7 +401,7 @@ Two different channels reach a rendered JSP:
 | Session key `cs` | `CategoryNamesBelowSearchInterceptor` | `web/include/search.jsp`, `web/include/simpleSearch.jsp` |
 | Session key `cartTotalItemNumber` | `CartTotalItemNumberInterceptor` | `web/include/top.jsp#L33` |
 | Session key `orderItems` | `ForeAction#buy` (`src/com/caozhihu/tmall/action/ForeAction.java#L185`) | `forecreateOrder` |
-| Action properties | the action body, per request | `${categories}` in `web/admin/listCategory.jsp#L50`, `${products}` / `${category.name}` in `web/admin/listProduct.jsp#L39-L62`, `${page.param}` / `${page.totalPage}` in `web/include/admin/adminPage.jsp#L19` |
+| Action properties | the action body, per request | `${categories}` in `web/admin/listCategory.jsp#L50`, `${products}` / `${category.name}` in `web/admin/listProduct.jsp#L39-L63`, `${page.param}` / `${page.totalPage}` in `web/include/admin/adminPage.jsp#L19` |
 
 The first four are plain `HttpSession` attributes — `ActionContext.getSession()` is the servlet session
 map — so EL finds them in session scope. The last row is the interesting one: **no servlet-side
@@ -386,6 +409,12 @@ map — so EL finds them in session scope. The last row is the interesting one: 
 from `src/**` and `web/**`), yet the forwarded JSPs read action properties directly. The mechanism is
 the request wrapper Struts puts in place, whose attribute lookup falls through to the OGNL value stack
 that holds the action. 【人工评审待确认】 (framework behaviour, not visible in this checkout).
+
+The product table shows the other flavour of the same lookup. `${products}` is resolved from the value
+stack, but once `<c:forEach items="${products}" var="p">` has bound the loop variable, each row's
+`${p.remark}` — the 备注 cell added next to the name and subtitle cells — is read off that `Product`
+element rather than off the action (`web/admin/listProduct.jsp#L63`, `#L75`). A new column therefore
+needs no action field as long as it iterates an existing collection.
 
 ## 9. Paths that never reach an action
 

@@ -4,7 +4,7 @@ okf_version: "0.2"
 
 # Files
 
-- [Quickstart: Task Routing Map](quickstart.md) - Entry point to the Tmall_SSH wiki — the one-command local start with its three URLs, how to read this draft SDD baseline, and a task-first routing table that sends each kind of change (run, endpoint, admin screen, storefront checkout, uploads, JSP/views, data, paging, configuration, service plumbing, verification) to the page that owns it.
+- [Quickstart: Task Routing Map](quickstart.md) - Entry point to the Tmall_SSH wiki — the one-command local start with its three URLs, how to read this draft SDD baseline and the spec-first change loop now living in .openspec/specs/, and a task-first routing table that sends each kind of change (run, spec, endpoint, admin screen, a new entity field such as Product.remark, storefront checkout, uploads, JSP/views, data, paging, configuration, service plumbing, verification) to the page that owns it.
 
 # Directories
 

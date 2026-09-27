@@ -1,11 +1,8 @@
 ---
 type: workflow
 title: "Workflow: Order Lifecycle and Status Transitions"
-description: "The Tmall_SSH order state machine: the six OrderService status constants, the actor action and the exact writes behind each of waitPay, waitDelivery, waitConfirm, waitReview, finish and the soft delete, plus the composite Order + OrderItem + Review transactions they run inside."
+description: "The Tmall_SSH storefront order state machine from cart creation through payment, delivery, confirmation and review: the six OrderService status constants, the actor action and entrypoint JSP behind each of waitPay, waitDelivery, waitConfirm, waitReview, finish and the soft delete, the redirects that carry the user between steps, and the composite Order + OrderItem and Order + Review transactions."
 tags: [order-lifecycle, state-machine, workflow, order-status, transactions, struts2, hibernate]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T02:37:38.268Z
 sources:
   - id: openwiki-source-94a1e1ca95ecf82e3b99d21f
     resource: repo://src/applicationContext.xml
@@ -53,7 +50,10 @@ sources:
     resource: repo://web/include/cart/buyPage.jsp
   - id: openwiki-source-67f26d9322c2cc6b63d9d172
     resource: repo://web/include/cart/reviewPage.jsp
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # Workflow: Order Lifecycle and Status Transitions
@@ -201,7 +201,7 @@ public float createOrder(Order order, List<OrderItem> ois) {
   the middle of the loop cannot leave a saved order with unattached items.
 - Setting `oi.setOrder(order)` is what turns a *cart line* into an *order line*: `orderItem.oid` is
   nullable and carries no foreign-key constraint precisely because a null order means "still in the
-  cart" (`OrderItem.java#L16-L18`, `src/sql/tmall_ssh_h2.sql#L14698-L14707`).
+  cart" (`OrderItem.java#L16-L18`, `src/sql/tmall_ssh_h2.sql#L14699-L14708`).
 
 ## Paying, shipping and confirming
 

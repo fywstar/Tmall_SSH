@@ -1,12 +1,11 @@
 ---
 type: architecture
-title: "Persistence Layer: DAOImpl, HibernateTemplate, SessionFactory and Transactions"
-description: "The database access path of Tmall_SSH: the single HibernateTemplate bean dao (DAOImpl), the LocalSessionFactoryBean and HibernateTransactionManager wiring, the template API the services actually call, the JPA mapping facts that shape those queries, and the transaction boundaries with the gaps around them."
+title: "Persistence Layer: HibernateTemplate, Delegation, and Transactions"
+description: "The database access path of Tmall_SSH: the single HibernateTemplate bean dao (DAOImpl), the LocalSessionFactoryBean and HibernateTransactionManager wiring, the delegation and generics the service layer calls, the JPA mapping facts that shape those queries — including why a field name is the column name and only the seed script supplies the schema, with remark as the live example — and the transaction boundaries with the gaps around them."
 tags: [persistence, hibernate, dao, transactions, h2, spring, entity-mapping, architecture]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
 sources:
+  - id: openwiki-source-0f570bc49f94c4796196d128
+    resource: repo://.openspec/specs/scene2-product-remark-selfcheck.md
   - id: openwiki-source-94a1e1ca95ecf82e3b99d21f
     resource: repo://src/applicationContext.xml
   - id: openwiki-source-97a00a3efb3029e8cfe5025a
@@ -15,6 +14,8 @@ sources:
     resource: repo://src/com/caozhihu/tmall/action/CategoryAction.java
   - id: openwiki-source-40b340eb2396ea635e7cfced
     resource: repo://src/com/caozhihu/tmall/action/ForeAction.java
+  - id: openwiki-source-b5ef4837f2a8ffdf7d3f4e02
+    resource: repo://src/com/caozhihu/tmall/action/ProductAction.java
   - id: openwiki-source-75c6d1214aa9b847cdcd9df5
     resource: repo://src/com/caozhihu/tmall/action/ProductImageAction.java
   - id: openwiki-source-f427a3e92c242d0611a26941
@@ -63,14 +64,21 @@ sources:
     resource: repo://src/com/caozhihu/tmall/util/Page.java
   - id: openwiki-source-2418fdb168bd7c7c3dafd23e
     resource: repo://src/sql/tmall_ssh_h2.sql
+  - id: openwiki-source-cf9e6553d8724c6c92175bfd
+    resource: repo://web/admin/editProduct.jsp
+  - id: openwiki-source-8f5593a1404bac097faed64e
+    resource: repo://web/admin/listProduct.jsp
   - id: openwiki-source-c9a547d6d9de82441d408308
     resource: repo://web/include/admin/adminPage.jsp
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
-# Persistence Layer: DAOImpl, HibernateTemplate, SessionFactory and Transactions
+# Persistence Layer: HibernateTemplate, Delegation, and Transactions
 
 Every database statement in this application leaves through one Spring bean: `dao`, an instance of
 `DAOImpl`, which extends Spring's `HibernateTemplate`. No service, action, interceptor or test opens a
@@ -275,13 +283,31 @@ There are nine `@Entity` classes in `com.caozhihu.tmall.pojo`, discovered throug
   `oiid` from the newly saved `OrderItem`
   (`src/com/caozhihu/tmall/action/CategoryAction.java#L28-L35`,
   `src/com/caozhihu/tmall/action/ForeAction.java#L162-L169`).
-- Table and column names that are not annotated fall back to the property name, which is why the
-  script's camelCase columns (`orderCode`, `userMessage`, `subTitle`, `promotePrice`, `createDate`)
-  line up with the entity fields. The annotated names differ in case from the script's
-  (`productImage` vs `CREATE TABLE productimage`, `orderItem` vs `CREATE TABLE orderitem`), and the
-  script and Hibernate both emit unquoted identifiers, so the two spellings resolve to the same table.
-  `sf` sets no naming strategy (`src/applicationContext.xml#L47-L66`), so a property renamed without a
-  matching DDL rename becomes a runtime SQL error rather than a compile-time one.
+- **An unannotated field's column name is the Java field name, and the only source of a column is
+  `src/sql/tmall_ssh_h2.sql`.** `remark` is the live example: `Product` declares
+  `private String remark;` with no `@Column` and no annotation at all
+  (`src/com/caozhihu/tmall/pojo/Product.java#L19-L21`), and the column exists only because the script
+  appends `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` after the product
+  `INSERT` block (`src/sql/tmall_ssh_h2.sql#L155-L155`) — the `CREATE TABLE product` above it never
+  mentions the column (`src/sql/tmall_ssh_h2.sql#L58-L69`), so every seeded row carries a null
+  `remark`. Nothing validates that pairing at startup: `sf` sets no naming strategy and
+  `hbm2ddl.auto=none` performs no check (`src/applicationContext.xml#L47-L66`), so a field whose
+  column is missing from the script fails on the first query that touches it, not at boot.
+- The same fallback explains why the script's camelCase columns (`orderCode`, `userMessage`,
+  `subTitle`, `promotePrice`, `createDate`) line up with the entity fields. Where the mapping *is*
+  annotated, the names differ in case from the script's (`productImage` vs `CREATE TABLE productimage`,
+  `orderItem` vs `CREATE TABLE orderitem`), and the script and Hibernate both emit unquoted
+  identifiers, so the two spellings resolve to the same table. A property renamed without a matching
+  DDL rename is therefore a runtime SQL error rather than a compile-time one.
+- **Persistence is entity-wide, not field-by-field.** `ServiceDelegateDAO.save` / `update`
+  (`ServiceDelegateDAO.java#L176-L189`) and `BaseServiceImpl.save` (`BaseServiceImpl.java#L108-L116`)
+  accept a whole entity instance and hand it to the template; no layer holds a list of permitted
+  properties, so a new field is persisted by the code that already exists. That is why `remark` is
+  writable with a zero-change DAO and service layer: the admin forms post `product.remark`
+  (`web/admin/editProduct.jsp#L61-L61`, `web/admin/listProduct.jsp#L117-L117`), OGNL binds it onto the
+  entity, and the existing generic `productService.save` / `update` calls carry it to the new column
+  (`src/com/caozhihu/tmall/action/ProductAction.java#L27-L32`, `#L47-L53`,
+  `.openspec/specs/scene2-product-remark-selfcheck.md#L7-L17`).
 
 ### Associations
 
@@ -317,7 +343,7 @@ The `@ManyToOne` default fetch is `EAGER`, and no `@OneToMany` is mapped anywher
 That is what lets the JSPs navigate `orderItem.product.promotePrice` and `product.category.name` after
 the DAO call has returned. It is also why `orderItem.oid` being null is a *meaning* and not an error:
 a null `oid` is a cart line rather than an order line, and the column carries no foreign key in the
-script (`src/sql/tmall_ssh_h2.sql#L14698-L14707`).
+script (`src/sql/tmall_ssh_h2.sql#L14699-L14708`).
 
 ### Fields that are never queryable
 
@@ -326,7 +352,7 @@ The render-time data is held in `@Transient` fields, which Hibernate ignores com
 - `Category.products`, `Category.productsByRow` (`Category.java#L16-L20`)
 - `Order.orderItems`, `Order.total`, `Order.totalNumber` (`Order.java#L33-L38`)
 - `Product.firstProductImage`, `Product.productSingleImages`, `Product.productDetailImages`,
-  `Product.reviewCount`, `Product.saleCount` (`Product.java#L26-L35`)
+  `Product.reviewCount`, `Product.saleCount` (`Product.java#L27-L36`)
 
 These are filled in memory by the services — `OrderItemServiceImpl.fill(Order)` reloads the items and
 computes `total` / `totalNumber` (`OrderItemServiceImpl.java#L25-L41`),
@@ -406,10 +432,11 @@ request-scoped session and no request-scoped transaction:
   the schema arrives exclusively from `dbInit`'s `classpath:sql/tmall_ssh_h2.sql`. Two divergences
   between the mapping and the script are therefore permanent and invisible: `propertyvalue.pid` is a
   mapped `@ManyToOne` column with **no** foreign key in the script (only `ptid` has one,
-  `src/sql/tmall_ssh_h2.sql#L1357-L1365`) — the constraint that `hbm2ddl.auto=update` used to add and
+  `src/sql/tmall_ssh_h2.sql#L1358-L1366`) — the constraint that `hbm2ddl.auto=update` used to add and
   that the demo rows violated, which is why the setting is `none` — and `orderitem.oid` likewise has
-  no foreign key. Adding a mapped field to an entity has no DDL effect at all; the missing column
-  appears as a SQL error on first use.
+  no foreign key (`src/sql/tmall_ssh_h2.sql#L14699-L14708`). Adding a mapped field adds no DDL either:
+  `remark` exists only because the script was edited by hand (§5), and a field left without a column
+  would surface as a SQL error on first use, never at startup.
 - **Four string names are load-bearing across files**: bean `dao` (injected by `@Resource(name="dao")`),
   bean `sf` (injected twice), `transaction-manager="transactionManager"`, and `depends-on="dbInit"`
   (ordering the seed script before Hibernate). Renaming any of them breaks the container or the

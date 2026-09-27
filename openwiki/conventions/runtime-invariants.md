@@ -1,11 +1,8 @@
 ---
 type: convention
 title: "Runtime Invariants and Safe-Change Checklist"
-description: "The do-not-break list of Tmall_SSH: the @Action endpoint names, @Result names and OGNL redirect parameters, the bindable OGNL property names and the img upload field, Page with its hasPreviouse spelling, the session keys, the AuthInterceptor whitelist method names, the image naming and 56x56 / 217x190 resize conventions, the img src paths, the seed-script id calibration, the Spring and Struts settings and the launcher's class-loading and rewrite wiring — each with where it is defined, everything that must change with it, and the symptom when it drifts."
-tags: [invariants, safe-change, conventions, struts2, jsp, ognl, image-pipeline, h2, jetty, checklist, review-pending]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
+description: "The do-not-break list of Tmall_SSH: the @Action endpoint names, @Result names and OGNL redirect parameters, the bindable OGNL property names (now including product.remark) and the img upload field, Page with its hasPreviouse spelling, the session keys, the AuthInterceptor whitelist method names, the image naming and 56x56 / 217x190 resize conventions, the img src paths, the seed-script id calibration, the Spring and Struts settings and the launcher's class-loading and rewrite wiring — each with where it is defined, everything that must change with it, and the symptom when it drifts."
+tags: [invariants, safe-change, conventions, struts2, jsp, ognl, product-remark, image-pipeline, h2, jetty, checklist, review-pending]
 sources:
   - id: openwiki-source-ea70eb6c045047448e446296
     resource: repo://.gitignore
@@ -45,6 +42,8 @@ sources:
     resource: repo://src/com/caozhihu/tmall/interceptor/CartTotalItemNumberInterceptor.java
   - id: openwiki-source-4d9ae1ec654ab80841a77533
     resource: repo://src/com/caozhihu/tmall/interceptor/CategoryNamesBelowSearchInterceptor.java
+  - id: openwiki-source-535dabafb9f4fcf2952aba1c
+    resource: repo://src/com/caozhihu/tmall/pojo/Product.java
   - id: openwiki-source-a7f443351afc64bc2501b67a
     resource: repo://src/com/caozhihu/tmall/pojo/ProductImage.java
   - id: openwiki-source-aac0c381b7c67b93dc063535
@@ -71,12 +70,16 @@ sources:
     resource: repo://STARTUP.md
   - id: openwiki-source-161c1d1539a9c54dc3b73fe9
     resource: repo://web/admin/editCategory.jsp
+  - id: openwiki-source-cf9e6553d8724c6c92175bfd
+    resource: repo://web/admin/editProduct.jsp
   - id: openwiki-source-9c3d5fd7b843f4c42b8d434a
     resource: repo://web/admin/editPropertyValue.jsp
   - id: openwiki-source-bbcc6d312cf4cc3b79a8fcaf
     resource: repo://web/admin/listCategory.jsp
   - id: openwiki-source-48f4b22c3e4bca9be5d8e17a
     resource: repo://web/admin/listOrder.jsp
+  - id: openwiki-source-8f5593a1404bac097faed64e
+    resource: repo://web/admin/listProduct.jsp
   - id: openwiki-source-36420abb1600f20d66381988
     resource: repo://web/admin/listProductImage.jsp
   - id: openwiki-source-f2749e9cf1d8598e0aad25cd
@@ -91,6 +94,8 @@ sources:
     resource: repo://web/img/productDetail/17.jpg
   - id: openwiki-source-e6a77e1ac05fb4495a9a5df2
     resource: repo://web/img/productSingle/19.jpg
+  - id: openwiki-source-65407ebfbeb29ffe66bd0d3a
+    resource: repo://web/include/admin/adminHeader.jsp
   - id: openwiki-source-52c84973bf2f915c9797ca3d
     resource: repo://web/include/admin/adminNavigator.jsp
   - id: openwiki-source-c9a547d6d9de82441d408308
@@ -119,7 +124,10 @@ sources:
     resource: repo://web/success.jsp
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T05:09:04.985Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # Runtime Invariants and Safe-Change Checklist
@@ -248,7 +256,7 @@ exactly the fields plus public setters on `Action4Upload` (`img`, `imgFileName`,
 | Name as written in the request | Emitted by | Bound onto |
 |---|---|---|
 | `category.name`, `category.id` | `web/admin/listCategory.jsp#L81`, `web/admin/editCategory.jsp#L30`/`#L42` | `Action4Pojo.category` → `Category.name` / `Category.id` |
-| `product.name`, `product.subTitle`, `product.originalPrice`, `product.promotePrice`, `product.stock`, `product.id`, `product.category.id` | `web/admin/listProduct.jsp#L105-L130`, `web/admin/editProduct.jsp#L50-L78` | `Action4Pojo.product` → `Product` (three levels deep for the last one) |
+| `product.name`, `product.subTitle`, `product.remark`, `product.originalPrice`, `product.promotePrice`, `product.stock`, `product.id`, `product.category.id` | `web/admin/listProduct.jsp#L107-L137` (the 备注 input row at `#L117`, the shifted hidden `product.category.id` at `#L137` carrying `value="${category.id}"`), `web/admin/editProduct.jsp#L50-L83` (`value="${product.remark}"` at `#L61`, hidden `product.category.id` at `#L83`) | `Action4Pojo.product` → `Product` (three levels deep for the last one) |
 | `property.name`, `property.id`, `property.category.id` | `web/admin/listProperty.jsp#L72-L76`, `web/admin/editProperty.jsp#L31-L36` | `Action4Pojo.property` → `Property` |
 | `productImage.type`, `productImage.product.id` | `web/admin/listProductImage.jsp#L63-L64`, `#L116-L117` (hidden inputs, values `type_single` / `type_detail`, see §4.6) | `Action4Pojo.productImage` → `ProductImage` |
 | `propertyValue.value`, `propertyValue.id` | `web/admin/editPropertyValue.jsp#L27` (`$.post` to `admin_propertyValue_update`) | `Action4Pojo.propertyValue` → `PropertyValue` |
@@ -262,10 +270,11 @@ exactly the fields plus public setters on `Action4Upload` (`img`, `imgFileName`,
 | `oiids` (repeated) | `web/include/cart/cartPage.jsp#L126`, and the `buyPage` redirect | `Action4Parameter.oiids` (`int[]`) |
 | `page.*`, `page.start` | `web/include/admin/adminPage.jsp#L23-L51` | `Action4Pagination.page` → `Page` (see §4.3) |
 
-Two further rules about the same namespace:
+Three further rules about the same namespace:
 
 - **The `Action4Pojo` property names are also the EL names the JSPs read.** `${categories}`,
-  `${products}`, `${propertyValues}`, `${orderItems}`, `${product.firstProductImage.id}` all resolve
+  `${products}`, `${propertyValues}`, `${orderItems}`, `${product.firstProductImage.id}` and the
+  `remark` cell of the product list (`${p.remark}`, `web/admin/listProduct.jsp#L75`) all resolve
   through the getters of this class and of the entities. Renaming a field plus its getter compiles,
   and the JSP renders empty.
 - **A name that no caller emits is still bindable.** `page.count` is never emitted,
@@ -274,11 +283,27 @@ Two further rules about the same namespace:
   `web/include/simpleSearch.jsp#L5` read `${contextPath}`, so those two logo links currently resolve
   to the *current* URL. Inventing a `contextPath` parameter (or calling the setter) changes them to
   that value. 【人工评审待确认】
+- **Every input also has an `id`, and the admin JS validates by that id, not by the `name`.** The
+  shared helpers `checkEmpty`, `checkNumber` and `checkInt` (`web/include/admin/adminHeader.jsp#L19-L57`)
+  each select `$("#" + id)`, and each form's `submit` handler passes the field's `id` as a plain
+  string — `checkEmpty("name", "产品名称")`, `checkInt("stock", "库存")`
+  (`web/admin/listProduct.jsp#L17-L29`, `web/admin/editProduct.jsp#L19-L31`). The new 备注 row is
+  reachable the same way through `id="remark"` (`#L117` / `#L61`), and no handler checks it yet.
+  Renaming an `id` without its JS argument leaves the helper selecting nothing, and nothing then
+  rejects the field — the action layer takes the bound entity as it arrives
+  (`ProductAction#add` saves it, `#update` merges it). Whether the `undefined` that
+  `$("#…").val()` returns aborts the submission or the browser posts the form anyway is not settled
+  by the repository. 【人工评审待确认】
 
 **Symptom of drift:** a renamed form field or AJAX key binds nothing, the entity property stays
 `null`/`0`, and the action writes or reads that empty value — a new product with a null name, a
 quantity change that finds no row, an attribute edit that stores nothing. No error is raised, because
-an unresolvable parameter name is simply ignored.
+an unresolvable parameter name is simply ignored. On an **update** form the same drift is destructive
+rather than merely inert: the bound entity reaches the service still carrying the empty value and is
+merged over the stored row, so the column that was there is cleared (`ProductAction#update` merges the
+bound `product` and copies only `createDate` back from the database row,
+`src/com/caozhihu/tmall/action/ProductAction.java#L47-L53`), and the screen returns to the list showing
+a blank field.
 
 ### 4.2 The `img` upload field
 
@@ -417,7 +442,7 @@ Every `src` in the tree is a **relative** URL with no leading slash; the dynamic
 | `img/productSingle/${pi.id}.jpg` | the `ProductImage` row | `web/include/product/imgAndInfo.jsp#L148` (large image), `web/admin/listProductImage.jsp#L85-L87` (link and thumbnail) |
 | `img/productSingle_small/${pi.id}.jpg` (plus `bigImageURL="img/productSingle/${pi.id}.jpg"`) | the `ProductImage` row | `web/include/product/imgAndInfo.jsp#L151` — the only reader of the 56×56 derivative |
 | `img/productSingle_middle/${…firstProductImage.id}.jpg` | `firstProductImage` | `web/include/home/homepageCategoryProducts.jsp#L26`, `web/include/category/productsByCategory.jsp#L29`, `web/include/cart/cartPage.jsp#L241`, `buyPage.jsp#L67`, `boughtPage.jsp#L120`, `confirmPayPage.jsp#L33` |
-| `img/productSingle/${…firstProductImage.id}.jpg` | `firstProductImage` | `web/include/productsBySearch.jsp#L18`, `web/include/cart/reviewPage.jsp#L7`, `web/admin/listProduct.jsp#L68`, `web/admin/listOrder.jsp#L84` |
+| `img/productSingle/${…firstProductImage.id}.jpg` | `firstProductImage` | `web/include/productsBySearch.jsp#L18`, `web/include/cart/reviewPage.jsp#L7`, `web/admin/listProduct.jsp#L69`, `web/admin/listOrder.jsp#L84` |
 | `img/productDetail/${pi.id}.jpg` | the `ProductImage` row | `web/include/product/productDetail.jsp#L33`, `web/admin/listProductImage.jsp#L138-L139` |
 | `img/lunbo/1.jpg` … `4.jpg` | checked-in files | `web/include/home/carousel.jsp#L23-L33` |
 | `img/site/*` | checked-in files | `web/include/header.jsp`, `web/include/admin/adminNavigator.jsp#L13` (`../` here), and most fragments |
@@ -453,13 +478,22 @@ Rules that follow:
 | Aspect | Detail |
 |---|---|
 | Shape | `src/sql/tmall_ssh_h2.sql` executed at **every** Spring context refresh, plus five `ALTER TABLE … ALTER COLUMN id RESTART WITH n` statements at the end of that file |
-| Defined in | `src/applicationContext.xml#L31-L44` (the `dbInit` bean, `scripts = classpath:sql/tmall_ssh_h2.sql`, `sqlScriptEncoding=UTF-8`), and `src/sql/tmall_ssh_h2.sql#L14711-L14715` |
+| Defined in | `src/applicationContext.xml#L31-L44` (the `dbInit` bean, `scripts = classpath:sql/tmall_ssh_h2.sql`, `sqlScriptEncoding=UTF-8`), and `src/sql/tmall_ssh_h2.sql#L14712-L14716` |
 | Values | `category` 84 (max seeded id 83), `product` 963 (max 962), `productimage` 10211 (max 10198), `property` 258 (max 257), `propertyvalue` 14092 (max 14091); `user`, `order_`, `review` and `orderitem` are created empty with no statement |
 | Must change together | the script's row set, the five calibration values, the entity `@Table`/`@Column` names, and the criterion/HQL property names the services build; the file must stay under `src/` because the reference is `classpath:` and the launcher only copies `src/**` resources into `web/WEB-INF/classes` |
 | Symptom if it drifts | a row-set change without recalibration makes new ids diverge from the recorded acceptance expectation (`MIGRATION.md` records "first new category id = 84"); a table/column mismatch fails at the first query, not at startup, because the schema is no longer managed by Hibernate (see 5.2) |
 
-Two string-level couplings make this script part of the runtime contract rather than test data:
+Three couplings make this script part of the runtime contract rather than test data:
 
+- **A new product column is appended after the seeded rows, not declared in the table.** `remark` is
+  absent from the `CREATE TABLE product` block (`#L58-L69`); it arrives as
+  `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` at `#L155`, i.e. after the 85
+  positional `INSERT INTO product VALUES (…)` rows (`#L70-L154`, ids up to 962) and immediately before
+  `CREATE TABLE productimage`. Two consequences: every seeded product has a `NULL` `remark`, so the
+  admin list's 备注 column renders blank for the whole demo until a product is edited; and the eight
+  positional values per row stay keyed to `CREATE TABLE product`'s column order, which the entity's
+  field order does not affect — a field added to `Product` needs a statement like this one here, since
+  the schema is not entity-managed (§5.2).
 - **The criteria vocabulary is built from class names and literals.**
   `BaseServiceImpl.total()` composes `"select count(*) from " + clazz.getName()`
   (`#L60-L68`), while `listByParent`, `list(Page,Object)` and `total(Object)` derive the property name
@@ -507,7 +541,7 @@ upload endpoints write into the same directories the JSPs read from, through
 | `web/img/productSingle_middle/` | the same id set again, at 217×190 | `ProductImageAction#add` | the home, category and cart list pages |
 | `web/img/productDetail/` | the `<productImage.id>.jpg` files of the seeded `type_detail` rows (510 rows, ids up to 10198), plus an orphan `17.jpg` | `ProductImageAction#add` | §4.7 detail rows |
 | `web/img/lunbo/` | `1.jpg` … `5.jpg`, no writer anywhere | — (checked-in only) | `carousel.jsp` references `1`–`4`; `5.jpg` is unreferenced |
-| `web/img/site/` | the site chrome (`logo.gif`, `simpleLogo.png`, `tmallbuy.png`, `gouwujuan.png`, `buyflow.png`, `paySuccess.png`, `alipay2wei.png`, `wangwang.gif`, `star/`, …) plus a stray `alipay2wei.png.bak` | — (checked-in only) | `web/include/header.jsp`, `include/admin/adminHeader.jsp#L13`, and most fragments |
+| `web/img/site/` | the site chrome (`logo.gif`, `simpleLogo.png`, `tmallbuy.png`, `gouwujuan.png`, `buyflow.png`, `paySuccess.png`, `alipay2wei.png`, `wangwang.gif`, `star/`, …) plus a stray `alipay2wei.png.bak` | — (checked-in only) | `web/include/header.jsp`, `include/admin/adminNavigator.jsp#L13` (`../img/site/tmallbuy.png`), and most fragments |
 
 Invariants and observed facts about this set:
 
@@ -587,6 +621,9 @@ grep -rn "productSingle_small" src web ; grep -rn 'name="img"' web
 # image type literals: constant, JSP hidden inputs, seed rows
 grep -rn "type_single" src web
 
+# the newest bindable name: entity field, both admin forms, the appended column
+grep -rn "remark" src web
+
 # session keys and the pager property names
 grep -rn 'put("user"' src ; grep -rn "page\." web/include/admin/adminPage.jsp
 
@@ -619,6 +656,10 @@ grep -rn 'depends-on="dbInit"' src ; grep -rn "auth-dafault" src ; grep -rn "add
 - **`Action4Parameter.contextPath` is never set.** Two JSP fragments read `${contextPath}`; whether
   the field is vestigial or intended to be populated (and by whom) is not stated.
   【人工评审待确认】
+- **What a validator helper does when its selector matches nothing.** `$("#" + id).val()` returns
+  `undefined` for an `id` that no element carries (§4.1), and whether the resulting error aborts the
+  submit handler or the browser posts the form anyway is front-end behaviour the repository does not
+  settle and no test covers. 【人工评审待确认】
 - **Whether `admin_*` endpoints should be gated at all** is open on
   [Action URL Catalog](/openwiki/reference/action-catalog.md); it matters here only because the
   whitelist in §4.5 is the sole auth mechanism.
@@ -653,3 +694,6 @@ grep -rn 'depends-on="dbInit"' src ; grep -rn "auth-dafault" src ; grep -rn "add
   recipes that check changes to these names.
 - [SDD Baseline](/openwiki/concepts/sdd-baseline.md) — where new code goes and what it must be
   called; this page says which existing names must not move.
+must not move.
+ called; this page says which existing names must not move.
+must not move.

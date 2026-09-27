@@ -1,9 +1,13 @@
 ---
 type: architecture
 title: "System Overview: Modules, Runtime Domains, and Original-vs-New Source"
-description: "Orientation hub for Tmall_SSH — the Struts2 2.5.14.1 / Spring 4.3.18 / Hibernate 5.3.7 / JSP application that runs self-contained on embedded Jetty (port 8080) with an H2 in-memory database (console on 8082): the package map under src/com/caozhihu/tmall and its one-way Action to Service to DAO dependency, the two URL families (24 fore*, 23 admin_*) and two JSP surfaces, the four runtime domains with one diagram of how an HTTP request crosses them, and which artifacts are original business source versus this checkout's runtime scaffolding. It closes with a table naming the page that documents each subsystem, including the Action Layer and the data and schema operations page."
-tags: [architecture, overview, orientation, struts2, spring, hibernate, jetty, h2, jsp, layering]
+description: "Orientation hub for Tmall_SSH — the Struts2 2.5.14.1 / Spring 4.3.18 / Hibernate 5.3.7 / JSP application that runs self-contained on embedded Jetty (port 8080) with an H2 in-memory database (console on 8082): the package map under src/com/caozhihu/tmall and its one-way Action to Service to DAO dependency, the two URL families (24 fore*, 23 admin_*) and two JSP surfaces, the four runtime domains with one diagram of how an HTTP request crosses them, and which artifacts are original business source versus this checkout's runtime scaffolding — with the correction that MIGRATION.md's unchanged-business-source statement describes the migration freeze, not the current tree, which a later spec-driven iteration (scene2-product-remark) changed in Product.java, two admin JSPs and the adapted SQL script. It closes with a table naming the page that documents each subsystem, including the Action Layer and the data and schema operations page."
+tags: [architecture, overview, orientation, struts2, spring, hibernate, jetty, h2, jsp, layering, sdd]
 sources:
+  - id: openwiki-source-0f570bc49f94c4796196d128
+    resource: repo://.openspec/specs/scene2-product-remark-selfcheck.md
+  - id: openwiki-source-644425c56d516caabcb521df
+    resource: repo://.openspec/specs/scene2-product-remark.md
   - id: openwiki-source-92ee68a3100ec2ab9d4eb076
     resource: repo://MIGRATION.md
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
@@ -44,6 +48,8 @@ sources:
     resource: repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java
   - id: openwiki-source-bce385343bb03efa2929767a
     resource: repo://src/com/caozhihu/tmall/pojo/Category.java
+  - id: openwiki-source-535dabafb9f4fcf2952aba1c
+    resource: repo://src/com/caozhihu/tmall/pojo/Product.java
   - id: openwiki-source-40894efb48d7b7ace83c43b7
     resource: repo://src/com/caozhihu/tmall/service/BaseService.java
   - id: openwiki-source-aac0c381b7c67b93dc063535
@@ -68,10 +74,14 @@ sources:
     resource: repo://src/struts.xml
   - id: openwiki-source-505f4e5db5952055d945fea3
     resource: repo://STARTUP.md
+  - id: openwiki-source-cf9e6553d8724c6c92175bfd
+    resource: repo://web/admin/editProduct.jsp
   - id: openwiki-source-bbcc6d312cf4cc3b79a8fcaf
     resource: repo://web/admin/listCategory.jsp
   - id: openwiki-source-48f4b22c3e4bca9be5d8e17a
     resource: repo://web/admin/listOrder.jsp
+  - id: openwiki-source-8f5593a1404bac097faed64e
+    resource: repo://web/admin/listProduct.jsp
   - id: openwiki-source-3ddf3e2a905030133783538d
     resource: repo://web/cart.jsp
   - id: openwiki-source-fa404247c1405868054fd116
@@ -88,10 +98,10 @@ sources:
     resource: repo://web/WEB-INF/lib/struts2-core-2.5.14.1.jar
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
 verified:
   - by: openwiki/0.6.0
-    at: 2026-09-25T06:00:02.513Z
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # System Overview: Modules, Runtime Domains, and Original-vs-New Source
@@ -336,29 +346,37 @@ Detail: [View Layer](view-layer.md).
 
 ## 6. What is original business source, and what is runtime scaffolding
 
-`MIGRATION.md` records the hard constraint of this variant: the original business Java
-(53 files by its own count — see the discrepancy below), the JSPs, `web.xml` and the directory
-structure were to be left unchanged — not a single line — and no framework version was to be
-upgraded (`MIGRATION.md#L9-L11`). The repository's file set matches that division:
+`MIGRATION.md` records the hard constraint of this variant in its 硬性约束遵守情况 section: the
+original business Java (53 files by its own count — see the discrepancy below), the JSPs,
+`web.xml` and the directory structure were to be left unchanged — not a single line — and no
+framework version was to be upgraded (`MIGRATION.md#L7-L11`). That is a statement about the
+**migration freeze**, and the table below keeps it labelled as such, because the freeze is no
+longer a description of the whole working tree: the one spec-driven iteration on record,
+`scene2-product-remark`, has since edited one entity and two admin JSPs and has appended a column
+to the adapted SQL script (`.openspec/specs/scene2-product-remark-selfcheck.md#L7-L17`). The
+repository's file set otherwise matches the migration's division:
 
 | Artifact | Status | Notes |
 |---|---|---|
 | `src/StartJetty.java` | **New, runtime-only** | The only new business-independent class, containing `main` (`MIGRATION.md#L17-L17`) |
 | `src/applicationContext.xml` | **Modified, business config** | Three `【H2改造-N】` blocks; the original MySQL datasource and `MySQL5Dialect` session factory are retained as a comment block (`src/applicationContext.xml#L19-L101`) |
-| `src/sql/tmall_ssh_h2.sql` | **New, adapted copy** | Minimal syntax adaptation of `sql/tmall_ssh.sql`: `DROP/CREATE DATABASE` and `USE` removed, `ENGINE=InnoDB … DEFAULT CHARSET` suffixes stripped, `int(11)` → `int`, and `ALTER TABLE … ALTER COLUMN id RESTART WITH n` appended to calibrate auto-increment (`MIGRATION.md#L44-L49`, `src/sql/tmall_ssh_h2.sql#L1-L15`) |
+| `src/sql/tmall_ssh_h2.sql` | **New, adapted copy — later edited** | Began as a minimal *syntactic* adaptation of `sql/tmall_ssh.sql`: `DROP/CREATE DATABASE` and `USE` removed, `ENGINE=InnoDB … DEFAULT CHARSET` suffixes stripped, `int(11)` → `int`, and `ALTER TABLE … ALTER COLUMN id RESTART WITH n` appended to calibrate auto-increment (`MIGRATION.md#L44-L49`, `src/sql/tmall_ssh_h2.sql#L1-L9`). It now diverges **structurally** as well: `scene2-product-remark` appended `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` between the product `INSERT` block and `CREATE TABLE productimage`, so the seeded `product` table is no longer what a plain adaptation of the original `CREATE TABLE product` produces (`src/sql/tmall_ssh_h2.sql#L155-L155`, `src/sql/tmall_ssh_h2.sql#L58-L68`, `.openspec/specs/scene2-product-remark-selfcheck.md#L13-L13`). The script's own header comment still lists only the four syntactic adaptation points and still claims the business table structure was not changed 【人工评审待确认】 |
 | `web/WEB-INF/lib/*.jar` | **New, runtime-only** | The directory was empty in the original repository; 65 jars were added, pinned to the framework versions the source requires (`MIGRATION.md#L20-L20`; the same document's dependency section says 64 in its heading, `MIGRATION.md#L58-L62`) |
 | `tmall_ssh.iml`, `.vscode/settings.json`, `.gitignore` | **Modified/new, IDE + VCS only** | Classpath metadata; not business code (`MIGRATION.md#L21-L23`) |
-| `web/WEB-INF/web.xml`, `src/struts.xml`, all `web/**/*.jsp`, all `src/com/**` | **Unchanged** | Covered by the zero-change constraint; the `src/com/**` set is 52 `.java` files in this checkout |
+| `web/WEB-INF/web.xml`, `src/struts.xml`, all `web/**/*.jsp`, all `src/com/**` | **Unchanged since the migration** — not "untouched today" | Covered by the migration's zero-change constraint (`MIGRATION.md#L9-L9`); the `src/com/**` set is 52 `.java` files in this checkout. Three of those files have been edited since, by the spec-driven iteration `scene2-product-remark`: `src/com/caozhihu/tmall/pojo/Product.java` gained a plainly mapped `remark` String field with an unannotated getter/setter pair (`src/com/caozhihu/tmall/pojo/Product.java#L21-L21`, `#L110-L116`), `web/admin/listProduct.jsp` gained a 备注 table header, a `${p.remark}` data cell and an add-form input named `product.remark` (`web/admin/listProduct.jsp#L52-L52`, `#L75-L75`, `#L117-L117`), and `web/admin/editProduct.jsp` gained an echoing input with `value="${product.remark}"` (`web/admin/editProduct.jsp#L61-L61`). Those are exactly the applied entries of the iteration's own change list, so no other file in this row changed (`.openspec/specs/scene2-product-remark-selfcheck.md#L7-L17`). |
 
-**Where repository prose and the checkout disagree.** Three details in `MIGRATION.md` /
+**Where repository prose and the checkout disagree.** Three further details in `MIGRATION.md` /
 `STARTUP.md` do not survive a check against the files, and the files are what the runtime follows:
 
 - **The business-Java count is one high.** The constraint above says 53 original business Java
   files; this checkout holds **52** `.java` files under `src/com/**`. The 53rd `.java` file in the
   repository is `src/StartJetty.java`, which the same document classifies as the one new,
   business-independent class — so the prose either counted the launcher or drifted by one. The
-  frozen-set statement itself is unaffected: the 52 files under `src/com/**` are what this page
-  treats as original business source.
+  *membership* of the frozen set is unaffected: the 52 files under `src/com/**` are still the
+  original business source, and the later `scene2-product-remark` iteration edited three of them
+  without adding or removing any. The *content* of that set is not frozen in the current checkout,
+  so `MIGRATION.md`'s zero-change wording and the working tree cannot both be read literally —
+  this page records both readings rather than declaring a winner. 【人工评审待确认】
 - **The jar count is inconsistent inside one document.** Its change list says 65 jars, its
   dependency-section heading says 64, and `web/WEB-INF/lib` holds 65 (the table row above cites
   both statements).
@@ -371,7 +389,9 @@ upgraded (`MIGRATION.md#L9-L11`). The repository's file set matches that divisio
 
 So when reading any code in `src/com/caozhihu/tmall`, the embedded Jetty / H2 conversion is
 *invisible*: it changes how the application is started and where its data lives, not what the
-application does. The recorded acceptance evidence follows the same split — one-command start
+application does. The `scene2-product-remark` iteration is a different kind of change — a new
+persistable field plus its column and its two JSP rows — and it is not part of the conversion. The
+recorded acceptance evidence follows the same split — one-command start
 without Tomcat or MySQL, `200` for `/forehome` and `/admin_category_list`, static resources
 `200`, H2 console queries against 9 tables, and auto-increment parity with MySQL — all on
 JDK 17 (`MIGRATION.md#L73-L83`, `STARTUP.md#L5-L8`). See
@@ -411,5 +431,6 @@ JDK 17 (`MIGRATION.md#L73-L83`, `STARTUP.md#L5-L8`). See
 | The H2 script, the nine seeded tables and their rows, id calibration, console queries | [Operations: Data and Schema](/openwiki/operations/data-and-schema.md) |
 | The jars the runtime needs and which framework version each one is | [Runtime Dependencies](/openwiki/integrations/runtime-dependencies.md) |
 | Do-not-break names and the SDD conventions | [Runtime Invariants](/openwiki/conventions/runtime-invariants.md), [SDD Baseline](/openwiki/concepts/sdd-baseline.md) |
+| How a change is specified and traced (the `.openspec/specs` spec + selfcheck template, and `scene2-product-remark` worked end to end) | [SDD Iteration](/openwiki/workflows/sdd-iteration.md) |
 | What is provable here (one Spring-context JUnit test, manual smoke path) | [Testing and Verification](/openwiki/testing/verification.md) |
 | Running it the first time | [Quickstart](/openwiki/quickstart.md) |

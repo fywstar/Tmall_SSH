@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:a935d205725414bdb79645d93affdf9b1a498ff03788af5a991ff7132bf28223",
+  "pageVersion": "sha256:a6ada38fa5130a5991f51eb5185ca31d71e0e4bea7f021c2c9e356cd0dbc73ba",
   "claims": [
     {
       "id": "claim_38a72044a3fd442681a8953af1fb43a7",
@@ -333,8 +333,8 @@
           "version": "repo-lines-v1:sha256:f750470744060fa9ddf5550beb0bbfe701278d3326c467598ab8d40be59265ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MmRkNDgyZjMyNGQxOTA0OGFiMGFjNjM4YmZhZTk2N2M5OWQ3ZmI5ZTk1MGQ2ZjM2MTU1OGFmZDkzMTllNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwODY2OTdiNGE3NzE1NGRkYjU5MTdjMTc3ZWYyMzA0NjY4NDc3MzIxZmNkZDM1NzY0YmE4ZjRjNDk1NzE0YjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4M2MwZWQ5NTM5OGM1N2U2YzdiYTkyOTJkNTA2YWE1NGMzZjQwYjlkZTVjNmY5MGY4ZTk3Yzk2ODM4Y2I2NWYifQ"
         },
         {
-          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L7-L35",
-          "version": "repo-lines-v1:sha256:3cca5c6db38da0746cb7bffd4c494ee1e5a5c2d4116541ac3602e7ea7c933c21:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkZjA3YjU2Y2Y0NWY0NzY3YWM2MjZiYTBlODk3ODU3YmM1ZmI5OTA3N2E4N2QzMDA2ODcwMzc2YmUwNDg1MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAxMzM0ZmE3OGZiMTg3YzUyNzc1YjU5NmU2ZTA1MjQ4OGYwMTRkYWRiMmU3Y2Y1NWQwYTEzNTgxNGVlMDZhYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkMjg3ODE0YTA4MDgyODc0YWI2M2JiZmNjMjA3YWY5YjVhMjk5ODljMmNlZTdiOWRhYmEwMTJkMjRmZWYxN2EifQ"
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L7-L36",
+          "version": "repo-lines-v1:sha256:80c6c0c07237dc1516708264747e170c1bf20bd4e1b4cb649a654db8e21eb655:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5NjVlNTkwOTkwMDQyZGU3ZTgzMWIyNTllMzU4ZmU2YzczYTVlYTQ0ZTcxMWYwYmVmNzAwM2IzMGM1OTcwNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkZjA3YjU2Y2Y0NWY0NzY3YWM2MjZiYTBlODk3ODU3YmM1ZmI5OTA3N2E4N2QzMDA2ODcwMzc2YmUwNDg1MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAxMzM0ZmE3OGZiMTg3YzUyNzc1YjU5NmU2ZTA1MjQ4OGYwMTRkYWRiMmU3Y2Y1NWQwYTEzNTgxNGVlMDZhYmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkMjg3ODE0YTA4MDgyODc0YWI2M2JiZmNjMjA3YWY5YjVhMjk5ODljMmNlZTdiOWRhYmEwMTJkMjRmZWYxN2EifQ"
         },
         {
           "resource": "repo://src/com/caozhihu/tmall/pojo/PropertyValue.java#L5-L21",
@@ -366,7 +366,7 @@
     },
     {
       "id": "claim_ce10a546b5644c3aa8668ce8d5cc830d",
-      "statement": "Persistent column names equal the Java field names in camelCase (product.subTitle, product.originalPrice, order_.orderCode, order_.createDate), and because hibernate.hbm2ddl.auto is none and the schema is created by the dbInit DataSourceInitializer executing src/sql/tmall_ssh_h2.sql at context start, a new table, column or foreign key must be added to that script rather than inferred by Hibernate.",
+      "statement": "Persistent column names equal the Java field names in camelCase (product.subTitle, product.originalPrice, product.remark, order_.orderCode, order_.createDate), and because hibernate.hbm2ddl.auto is none while the schema is created by the dbInit DataSourceInitializer executing src/sql/tmall_ssh_h2.sql at context start, adding a table, column or foreign key means editing that script rather than relying on Hibernate; the one column added to an existing table so far, product.remark, was appended with ALTER TABLE after that table's seeded INSERT block instead of being folded into its CREATE TABLE, and no service, action or DAO class needs a change for such a field.",
       "evidence": [
         {
           "resource": "repo://src/applicationContext.xml#L29-L44",
@@ -377,12 +377,20 @@
           "version": "repo-lines-v1:sha256:4daebea210991cf8c20337d57f38ba39c7f92ead956c278a89b255901c7ac304:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmMDQzYzA1NGQ5NDA4NWVmMTg2ZmY3ZTA5YjExYTg5MWJhZDBlZDMyNjA2ZWZmMGQxZGZjYjc0NzcyYTI2YTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYWU0MmM5NmE1NzVhZTM1MTllZGQyMzM5MjNmOTI0N2RlY2UxODM5N2U1ODcyYmIwNGU2ODhkMjdlM2I5Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5ZTllZDRiYTVkNjU1N2U4NTk0MzhiN2M5ODhjMTgzOTY5YWQxOWE0ZmFiNjQ2YWUzNjI4ZTUxZTE2YTYxODUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2N2M3OTI4NTEwNGFkNGYwNDg1MGVmMzBiM2I2MjQ5NTI4ODc5YWNiNzM3NTM0MTIzN2QxZTQwNDA3YWI3YzAifQ"
         },
         {
-          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L19-L24",
-          "version": "repo-lines-v1:sha256:5c978f0c6c4800b61d658b94977b9b6c0cdc9bff1e254734f776e8a17824d642:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQxNTA4MjY1ZTczMzczOGFlOTNhYzIyNDgwMzA5YTRkNzRjZjE3NWI5MGIzYTIzOTk2YTA3YjM2MDViZThlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU5Yjk0MzUzMjA0MGM2MDVlZGUwY2I4NDI0MGM1Y2EzZjJkZmQ3NGI4NmIzMjVmMGExOWMyNGJhN2FhZjNkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRkMzE0ZjA4YzI3N2UwYzkzZTI4YmMxNmNlOWViNjE4N2YyN2U5YTQzYzU1ZmExNDFiZmZiNDQ0ZTA5OWM0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE3NmMwZGJmZGQ3Y2U1OWRkZjkwNzRiZDkyYjhjYjljNjlkOWRkZjA1NjlhZGYxZmEzM2E0YzViYmMxOTMyYSJ9"
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L19-L25",
+          "version": "repo-lines-v1:sha256:1dd1312ece29bee800a72a43c1af374eb75abfb752b6c720cf8092ca0f11079b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjQxNTA4MjY1ZTczMzczOGFlOTNhYzIyNDgwMzA5YTRkNzRjZjE3NWI5MGIzYTIzOTk2YTA3YjM2MDViZThlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU5Yjk0MzUzMjA0MGM2MDVlZGUwY2I4NDI0MGM1Y2EzZjJkZmQ3NGI4NmIzMjVmMGExOWMyNGJhN2FhZjNkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRkMzE0ZjA4YzI3N2UwYzkzZTI4YmMxNmNlOWViNjE4N2YyN2U5YTQzYzU1ZmExNDFiZmZiNDQ0ZTA5OWM0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE3NmMwZGJmZGQ3Y2U1OWRkZjkwNzRiZDkyYjhjYjljNjlkOWRkZjA1NjlhZGYxZmEzM2E0YzViYmMxOTMyYSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L155-L155",
+          "version": "repo-lines-v1:sha256:cb9dcc808ac448c7c5400c7130f23d2e6cfd19b96bb520988189bca26185b536:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJhNjA0MjFlODlkMTZiZTE4YThiZGMxY2Y0ZWI0YmU0ZjM2NWQxYzQ5YzRjNmU5MjllMWFhNGVkZWJkZjhkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjE1MmE0NGFjMjE2YzNjN2NiNTI3ZGZlNThjNDJiM2M1ZmQwOWQ4NDM5YjM0NmRlZmU5ZTU1ZGM3Mjg5NGVkNiJ9"
         },
         {
           "resource": "repo://src/sql/tmall_ssh_h2.sql#L39-L69",
           "version": "repo-lines-v1:sha256:8a65175a459cbe35665a1dff867e84058de93b1da6f9291d512e862fa40e7a0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmMzM1ZGJhOWUwMTMyMWJiMDQ5ZGViMjg0NDZlMDA1OWJkYjQzMTgwNWVhNTY0ZTg0NjE3ZGY3MGJkMWY3YTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhMDdjNmY2NGM1NTY5MzM0ZmVkNTZkMWRiOGM1MDAzYjk1NjEzY2I3OTliMTE0MWVjMWI1ZjgwNjE0Yzc1ZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZjYzNTIzZDMyZmVlNzcwNWM4YmU0YTA2OTNkZGMxZmU2NWJjODNkYmQxYWIxYjI4YTMwYTA3NTU0NWM5MmYifQ"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L58-L69",
+          "version": "repo-lines-v1:sha256:94636c64c59e3feee16fffb94051177c7fefa32d452125b5938b8f912d89e421:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5MTU3NDU4NTViYzRjMzk1NzU0MTQ0ZTBiMzRjODgyMGZhOTE0M2I1MTY5NGU5MzI3Y2ZlY2Y3N2I3NzZhYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5N2JhNWZiMDY5OTg3M2IwOGU1NDY1MjFlMDI5OTRmZTNiZDk5YTIwOTlhOTcwZjhhYTAwMmU5MjNmNDE3MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZjYzNTIzZDMyZmVlNzcwNWM4YmU0YTA2OTNkZGMxZmU2NWJjODNkYmQxYWIxYjI4YTMwYTA3NTU0NWM5MmYifQ"
         }
       ]
     },
@@ -554,19 +562,31 @@
     },
     {
       "id": "claim_b898bf9851634034bbdac4348a767392",
-      "statement": "Admin forms bind entity fields as OGNL property paths on the inherited action fields (name=\"category.name\", name=\"product.category.id\", uploads always name=\"img\"), pass the entity id and the parent id in hidden inputs to the add/update URLs, and use deleteLink=\"true\" anchors whose confirmation is implemented in web/include/admin/adminHeader.jsp; no server-side field validation exists.",
+      "statement": "Admin forms bind entity fields as OGNL property paths on the inherited action fields (name=\"category.name\", name=\"product.category.id\", name=\"product.remark\", uploads always name=\"img\"), pass the entity id and the parent id in hidden inputs to the add/update URLs, and use deleteLink=\"true\" anchors whose confirmation is implemented in web/include/admin/adminHeader.jsp; no server-side field validation exists.",
       "evidence": [
         {
-          "resource": "repo://web/admin/editProduct.jsp#L46-L78",
-          "version": "repo-lines-v1:sha256:df19c6ac6ffe39cc3598dc0e9d848da2335fe0f2874e56739dd0a194a455e2b0:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwOGMxMmJhMGFhYzhhYjk0NDg3ODIzMDRiYjdiNWNkMGUzZjJmNjg1OWNhZGM5MjJkZjFmMDAyYjVkZDQxODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZWY1ZjBhOThmZDMyZmJlMDYyMTNhNWNjYWI5NzUxMTliMTQyNjk0OGRkOGU2NDcxZDg2ZDFiNjQwOTg0NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA1MDA0ZjQ1ZDZlM2ZjYzY4ZDk2ZDFjYmFjN2I3MTJmOWEyNjI0MWVhMjE3N2UxYjE5MDkwODViNDBhNWFkZDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlMGM3MmQ3NmVmNzUyNDYwNGY2ZWM3NDJmNzg1NzcyODM4MDYyMWJkMWE2ZjBjMjcwOGY1N2M4ODc5ODNjYjYifQ"
+          "resource": "repo://web/admin/editProduct.jsp#L46-L83",
+          "version": "repo-lines-v1:sha256:274e8602c0f4cb6e5ee72e50766ad212c69f67210693c09e6552f711891408c3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwOGMxMmJhMGFhYzhhYjk0NDg3ODIzMDRiYjdiNWNkMGUzZjJmNjg1OWNhZGM5MjJkZjFmMDAyYjVkZDQxODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZWY1ZjBhOThmZDMyZmJlMDYyMTNhNWNjYWI5NzUxMTliMTQyNjk0OGRkOGU2NDcxZDg2ZDFiNjQwOTg0NGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA1MDA0ZjQ1ZDZlM2ZjYzY4ZDk2ZDFjYmFjN2I3MTJmOWEyNjI0MWVhMjE3N2UxYjE5MDkwODViNDBhNWFkZDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlMGM3MmQ3NmVmNzUyNDYwNGY2ZWM3NDJmNzg1NzcyODM4MDYyMWJkMWE2ZjBjMjcwOGY1N2M4ODc5ODNjYjYifQ"
+        },
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L61-L61",
+          "version": "repo-lines-v1:sha256:729c0931a34c5a3d1b73b65b46f6788f01fc0036654547526f0c83b372625c09:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI5YzA5MzFhMzRjNWEzZDFiNzNiNjViNDZmNjc4OGYwMWZjMDAzNjY1NDU0NzUyNmYwYzgzYjM3MjYyNWMwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI5YzA5MzFhMzRjNWEzZDFiNzNiNjViNDZmNjc4OGYwMWZjMDAzNjY1NDU0NzUyNmYwYzgzYjM3MjYyNWMwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZlZjViMzNmZTY2NDA5OWVjZDIxMGYzMGZmOWVjYmFkOGM1NGZjNmFiZDBiOTBkMjkzZTE1ZWZhMzU3Y2QzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTFiODhjNTU1M2RmMjNiMDdiMjM0OWRmYzcyNjA0MGMxNjgyMjcwMWE2NWYxMmE4OTU3YjA3MmVlZjM1Y2ZmMSJ9"
         },
         {
           "resource": "repo://web/admin/listCategory.jsp#L77-L88",
           "version": "repo-lines-v1:sha256:090b3facc906ac55412a423c969f183973dfba12c9272ed323a625eb21e09324:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhOGYxMWI4MWFhMDM0MmFkM2ExMWZiMjQyM2Q1OTk0NzJkMDhjNTIyMjhkOGI1ZTc2MjdiNzQ4MTY4MDkxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4YmIxMjc1M2QwOTM5OTk4OGZjMzRhYjQwYjUwNzcwZjRhNGJmMmJlY2I1OTVhMTM1M2Q5YmZjZmJkNDczZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRlYzU0MmNiZjlmYjllOThkMTQ5ZDgzMmVkOWIwMTRhMTM0YTEwM2Q0ZDU4NWQ2MTU3MWI3ZTIyNWY3NzdiZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViYWZhN2FlZDA1YTgyMzBlOWFlNDUzNzUzNGI2M2MwNmMzZmQzMTdjY2VlMjIwMTM5OTRkOGU1ZDgwNzViYzkifQ"
         },
         {
-          "resource": "repo://web/admin/listProduct.jsp#L101-L133",
-          "version": "repo-lines-v1:sha256:dc29e0f261d7a3fb41401fd9900a7f40e6246bccf5996a7d5e883e09ff301ed2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZDc5Nzk4N2MyZDdmZDEwNTYwNmE0NDFjYTIxNmM3NjAxMzBhNmZmOWI2OTI5NzdmMzZjMGY5ZTEyMTI5N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4YmIxMjc1M2QwOTM5OTk4OGZjMzRhYjQwYjUwNzcwZjRhNGJmMmJlY2I1OTVhMTM1M2Q5YmZjZmJkNDczZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwMDJlOTVlOTE1NDNlM2RkZjUxMGVlZDgyODdmMjA3OTcxMjBkMTI3MTUwNWIzOWRkYWY2ODk5ZDE3ODM1ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmNDg5MTZkNmQzNzhkMjIwZGFjNDAzOWI5YjU2NzQ5ZGNmMjk0NmRhY2ExYTBmNjY1NjQ3ZDFhNTBjMjFhMDEifQ"
+          "resource": "repo://web/admin/listProduct.jsp#L107-L133",
+          "version": "repo-lines-v1:sha256:b11a8a88c28e5e616342cf37e0701e0e7227433b7ff03028ef699013ed2f2117:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZWNlYTMxOGFiN2VmOTNhZGNhYmFhMzA0NmY5YjZlYWQzNTcwMDdmMGJkNmYwOTA3ZmRhN2ZjNjhiYjViNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmZjFlZDRkMjhkYjRhMDE1Zjk0MWI5ZTZmM2QwNzdkN2RlNzhhMTE4MTY1ZWJiYzQwZDVmMzA2MTQwNjcwYjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWY1NDhlMmIyMWNiMGEyMGI4NjkwOWQyMGVkZTJhNmUwMzIwYWJiY2JlY2E3ZjgyYWU2YjcyZmM0YjVmOGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiMDdlMDdmMDE2M2U0M2ZhOTAzOGYzMmQzNWU5ZDFkNmU0YmFjZTU3ODJhYTc1MmJiMDg1NDE1Y2RlMDk5YjUifQ"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L135-L140",
+          "version": "repo-lines-v1:sha256:3d1c264d87c840be2e0da9d240610b73d1ab222d2b0fb86d0e904a61f5914aba:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI2OGViODFiMGFjMmNkMTY1MmJjY2I1ZjgwZjNiNTMwYjc0OTc2NTU3Y2YwYmJjMDk4NDZkNzRjZTVlNWQyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhiYjEyNzUzZDA5Mzk5OTg4ZmMzNGFiNDBiNTA3NzBmNGE0YmYyYmVjYjU5NWExMzUzZDliZmNmYmQ0NzNlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGUzN2JlYTQxNTU4NzVjMjI5ZTRhNmI0MzBhM2VjNDk3YTM1ZGMxZTI1NWExMWVlMTVlZTFjMzgzZDFhYzY3YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGY0ODkxNmQ2ZDM3OGQyMjBkYWM0MDM5YjliNTY3NDlkY2YyOTQ2ZGFjYTFhMGY2NjU2NDdkMWE1MGMyMWEwMSJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L86-L88",
+          "version": "repo-lines-v1:sha256:e04fbb365a96e2e2b3cbe3f7264fb70b295a21512449bdde39b3a9272a30fe27:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE1YTkyYWRiN2U0ZGRmMDhmODY3ZTIwMGUzZTQ2YjhjY2RjOTdiOThlMWFmMDZlZjJjYTk1NWM2OGQ4ZmM1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcwMTM2ZTQzOWVjNzQ0MDU0YzI1NDE1Njg5MzcxZGJjNDcwZWFiNTQ2ZGI2YWFjZDg1NGUxZTk0Zjc4MjU1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTZmMjAyZTJiNTk1ZTgzMjljNGYwOTNhN2MxMDU2MjZjOGFhYWZlMmQ3OTc1YjllYTUzYTRmOWYxZWZmM2NjYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTc0NmVjYWY1ZDdmODc1ZDIzM2IxZmM5NmEzZDU1Mzc0MDI5ZDUyZjQ0MDE4N2YyNWM3MzRlODIyY2M3ZmM5YiJ9"
         },
         {
           "resource": "repo://web/admin/listProperty.jsp#L68-L76",
@@ -689,10 +709,80 @@
           "version": "repo-lines-v1:sha256:c0697e4fd60eea233884f7723002e51b75b986fd9d1d577638e6db8cb7288b95:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzY2FkZmM0ZDgyZTVkZWRjMmJhOTQ0NWU0ODhkYTc5NWJhNzdlODVlMzNiNzdiZDI5OTIxYjhmMGY0NGVjMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0ZWNhMjcwNmVhYzhjMzZmNjY4MDg1NzliMTVmMTU5NzdhMzczZTRhZWUwNTQ4OGVhZmEzZjMxNTc3NDU0ZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZmZWM4ZTdlZDc3ZGZjZjRiNTBkZWVjODdkMWU3M2VmOTVlMTM3NjMxMjdhMjNjNWJhZDA3YmY2OGZlYWVmNTkifQ"
         }
       ]
+    },
+    {
+      "id": "claim_b35287683d1042b39333cf51385f13f0",
+      "statement": "A new admin list page repeats the shipped composition: the ../include/admin/adminHeader.jsp and adminNavigator.jsp includes, a data table over the list collection, a div.pageDiv wrapping the adminPage.jsp pager fragment when the list is paged, and an add form posting to admin_xxx_add.",
+      "evidence": [
+        {
+          "resource": "repo://web/admin/listCategory.jsp#L12-L13",
+          "version": "repo-lines-v1:sha256:7fbb1b94f67ddc1e988ce206c7913d57bd4392c1db20edf1a3bfe685468b493b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZjNjZiZjRhZjMxYWMwMGQ5MmJjNTk3YjAyNDgxZmE0NzMwYzRiOWI4YmYwNzM2ZjUxZmY0NDY5OGMxZjE4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzEyMGIyZDk3NzQzNGE3NDc5MGYxNzM5YWEzNWYzM2YyZDNmZmRhNDM5NjhhNTc0MGYyYWE3YjBjZTZjZDA0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDliZGQ2MzNiMmYzODNkOWQwNjg3Y2UxZjFkYjg5Njc1ZmE1MTExZmI1YmU1MDI0MjUzNjkxOTZkODVhYTE1OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmNiY2RiYzJlMTdkOTI3MWFhNGU4MmVkMTM1ZTNmNWEyY2FlMjEzMjhhZThhMWVmOWY4ZjQwOWJhMmUwYWM5YiJ9"
+        },
+        {
+          "resource": "repo://web/admin/listCategory.jsp#L70-L72",
+          "version": "repo-lines-v1:sha256:51cb677743aad7b572cdd9219f402707b406383bdbc7d281aaa00f95222d1700:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWMwYjVkN2U0N2QzZTQ1Mzg3YzU4MzE4NTY2NWIxOTBlYjZiNjYzMGU4ZGFmNDM3YzlmNWE4NDUyNzljZDg4YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA1NjMwNGIwZWVhYmQ4OGFkNGNiZGQ2MGJkZjQ2NjUxYWQ4NTdhZDFlMDEwNGU0MmFiZmY2YjA0M2FlOGVhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDY2MDcyOTE2NDk1ZWIxOGJkMWY3MzhmZGU5NjVlZmNhNTEyNGJjOTE5Mzc1MDVjZTg1NTI0MjY3NTIwNDYwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTk0MjgxM2EyMGJjYWZlNWI5OTRiMzE0NmEyNjk5ZDA1MDI5YTVkNjdjN2RjOTk1MGRiM2I5YWRhMzU2NDMzYiJ9"
+        },
+        {
+          "resource": "repo://web/admin/listCategory.jsp#L77-L77",
+          "version": "repo-lines-v1:sha256:9a8f11b81aa0342ad3a11fb2423d599472d08c52228d8b5e7627b74816809108:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4ZjExYjgxYWEwMzQyYWQzYTExZmIyNDIzZDU5OTQ3MmQwOGM1MjIyOGQ4YjVlNzYyN2I3NDgxNjgwOTEwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4ZjExYjgxYWEwMzQyYWQzYTExZmIyNDIzZDU5OTQ3MmQwOGM1MjIyOGQ4YjVlNzYyN2I3NDgxNjgwOTEwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGVjNTQyY2JmOWZiOWU5OGQxNDlkODMyZWQ5YjAxNGExMzRhMTAzZDRkNTg1ZDYxNTcxYjdlMjI1Zjc3N2JkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGIzOGFhMzIwYjM5OWVhMTQwNmRkY2NhNjA4YzY3NGFhNzU5MjAxYmE1YTVmYTUyZDMxYzYyYzk4MTM5ZGY2OCJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L103-L103",
+          "version": "repo-lines-v1:sha256:59d797987c2d7fd105606a441ca216c760130a6ff9b692977f36c0f9e121297e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTlkNzk3OTg3YzJkN2ZkMTA1NjA2YTQ0MWNhMjE2Yzc2MDEzMGE2ZmY5YjY5Mjk3N2YzNmMwZjllMTIxMjk3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTlkNzk3OTg3YzJkN2ZkMTA1NjA2YTQ0MWNhMjE2Yzc2MDEzMGE2ZmY5YjY5Mjk3N2YzNmMwZjllMTIxMjk3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTAwMmU5NWU5MTU0M2UzZGRmNTEwZWVkODI4N2YyMDc5NzEyMGQxMjcxNTA1YjM5ZGRhZjY4OTlkMTc4MzVlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDAxZjU0OGUyYjIxY2IwYTIwYjg2OTA5ZDIwZWRlMmE2ZTAzMjBhYmJjYmVjYTdmODJhZTZiNzJmYzRiNWY4ZiJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L96-L98",
+          "version": "repo-lines-v1:sha256:a21085b87adc471250957ad2380be1a9f7a510ca2e01609eddb186d6009850f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWMwYjVkN2U0N2QzZTQ1Mzg3YzU4MzE4NTY2NWIxOTBlYjZiNjYzMGU4ZGFmNDM3YzlmNWE4NDUyNzljZDg4YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA1NjMwNGIwZWVhYmQ4OGFkNGNiZGQ2MGJkZjQ2NjUxYWQ4NTdhZDFlMDEwNGU0MmFiZmY2YjA0M2FlOGVhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDY2MDcyOTE2NDk1ZWIxOGJkMWY3MzhmZGU5NjVlZmNhNTEyNGJjOTE5Mzc1MDVjZTg1NTI0MjY3NTIwNDYwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjI5ZjE4ZDFmZWI0YWYyY2VkMGJjNmU5NTEyYTk4OTA1MDY1OGZkMTI4MTgyOGNjMzJhMWUyNDZlMjMyZDFmNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b06952a35cbf41959a3d2e4e0c58ffdc",
+      "statement": "The repository's shipped example of the two-file rule reaches its column only through the admin product screens with no code-layer change: the name remark appears in Product.java, src/sql/tmall_ssh_h2.sql, the add form input name=\"product.remark\", the edit form echo value=\"${product.remark}\" and the list cell ${p.remark}, and in no service, action, DAO or storefront file.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L21-L21",
+          "version": "repo-lines-v1:sha256:af524cb09634406520ab21c84cf187902c232f09d990be10f70daedd8298d35b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY1MjRjYjA5NjM0NDA2NTIwYWIyMWM4NGNmMTg3OTAyYzIzMmYwOWQ5OTBiZTEwZjcwZGFlZGQ4Mjk4ZDM1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY1MjRjYjA5NjM0NDA2NTIwYWIyMWM4NGNmMTg3OTAyYzIzMmYwOWQ5OTBiZTEwZjcwZGFlZGQ4Mjk4ZDM1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWJmODA0ZGJjNzJhODhjYjU1YzFkMzJmOTVjMWZiM2NjNDIwZWU2ZmMwY2NiMjA4MjgxZjJlZjA3YzYxMmRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDcxYTk0MmIxM2I4OTI5MDNiMjE5ZTI3NTA3Mjc4ZWE2ZWIwZDkyNTMwMWE0OWI1NGI3NjUwMjhiMjU4MDMwYiJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L155-L155",
+          "version": "repo-lines-v1:sha256:cb9dcc808ac448c7c5400c7130f23d2e6cfd19b96bb520988189bca26185b536:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJhNjA0MjFlODlkMTZiZTE4YThiZGMxY2Y0ZWI0YmU0ZjM2NWQxYzQ5YzRjNmU5MjllMWFhNGVkZWJkZjhkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjE1MmE0NGFjMjE2YzNjN2NiNTI3ZGZlNThjNDJiM2M1ZmQwOWQ4NDM5YjM0NmRlZmU5ZTU1ZGM3Mjg5NGVkNiJ9"
+        },
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L61-L61",
+          "version": "repo-lines-v1:sha256:729c0931a34c5a3d1b73b65b46f6788f01fc0036654547526f0c83b372625c09:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI5YzA5MzFhMzRjNWEzZDFiNzNiNjViNDZmNjc4OGYwMWZjMDAzNjY1NDU0NzUyNmYwYzgzYjM3MjYyNWMwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI5YzA5MzFhMzRjNWEzZDFiNzNiNjViNDZmNjc4OGYwMWZjMDAzNjY1NDU0NzUyNmYwYzgzYjM3MjYyNWMwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZlZjViMzNmZTY2NDA5OWVjZDIxMGYzMGZmOWVjYmFkOGM1NGZjNmFiZDBiOTBkMjkzZTE1ZWZhMzU3Y2QzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTFiODhjNTU1M2RmMjNiMDdiMjM0OWRmYzcyNjA0MGMxNjgyMjcwMWE2NWYxMmE4OTU3YjA3MmVlZjM1Y2ZmMSJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L117-L117",
+          "version": "repo-lines-v1:sha256:469bc7971a2d71e93f8ae7a8b12de5ee6b16bd8172a0645791ab840f68b1d720:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY5YmM3OTcxYTJkNzFlOTNmOGFlN2E4YjEyZGU1ZWU2YjE2YmQ4MTcyYTA2NDU3OTFhYjg0MGY2OGIxZDcyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY5YmM3OTcxYTJkNzFlOTNmOGFlN2E4YjEyZGU1ZWU2YjE2YmQ4MTcyYTA2NDU3OTFhYjg0MGY2OGIxZDcyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZlZjViMzNmZTY2NDA5OWVjZDIxMGYzMGZmOWVjYmFkOGM1NGZjNmFiZDBiOTBkMjkzZTE1ZWZhMzU3Y2QzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTk0MmVkNThiZWNjZTNjOTIzOThlZDc2N2NkN2IwMThlNmFjMWQzYjA4MzYzZWNjOTEzYmNjZGMxNWJkNjdmZCJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L75-L75",
+          "version": "repo-lines-v1:sha256:f5bb9702d47e80a0612aff0009d3b18cb4ec2378b77ea9bdd5267d6802635596:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjViYjk3MDJkNDdlODBhMDYxMmFmZjAwMDlkM2IxOGNiNGVjMjM3OGI3N2VhOWJkZDUyNjdkNjgwMjYzNTU5NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjViYjk3MDJkNDdlODBhMDYxMmFmZjAwMDlkM2IxOGNiNGVjMjM3OGI3N2VhOWJkZDUyNjdkNjgwMjYzNTU5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTc5Yjk1ZDZiYzIwODk5Yzk1MmQzZDdjMjk0YTBkY2NjZGEwODY1Yjk0NDcxYjM5OWM5NmM4Yzk4YjBhYzA4MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFhZTE5Nzc4MjA3YjM5ZjMwMzU4ZjBjOTg2OGRjNmIxZmM0MTEyZDg3YWUxNTBhZWYyMDQwNmZhNTFmMzk4MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2e4ade8966524390bc4af6147e0d9cde",
+      "statement": "The seed script's own header comment lists only four syntactic adaptations of the original MySQL script and asserts that the business table structures and data were unchanged, while the file also appends ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;, leaving the seeded product table with a column its CREATE TABLE never declares; the page records this as a review item 【人工评审待确认】 asking whether the comment must list such structural appends and whether appending is the standing convention for a later column.",
+      "evidence": [
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L1-L9",
+          "version": "repo-lines-v1:sha256:87703c9a219512c5908615a74f4d1dc0daf319b3d7998ca493b7aa9d7b466179:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcxMDZlZjhmOWQxNzU0YjlkNjgwM2EwMzY4YzgwZGJkMzA5ODE1MDVmODlhYmEyOTc1NzQ4MzM0NjI5ZDYxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcxMDZlZjhmOWQxNzU0YjlkNjgwM2EwMzY4YzgwZGJkMzA5ODE1MDVmODlhYmEyOTc1NzQ4MzM0NjI5ZDYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzNiNGUyZjhkNTEwNWRmYmE1OWE3ZDJiYmNjNjY1MjM2Yzc2ZmY2MDMxYjBhMGJhNDE5NzdkYzEzZjM0OTJjMSJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L155-L155",
+          "version": "repo-lines-v1:sha256:cb9dcc808ac448c7c5400c7130f23d2e6cfd19b96bb520988189bca26185b536:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I5ZGNjODA4YWM0NDhjN2M1NDAwYzcxMzBmMjNkMmU2Y2ZkMTliOTZiYjUyMDk4ODE4OWJjYTI2MTg1YjUzNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJhNjA0MjFlODlkMTZiZTE4YThiZGMxY2Y0ZWI0YmU0ZjM2NWQxYzQ5YzRjNmU5MjllMWFhNGVkZWJkZjhkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjE1MmE0NGFjMjE2YzNjN2NiNTI3ZGZlNThjNDJiM2M1ZmQwOWQ4NDM5YjM0NmRlZmU5ZTU1ZGM3Mjg5NGVkNiJ9"
+        },
+        {
+          "resource": "repo://src/sql/tmall_ssh_h2.sql#L58-L69",
+          "version": "repo-lines-v1:sha256:94636c64c59e3feee16fffb94051177c7fefa32d452125b5938b8f912d89e421:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5MTU3NDU4NTViYzRjMzk1NzU0MTQ0ZTBiMzRjODgyMGZhOTE0M2I1MTY5NGU5MzI3Y2ZlY2Y3N2I3NzZhYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTY3ZWMxZWQzODM2ZjhlYjE3YWZmMTcyYjViZmVmN2RlNjA0ODVhNDM5YzZjYTExYzU5MWUxNzU1NzM5YWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5N2JhNWZiMDY5OTg3M2IwOGU1NDY1MjFlMDI5OTRmZTNiZDk5YTIwOTlhOTcwZjhhYTAwMmU5MjNmNDE3MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjZjYzNTIzZDMyZmVlNzcwNWM4YmU0YTA2OTNkZGMxZmU2NWJjODNkYmQxYWIxYjI4YTMwYTA3NTU0NWM5MmYifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.6.0",
-    "at": "2026-09-25T05:09:04.985Z"
+    "at": "2026-09-27T01:28:54.540Z"
   }
 }

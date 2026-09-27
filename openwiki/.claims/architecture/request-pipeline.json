@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:2d16b663ba3b7a24fe6048ded20075e8c80b9cf308beffbdaa6a2f635ed32593",
+  "pageVersion": "sha256:8702aad0e1a194c957b61df0f5fc631841648e65966e0977bbd1cf163c9433b2",
   "claims": [
     {
       "id": "claim_78d5742c1ccf402bb7b530fe89050edf",
@@ -188,7 +188,7 @@
     },
     {
       "id": "claim_a51edb6ddeed46cb80378358d46b5c93",
-      "statement": "Request parameters bind through OGNL to public setters on the Action4* chain rather than to method arguments: dotted names instantiate nested objects (category.id yields a Category carrying only the id, page.start a Page built by its default constructor with count = 5, product.category.id in the add-product form), a repeated name binds an array (oiids), and multipart fields arrive as File img plus imgFileName/imgContentType.",
+      "statement": "Request parameters bind through OGNL to public setters on the Action4* chain rather than to method arguments: dotted names instantiate nested objects and reach their setters (category.id yields a Category carrying only the id, page.start a Page built by its default constructor with count = 5, and the admin product forms post product.remark two levels down and product.category.id three levels down from the action), a repeated name binds an array (oiids), and multipart fields arrive as File img plus imgFileName/imgContentType.",
       "evidence": [
         {
           "resource": "repo://src/com/caozhihu/tmall/action/Action4Pagination.java#L5-L13",
@@ -207,6 +207,10 @@
           "version": "repo-lines-v1:sha256:88120354c14f14fab818ede155053bc79054ce6d0aece89b0a6ba2fa2f70d82b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzZTcwYTQ4ODc4NmYxN2IzM2U1MmY3MDMyZjc1YjRhOTg3MDQ5OWM5OGI5ZjBkODA0ZWNlNjllZDExMWFkNjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkNWRmYjhiZjU3NjZkYmQ0NjFjYzhmZTVmMzhjY2RmMTQwZTE0OGU3OThjYjRjYjMzZjE5NmQ3ZjIyZGVhMjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiMzA1ZDJiZjRmM2M1Y2EzMDBkNjY0M2E0ODhiMDM5ZWI0YmI4YzVhODUwMjMwNzczY2I3NGI1YTBiYWZkOTgifQ"
         },
         {
+          "resource": "repo://src/com/caozhihu/tmall/pojo/Product.java#L110-L116",
+          "version": "repo-lines-v1:sha256:2270047f42d3a45ddc0e02a4b38b3d970cab6195ba4fcfa878758c587a783fd5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI2YmUzNzQ5MDFiOTg5YmFkZjdkODIwYjYyZDZmNDkzODdkM2ZlN2U2ZmE0MGRhNmUxNjliN2ZjOThhMjkyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMwY2M2YTE3ZjQyMGZmM2U3MWI4NTkzOTM2YTlhZWFhZTEzZjkxMzI0ZmFmYmQ5MWMzMTZhODViZDc1MmI4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM3NGMwZTQ4YTIzODczZDBjMTY5YzBmMTE0ZGY2YmFhZWQ0OGY4NjFmMTdhYmRkODE1OTFiMmFkZWRkZjQ5OCJ9"
+        },
+        {
           "resource": "repo://src/com/caozhihu/tmall/util/Page.java#L10-L20",
           "version": "repo-lines-v1:sha256:26b714b3a1f4c5fed6b0352f985289d3de87fed27d1c5d58bf5735d5d81f52ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1YzMzZTVkNWNkZTNjNjY1YWJmZjFkYzkwNTRkMWYwNmY4NmYzMzFhMDI2OTQzZjU2ODJiN2M2OTM4NzQ0YjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY0ZTNhOWUxYzNmOTUxYjkwOTk3MmJjZGY0N2I4NDY4YTA0YjE5ZmU4Nzc3YTE5YzJkMjQ4ZTZiYjExMThhNWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFmYjkwYmU5MjI1ZjA4NjExZWEyMjgwYzNkMjI1M2QzM2I5Mzc2MjVlZmQ1ODlkYjA4NzEwY2JmN2MxZTYxZGEifQ"
         },
@@ -215,8 +219,12 @@
           "version": "repo-lines-v1:sha256:c78af3c023c206e76ba50b44efc82db2f30e3a77347dd1e8ca4067a8fefaa586:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhOGYxMWI4MWFhMDM0MmFkM2ExMWZiMjQyM2Q1OTk0NzJkMDhjNTIyMjhkOGI1ZTc2MjdiNzQ4MTY4MDkxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmZTZlYmUyOGIzNzgyYjc1N2JkNDAyODVkYWEyNmFjNzllZWUwNTMxNzk1MjIzNTA4YmE2NjczYzA1OTNiZjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRlYzU0MmNiZjlmYjllOThkMTQ5ZDgzMmVkOWIwMTRhMTM0YTEwM2Q0ZDU4NWQ2MTU3MWI3ZTIyNWY3NzdiZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU1ZTVkOTk0MmYwYTg1NzBjNzkwZTlmNjM3ODNlNjM0ZDMzMTA4OGE5MDM5NDQ2NDY1NzgyOTRhNjNkZjMxOGMifQ"
         },
         {
-          "resource": "repo://web/admin/listProduct.jsp#L105-L131",
-          "version": "repo-lines-v1:sha256:9e514978a022bda0c9486b4b019def84b81bd8289774e3ee986ac310f57e057b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZWNlYTMxOGFiN2VmOTNhZGNhYmFhMzA0NmY5YjZlYWQzNTcwMDdmMGJkNmYwOTA3ZmRhN2ZjNjhiYjViNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJlZjZlZDBmYmY2ODZlNzU5NTg5NDdhYThjZDM2NmI2ZGY1YTZmMGY2YTJmODIwMjZkNzlhYTVmMmNhMjE2YmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWY1NDhlMmIyMWNiMGEyMGI4NjkwOWQyMGVkZTJhNmUwMzIwYWJiY2JlY2E3ZjgyYWU2YjcyZmM0YjVmOGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZlMDczZDIzZDlmNmY0ZWFkMzAxMTY4YzlmODViYTM1MDhkZTJiN2Q0ZDM2OGVmOTJkMDQwOThlYzhhZDkxYWUifQ"
+          "resource": "repo://web/admin/listProduct.jsp#L115-L119",
+          "version": "repo-lines-v1:sha256:a0eeae54462d3f03c41e5a7e9464bd6a244f95137f4bb3aea70b4ccd4893a1fe:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTgyZmQ5MWZkNDRiZWFkZjViMWJiMzU1NzBiMzUxZDI5MGM1MTRhMzhkMTkxZTQ4YTdmYTI4YWIzZmY0NDgwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhiYjEyNzUzZDA5Mzk5OTg4ZmMzNGFiNDBiNTA3NzBmNGE0YmYyYmVjYjU5NWExMzUzZDliZmNmYmQ0NzNlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2JhNzg4NDgyMDg1ZThlYTQwZThjYzIwNDQ3YmI2YTdhN2UwMzYwMGQxMTg5ODA0YmQ4NjQwYjM2M2I3MjE2YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzc3ZjJmZTg0N2M5ZTY0N2RhMDM0YzRiMjBmZjk4NDY5MjVmYjQ4ZjBjZGExY2VlYjg1YjgwZjFjN2I4ZDliZCJ9"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L137-L137",
+          "version": "repo-lines-v1:sha256:cdf30c14bc25e0c8cb2a34fb50c3d899cfb092fbb5b909854f80eea2c38d6159:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2RmMzBjMTRiYzI1ZTBjOGNiMmEzNGZiNTBjM2Q4OTljZmIwOTJmYmI1YjkwOTg1NGY4MGVlYTJjMzhkNjE1OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2RmMzBjMTRiYzI1ZTBjOGNiMmEzNGZiNTBjM2Q4OTljZmIwOTJmYmI1YjkwOTg1NGY4MGVlYTJjMzhkNjE1OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2IwN2UwN2YwMTYzZTQzZmE5MDM4ZjMyZDM1ZTlkMWQ2ZTRiYWNlNTc4MmFhNzUyYmIwODU0MTVjZGUwOTliNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDY3ZjUxMmFmNzhlNWRmNzE4MDg0YmM2M2U4MDk2MjhiZDM1ZjI4YjdlMmY5YjM0Yzc2NTE2MjhkODM5ZDU2MSJ9"
         }
       ]
     },
@@ -240,7 +248,7 @@
     },
     {
       "id": "claim_a85820b292ed430d9a277d45463a6313",
-      "statement": "The default result type forwards to a JSP under web/ while keeping the action URL in the browser and the action on the value stack, whereas type=\"redirect\" results issue a fresh client request whose location may contain OGNL evaluated against the action (listPropertyPage, listProductPage, alipayPage); after a redirect only session state survives, which is why redirect-returning actions call t2p() to populate the association the location dereferences.",
+      "statement": "The default result type forwards to a JSP under web/ while keeping the action URL in the browser and the action on the value stack, whereas a type=\"redirect\" result issues a fresh client request whose location may contain OGNL evaluated against the action (listPropertyPage, listProductPage, alipayPage); after a redirect only session state survives, which is why redirect-returning actions such as admin_property_delete call t2p() to populate the association their location dereferences, while admin_category_delete skips t2p() because /admin_category_list is a location with no OGNL in it.",
       "evidence": [
         {
           "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L16-L33",
@@ -253,6 +261,10 @@
         {
           "resource": "repo://src/com/caozhihu/tmall/action/CategoryAction.java#L50-L54",
           "version": "repo-lines-v1:sha256:22f544ee05d3893b15dc3bf87eaf9134f44fba2f8ee0cd46474918935664e010:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzEzZjRkYTUyNzNiZDY5YzlkN2M0MGI0ZGRmODhlZDdlNDczOTdhZDJmZjUwYzAwYTlhNzViMmYwNzYyOTJkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmEzY2Y1MTkyMzU0ZjcxNjE1YWM1MTAzNGIzZTk3YzIwZWRhOTk2NDNmY2FmNWJiZTZkNDFhZDU5YmQxMjE2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTNlM2ZkNTk0MjdkZWZkMGIxY2FmNmFhNjQ5Y2ZmZDgwODU2Nzc3NGQ3NDg5YzAyZWI3ODY2ZTRhODRiMzQ4ZCJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/PropertyAction.java#L32-L39",
+          "version": "repo-lines-v1:sha256:a279bbc6f9136c981da56fa90d2a1da371ef8cd0174a9f422713d765bb5d4695:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGUxZTA2YTdlNGU5NDhiODEzMzI4NDQ5ZTI4NjNkMzhkMDIxNzE1ODE4Yjk4ZThmYTI3M2ZmMTc5NmMyYjY0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE5NDEwY2RiZjY0MjJhOGQxMzIzNDE2NGY1M2ZjMjk2MGJlMDY0ZGM3ZmM4MjE4ZmE2NGM4YzFlNWFiZTI4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmY0ODI1MTU4M2RiMTg4ZWJkYTkzNDU2MzBmODRhZDU5NmJhYWQzODY1ZGE4OGUxZTRkYTYwMWJlZTc4YjIyYiJ9"
         }
       ]
     },
@@ -273,8 +285,8 @@
           "version": "repo-lines-v1:sha256:cb80cbc5fe475788384cce87467f0b89687da0d4e565ff9ed8291ba4d8c77d3f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjMyYmYxNGZiYTk4OTAzYTYwM2JlZWQ0MjI5NWM0ZWNhNzAzNjczNzQ3NjQ1YTY4MWNmOTU2NjU3MjVkYjBjMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzdmNGRlMWFkZjVjOWQ2M2M4N2QzNTEwNTU2ZjFlNmQwOGU1MDVmN2Q5YmM3NjY3NjIwYzE2OGRmMTU3NWUxZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGYzNzA1MjNhZGQzMDM3Mjc5ZjJhZmM1MGJhYTFiMDg5YzJmMDhjYjM3Y2RiMzRmYTIzOTFkZDZmMTZmZWU2ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc3OGU1MjM1ZDEwZWQ4OWQ4NzU2ZWUzYjllYjJjM2MwYWRjMGFiYTc1NWUxMjQ4YmU0NjhlNzJkZmNmMzA5ZCJ9"
         },
         {
-          "resource": "repo://web/admin/listProduct.jsp#L62-L92",
-          "version": "repo-lines-v1:sha256:65f69bab5ddc0376aaf9cb5ad488d66ffa70470b0b6dec9aafd5878af1cd99fd:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkNjFmMmY1MjIzZmNlZDc1ODkzODhmYWEzZWQ0NjBmNGM0ZjExOTdkYzllYTkzZjczNmYwNTA5MzY4MDQzZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwNTYzMDRiMGVlYWJkODhhZDRjYmRkNjBiZGY0NjY1MWFkODU3YWQxZTAxMDRlNDJhYmZmNmIwNDNhZThlYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmMzcwNTIzYWRkMzAzNzI3OWYyYWZjNTBiYWExYjA4OWMyZjA4Y2IzN2NkYjM0ZmEyMzkxZGQ2ZjE2ZmVlNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM5MmI3NGMzMDVjOGJhMWU2NWMxMTY3ZGFkZjI0OTVmODczZDhhMTZiN2M5NjIzNmQ4YmViYTIxZDFjNTZjNzMifQ"
+          "resource": "repo://web/admin/listProduct.jsp#L63-L91",
+          "version": "repo-lines-v1:sha256:d10f58ba6ff5d772285e10ef869f86e8324e94eaf707c3a29fcb429b08d551d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkNjFmMmY1MjIzZmNlZDc1ODkzODhmYWEzZWQ0NjBmNGM0ZjExOTdkYzllYTkzZjczNmYwNTA5MzY4MDQzZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhMTc5NzAyMmZhMmE1YzMzNTRmOGE4YWFlNzFlMmFkOWNmMmZiZDNkOTMyOGFkN2ZhOWFjNThiYTA1MTM1MzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmMzcwNTIzYWRkMzAzNzI3OWYyYWZjNTBiYWExYjA4OWMyZjA4Y2IzN2NkYjM0ZmEyMzkxZGQ2ZjE2ZmVlNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY3ZTg4M2UwYmM4YTA2MWQ4MDkwMGNlNzU3YzU3OTdkODQ2Yzk0NThkNmYxYTllMmE3YzMyMDk5Yjc4YTRlYTgifQ"
         },
         {
           "resource": "repo://web/include/admin/adminPage.jsp#L19-L19",
@@ -351,10 +363,54 @@
           "version": "repo-lines-v1:sha256:afc4f8df1b235bfe8753fe6899977996fe53115bed7bc8ba501c07c701601b6c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2M0Y2FlOTc1YTAxY2Y2NDJlOTUwZWQ3ZDk1MjY3MGE0NzdiNGM3MTQwYjgwMDRlNGJmZTAyYjQ0MjFjMjU3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmI3Yjc5ZDhmOGFhMDQ4MzJiYTk1ODRiMzQzOTJmZDQyNTJkYzdhYTQ3OThhZDNhMzMzNmFhMzIwYjhhNTE0OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTMzYWRiYWJhY2VlOTE3ZDUyODg0ZWZiOTZiZGNhMTllOTllOTM5YmExYWMyMzBjN2QyNjc5NTViMzFhNmU2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTcyYjMzZmY0MDE1NjhlYTQ1YzBmMjFmODgyNmExOWM5YjdlODY2OGY2NWM4MTliOTgwMTBhMjJlZjU3ZTIwYSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_249ab503d7164cdc9556ef1fcd0807a9",
+      "statement": "No server-side validation exists on the write endpoints: no class in the Action4* chain extends ActionSupport (the chain ends at Object) and the single shared @Results block declares no input result, so malformed or empty parameters reach the action body and are saved as bound; the only checks in the repository are browser-side submit handlers on the two product forms, which test name/subTitle/originalPrice/promotePrice/stock and do not test the remark input those forms carry.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L10-L67",
+          "version": "repo-lines-v1:sha256:d6871107c210957e9889dbeffa5909beaffba31310158a256cc6cea07d1e0106:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2YzdlZjU4NmY0OTlmNWU1Y2FkOWYwYjA5N2Q2MjVhZTQ4YzI3YjFkYzJmY2JlY2U5ZmZiNmIzOTI3ODU1MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhMTA5OTYxNGZkYjJhOTg3OWQ0MWYwYTE3NzJmOWExYTI5YTU3ZTY2MjU2YzJiYmY4MDZiNzljNzAyY2QyODUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmNjA0MTBiZWVlY2I4YWI0YWYyZjE2ZmMwNTQ5OTUzYmYzYjJiMjMyYWU2YjM2MTdjOWRlMjE5YWZjYjg3N2IifQ"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Result.java#L68-L69",
+          "version": "repo-lines-v1:sha256:ef60410beeecb8ab4af2f16fc0549953bf3b2b232ae6b3617c9de219afcb877b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NjMDhhMTFmYzA3NmJlOTcyZjVmNWZiNTZjMTEyY2M1MjEzNTNmMWJmNDE3MGE5NTAzZDgzZmViMzhjODBmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjM4ODE2NzRiOGQ3NmIwZTJkYWIxYzQ5YTYyZjExMzc0ZjQ1ZWRiOGE4OGYzYzBiN2IwYmM4NmQ4YThiYTZlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Upload.java#L5-L5",
+          "version": "repo-lines-v1:sha256:70de3f07863f9eb015ada83eb935aff53025e2ac976ead2751a23f62dbd75884:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBkZTNmMDc4NjNmOWViMDE1YWRhODNlYjkzNWFmZjUzMDI1ZTJhYzk3NmVhZDI3NTFhMjNmNjJkYmQ3NTg4NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBkZTNmMDc4NjNmOWViMDE1YWRhODNlYjkzNWFmZjUzMDI1ZTJhYzk3NmVhZDI3NTFhMjNmNjJkYmQ3NTg4NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2M5Y2RmMDQwZTA2ZTZhMDRhNWQwMTJlYWZkNDZhMDdlZDcxNjRmMWJiYmZhNWFkNDAwZWIzODViYzFlNTVkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTdhNDdjYmI5ODNhOWQ0Yzc1NDhlNWM3NjE1OWMzNDI4OWJhNDdhMDJiZGRkYzNmOWE3MWZkZjg3OTU0OTU0NSJ9"
+        },
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/ProductAction.java#L27-L32",
+          "version": "repo-lines-v1:sha256:1dc5faee629abc5f58ce4e0b7df8692ab362b8d67afb44e0975c05e58f77b869:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE2NTZhMDE5NjJmMmQ5YjBkMjc1MzY4MWRkYmYyODliZjM3ZDhkNjcxNTliODI2ZGJhNDliZmE4NzkwNjk0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjliMmM5OTcxZDE4N2I1ZmMxNmM0YzFjZWZjY2YzNGJiMDZjZTM1Y2I1Y2JkZjAxOTA2NThlNjZkM2Y3Yjk0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI1NDVhYmQ1NjYwMWMzZDI4MWIyNGZkZDIwYTIxYjhjNjlmYzI1NzE2Y2E4OGE1NzY1ZjAzNGY1MGUxYzFiOCJ9"
+        },
+        {
+          "resource": "repo://web/admin/editProduct.jsp#L17-L33",
+          "version": "repo-lines-v1:sha256:cd38746404ef28a2e476b0fd0ec4c7c9c7fa9b667f93d98e17b09db23ed19ac0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmMTRhMzIxMjBjMDM0ZWFmYzc2ZDQxMzgxNjZiZWI4YzdhOTY4YTM2MzNhMDAwOGU3NGY0MDZkZDlkMjEyNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmMzU4ZjAzNzFhNmU3MzJjNDM0MDMzMjIzNTE5OWRjZDkxZWJjNDYyMzlhNWRkY2ZlNmY5YTYzZTZlYmVjZmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5ZjQ4ZWM1NTViMjAyZWQwZmZjMTdiNThjMzkyMzM1MjQxYmJmMmM0MzBiMzU5ZDNmZmIzYzM5ZDM0ODFlZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyOTdhN2Q2YzdmNWFhZjc1ZmUxMzQ0Njg4ZmMzMmJiYTg0NmUxOWEyOWRkNDY0MTM4N2E1ODFhMDE3ODMxN2MifQ"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L17-L29",
+          "version": "repo-lines-v1:sha256:85372b504587a9b64ef8ded7fde335fa9fe2802222af2228085dc61f2bf9b017:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJlZjI0NjRmN2M2MjcwN2M0YmQ3Y2MwOTUxNDg2ZWNmNTQ2ZDM3M2QwZDEyM2I3M2I4ZWYxNTVhOWY1MjY2OTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5YzEzNTkwNjY1NjMyM2QxYzVlYTQxNjU0ZWU2NmFmYjU4NWFjZGNmYWVhY2ExMjFkNWUzMGJmMTkzZWVkZDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzNzAwNjA2ZDExOWUwODE5Mzk1NDM4ZDkwZjQ5NWVmMjgzNjc3ZTU1MjhjYjBhZTU1NzBlY2U3MDI0YTE4NTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhN2FkOGUyOWU4MmUyNzU1NThmZTdmOTUzYjYzOTdlMTEwYzFiMzU2ZGYwMGIwNDJlZmQ3YWMzYTY3ZWRiZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d866c7ecc0f46c389ffb3ef519fc184",
+      "statement": "The remark column of the admin product table reads ${p.remark} off the JSTL loop variable declared by <c:forEach items=\"${products}\" var=\"p\">, i.e. a property of the iterated Product element rather than an action property, so a new column backed by an already-listed entity needs no new field on the Action4* chain while ${products} itself is still resolved from the value stack.",
+      "evidence": [
+        {
+          "resource": "repo://src/com/caozhihu/tmall/action/Action4Pojo.java#L19-L28",
+          "version": "repo-lines-v1:sha256:af55232960c5cdd7a5424050e8954a5292cc77f3a7511e5494f806cb59aa2080:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1NzYwMGFlOTdkOGMxNGJjNTBiODE3MTA1ZjJkNzU4NWZkYzc4MjEwZjYxZGVkMDY5M2E2N2EzOWMzYTBhNDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZlODc5YWI5MmUzY2Q0NDZkYzBmYjcyYzkyMjc5NTUyNmUwMTQ5M2IyNGJmMjU2OGU5YmVkODA4MGQyZDYwNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkYjEwM2Q4ZmIwZDU5MjBkMDE0YzBiOTlkZGQ4YjliNTM0ODA1YzY2Y2U1NDU3ZjcwZTI3YzUzYTI1NTJkODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA4NmE0NjVlZmYzNzJjMDY4NDM0ZDdkMGZiZGVlZjc5MmFlMTk0ZjZhNTc1YTczMzg1ZDFhNGE4MjUxMjgwN2QifQ"
+        },
+        {
+          "resource": "repo://web/admin/listProduct.jsp#L63-L75",
+          "version": "repo-lines-v1:sha256:26f8841e8ea1316dd74784f2b85319759c3b87d81e21d9e78aee7cddaf3a56bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkNjFmMmY1MjIzZmNlZDc1ODkzODhmYWEzZWQ0NjBmNGM0ZjExOTdkYzllYTkzZjczNmYwNTA5MzY4MDQzZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1YmI5NzAyZDQ3ZTgwYTA2MTJhZmYwMDA5ZDNiMThjYjRlYzIzNzhiNzdlYTliZGQ1MjY3ZDY4MDI2MzU1OTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmMzcwNTIzYWRkMzAzNzI3OWYyYWZjNTBiYWExYjA4OWMyZjA4Y2IzN2NkYjM0ZmEyMzkxZGQ2ZjE2ZmVlNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMxYWUxOTc3ODIwN2IzOWYzMDM1OGYwYzk4NjhkYzZiMWZjNDExMmQ4N2FlMTUwYWVmMjA0MDZmYTUxZjM5ODMifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.6.0",
-    "at": "2026-09-25T05:09:04.985Z"
+    "at": "2026-09-27T01:28:54.540Z"
   }
 }

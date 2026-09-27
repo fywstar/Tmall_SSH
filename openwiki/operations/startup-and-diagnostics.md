@@ -3,9 +3,6 @@ type: operations
 title: "Operations: Running the App and Troubleshooting Start-up"
 description: "The runbook for this checkout: the three launch recipes and the working-directory contract, the banner and three URLs a healthy start prints, the H2 console login on its separate port 8082, restart/persistence and stop semantics, where logs go, and a symptom to cause to action table for a taken port, corrupted jars, TldCache and 'no action mapped' errors, a missing dbInit bean, and the historic PROPERTYVALUE foreign-key warning."
 tags: [operations, runbook, startup, diagnostics, troubleshooting, jetty, h2-console, logging, launch-recipes]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T05:09:04.985Z
 sources:
   - id: openwiki-source-ea70eb6c045047448e446296
     resource: repo://.gitignore
@@ -23,7 +20,10 @@ sources:
     resource: repo://STARTUP.md
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # Operations: Running the App and Troubleshooting Start-up
@@ -229,7 +229,7 @@ it starts** (`STARTUP.md#L69-L69`, `STARTUP.md#L71-L75`):
 - the script ends with identity calibration, `ALTER TABLE … ALTER COLUMN id RESTART WITH n`
   (`category=84`, `product=963`, `productimage=10211`, `property=258`, `propertyvalue=14092`), so
   the first row inserted after a restart continues where the original MySQL `AUTO_INCREMENT` would
-  have (`src/sql/tmall_ssh_h2.sql#L14711-L14715`, `MIGRATION.md#L49-L49`).
+  have (`src/sql/tmall_ssh_h2.sql#L14712-L14716`, `MIGRATION.md#L49-L49`).
 
 **Restarting is the reset.** That is the only supported way to get back to the seeded state, and it
 is also why a smoke run leaves no rows behind
@@ -239,9 +239,11 @@ Two corollaries:
 
 - The script is *create-only*: it contains nine plain `CREATE TABLE` statements and no `DROP TABLE`
   or `IF NOT EXISTS` (the `DROP DATABASE`/`CREATE DATABASE`/`USE` lines of the MySQL original were
-  removed, `src/sql/tmall_ssh_h2.sql#L1-L9`). It is therefore written for a fresh, empty in-memory
-  database and cannot be re-run against a database that already holds those tables — re-seeding
-  means restarting the JVM.
+  removed, `src/sql/tmall_ssh_h2.sql#L1-L9`). Its only other statements are six `ALTER TABLE`s: one
+  appended `ALTER TABLE product ADD COLUMN remark` (`#L155`, owned by
+  [Data and Schema](/openwiki/operations/data-and-schema.md)) and the five identity calibrations
+  above. It is therefore written for a fresh, empty in-memory database and cannot be re-run against
+  a database that already holds those tables — re-seeding means restarting the JVM.
 - Rows are ephemeral, files are not. Anything the UI writes to disk (for example the uploaded
   category image under `web/img/category/`) survives the restart and shows up as an untracked file
   ([Testing and Verification](/openwiki/testing/verification.md#4-the-manual-smoke-path)).

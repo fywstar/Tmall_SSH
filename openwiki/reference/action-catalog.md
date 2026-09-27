@@ -1,11 +1,8 @@
 ---
 type: reference
 title: "Reference: Action URL Catalog"
-description: "Lookup table for all 47 convention-mapped @Action endpoints — the class#method behind each URL, the request parameters it binds, the result name it returns, the JSP forward or OGNL redirect that result performs, and the 36 result names declared on Action4Result."
+description: "Lookup table for all 47 convention-mapped @Action endpoints — the class#method behind each URL, the request parameters it binds (including the product.remark input the two admin product write forms now post), the result name it returns, the JSP forward or OGNL redirect that result performs, and the 36 result names declared on Action4Result."
 tags: [struts2, url-reference, action-mapping, struts-results, convention-plugin, jsp]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T02:37:38.268Z
 sources:
   - id: openwiki-source-e97b0da58a894fc66f67dc75
     resource: repo://src/com/caozhihu/tmall/action/Action4Pagination.java
@@ -35,18 +32,26 @@ sources:
     resource: repo://src/com/caozhihu/tmall/action/UserAction.java
   - id: openwiki-source-16c79ba80abbef391eb3ad3b
     resource: repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java
+  - id: openwiki-source-535dabafb9f4fcf2952aba1c
+    resource: repo://src/com/caozhihu/tmall/pojo/Product.java
   - id: openwiki-source-206c3b599f3307350744b22a
     resource: repo://src/com/caozhihu/tmall/service/OrderService.java
   - id: openwiki-source-81d5ae3cfc59aa1e4ed7f232
     resource: repo://src/com/caozhihu/tmall/util/Page.java
+  - id: openwiki-source-2418fdb168bd7c7c3dafd23e
+    resource: repo://src/sql/tmall_ssh_h2.sql
   - id: openwiki-source-9c0a10144303b99bbe3c16ea
     resource: repo://src/struts.xml
   - id: openwiki-source-161c1d1539a9c54dc3b73fe9
     resource: repo://web/admin/editCategory.jsp
+  - id: openwiki-source-cf9e6553d8724c6c92175bfd
+    resource: repo://web/admin/editProduct.jsp
   - id: openwiki-source-9c3d5fd7b843f4c42b8d434a
     resource: repo://web/admin/editPropertyValue.jsp
   - id: openwiki-source-bbcc6d312cf4cc3b79a8fcaf
     resource: repo://web/admin/listCategory.jsp
+  - id: openwiki-source-8f5593a1404bac097faed64e
+    resource: repo://web/admin/listProduct.jsp
   - id: openwiki-source-36420abb1600f20d66381988
     resource: repo://web/admin/listProductImage.jsp
   - id: openwiki-source-f2749e9cf1d8598e0aad25cd
@@ -83,7 +88,10 @@ sources:
     resource: repo://web/login.jsp
   - id: openwiki-source-6ffc52d18bc416377de6f78e
     resource: repo://web/success.jsp
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # Reference: Action URL Catalog
@@ -215,11 +223,11 @@ repository emits `categorycount`** — it is only reachable by typing it, so `fo
 | `admin_property_delete` | `PropertyAction#delete` | `property.id` | `listPropertyPage` → redirect `/admin_property_list?category.id=${property.category.id}` | GET link with `deleteLink="true"` in `web/admin/listProperty.jsp`. `t2p(property)` is required both for the delete call and for the redirect's association. |
 | `admin_property_edit` | `PropertyAction#edit` | `property.id` | `editProperty` → forward `/admin/editProperty.jsp` | Edit icon in `web/admin/listProperty.jsp`. |
 | `admin_property_update` | `PropertyAction#update` | `property.id`, `property.name`, `property.category.id` | `listPropertyPage` → redirect `/admin_property_list?category.id=${property.category.id}` | POST form in `web/admin/editProperty.jsp`. No `t2p()` — the bound `Property` already carries every field to write. |
-| `admin_product_list` | `ProductAction#list` | `category.id`, `page.start` | `listProduct` → forward `/admin/listProduct.jsp` | Breadcrumb links (`admin_product_list?category.id=${c.id}`). Sets `page.param = "&category.id=<id>"`. **The page total comes from `propertyService.total(category)`**, i.e. the product list's pagination is computed from the category's *property* count 【人工评审待确认】 (the other list actions use their own service). |
-| `admin_product_add` | `ProductAction#add` | `product.name`, `product.subTitle`, `product.originalPrice`, `product.promotePrice`, `product.stock`, `product.category.id` | `listProductPage` → redirect `/admin_product_list?category.id=${product.category.id}` | POST form in `web/admin/listProduct.jsp` (hidden `product.category.id`). Stamps `createDate` = now. |
+| `admin_product_list` | `ProductAction#list` | `category.id`, `page.start` | `listProduct` → forward `/admin/listProduct.jsp` | Breadcrumb links (`admin_product_list?category.id=${c.id}`). Sets `page.param = "&category.id=<id>"`. **The page total comes from `propertyService.total(category)`**, i.e. the product list's pagination is computed from the category's *property* count 【人工评审待确认】 (the other list actions use their own service). The table renders a 备注 column from `${p.remark}` (`web/admin/listProduct.jsp#L52`, `#L75`) — the only place the value is displayed. |
+| `admin_product_add` | `ProductAction#add` | `product.name`, `product.subTitle`, `product.remark`, `product.originalPrice`, `product.promotePrice`, `product.stock`, `product.category.id` | `listProductPage` → redirect `/admin_product_list?category.id=${product.category.id}` | POST form in `web/admin/listProduct.jsp` (hidden `product.category.id`). Stamps `createDate` = now; `product.remark` is a plainly mapped `Product` field, so it is written with the rest of the row. The remark input is the only visible field in that form with no JS check (the handler validates name, subTitle, originalPrice, promotePrice and stock). |
 | `admin_product_delete` | `ProductAction#delete` | `product.id` | `listProductPage` → redirect `/admin_product_list?category.id=${product.category.id}` | GET link with `deleteLink="true"` in `web/admin/listProduct.jsp`. `t2p(product)` supplies the association the redirect needs. |
-| `admin_product_edit` | `ProductAction#edit` | `product.id` | `editProduct` → forward `/admin/editProduct.jsp` | Edit icon in `web/admin/listProduct.jsp`. |
-| `admin_product_update` | `ProductAction#update` | `product.id`, `product.category.id`, `product.name`, `product.subTitle`, `product.originalPrice`, `product.promotePrice`, `product.stock` | `listProductPage` → redirect `/admin_product_list?category.id=${product.category.id}` | POST form in `web/admin/editProduct.jsp`. Reloads the row first to copy the unchanged `createDate` onto the bound object. |
+| `admin_product_edit` | `ProductAction#edit` | `product.id` | `editProduct` → forward `/admin/editProduct.jsp` | Edit icon in `web/admin/listProduct.jsp`. `t2p(product)` reloads the row, and the form echoes the stored remark with `value="${product.remark}"` (`web/admin/editProduct.jsp#L59-L63`). |
+| `admin_product_update` | `ProductAction#update` | `product.remark`, `product.id`, `product.category.id`, `product.name`, `product.subTitle`, `product.originalPrice`, `product.promotePrice`, `product.stock` | `listProductPage` → redirect `/admin_product_list?category.id=${product.category.id}` | POST form in `web/admin/editProduct.jsp`. Reloads the row first to copy the unchanged `createDate` onto the bound object (the form never posts that field); `product.remark` is taken from the request like every other field, and because the input echoes the stored value an unchanged submit round-trips it. |
 | `admin_productImage_list` | `ProductImageAction#list` | `product.id` | `listProductImage` → forward `/admin/listProductImage.jsp` | Image icon in `web/admin/listProduct.jsp` (`admin_productImage_list?product.id=${p.id}`). Loads the `type_single` and `type_detail` sets; `t2p(product)` fills the breadcrumb. |
 | `admin_productImage_add` | `ProductImageAction#add` | `productImage.type`, `productImage.product.id`, `img` (multipart file) | `listProductImagePage` → redirect `/admin_productImage_list?product.id=${productImage.product.id}` | Two multipart POST forms in `web/admin/listProductImage.jsp`, one per type, with `type` as a hidden field (`type_single` / `type_detail`). Saves the row, writes the file under `img/productSingle/` or `img/productDetail/`, and for `type_single` also writes the 56×56 and 217×190 derivatives. |
 | `admin_productImage_delete` | `ProductImageAction#delete` | `productImage.id` | `listProductImagePage` → redirect `/admin_productImage_list?product.id=${productImage.product.id}` | GET link with `deleteLink="true"` in `web/admin/listProductImage.jsp` (both tables). Calls `t2p(productImage)` because the redirect dereferences `productImage.product.id`; the service called for the delete is `propertyService`. |
@@ -228,6 +236,39 @@ repository emits `categorycount`** — it is only reachable by typing it, so `fo
 | `admin_order_list` | `OrderAction#list` | `page.start` | `listOrder` → forward `/admin/listOrder.jsp` | `include/admin/adminNavigator.jsp` ("订单管理") and the rest of the admin navigation. Paged orders, each filled with its items. |
 | `admin_order_delivery` | `OrderAction#delivery` | `order.id` | `listOrderPage` → redirect `/admin_order_list` | "发货" button in `web/admin/listOrder.jsp` rendered only when the status is `waitDelivery`, **and** the "催卖家发货" button in `include/cart/boughtPage.jsp`, which is a logged-in customer's page calling this unauthenticated admin URL. `t2p(order)`, then status `waitConfirm` with `deliveryDate` = now. |
 | `admin_user_list` | `UserAction#list` | `page.start` | `listUser` → forward `/admin/listUser.jsp` | `include/admin/adminNavigator.jsp` ("用户管理"). Read-only: no add/edit/delete sibling exists for users. |
+
+### The `product.remark` field on the two product write rows
+
+Both product write URLs gained one request parameter, and nothing else about them moved: no new URL,
+no new result name, no `ProductAction` change. The field is the 备注 ("remark") column of the admin
+product screens.
+
+- **Where it is posted.** `web/admin/listProduct.jsp#L115-L119` (add form) and
+  `web/admin/editProduct.jsp#L59-L63` (edit form) each carry an `input` with `id="remark"` and
+  `name="product.remark"`; those two files are the only JSPs in the repository that emit that name.
+- **How it binds.** It is an ordinary dotted property, so the `params` interceptor sets it on
+  `Action4Pojo.product` exactly like `product.name`
+  (`src/com/caozhihu/tmall/action/Action4Pojo.java#L11`, `#L134-L140`). No action code names the field:
+  `grep -rn remark src/com/caozhihu/tmall` matches only `Product.java`, so `add()` and `update()`
+  persist it through the same generic `productService.save/update` call as every other scalar.
+- **Where it is stored.** `remark` is a plainly mapped `String` on the entity — no `@Transient`
+  (`src/com/caozhihu/tmall/pojo/Product.java#L21`, `#L110-L116`) — so the value lands in the `product`
+  row. The column exists only because the H2 seed script appends
+  `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;` after the positional `INSERT`s
+  (`src/sql/tmall_ssh_h2.sql#L58-L69`, `#L155`); the original `sql/tmall_ssh.sql` schema has no such
+  column. [Persistence Layer](/openwiki/architecture/persistence-layer.md) explains why nothing else
+  had to change, and why the pairing between field and column is not validated at startup.
+- **No validation.** The submit handlers of both forms check name, subTitle, originalPrice,
+  promotePrice and stock only, so an empty remark is accepted and written as an empty value. Seeded
+  products (85 positional `INSERT` rows, all executed before the `ALTER TABLE`) show as blank in the
+  备注 column.
+- **Round trip, and the createDate contrast.** `admin_product_list` renders `${p.remark}` and
+  `admin_product_edit` echoes the stored value back into the input, so a normal edit submit posts the
+  same text again. `update()` still reloads the row from the database only to copy `createDate`, which
+  no form posts; `remark` is never reloaded from the database, so whatever the request carries (an
+  edited value or an emptied field) is what gets written.
+- **Scope.** No storefront JSP reads `remark`, and the field participates in no price, stock, image,
+  property, order, paging or sorting logic, so the storefront rows above are unaffected.
 
 ## The 36 result names declared on `Action4Result`
 
@@ -356,6 +397,19 @@ grep -c '@Result(name' src/com/caozhihu/tmall/action/Action4Result.java
 curl -i http://localhost:8080/forehome          # 200, rendered home page (public)
 curl -i http://localhost:8080/forecart          # 302, Location: login.jsp (protected, no session)
 curl -i http://localhost:8080/admin_user_list   # 200 without a session cookie (unguarded admin)
+```
+
+Two checks specific to the `product.remark` parameter added to the product write rows:
+
+```bash
+# the parameter is emitted by exactly the two product forms (2 files, 2 hits)
+grep -rn 'name="product\.remark"' web/admin
+
+# and no action or entity-class other than Product.java mentions the field
+grep -rn 'remark' src/com/caozhihu/tmall --include=*.java
+
+# the column exists only through the appended ALTER, after the positional INSERTs
+grep -n 'ALTER TABLE product ADD COLUMN remark' src/sql/tmall_ssh_h2.sql
 ```
 
 When you change a URL or result name, grep both trees — `src/com/caozhihu/tmall/action` **and**

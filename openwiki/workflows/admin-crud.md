@@ -1,11 +1,8 @@
 ---
 type: workflow
 title: "Workflow: Admin CRUD Screens"
-description: "The back-office cycle the 23 admin_* endpoints repeat: a paged list shell that doubles as the add form, an edit screen filled by t2p() from an id-only request parameter, add/update/delete writes that return a ...Page redirect whose OGNL parent key re-scopes the list, the two JSP layers behind it, and the inconsistencies the code still carries — including the fact that no admin URL is authenticated."
-tags: [struts2, admin-backoffice, crud-workflow, ognl, t2p, jsp, security]
-verified:
-  - by: openwiki/0.6.0
-    at: 2026-09-25T02:37:38.268Z
+description: "The back-office cycle the 23 admin_* endpoints repeat: a paged list shell that doubles as the add form, an edit screen filled by t2p() from an id-only request parameter, add/update/delete writes that return a ...Page redirect whose OGNL parent key re-scopes the list, the two JSP layers behind it, the product screens' newer remark input and 备注 column, and the inconsistencies the code still carries — including the fact that no admin URL is authenticated."
+tags: [struts2, admin-backoffice, crud-workflow, ognl, t2p, jsp, product-remark, security]
 sources:
   - id: openwiki-source-6aceb606796c1878fa3c1fd3
     resource: repo://src/com/caozhihu/tmall/action/Action4Pojo.java
@@ -29,12 +26,16 @@ sources:
     resource: repo://src/com/caozhihu/tmall/action/UserAction.java
   - id: openwiki-source-16c79ba80abbef391eb3ad3b
     resource: repo://src/com/caozhihu/tmall/interceptor/AuthInterceptor.java
+  - id: openwiki-source-535dabafb9f4fcf2952aba1c
+    resource: repo://src/com/caozhihu/tmall/pojo/Product.java
   - id: openwiki-source-aac0c381b7c67b93dc063535
     resource: repo://src/com/caozhihu/tmall/service/impl/BaseServiceImpl.java
   - id: openwiki-source-74a54306aef3fcdcab547a1e
     resource: repo://src/com/caozhihu/tmall/service/impl/PropertyValueServiceImpl.java
   - id: openwiki-source-f5703781f9113b3064a987d8
     resource: repo://src/com/caozhihu/tmall/service/impl/ServiceDelegateDAO.java
+  - id: openwiki-source-2418fdb168bd7c7c3dafd23e
+    resource: repo://src/sql/tmall_ssh_h2.sql
   - id: openwiki-source-9c0a10144303b99bbe3c16ea
     resource: repo://src/struts.xml
   - id: openwiki-source-161c1d1539a9c54dc3b73fe9
@@ -67,7 +68,10 @@ sources:
     resource: repo://web/success.jsp
   - id: openwiki-source-f29d00394b96a58d29620ec1
     resource: repo://web/WEB-INF/web.xml
-generated: { by: "openwiki/0.6.0", at: "2026-09-25T06:00:02.513Z" }
+generated: { by: "openwiki/0.6.0", at: "2026-09-27T01:28:54.540Z" }
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-27T01:28:54.540Z
 ---
 
 # Workflow: Admin CRUD Screens
@@ -137,8 +141,10 @@ Every list action except `ProductImageAction.list` follows the same four or five
    parent's id — `${category.name}` in the breadcrumb of `listProperty.jsp`, for instance.
 
 The list shell then renders three things: a table of rows with per-row links, the pagination fragment,
-and — on four of the six list screens — an add form that posts to `admin_<entity>_add`. Two list
-screens are exceptions:
+and — on four of the six list screens — an add form that posts to `admin_<entity>_add`. The product
+table carries the family's newest column: a 备注 column bound to `${p.remark}`, sitting between
+产品小标题 and 原价格 (`web/admin/listProduct.jsp#L50-L53` for the header row, `#L73-L76` for the
+cells). Two list screens are exceptions:
 
 - `ProductImageAction.list` builds no `Page` at all; `listProductImage.jsp` has no pagination block,
   because a product's images are shown in full in two tables (single images and detail images).
@@ -153,9 +159,12 @@ Rows carry the links that start the next step, in a fixed shape:
   `admin_productImage_list?product.id=${p.id}`, `admin_propertyValue_edit?product.id=${p.id}`.
 
 The add form's field names are OGNL property paths, not names of their own: `category.name`,
-`property.name`, `product.name`/`product.subTitle`/`product.originalPrice`/`product.promotePrice`/
-`product.stock`, `productImage.type`, plus a hidden parent key (`property.category.id`,
-`product.category.id`, `productImage.product.id`) and the upload field `img`. Three of these forms are
+`property.name`, `product.name`/`product.subTitle`/`product.remark`/`product.originalPrice`/
+`product.promotePrice`/`product.stock`, `productImage.type`, plus a hidden parent key
+(`property.category.id`, `product.category.id`, `productImage.product.id`) and the upload field `img`.
+The product add panel is the widest of the four — roughly `web/admin/listProduct.jsp#L100-L142` — and
+its 备注 row (`id="remark"`, `name="product.remark"`) sits directly after 产品小标题 at `#L115-L119`,
+with the hidden `product.category.id` at `#L137`. Three of these forms are
 `enctype="multipart/form-data"`: the one on `listCategory.jsp` and the two on `listProductImage.jsp`
 (one per `productImage.type`); `listProperty.jsp` and `listProduct.jsp` post plain forms.
 `listUser.jsp` and `listOrder.jsp` keep a `$("#addForm").submit` handler although they render no form
@@ -164,17 +173,27 @@ at all.
 There is no server-side validation behind any of it. `adminHeader.jsp` defines `checkEmpty`,
 `checkNumber` and `checkInt`, and each shell wires them into a `submit` handler for its own form
 (`checkNumber` for `originalPrice`/`promotePrice`, `checkInt` for `stock`, and so on); the delete
-confirmation is the same file's `$("a").click` handler reading the `deleteLink` attribute. If
-JavaScript is off, or the request is issued by hand, nothing rejects the write.
+confirmation is the same file's `$("a").click` handler reading the `deleteLink` attribute. `remark` is
+the one bound product field that no helper sees: neither the add shell's handler
+(`web/admin/listProduct.jsp#L15-L31`) nor the edit shell's (`web/admin/editProduct.jsp#L17-L33`)
+passes it to `checkEmpty`, although both check `name` and `subTitle`. 【人工评审待确认】 whether that
+gap is intended — the `scene2-product-remark` self-check report calls leaving `remark` unchecked
+deliberate but justifies it by saying the non-empty check is left to `name` alone
+(`.openspec/specs/scene2-product-remark-selfcheck.md#L36`), which the shipped handlers contradict by
+checking `subTitle` too. If JavaScript is off, or the request is issued by hand, nothing rejects the
+write.
 
 ## Step 2 — edit: the URL carries only the id
 
 The edit link puts nothing but the identifier in the query string, so the bound entity on the action
 is an id-only object; `edit()` calls `t2p(that entity)` and returns the `editXxx` forward. The edit
-shell then reads the populated field off the value stack (`value="${category.name}"`,
-`${property.name}`, `${product.subTitle}`, …) and posts back to `admin_<entity>_update` with the id in
-a hidden input — plus the parent key in a second hidden input, because the update handler's redirect
-target needs that association.
+shell then reads the populated fields off the value stack (`value="${category.name}"`,
+`${property.name}`, `${product.subTitle}`, `${product.remark}`, …) and posts back to
+`admin_<entity>_update` with the id in a hidden input — plus the parent key in a second hidden input,
+because the update handler's redirect target needs that association. The product edit form spans
+roughly `web/admin/editProduct.jsp#L46-L87`: the 备注 row echoing `${product.remark}` sits directly
+after 产品小标题 at `#L59-L63`, and the two hidden inputs carry `product.id` at `#L82` and
+`product.category.id` at `#L83`.
 
 Two edit screens behave differently:
 
@@ -218,7 +237,12 @@ The add and update steps also compensate for fields the browser cannot supply:
 - `ProductAction.add` stamps `product.createDate` with `new Date()`, and `ProductAction.update`
   reloads the row through `productService.get(product.getId())` to copy the unchanged `createDate`
   onto the bound object — the edit form has no date input, and the code's comment says the date does
-  not change.
+  not change. That compensation is the only product-specific code on the write path: the forms submit
+  six scalars (`product.name`, `product.subTitle`, `product.remark`, `product.originalPrice`,
+  `product.promotePrice`, `product.stock`), and adding `remark` to them cost no change to
+  `ProductAction` at all, because `Product.remark` is an ordinary mapped field
+  (`src/com/caozhihu/tmall/pojo/Product.java#L21`) whose column the seed script supplies separately
+  (`src/sql/tmall_ssh_h2.sql#L155`).
 - Creates that own a file persist first and rename afterwards: `CategoryAction.add` saves the row and
   then writes the upload to `img/category/<new id>.jpg`, and `ProductImageAction.add` writes to
   `img/productSingle/` or `img/productDetail/` according to the posted `productImage.type`, deriving
@@ -386,6 +410,8 @@ either way, and nothing in the repository declares an admin credential, role or 
   chain, why `t2p()` exists, and the result-name contract.
 - [SDD Baseline](/openwiki/concepts/sdd-baseline.md) — the naming checklist for a new `admin_<entity>_<verb>`
   screen, end to end.
+- [SDD Iteration](/openwiki/workflows/sdd-iteration.md) — the spec-plus-selfcheck loop, whose worked
+  example is the `scene2-product-remark` change that added the 备注 input and column above.
 - [Runtime Invariants](/openwiki/conventions/runtime-invariants.md) — the same string contracts
   framed as do-not-break rules.
 - [Workflow: Pagination and Search](/openwiki/workflows/pagination-and-search.md) — `Page`,
