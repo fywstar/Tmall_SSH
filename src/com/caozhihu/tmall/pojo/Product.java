@@ -22,6 +22,7 @@ public class Product {
     private float promotePrice;
     private int stock;
     private Date createDate;
+    private String remark;
 
     @Transient
     private ProductImage firstProductImage; //@Transient表示这是一个瞬时字段，不会被保存到数据库中
@@ -136,5 +137,13 @@ public class Product {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

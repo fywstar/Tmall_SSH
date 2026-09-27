@@ -52,6 +52,7 @@
                 <th width="53px">原价格</th>
                 <th width="80px">优惠价格</th>
                 <th width="80px">库存数量</th>
+                <th>备注</th>
                 <th width="80px">图片管理</th>
                 <th width="80px">设置属性</th>
                 <th width="42px">编辑</th>
@@ -74,6 +75,7 @@
                     <td>${p.originalPrice}</td>
                     <td>${p.promotePrice}</td>
                     <td>${p.stock}</td>
+                    <td>${p.remark}</td>
                     <td><a href="admin_productImage_list?product.id=${p.id}"><span
                             class="glyphicon glyphicon-picture"></span></a></td>
                     <td><a href="admin_propertyValue_edit?product.id=${p.id}"><span
@@ -123,6 +125,11 @@
                     <tr>
                         <td>库存</td>
                         <td><input id="stock"  value="99" name="product.stock" type="text"
+                                   class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td><input id="remark" name="product.remark" type="text"
                                    class="form-control"></td>
                     </tr>
                     <tr class="submitTR">
