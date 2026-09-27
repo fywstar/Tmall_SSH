@@ -18,6 +18,7 @@ public class Product {
 
     private String name;
     private String subTitle;
+    private String remark;
     private float originalPrice;
     private float promotePrice;
     private int stock;
@@ -104,6 +105,14 @@ public class Product {
 
     public void setSubTitle(String subTitle) {
         this.subTitle = subTitle;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public float getOriginalPrice() {

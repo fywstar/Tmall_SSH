@@ -152,6 +152,7 @@ INSERT INTO product VALUES (959,'好孩子汽车儿童安全座椅goodbaby9个�
 INSERT INTO product VALUES (960,'REEBABY儿童安全座椅9个月-12岁宝宝婴儿汽车用坐椅车载 3C认证','睿睿熊定制款 合金钢骨架 全国包邮',1280,1216,71,60,'2016-07-26 02:29:13');
 INSERT INTO product VALUES (961,'REEBABY汽车儿童安全座椅ISOFIX 0-4-6-12岁婴儿宝宝新生儿可躺','165度超大 躺角 0-12岁 正反双向 安装',1680,1344,59,60,'2016-08-21 02:29:16');
 INSERT INTO product VALUES (962,'新生儿婴儿提篮式安全座椅汽车用车载儿童安全坐椅宝宝摇篮便携式','法国畅销品牌 ITW卡扣 环保针织面料',980,882,16,60,'2016-08-09 02:29:19');
+ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;
 CREATE TABLE productimage (
   id int NOT NULL AUTO_INCREMENT,
   pid int DEFAULT NULL,

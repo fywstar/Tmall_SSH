@@ -57,6 +57,11 @@
                                    class="form-control"></td>
                     </tr>
                     <tr>
+                        <td>备注</td>
+                        <td><input id="remark" name="product.remark" value="${product.remark}"
+                                   type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
                         <td>原价格</td>
                         <td><input id="originalPrice" value="${product.originalPrice}" name="product.originalPrice" type="text"
                                    class="form-control"></td>

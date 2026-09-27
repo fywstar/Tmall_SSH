@@ -49,6 +49,7 @@
                 <th>图片</th>
                 <th>产品名称</th>
                 <th>产品小标题</th>
+                <th>备注</th>
                 <th width="53px">原价格</th>
                 <th width="80px">优惠价格</th>
                 <th width="80px">库存数量</th>
@@ -71,6 +72,7 @@
                     </td>
                     <td>${p.name}</td>
                     <td>${p.subTitle}</td>
+                    <td>${p.remark}</td>
                     <td>${p.originalPrice}</td>
                     <td>${p.promotePrice}</td>
                     <td>${p.stock}</td>
@@ -108,6 +110,11 @@
                     <tr>
                         <td>产品小标题</td>
                         <td><input id="subTitle" name="product.subTitle" type="text"
+                                   class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td><input id="remark" name="product.remark" type="text"
                                    class="form-control"></td>
                     </tr>
                     <tr>
