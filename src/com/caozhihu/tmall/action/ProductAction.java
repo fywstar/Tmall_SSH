@@ -16,7 +16,7 @@ public class ProductAction extends Action4Result {
             page = new Page();
         }
         if (keyword == null || keyword.isEmpty()) {
-            int total = propertyService.total(category);
+            int total = productService.total(category);
             page.setTotal(total);
             page.setParam("&category.id=" + category.getId());
             products = productService.list(page, category);
