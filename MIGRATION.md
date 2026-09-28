@@ -81,3 +81,34 @@ Referential integrity constraint violation: "FK...: PUBLIC.PROPERTYVALUE FOREIGN
 | H2 控制台 `http://localhost:8082` 登录查询（9 张业务表） | 通过 |
 | 自增主键校准（新插入 category id=84，与原 MySQL AUTO_INCREMENT 一致） | 通过 |
 | 存量业务源码零改动 | 确认 |
+
+---
+
+## 变更摘要（2026-09-28）：商品模块新增商品备注字段（specs/001-product-remark）
+
+### 需求
+商品实体新增可空备注字段 `remark`，后台"新增/编辑产品"表单可录入并回显，不影响前台/搜索/分页。
+
+### 硬性约束遵守情况
+- 本次为 spec 驱动迭代，按本案宪法 v1.2 原则 II 背书，仅修改 `Product.java` 与两个 admin JSP；其余业务源码/Action/Service/DAO/拦截器/继承链零改动；
+- 未升级/替换任何框架版本；H2 仍 1.4.x，JDBC URL 仍含 `MODE=MySQL;DB_CLOSE_DELAY=-1`；原 MySQL 数据源配置注释保留。
+
+### 变更文件清单
+| 类型 | 文件 | 说明 |
+|---|---|---|
+| 修改 | `src/com/caozhihu/tmall/pojo/Product.java` | 新增 `String remark` 字段 + getter/setter（含中文注释） |
+| 修改 | `src/sql/tmall_ssh_h2.sql` | 在 product 最后一个 INSERT 后追加 `ALTER TABLE product ADD COLUMN remark varchar(255) DEFAULT NULL;`，未改写 `CREATE TABLE product` 与任何 INSERT |
+| 修改 | `web/admin/editProduct.jsp` | editForm（admin_product_update）新增"商品备注"输入框，`${product.remark}` 回显 |
+| 修改 | `web/admin/listProduct.jsp` | addForm（admin_product_add）新增"商品备注"输入框 |
+| 新增 | `specs/001-product-remark/{spec,plan,tasks,research,data-model,quickstart,contracts/form-binding,selfcheck}.md` | speckit 交付闭环工件 |
+
+### 技术要点
+- **命名载体同步（原则 IV）**：`remark` 命中 Java / JSP / SQL 三类载体共 4 处，同一 commit 同步（grep 确认）；StartJetty、web.xml 两载体与此字段无关（N/A）。
+- **Schema 单一来源（原则 V）**：`hbm2ddl.auto=none`，新列以 `ALTER TABLE ... ADD COLUMN` 追加在 product 的 positional INSERT 之后、`CREATE TABLE productimage` 之前。
+- **无新增 Service 方法**：字段走既有 `BaseServiceImpl` 泛化 save/update + `Action4Pojo.product` OGNL 绑定，不扩功能。
+
+### 验收结果
+| 验收项 | 结果 |
+|---|---|
+| 代码侧（静态 grep）：`remark` 四处载体同步、85 条 product INSERT 行序/列值逐字未变、CREATE TABLE product 未动 | 通过（本机核验） |
+| 运行时：后台备注录入→持久化→回显、`SHOW COLUMNS FROM product` 含 remark、TestTmall 回归、前台 5 路径无回归 | 待人工 smoke 回填（本环境宪法禁止 `编译/启动`） |

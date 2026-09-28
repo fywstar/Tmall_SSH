@@ -71,6 +71,12 @@
                         <td><input id="stock"  value="${product.stock}" name="product.stock" type="text"
                                    class="form-control"></td>
                     </tr>
+                    <tr>
+                        <td>商品备注</td>
+                        <td><input id="remark" name="product.remark" type="text"
+                                   value="${product.remark}"
+                                   class="form-control"></td>
+                    </tr>
 
                     <tr class="submitTR">
                         <td colspan="2" align="center">

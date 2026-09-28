@@ -125,6 +125,11 @@
                         <td><input id="stock"  value="99" name="product.stock" type="text"
                                    class="form-control"></td>
                     </tr>
+                    <tr>
+                        <td>商品备注</td>
+                        <td><input id="remark" name="product.remark" type="text"
+                                   class="form-control"></td>
+                    </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">
                             <input type="hidden" name="product.category.id" value="${category.id}">
